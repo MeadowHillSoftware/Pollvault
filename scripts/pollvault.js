@@ -32,8 +32,25 @@ oPollvault.handleType = function(event) {
     event.stopPropagation();
     var sType = oPollvault.reader.result;
     oPollvault.oCurrentType = JSON.parse(sType);
-    console.log(oPollvault.oCurrentType["1"]);
-    console.log(oPollvault.oCurrentType["6000"]);
+    var oResults = oPollvault.searchByInteger(oPollvault.oCurrentType, "Votes", 10);
+    console.log(oResults);
+};
+
+oPollvault.searchByInteger = function(oObject, sField, iValue) {
+    var aMods = Object.keys(oObject);
+    var oResults = {};
+    for (var m = 0; m < aMods.length; m++) {
+        var sFolder = aMods[m]
+        var oMod = oObject[sFolder]
+        var aFields = Object.keys(oMod);
+        if (aFields.indexOf(sField) !== -1) {
+            var iInteger = oMod[sField];
+            if (iInteger >= iValue) {
+                oResults[sFolder] = oMod;
+            }
+        }
+    }
+    return oResults;
 };
 
 oPollvault.addMainEventListeners();
