@@ -32,10 +32,12 @@ oPollvault.handleType = function(event) {
     event.stopPropagation();
     var sType = oPollvault.reader.result;
     oPollvault.oCurrentType = JSON.parse(sType);
-    var oResults = oPollvault.searchByInteger(oPollvault.oCurrentType, "Votes", 10);
-    oResults = oPollvault.searchByInteger(oResults, "Rating", 7.0);
+    var oResults = oPollvault.greaterThanOrEqualTo(oPollvault.oCurrentType, "Votes", 10);
+    oResults = oPollvault.greaterThanOrEqualTo(oResults, "Rating", 7.0);
     oResults = oPollvault.matchOneString(oResults, "Single or Multiplayer", ["Multiplayer", "Single Player or Multiplayer"]);
     oResults = oPollvault.searchByString(oResults, "DM Needed", "No DM Required");
+    oResults = oPollvault.MinMaxCharacterLevel(oResults, "Max Character Level", 12);
+    oResults = oPollvault.MinMaxCharacterLevel(oResults, "Min Character Level", 10);
     console.log(oResults);
 };
 
@@ -56,7 +58,7 @@ oPollvault.matchOneString = function(oObject, sField, aValues) {
     return oResults;
 };
 
-oPollvault.searchByInteger = function(oObject, sField, iValue) {
+oPollvault.greaterThanOrEqualTo = function(oObject, sField, iValue) {
     var aMods = Object.keys(oObject);
     var oResults = {};
     for (var m = 0; m < aMods.length; m++) {
@@ -67,6 +69,46 @@ oPollvault.searchByInteger = function(oObject, sField, iValue) {
             var iInteger = oMod[sField];
             if (iInteger >= iValue) {
                 oResults[sFolder] = oMod;
+            }
+        }
+    }
+    return oResults;
+};
+
+oPollvault.lessThanOrEqualTo = function(oObject, sField, iValue) {
+    var aMods = Object.keys(oObject);
+    var oResults = {};
+    for (var m = 0; m < aMods.length; m++) {
+        var sFolder = aMods[m]
+        var oMod = oObject[sFolder]
+        var aFields = Object.keys(oMod);
+        if (aFields.indexOf(sField) !== -1) {
+            var iInteger = oMod[sField];
+            if (iInteger <= iValue) {
+                oResults[sFolder] = oMod;
+            }
+        }
+    }
+    return oResults;
+};
+
+oPollvault.MinMaxCharacterLevel = function(oObject, sField, iValue) {
+    var aMods = Object.keys(oObject);
+    var oResults = {};
+    for (var m = 0; m < aMods.length; m++) {
+        var sFolder = aMods[m]
+        var oMod = oObject[sFolder]
+        var aFields = Object.keys(oMod);
+        if (aFields.indexOf(sField) !== -1) {
+            var iInteger = oMod[sField];
+            if (sField === "Max Character Level") {
+                if (iInteger === "Any" || (iInteger >= iValue)) {
+                    oResults[sFolder] = oMod;
+                }
+            } else {
+                if (iInteger === "Any" || (iInteger <= iValue)) {
+                    oResults[sFolder] = oMod;
+                }
             }
         }
     }
