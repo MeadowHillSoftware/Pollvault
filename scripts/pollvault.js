@@ -35,6 +35,7 @@ oPollvault.handleType = function(event) {
     var oResults = oPollvault.searchByInteger(oPollvault.oCurrentType, "Votes", 10);
     oResults = oPollvault.searchByInteger(oResults, "Rating", 7.0);
     oResults = oPollvault.matchOneString(oResults, "Single or Multiplayer", ["Multiplayer", "Single Player or Multiplayer"]);
+    oResults = oPollvault.searchByString(oResults, "DM Needed", "No DM Required");
     console.log(oResults);
 };
 
@@ -65,6 +66,23 @@ oPollvault.searchByInteger = function(oObject, sField, iValue) {
         if (aFields.indexOf(sField) !== -1) {
             var iInteger = oMod[sField];
             if (iInteger >= iValue) {
+                oResults[sFolder] = oMod;
+            }
+        }
+    }
+    return oResults;
+};
+
+oPollvault.searchByString = function(oObject, sField, sValue) {
+    var aMods = Object.keys(oObject);
+    var oResults = {};
+    for (var m = 0; m < aMods.length; m++) {
+        var sFolder = aMods[m]
+        var oMod = oObject[sFolder]
+        var aFields = Object.keys(oMod);
+        if (aFields.indexOf(sField) !== -1) {
+            var sString = oMod[sField];
+            if (sString === sValue) {
                 oResults[sFolder] = oMod;
             }
         }
