@@ -10,6 +10,25 @@ oPollvault.addMainEventListeners = function() {
     $('#type').on('change', oPollvault.handleFileUpload);
 };
 
+oPollvault.displayResults = function(oObject, sType) {
+    var aMods = Object.keys(oObject);
+    $('#results')
+        .empty()
+        .append('<br>');
+    for (var m = 0; m < aMods.length; m++) {
+        var sFolder = aMods[m];
+        var oMod = oObject[sFolder];
+        var sTitle = oMod["Title"];
+        var url = "https://neverwintervault.org/rolovault/projects/nwn1/" + sType + "/" + sFolder;
+        var link = $('<a />')
+            .attr('href', url)
+            .text(sTitle);
+        $('#results')
+            .append(link)
+            .append('<br>');
+    }
+};
+
 oPollvault.handleFileUpload = function(event) {
     event.stopPropagation();
     var aFiles = $('#type').prop("files");
@@ -38,7 +57,7 @@ oPollvault.handleType = function(event) {
     oResults = oPollvault.searchByString(oResults, "DM Needed", "No DM Required");
     oResults = oPollvault.MinMaxCharacterLevel(oResults, "Max Character Level", 12);
     oResults = oPollvault.MinMaxCharacterLevel(oResults, "Min Character Level", 10);
-    console.log(oResults);
+    oPollvault.displayResults(oResults, "modules");
 };
 
 oPollvault.matchOneString = function(oObject, sField, aValues) {
