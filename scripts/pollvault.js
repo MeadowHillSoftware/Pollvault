@@ -33,7 +33,26 @@ oPollvault.handleType = function(event) {
     var sType = oPollvault.reader.result;
     oPollvault.oCurrentType = JSON.parse(sType);
     var oResults = oPollvault.searchByInteger(oPollvault.oCurrentType, "Votes", 10);
+    oResults = oPollvault.searchByInteger(oResults, "Rating", 7.0);
+    oResults = oPollvault.matchOneString(oResults, "Single or Multiplayer", ["Multiplayer", "Single Player or Multiplayer"]);
     console.log(oResults);
+};
+
+oPollvault.matchOneString = function(oObject, sField, aValues) {
+    var aMods = Object.keys(oObject);
+    var oResults = {};
+    for (var m = 0; m < aMods.length; m++) {
+        var sFolder = aMods[m]
+        var oMod = oObject[sFolder]
+        var aFields = Object.keys(oMod);
+        if (aFields.indexOf(sField) !== -1) {
+            var sString = oMod[sField];
+            if (aValues.indexOf(sString) !== -1) {
+                oResults[sFolder] = oMod;
+            }
+        }
+    }
+    return oResults;
 };
 
 oPollvault.searchByInteger = function(oObject, sField, iValue) {
