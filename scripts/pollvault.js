@@ -106,6 +106,10 @@ oPollvault.handleSearchButtonClick = function(event) {
         }
         oResults = oPollvault.matchOneString(oResults, "Single or Multiplayer", aMultiplayer);
     }
+    var sDM = $('#dm').val();
+    if (sDM !== "Doesn't Matter") {
+        oResults = oPollvault.searchByString(oResults, "DM Needed", sDM);
+    }
     oPollvault.displayResults(oResults, "modules");
 };
 
