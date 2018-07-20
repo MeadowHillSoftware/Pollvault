@@ -8,6 +8,37 @@
             <span>Enter Type File (.json): </span>
             <input type="file" id="type"/>
         </div>
+        <br>
+        <br>
+        <div id="search">
+            <table>
+                <tr>
+                    <td>
+                        Minimum Number of Votes: 
+                    </td>
+                    <td>
+                        <select id="votes">
+                            <option id="no-votes" selected="selected">Doesn't Matter</option>
+                            <option id="1-vote">1</option>
+                            <option id="2-votes">2</option>
+                            <option id="5-votes">5</option>
+                            <option id="10-votes">10</option>
+                            <option id="20-votes">20</option>
+                            <option id="50-votes">50</option>
+                            <option id="100-votes">100</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Submit: 
+                    </td>
+                    <td>
+                        <button id="search-button">Search</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
         <div id="results">
         </div>
         <script src="./scripts/jquery-3.1.1.js"></script>
