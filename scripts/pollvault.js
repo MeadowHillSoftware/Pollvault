@@ -80,9 +80,15 @@ oPollvault.greaterThanOrEqualTo = function(oObject, sField, iValue) {
 oPollvault.handleSearchButtonClick = function(event) {
     event.stopPropagation();
     var sVotes = $('#votes').val();
+    var oResults = oPollvault.oCurrentType;
     if (sVotes !== "Doesn't Matter") {
         var iVotes = Number(sVotes);
-        var oResults = oPollvault.greaterThanOrEqualTo(oPollvault.oCurrentType, "Votes", iVotes);
+        oResults = oPollvault.greaterThanOrEqualTo(oResults, "Votes", iVotes);
+    }
+    var sRating = $('#rating').val();
+    if (sRating !== "Doesn't Matter") {
+        var iRating = Number(sRating);
+        oResults = oPollvault.greaterThanOrEqualTo(oResults, "Rating", iRating);
     }
     oPollvault.displayResults(oResults, "modules");
 };
@@ -126,8 +132,6 @@ oPollvault.handleType = function(event) {
     event.stopPropagation();
     var sType = oPollvault.reader.result;
     oPollvault.oCurrentType = JSON.parse(sType);
-    //var oResults = oPollvault.greaterThanOrEqualTo(oPollvault.oCurrentType, "Votes", 10);
-    //oResults = oPollvault.greaterThanOrEqualTo(oResults, "Rating", 7.0);
     //oResults = oPollvault.matchOneString(oResults, "Single or Multiplayer", ["Multiplayer", "Single Player or Multiplayer"]);
     //oResults = oPollvault.searchByString(oResults, "DM Needed", "No DM Required");
     //oResults = oPollvault.MinMaxCharacterLevel(oResults, "Max Character Level", 12);
