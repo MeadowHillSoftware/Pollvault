@@ -90,6 +90,22 @@ oPollvault.handleSearchButtonClick = function(event) {
         var iRating = Number(sRating);
         oResults = oPollvault.greaterThanOrEqualTo(oResults, "Rating", iRating);
     }
+    var sMultiplayer = $('#multiplayer').val();
+    if (sMultiplayer !== "Doesn't Matter") {
+        var aMultiplayer = [];
+        if (sMultiplayer === "Single Player") {
+            aMultiplayer.push(sMultiplayer);
+            aMultiplayer.push("Single Player or Multiplayer");
+        } else if (sMultiplayer === "Multiplayer") {
+            aMultiplayer.push(sMultiplayer);
+            aMultiplayer.push("Single Player or Multiplayer");
+        } else if (sMultiplayer === "Single Player Only") {
+            aMultiplayer.push("Single Player");
+        } else {
+            aMultiplayer.push("Multiplayer");
+        }
+        oResults = oPollvault.matchOneString(oResults, "Single or Multiplayer", aMultiplayer);
+    }
     oPollvault.displayResults(oResults, "modules");
 };
 
@@ -132,7 +148,6 @@ oPollvault.handleType = function(event) {
     event.stopPropagation();
     var sType = oPollvault.reader.result;
     oPollvault.oCurrentType = JSON.parse(sType);
-    //oResults = oPollvault.matchOneString(oResults, "Single or Multiplayer", ["Multiplayer", "Single Player or Multiplayer"]);
     //oResults = oPollvault.searchByString(oResults, "DM Needed", "No DM Required");
     //oResults = oPollvault.MinMaxCharacterLevel(oResults, "Max Character Level", 12);
     //oResults = oPollvault.MinMaxCharacterLevel(oResults, "Min Character Level", 10);
