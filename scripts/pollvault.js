@@ -110,6 +110,12 @@ oPollvault.handleSearchButtonClick = function(event) {
     if (sDM !== "Doesn't Matter") {
         oResults = oPollvault.searchByString(oResults, "DM Needed", sDM);
     }
+    var sMinLevel = $('min-level').val();
+    var iMinLevel = Number(sMinLevel);
+    oResults = oPollvault.minMaxCharacterLevel(oResults, "Min Character Level", iMinLevel);
+    var sMaxLevel = $('min-level').val();
+    var iMaxLevel = Number(sMinLevel);
+    oResults = oPollvault.minMaxCharacterLevel(oResults, "Max Character Level", iMinLevel);
     oPollvault.displayResults(oResults, "modules");
 };
 
@@ -152,10 +158,6 @@ oPollvault.handleType = function(event) {
     event.stopPropagation();
     var sType = oPollvault.reader.result;
     oPollvault.oCurrentType = JSON.parse(sType);
-    //oResults = oPollvault.searchByString(oResults, "DM Needed", "No DM Required");
-    //oResults = oPollvault.MinMaxCharacterLevel(oResults, "Max Character Level", 12);
-    //oResults = oPollvault.MinMaxCharacterLevel(oResults, "Min Character Level", 10);
-    //oPollvault.displayResults(oResults, "modules");
 };
 
 oPollvault.matchOneString = function(oObject, sField, aValues) {
@@ -175,7 +177,7 @@ oPollvault.matchOneString = function(oObject, sField, aValues) {
     return oResults;
 };
 
-oPollvault.MinMaxCharacterLevel = function(oObject, sField, iValue) {
+oPollvault.minMaxCharacterLevel = function(oObject, sField, iValue) {
     var aMods = Object.keys(oObject);
     var oResults = {};
     for (var m = 0; m < aMods.length; m++) {

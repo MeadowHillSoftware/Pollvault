@@ -18,14 +18,14 @@
                     </td>
                     <td>
                         <select id="votes">
-                            <option id="no-votes" selected="selected">Doesn't Matter</option>
-                            <option id="1-vote">1</option>
-                            <option id="2-votes">2</option>
-                            <option id="5-votes">5</option>
-                            <option id="10-votes">10</option>
-                            <option id="20-votes">20</option>
-                            <option id="50-votes">50</option>
-                            <option id="100-votes">100</option>
+                            <option selected="selected">Doesn't Matter</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>5</option>
+                            <option>10</option>
+                            <option>20</option>
+                            <option>50</option>
+                            <option>100</option>
                         </select>
                     </td>
                 </tr>
@@ -35,44 +35,138 @@
                     </td>
                     <td>
                         <select id="rating">
-                            <option id="no-rating" selected="selected">Doesn't Matter</option>
-                            <option id="1000-rating">10.00</option>
-                            <option id="975-rating">9.75</option>
-                            <option id="950-rating">9.50</option>
-                            <option id="925-rating">9.25</option>
-                            <option id="900-rating">9.00</option>
-                            <option id="875-rating">8.75</option>
-                            <option id="850-rating">8.50</option>
-                            <option id="825-rating">8.25</option>
-                            <option id="800-rating">8.00</option>
-                            <option id="775-rating">7.75</option>
-                            <option id="750-rating">7.50</option>
-                            <option id="725-rating">7.25</option>
-                            <option id="700-rating">7.00</option>
-                            <option id="675-rating">6.75</option>
-                            <option id="650-rating">6.50</option>
-                            <option id="625-rating">6.25</option>
-                            <option id="600-rating">6.00</option>
-                            <option id="575-rating">5.75</option>
-                            <option id="550-rating">5.50</option>
-                            <option id="525-rating">5.25</option>
-                            <option id="500-rating">5.00</option>
-                            <option id="475-rating">4.75</option>
-                            <option id="450-rating">4.50</option>
-                            <option id="425-rating">4.25</option>
-                            <option id="400-rating">4.00</option>
-                            <option id="375-rating">3.75</option>
-                            <option id="350-rating">3.50</option>
-                            <option id="325-rating">3.25</option>
-                            <option id="300-rating">3.00</option>
-                            <option id="275-rating">2.75</option>
-                            <option id="250-rating">2.50</option>
-                            <option id="225-rating">2.25</option>
-                            <option id="200-rating">2.00</option>
-                            <option id="175-rating">1.75</option>
-                            <option id="150-rating">1.50</option>
-                            <option id="125-rating">1.25</option>
-                            <option id="100-rating">1.00</option>
+                            <option selected="selected">Doesn't Matter</option>
+                            <option>10.00</option>
+                            <option>9.75</option>
+                            <option>9.50</option>
+                            <option>9.25</option>
+                            <option>9.00</option>
+                            <option>8.75</option>
+                            <option>8.50</option>
+                            <option>8.25</option>
+                            <option>8.00</option>
+                            <option>7.75</option>
+                            <option>7.50</option>
+                            <option>7.25</option>
+                            <option>7.00</option>
+                            <option>6.75</option>
+                            <option>6.50</option>
+                            <option>6.25</option>
+                            <option>6.00</option>
+                            <option>5.75</option>
+                            <option>5.50</option>
+                            <option>5.25</option>
+                            <option>5.00</option>
+                            <option>4.75</option>
+                            <option>4.50</option>
+                            <option>4.25</option>
+                            <option>4.00</option>
+                            <option>3.75</option>
+                            <option>3.50</option>
+                            <option>3.25</option>
+                            <option>3.00</option>
+                            <option>2.75</option>
+                            <option>2.50</option>
+                            <option>2.25</option>
+                            <option>2.00</option>
+                            <option>1.75</option>
+                            <option>1.50</option>
+                            <option>1.25</option>
+                            <option>1.00</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Levels:
+                    </td>
+                    <td>
+                        From: <select id="min-level">
+                            <option selected="selected">1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                            <option>13</option>
+                            <option>14</option>
+                            <option>15</option>
+                            <option>16</option>
+                            <option>17</option>
+                            <option>18</option>
+                            <option>19</option>
+                            <option>20</option>
+                            <option>21</option>
+                            <option>22</option>
+                            <option>23</option>
+                            <option>24</option>
+                            <option>25</option>
+                            <option>26</option>
+                            <option>27</option>
+                            <option>28</option>
+                            <option>29</option>
+                            <option>30</option>
+                            <option>31</option>
+                            <option>32</option>
+                            <option>33</option>
+                            <option>34</option>
+                            <option>35</option>
+                            <option>36</option>
+                            <option>37</option>
+                            <option>38</option>
+                            <option>39</option>
+                            <option>40</option>
+                        </select> To: <select id="max-level">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                            <option>13</option>
+                            <option>14</option>
+                            <option>15</option>
+                            <option>16</option>
+                            <option>17</option>
+                            <option>18</option>
+                            <option>19</option>
+                            <option>20</option>
+                            <option>21</option>
+                            <option>22</option>
+                            <option>23</option>
+                            <option>24</option>
+                            <option>25</option>
+                            <option>26</option>
+                            <option>27</option>
+                            <option>28</option>
+                            <option>29</option>
+                            <option>30</option>
+                            <option>31</option>
+                            <option>32</option>
+                            <option>33</option>
+                            <option>34</option>
+                            <option>35</option>
+                            <option>36</option>
+                            <option>37</option>
+                            <option>38</option>
+                            <option>39</option>
+                            <option selected="selected">40</option>
+                        </select><br>
+                        Include those listed as "Any"?: <select id="any">
+                            <option selected="selected">Yes</option>
+                            <option>No</option>
                         </select>
                     </td>
                 </tr>
