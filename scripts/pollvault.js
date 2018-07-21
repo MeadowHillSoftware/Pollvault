@@ -110,12 +110,14 @@ oPollvault.handleSearchButtonClick = function(event) {
     if (sDM !== "Doesn't Matter") {
         oResults = oPollvault.searchByString(oResults, "DM Needed", sDM);
     }
-    var sMinLevel = $('min-level').val();
+    var sMinLevel = $('#min-level').val();
+    console.log(sMinLevel);
     var iMinLevel = Number(sMinLevel);
     oResults = oPollvault.minMaxCharacterLevel(oResults, "Min Character Level", iMinLevel);
-    var sMaxLevel = $('min-level').val();
-    var iMaxLevel = Number(sMinLevel);
-    oResults = oPollvault.minMaxCharacterLevel(oResults, "Max Character Level", iMinLevel);
+    var sMaxLevel = $('#max-level').val();
+    console.log(sMaxLevel);
+    var iMaxLevel = Number(sMaxLevel);
+    oResults = oPollvault.minMaxCharacterLevel(oResults, "Max Character Level", iMaxLevel);
     oPollvault.displayResults(oResults, "modules");
 };
 
@@ -187,11 +189,11 @@ oPollvault.minMaxCharacterLevel = function(oObject, sField, iValue) {
         if (aFields.indexOf(sField) !== -1) {
             var iInteger = oMod[sField];
             if (sField === "Max Character Level") {
-                if (iInteger === "Any" || (iInteger >= iValue)) {
+                if (iInteger === "Any" || iInteger >= iValue) {
                     oResults[sFolder] = oMod;
                 }
             } else {
-                if (iInteger === "Any" || (iInteger <= iValue)) {
+                if (iInteger === "Any" || iInteger <= iValue) {
                     oResults[sFolder] = oMod;
                 }
             }
