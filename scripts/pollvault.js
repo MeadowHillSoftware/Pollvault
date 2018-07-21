@@ -110,14 +110,13 @@ oPollvault.handleSearchButtonClick = function(event) {
     if (sDM !== "Doesn't Matter") {
         oResults = oPollvault.searchByString(oResults, "DM Needed", sDM);
     }
+    var sAnyLevel = $('#any-level').val();
     var sMinLevel = $('#min-level').val();
-    console.log(sMinLevel);
     var iMinLevel = Number(sMinLevel);
-    oResults = oPollvault.minMaxCharacterLevel(oResults, "Min Character Level", iMinLevel);
+    oResults = oPollvault.minMaxCharacterLevel(oResults, "Min Character Level", iMinLevel, sAnyLevel);
     var sMaxLevel = $('#max-level').val();
-    console.log(sMaxLevel);
     var iMaxLevel = Number(sMaxLevel);
-    oResults = oPollvault.minMaxCharacterLevel(oResults, "Max Character Level", iMaxLevel);
+    oResults = oPollvault.minMaxCharacterLevel(oResults, "Max Character Level", iMaxLevel, sAnyLevel);
     oPollvault.displayResults(oResults, "modules");
 };
 
@@ -179,7 +178,7 @@ oPollvault.matchOneString = function(oObject, sField, aValues) {
     return oResults;
 };
 
-oPollvault.minMaxCharacterLevel = function(oObject, sField, iValue) {
+oPollvault.minMaxCharacterLevel = function(oObject, sField, iValue, sAny) {
     var aMods = Object.keys(oObject);
     var oResults = {};
     for (var m = 0; m < aMods.length; m++) {
@@ -188,12 +187,15 @@ oPollvault.minMaxCharacterLevel = function(oObject, sField, iValue) {
         var aFields = Object.keys(oMod);
         if (aFields.indexOf(sField) !== -1) {
             var iInteger = oMod[sField];
+            if (sAny === "Yes" && iInteger === "Any") {
+                oResults[sFolder] = oMod;
+            }
             if (sField === "Max Character Level") {
-                if (iInteger === "Any" || iInteger >= iValue) {
+                if (iInteger >= iValue) {
                     oResults[sFolder] = oMod;
                 }
             } else {
-                if (iInteger === "Any" || iInteger <= iValue) {
+                if (iInteger <= iValue) {
                     oResults[sFolder] = oMod;
                 }
             }
