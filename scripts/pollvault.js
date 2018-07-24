@@ -37,7 +37,11 @@
 var oPollvault = {};
 
 oPollvault.addMainEventListeners = function() {
+    $('#end-month').on('change', oPollvault.handleDateChange);
+    $('#end-year').on('change', oPollvault.handleDateChange);
     $('#search-button').on('click', oPollvault.handleSearchButtonClick);
+    $('#start-month').on('change', oPollvault.handleDateChange);
+    $('#start-year').on('change', oPollvault.handleDateChange);
     $('#type').on('change', oPollvault.handleFileUpload);
 };
 
@@ -75,6 +79,89 @@ oPollvault.greaterThanOrEqualTo = function(oObject, sField, iValue) {
         }
     }
     return oResults;
+};
+
+oPollvault.handleDateChange = function(event) {
+    event.stopPropagation();
+    var target = $(event.target);
+    var sId = target.attr('id');
+    var aShort = ["Apr", "Jun", "Sep", "Nov"];
+    var iDays = 0;
+    if (sId === "start-month") {
+        var date = $('#start-date');
+        date.empty();
+        var sMonth = target.val();
+        if (sMonth !== "Feb") {
+            if (aShort.indexOf(sMonth) === -1) {
+                iDays = 31;
+            } else {
+                iDays = 30;
+            }
+        } else {
+            var year = $('#start-year');
+            var sYear = year.val();
+            var aLeaps = ["2004", "2008", "2012"];
+            if (aLeaps.indexOf(sYear) === -1) {
+                iDays = 28;
+            } else {
+                iDays = 29;
+            }
+        }
+    } else if (sId === "start-year") {
+        var sMonth = $('#start-month').val();
+        if (sMonth === "Feb") {
+            var sYear = target.val();
+            var aLeaps = ["2004", "2008", "2012"];
+            if (aLeaps.indexOf(sYear) === -1) {
+                iDays = 28;
+            } else {
+                iDays = 29;
+            }
+            var date = $('#start-date');
+            date.empty();
+        }
+    } else if (sId === "end-month") {
+        var date = $('#end-date');
+        date.empty();
+        var sMonth = target.val();
+        console.log(sMonth);
+        if (sMonth !== "Feb") {
+            if (aShort.indexOf(sMonth) === -1) {
+                iDays = 31;
+            } else {
+                iDays = 30;
+            }
+        } else {
+            var year = $('#end-year');
+            var sYear = year.val();
+            var aLeaps = ["2004", "2008", "2012"];
+            if (aLeaps.indexOf(sYear) === -1) {
+                iDays = 28;
+            } else {
+                iDays = 29;
+            }
+        }
+    } else if (sId === "end-year") {
+        var sMonth = $('#end-month').val();
+        if (sMonth === "Feb") {
+            var sYear = target.val();
+            var aLeaps = ["2004", "2008", "2012"];
+            if (aLeaps.indexOf(sYear) === -1) {
+                iDays = 28;
+            } else {
+                iDays = 29;
+            }
+            var date = $('#end-date');
+            date.empty();
+        }
+    }
+    for (var i = 0; i < iDays; i++) {
+        var iDate = i + 1;
+        var sDate = String(iDate);
+        var option = $('<option></option>');
+        option.text(sDate);
+        date.append(option);
+    }
 };
 
 oPollvault.handleSearchButtonClick = function(event) {
