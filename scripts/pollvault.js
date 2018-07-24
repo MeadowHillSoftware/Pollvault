@@ -64,8 +64,8 @@ oPollvault.greaterThanOrEqualTo = function(oObject, sField, iValue) {
     var aMods = Object.keys(oObject);
     var oResults = {};
     for (var m = 0; m < aMods.length; m++) {
-        var sFolder = aMods[m]
-        var oMod = oObject[sFolder]
+        var sFolder = aMods[m];
+        var oMod = oObject[sFolder];
         var aFields = Object.keys(oMod);
         if (aFields.indexOf(sField) !== -1) {
             var iInteger = oMod[sField];
@@ -79,8 +79,12 @@ oPollvault.greaterThanOrEqualTo = function(oObject, sField, iValue) {
 
 oPollvault.handleSearchButtonClick = function(event) {
     event.stopPropagation();
-    var sVotes = $('#votes').val();
     var oResults = oPollvault.oCurrentType;
+    var sText = $('#text').val();
+    if (sText !== "") {
+        oResults = oPollvault.matchText(oResults, sText);
+    }
+    var sVotes = $('#votes').val();
     if (sVotes !== "Doesn't Matter") {
         var iVotes = Number(sVotes);
         oResults = oPollvault.greaterThanOrEqualTo(oResults, "Votes", iVotes);
@@ -124,8 +128,8 @@ oPollvault.lessThanOrEqualTo = function(oObject, sField, iValue) {
     var aMods = Object.keys(oObject);
     var oResults = {};
     for (var m = 0; m < aMods.length; m++) {
-        var sFolder = aMods[m]
-        var oMod = oObject[sFolder]
+        var sFolder = aMods[m];
+        var oMod = oObject[sFolder];
         var aFields = Object.keys(oMod);
         if (aFields.indexOf(sField) !== -1) {
             var iInteger = oMod[sField];
@@ -165,8 +169,8 @@ oPollvault.matchOneString = function(oObject, sField, aValues) {
     var aMods = Object.keys(oObject);
     var oResults = {};
     for (var m = 0; m < aMods.length; m++) {
-        var sFolder = aMods[m]
-        var oMod = oObject[sFolder]
+        var sFolder = aMods[m];
+        var oMod = oObject[sFolder];
         var aFields = Object.keys(oMod);
         if (aFields.indexOf(sField) !== -1) {
             var sString = oMod[sField];
@@ -178,12 +182,36 @@ oPollvault.matchOneString = function(oObject, sField, aValues) {
     return oResults;
 };
 
+oPollvault.matchText = function(oObject, sValue) {
+    sValue = sValue.toLowerCase();
+    var aMods = Object.keys(oObject);
+    var oResults = {};
+    var aSearchFields = ["Description", "Title", "Races", "Alignments", 
+        "Author", "Setting", "Classes"];
+    for (var m = 0; m < aMods.length; m++) {
+        var sFolder = aMods[m];
+        var oMod = oObject[sFolder];
+        var aFields = Object.keys(oMod);
+        for (var f = 0; f < aSearchFields.length; f++) {
+            var sField = aSearchFields[f];
+            if (aFields.indexOf(sField) !== -1) {
+                var sString = oMod[sField];
+                sString = sString.toLowerCase();
+                if (sString.indexOf(sValue) !== -1) {
+                    oResults[sFolder] = oMod;
+                }
+            }
+        }
+    }
+    return oResults;
+};
+
 oPollvault.minMaxCharacterLevel = function(oObject, sField, iValue, sAny) {
     var aMods = Object.keys(oObject);
     var oResults = {};
     for (var m = 0; m < aMods.length; m++) {
-        var sFolder = aMods[m]
-        var oMod = oObject[sFolder]
+        var sFolder = aMods[m];
+        var oMod = oObject[sFolder];
         var aFields = Object.keys(oMod);
         if (aFields.indexOf(sField) !== -1) {
             var iInteger = oMod[sField];
@@ -208,8 +236,8 @@ oPollvault.searchByString = function(oObject, sField, sValue) {
     var aMods = Object.keys(oObject);
     var oResults = {};
     for (var m = 0; m < aMods.length; m++) {
-        var sFolder = aMods[m]
-        var oMod = oObject[sFolder]
+        var sFolder = aMods[m];
+        var oMod = oObject[sFolder];
         var aFields = Object.keys(oMod);
         if (aFields.indexOf(sField) !== -1) {
             var sString = oMod[sField];
