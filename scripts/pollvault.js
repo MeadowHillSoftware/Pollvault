@@ -217,6 +217,10 @@ oPollvault.handleSearchButtonClick = function(event) {
     if (iUpdatedFrom > 20020101 || iUpdatedTo < 20131231) {
         oResults = oPollvault.checkDate(oResults, iUpdatedFrom, iUpdatedTo, "Updated");
     }
+    var sCategory = $('#category').val();
+    if (sCategory !== "Doesn't Matter") {
+        oResults = oPollvault.searchByString(oResults, "Category", sCategory);
+    }
     var sVotes = $('#votes').val();
     if (sVotes !== "Doesn't Matter") {
         var iVotes = Number(sVotes);
