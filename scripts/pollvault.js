@@ -252,6 +252,17 @@ oPollvault.handleSearchButtonClick = function(event) {
         var iRating = Number(sRating);
         oResults = oPollvault.greaterThanOrEqualTo(oResults, "Rating", iRating);
     }
+    var sVersion = $('#version').val();
+    if (sVersion !== "Doesn't Matter") {
+        oResults = oPollvault.searchByString(oResults, "Expansions", sVersion);
+    }
+    var sAnyLevel = $('#any-level').val();
+    var sMinLevel = $('#min-level').val();
+    var iMinLevel = Number(sMinLevel);
+    oResults = oPollvault.minMaxCharacterLevel(oResults, "Min Character Level", iMinLevel, sAnyLevel);
+    var sMaxLevel = $('#max-level').val();
+    var iMaxLevel = Number(sMaxLevel);
+    oResults = oPollvault.minMaxCharacterLevel(oResults, "Max Character Level", iMaxLevel, sAnyLevel);
     var sMultiplayer = $('#multiplayer').val();
     if (sMultiplayer !== "Doesn't Matter") {
         var aMultiplayer = [];
@@ -272,13 +283,6 @@ oPollvault.handleSearchButtonClick = function(event) {
     if (sDM !== "Doesn't Matter") {
         oResults = oPollvault.searchByString(oResults, "DM Needed", sDM);
     }
-    var sAnyLevel = $('#any-level').val();
-    var sMinLevel = $('#min-level').val();
-    var iMinLevel = Number(sMinLevel);
-    oResults = oPollvault.minMaxCharacterLevel(oResults, "Min Character Level", iMinLevel, sAnyLevel);
-    var sMaxLevel = $('#max-level').val();
-    var iMaxLevel = Number(sMaxLevel);
-    oResults = oPollvault.minMaxCharacterLevel(oResults, "Max Character Level", iMaxLevel, sAnyLevel);
     oPollvault.displayResults(oResults, "modules");
 };
 
