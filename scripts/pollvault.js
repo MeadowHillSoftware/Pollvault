@@ -85,6 +85,23 @@ oPollvault.displayResults = function(oObject, sType) {
     }
 };
 
+oPollvault.excludeByString = function(oObject, sField, sValue) {
+    var aMods = Object.keys(oObject);
+    var oResults = {};
+    for (var m = 0; m < aMods.length; m++) {
+        var sFolder = aMods[m];
+        var oMod = oObject[sFolder];
+        var aFields = Object.keys(oMod);
+        if (aFields.indexOf(sField) !== -1) {
+            var sString = oMod[sField];
+            if (sString !== sValue) {
+                oResults[sFolder] = oMod;
+            }
+        }
+    }
+    return oResults;
+};
+
 oPollvault.greaterThanOrEqualTo = function(oObject, sField, iValue) {
     var aMods = Object.keys(oObject);
     var oResults = {};
@@ -220,6 +237,10 @@ oPollvault.handleSearchButtonClick = function(event) {
     var sCategory = $('#category').val();
     if (sCategory !== "Doesn't Matter") {
         oResults = oPollvault.searchByString(oResults, "Category", sCategory);
+    }
+    var sCategory = $('#exclude-category').val();
+    if (sCategory !== "Doesn't Matter") {
+        oResults = oPollvault.excludeByString(oResults, "Category", sCategory);
     }
     var sVotes = $('#votes').val();
     if (sVotes !== "Doesn't Matter") {
