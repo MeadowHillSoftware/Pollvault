@@ -53,6 +53,44 @@ oPollvault.checkDate = function (oObject, iFrom, iTo, sField) {
     return oResults;
 };
 
+oPollvault.checkLength = function (oObject, sMin, sMax, sField) {
+    var aMods = Object.keys(oObject);
+    var oResults = {};
+    for (var m = 0; m < aMods.length; m++) {
+        var sFolder = aMods[m];
+        var oMod = oObject[sFolder];
+        var aFields = Object.keys(oMod);
+        if (aFields.indexOf(sField) !== -1) {
+            var sLength = oMod[sField];
+            if (sLength === "60+") {
+                var iLength = 61;
+            } else if (sLength === "<1") {
+                var iLength = 0;
+            } else {
+                var iLength = Number(sLength);
+            }
+            if (sMax === "60+") {
+                var iMax = 61;
+            } else if (sMax === "<1") {
+                var iMax = 0;
+            } else {
+                var iMax = Number(sMax);
+            }
+            if (sMin === "60+") {
+                var iMin = 61;
+            } else if (sMin === "<1") {
+                var iMin = 0;
+            } else {
+                var iMin = Number(sMin);
+            }
+            if (iLength >= iMin && iLength <= iMax) {
+                oResults[sFolder] = oMod;
+            }
+        }
+    }
+    return oResults;
+};
+
 oPollvault.displayResults = function(oObject, sType) {
     var aMods = Object.keys(oObject);
     $('#results')
@@ -257,6 +295,9 @@ oPollvault.handleSearchButtonClick = function(event) {
     var sMaxPlayers = $('#max-players').val();
     var iMaxPlayers = Number(sMaxPlayers);
     oResults = oPollvault.minMaxPlayerNumbers(oResults, "Max # Players", iMaxPlayers, sAnyPlayers);
+    var sMinLength = $('#min-length').val();
+    var sMaxLength = $('#max-length').val();
+    oResults = oPollvault.checkLength(oResults, sMinLength, sMaxLength, "Gameplay Length");
     var sMultiplayer = $('#multiplayer').val();
     if (sMultiplayer !== "Doesn't Matter") {
         var aMultiplayer = [];
