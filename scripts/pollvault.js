@@ -37,12 +37,16 @@
 var oPollvault = {};
 
 oPollvault.addMainEventListeners = function() {
-    $('#submitted-to-month').on('change', oPollvault.handleDateChange);
-    $('#submitted-to-year').on('change', oPollvault.handleDateChange);
     $('#search-button').on('click', oPollvault.handleSearchButtonClick);
     $('#submitted-from-month').on('change', oPollvault.handleDateChange);
     $('#submitted-from-year').on('change', oPollvault.handleDateChange);
+    $('#submitted-to-month').on('change', oPollvault.handleDateChange);
+    $('#submitted-to-year').on('change', oPollvault.handleDateChange);
     $('#type').on('change', oPollvault.handleFileUpload);
+    $('#updated-from-month').on('change', oPollvault.handleDateChange);
+    $('#updated-from-year').on('change', oPollvault.handleDateChange);
+    $('#updated-to-month').on('change', oPollvault.handleDateChange);
+    $('#updated-to-year').on('change', oPollvault.handleDateChange);
 };
 
 oPollvault.checkDate = function (oObject, iFrom, iTo, sField) {
@@ -104,8 +108,11 @@ oPollvault.handleDateChange = function(event) {
     var sId = target.attr('id');
     var aShort = ["Apr", "Jun", "Sep", "Nov"];
     var iDays = 0;
-    if (sId === "submitted-from-month") {
-        var date = $('#submitted-from-date');
+    var aId = sId.split("-");
+    var sPrefix = aId[0] + "-" + aId[1] + "-";
+    var sType = aId[2];
+    if (sType === "month") {
+        var date = $(('#' + sPrefix + 'date'));
         date.empty();
         var sMonth = target.val();
         if (sMonth !== "Feb") {
@@ -115,7 +122,7 @@ oPollvault.handleDateChange = function(event) {
                 iDays = 30;
             }
         } else {
-            var year = $('#submitted-from-year');
+            var year = $(('#' + sPrefix + 'year'));
             var sYear = year.val();
             var aLeaps = ["2004", "2008", "2012"];
             if (aLeaps.indexOf(sYear) === -1) {
@@ -124,8 +131,8 @@ oPollvault.handleDateChange = function(event) {
                 iDays = 29;
             }
         }
-    } else if (sId === "submitted-from-year") {
-        var sMonth = $('#submitted-from-month').val();
+    } else if (sType === "year") {
+        var sMonth = $(('#' + sPrefix + 'month')).val();
         if (sMonth === "Feb") {
             var sYear = target.val();
             var aLeaps = ["2004", "2008", "2012"];
@@ -134,40 +141,7 @@ oPollvault.handleDateChange = function(event) {
             } else {
                 iDays = 29;
             }
-            var date = $('#submitted-from-date');
-            date.empty();
-        }
-    } else if (sId === "submitted-to-month") {
-        var date = $('#submitted-to-date');
-        date.empty();
-        var sMonth = target.val();
-        if (sMonth !== "Feb") {
-            if (aShort.indexOf(sMonth) === -1) {
-                iDays = 31;
-            } else {
-                iDays = 30;
-            }
-        } else {
-            var year = $('#submitted-to-year');
-            var sYear = year.val();
-            var aLeaps = ["2004", "2008", "2012"];
-            if (aLeaps.indexOf(sYear) === -1) {
-                iDays = 28;
-            } else {
-                iDays = 29;
-            }
-        }
-    } else if (sId === "submitted-to-year") {
-        var sMonth = $('#submitted-to-month').val();
-        if (sMonth === "Feb") {
-            var sYear = target.val();
-            var aLeaps = ["2004", "2008", "2012"];
-            if (aLeaps.indexOf(sYear) === -1) {
-                iDays = 28;
-            } else {
-                iDays = 29;
-            }
-            var date = $('#submitted-to-date');
+            var date = $(('#' + sPrefix + 'date'));
             date.empty();
         }
     }
@@ -221,6 +195,27 @@ oPollvault.handleSearchButtonClick = function(event) {
     var iSubmittedTo = Number(sSubmittedTo);
     if (iSubmittedFrom > 20020101 || iSubmittedTo < 20131231) {
         oResults = oPollvault.checkDate(oResults, iSubmittedFrom, iSubmittedTo, "Submitted");
+    }
+    var sUpdatedFromMonth = $('#updated-from-month').val();
+    sUpdatedFromMonth = oMonthNumberMap[sUpdatedFromMonth];
+    var sUpdatedFromDate = $('#updated-from-date').val();
+    if (sUpdatedFromDate.length === 1) {
+        sUpdatedFromDate = "0" + sUpdatedFromDate;
+    }
+    var sUpdatedFromYear = $('#updated-from-year').val();
+    var sUpdatedFrom = sUpdatedFromYear + sUpdatedFromMonth + sUpdatedFromDate;
+    var iUpdatedFrom = Number(sUpdatedFrom);
+    var sUpdatedToMonth = $('#updated-to-month').val();
+    sUpdatedToMonth = oMonthNumberMap[sUpdatedToMonth]
+    var sUpdatedToDate = $('#updated-to-date').val();
+    if (sUpdatedToDate.length === 1) {
+        sUpdatedToDate = "0" + sUpdatedToDate;
+    }
+    var sUpdatedToYear = $('#updated-to-year').val();
+    var sUpdatedTo = sUpdatedToYear + sUpdatedToMonth + sUpdatedToDate;
+    var iUpdatedTo = Number(sUpdatedTo);
+    if (iUpdatedFrom > 20020101 || iUpdatedTo < 20131231) {
+        oResults = oPollvault.checkDate(oResults, iUpdatedFrom, iUpdatedTo, "Updated");
     }
     var sVotes = $('#votes').val();
     if (sVotes !== "Doesn't Matter") {
