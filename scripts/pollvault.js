@@ -3,7 +3,6 @@
 //AGPL 3 or later
 //Max Number Results: dropdown (10, 50, 100, 200, 400, Show All)
 //Hall of Fame: dropdown menu (Doesn't Matter, Yes, No)
-//Content Rating: dropdown menu (Doesn't Matter, Everyone, Teen, Mature, Adult, Extreme)
 //Language: dropdown menu (Doesn't Matter, Asian, English, Chinese, French, German, Italian, Japanese, Korean, Russian, Spanish, Other)
 //Show Screenshots: dropdown menu (No, Yes)
 //Submit: button SEARCH
@@ -362,6 +361,10 @@ oPollvault.handleSearchButtonClick = function(event) {
     var sScope = $('#scope').val();
     if (sScope !== "Doesn't Matter") {
         oResults = oPollvault.searchByString(oResults, "Scope", sScope);
+    }
+    var sContent = $('#content').val();
+    if (sContent !== "Doesn't Matter") {
+        oResults = oPollvault.searchByString(oResults, "Content Rating", sContent);
     }
     oPollvault.displayResults(oResults, "modules");
 };
