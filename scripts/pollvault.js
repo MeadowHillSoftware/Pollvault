@@ -346,6 +346,10 @@ oPollvault.handleSearchButtonClick = function(event) {
     if (sRace !== "") {
         oResults = oPollvault.matchTextInOneField(oResults, "Races", sRace);
     }
+    var sClass = $('#class').val();
+    if (sClass !== "") {
+        oResults = oPollvault.matchTextInOneField(oResults, "Classes", sClass);
+    }
     oPollvault.displayResults(oResults, "modules");
 };
 
