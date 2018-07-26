@@ -3,10 +3,6 @@
 //AGPL 3 or later
 //Max Number Results: dropdown (10, 50, 100, 200, 400, Show All)
 //Hall of Fame: dropdown menu (Doesn't Matter, Yes, No)
-//Number Players: From: dropdown menu (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64), To: dropdown menu (same as from)
-//Number Players: Include those listed as "Any" dropdown menu (Yes, No)
-//Gameplay Hours: From: dropdown menu (Doesn't Matter, <1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 60+), To: dropdown menu (same as from)
-//Alignments: text entry
 //Races: text entry
 //Classes: text entry
 //Setting: text entry
@@ -69,7 +65,7 @@ oPollvault.checkLength = function (oObject, sMin, sMax, sField) {
             } else {
                 var iLength = Number(sLength);
             }
-            if (sMax === "60+") {
+            if (sMax === "60+" || "Doesn't Matter") {
                 var iMax = 61;
             } else if (sMax === "<1") {
                 var iMax = 0;
@@ -78,7 +74,7 @@ oPollvault.checkLength = function (oObject, sMin, sMax, sField) {
             }
             if (sMin === "60+") {
                 var iMin = 61;
-            } else if (sMin === "<1") {
+            } else if (sMin === "<1" || "Doesn't Matter") {
                 var iMin = 0;
             } else {
                 var iMin = Number(sMin);
@@ -196,6 +192,24 @@ oPollvault.handleDateChange = function(event) {
     }
 };
 
+oPollvault.handleFileUpload = function(event) {
+    event.stopPropagation();
+    var aFiles = $('#type').prop("files");
+    var file = aFiles[0];
+    var sFileName = file.name;
+    var aFileName = sFileName.split(".");
+    var sType = "";
+    for (var w = 0; w < (aFileName.length - 1); w++) {
+        var sWord = aFileName[w];
+        sType += sWord;
+    }
+    oPollvault.sType = sType;
+    oPollvault.sFileName = sType + ".json";
+    oPollvault.reader = new FileReader();
+    oPollvault.reader.readAsText(file);
+    oPollvault.reader.onload = oPollvault.handleType;
+};
+
 oPollvault.handleSearchButtonClick = function(event) {
     event.stopPropagation();
     var oResults = oPollvault.oCurrentType;
@@ -284,20 +298,26 @@ oPollvault.handleSearchButtonClick = function(event) {
     var sAnyLevel = $('#any-level').val();
     var sMinLevel = $('#min-level').val();
     var iMinLevel = Number(sMinLevel);
-    oResults = oPollvault.minMaxCharacterLevel(oResults, "Min Character Level", iMinLevel, sAnyLevel);
     var sMaxLevel = $('#max-level').val();
     var iMaxLevel = Number(sMaxLevel);
-    oResults = oPollvault.minMaxCharacterLevel(oResults, "Max Character Level", iMaxLevel, sAnyLevel);
+    if (sAnyLevel === "No" || iMinLevel !== 1 || iMaxLevel !== 40) {
+        oResults = oPollvault.minMaxCharacterLevel(oResults, "Min Character Level", iMinLevel, sAnyLevel);
+        oResults = oPollvault.minMaxCharacterLevel(oResults, "Max Character Level", iMaxLevel, sAnyLevel);
+    }
     var sAnyPlayers = $('#any-players').val();
     var sMinPlayers = $('#min-players').val();
     var iMinPlayers = Number(sMinPlayers);
-    oResults = oPollvault.minMaxPlayerNumbers(oResults, "Min # Players", iMinPlayers, sAnyPlayers);
     var sMaxPlayers = $('#max-players').val();
     var iMaxPlayers = Number(sMaxPlayers);
-    oResults = oPollvault.minMaxPlayerNumbers(oResults, "Max # Players", iMaxPlayers, sAnyPlayers);
+    if (sAnyLevel === "No" || iMinPlayers !== 1 || iMaxPlayers !== 64) {
+        oResults = oPollvault.minMaxPlayerNumbers(oResults, "Min # Players", iMinPlayers, sAnyPlayers);
+        oResults = oPollvault.minMaxPlayerNumbers(oResults, "Max # Players", iMaxPlayers, sAnyPlayers);
+    }
     var sMinLength = $('#min-length').val();
     var sMaxLength = $('#max-length').val();
-    oResults = oPollvault.checkLength(oResults, sMinLength, sMaxLength, "Gameplay Length");
+    if (sMinLength !== "Doesn't Matter" || sMaxLength !== "Doesn't Matter") {
+        oResults = oPollvault.checkLength(oResults, sMinLength, sMaxLength, "Gameplay Length");
+    }
     var sMultiplayer = $('#multiplayer').val();
     if (sMultiplayer !== "Doesn't Matter") {
         var aMultiplayer = [];
@@ -318,7 +338,17 @@ oPollvault.handleSearchButtonClick = function(event) {
     if (sDM !== "Doesn't Matter") {
         oResults = oPollvault.searchByString(oResults, "DM Needed", sDM);
     }
+    var sAlignment = $('#alignment').val();
+    if (sAlignment !== "") {
+        oResults = oPollvault.matchTextInOneField(oResults, "Alignments", sAlignment);
+    }
     oPollvault.displayResults(oResults, "modules");
+};
+
+oPollvault.handleType = function(event) {
+    event.stopPropagation();
+    var sType = oPollvault.reader.result;
+    oPollvault.oCurrentType = JSON.parse(sType);
 };
 
 oPollvault.lessThanOrEqualTo = function(oObject, sField, iValue) {
@@ -336,30 +366,6 @@ oPollvault.lessThanOrEqualTo = function(oObject, sField, iValue) {
         }
     }
     return oResults;
-};
-
-oPollvault.handleFileUpload = function(event) {
-    event.stopPropagation();
-    var aFiles = $('#type').prop("files");
-    var file = aFiles[0];
-    var sFileName = file.name;
-    var aFileName = sFileName.split(".");
-    var sType = "";
-    for (var w = 0; w < (aFileName.length - 1); w++) {
-        var sWord = aFileName[w];
-        sType += sWord;
-    }
-    oPollvault.sType = sType;
-    oPollvault.sFileName = sType + ".json";
-    oPollvault.reader = new FileReader();
-    oPollvault.reader.readAsText(file);
-    oPollvault.reader.onload = oPollvault.handleType;
-};
-
-oPollvault.handleType = function(event) {
-    event.stopPropagation();
-    var sType = oPollvault.reader.result;
-    oPollvault.oCurrentType = JSON.parse(sType);
 };
 
 oPollvault.matchOneString = function(oObject, sField, aValues) {
@@ -403,6 +409,25 @@ oPollvault.matchText = function(oObject, sValue) {
     return oResults;
 };
 
+oPollvault.matchTextInOneField = function(oObject, sField, sValue) {
+    sValue = sValue.toLowerCase();
+    var aMods = Object.keys(oObject);
+    var oResults = {};
+    for (var m = 0; m < aMods.length; m++) {
+        var sFolder = aMods[m];
+        var oMod = oObject[sFolder];
+        var aFields = Object.keys(oMod);
+        if (aFields.indexOf(sField) !== -1) {
+            var sString = oMod[sField];
+            sString = sString.toLowerCase();
+            if (sString.indexOf(sValue) !== -1) {
+                oResults[sFolder] = oMod;
+            }
+        }
+    }
+    return oResults;
+};
+
 oPollvault.minMaxCharacterLevel = function(oObject, sField, iValue, sAny) {
     var aMods = Object.keys(oObject);
     var oResults = {};
@@ -414,6 +439,9 @@ oPollvault.minMaxCharacterLevel = function(oObject, sField, iValue, sAny) {
             var iInteger = oMod[sField];
             if (sAny === "Yes" && iInteger === "Any") {
                 oResults[sFolder] = oMod;
+            }
+            if (iInteger !== "Any") {
+                iInteger = Number(iInteger);
             }
             if (sField === "Max Character Level") {
                 if (iInteger >= iValue) {
@@ -440,6 +468,9 @@ oPollvault.minMaxPlayerNumbers = function(oObject, sField, iValue, sAny) {
             var iInteger = oMod[sField];
             if (sAny === "Yes" && iInteger === "Any") {
                 oResults[sFolder] = oMod;
+            }
+            if (iInteger !== "Any") {
+                iInteger = Number(iInteger);
             }
             if (sField === "Max # Players") {
                 if (iInteger >= iValue) {
