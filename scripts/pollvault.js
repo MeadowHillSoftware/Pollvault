@@ -357,6 +357,10 @@ oPollvault.handleSearchButtonClick = function(event) {
     if (sRoleplay !== "Doesn't Matter") {
         oResults = oPollvault.searchByString(oResults, "Roleplay", sRoleplay);
     }
+    var sHack = $('#hack').val();
+    if (sHack !== "Doesn't Matter") {
+        oResults = oPollvault.searchByString(oResults, "Hack & Slash", sHack);
+    }
     oPollvault.displayResults(oResults, "modules");
 };
 
