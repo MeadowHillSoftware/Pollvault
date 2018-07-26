@@ -366,6 +366,10 @@ oPollvault.handleSearchButtonClick = function(event) {
     if (sContent !== "Doesn't Matter") {
         oResults = oPollvault.searchByString(oResults, "Content Rating", sContent);
     }
+    var sLanguage = $('#language').val();
+    if (sLanguage !== "Doesn't Matter") {
+        oResults = oPollvault.searchByString(oResults, "Language", sLanguage);
+    }
     oPollvault.displayResults(oResults, "modules");
 };
 
