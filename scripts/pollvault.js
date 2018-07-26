@@ -3,8 +3,6 @@
 //AGPL 3 or later
 //Max Number Results: dropdown (10, 50, 100, 200, 400, Show All)
 //Hall of Fame: dropdown menu (Doesn't Matter, Yes, No)
-//Tricks & Traps: dropdown menu (Doesn't Matter, Non-Existent, Dependent on Module, Light, Medium, Heavy)
-//Roleplay: dropdown menu (Doesn't Matter, Non-Existent, Dependent on Module, Light, Medium, Heavy)
 //Hack & Slash: dropdown menu (Doesn't Matter, Non-Existent, Dependent on Module, Light, Medium, Heavy)
 //Scope: dropdown menu (Doesn't Matter, Small, Dependent on Module, Medium, Large, Epic, Part of Series)
 //Content Rating: dropdown menu (Doesn't Matter, Everyone, Teen, Mature, Adult, Extreme)
@@ -354,6 +352,10 @@ oPollvault.handleSearchButtonClick = function(event) {
     var sTraps = $('#traps').val();
     if (sTraps !== "Doesn't Matter") {
         oResults = oPollvault.searchByString(oResults, "Tricks & Traps", sTraps);
+    }
+    var sRoleplay = $('#roleplay').val();
+    if (sRoleplay !== "Doesn't Matter") {
+        oResults = oPollvault.searchByString(oResults, "Roleplay", sRoleplay);
     }
     oPollvault.displayResults(oResults, "modules");
 };
