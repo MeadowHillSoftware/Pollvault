@@ -3,9 +3,6 @@
 //AGPL 3 or later
 //Max Number Results: dropdown (10, 50, 100, 200, 400, Show All)
 //Hall of Fame: dropdown menu (Doesn't Matter, Yes, No)
-//Races: text entry
-//Classes: text entry
-//Setting: text entry
 //Tricks & Traps: dropdown menu (Doesn't Matter, Non-Existent, Dependent on Module, Light, Medium, Heavy)
 //Roleplay: dropdown menu (Doesn't Matter, Non-Existent, Dependent on Module, Light, Medium, Heavy)
 //Hack & Slash: dropdown menu (Doesn't Matter, Non-Existent, Dependent on Module, Light, Medium, Heavy)
@@ -353,6 +350,10 @@ oPollvault.handleSearchButtonClick = function(event) {
     var sSetting = $('#setting').val();
     if (sSetting !== "") {
         oResults = oPollvault.matchTextInOneField(oResults, "Setting", sSetting);
+    }
+    var sTraps = $('#traps').val();
+    if (sTraps !== "Doesn't Matter") {
+        oResults = oPollvault.searchByString(oResults, "Tricks & Traps", sTraps);
     }
     oPollvault.displayResults(oResults, "modules");
 };
