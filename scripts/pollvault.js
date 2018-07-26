@@ -3,8 +3,6 @@
 //AGPL 3 or later
 //Max Number Results: dropdown (10, 50, 100, 200, 400, Show All)
 //Hall of Fame: dropdown menu (Doesn't Matter, Yes, No)
-//Hack & Slash: dropdown menu (Doesn't Matter, Non-Existent, Dependent on Module, Light, Medium, Heavy)
-//Scope: dropdown menu (Doesn't Matter, Small, Dependent on Module, Medium, Large, Epic, Part of Series)
 //Content Rating: dropdown menu (Doesn't Matter, Everyone, Teen, Mature, Adult, Extreme)
 //Language: dropdown menu (Doesn't Matter, Asian, English, Chinese, French, German, Italian, Japanese, Korean, Russian, Spanish, Other)
 //Show Screenshots: dropdown menu (No, Yes)
@@ -360,6 +358,10 @@ oPollvault.handleSearchButtonClick = function(event) {
     var sHack = $('#hack').val();
     if (sHack !== "Doesn't Matter") {
         oResults = oPollvault.searchByString(oResults, "Hack & Slash", sHack);
+    }
+    var sScope = $('#scope').val();
+    if (sScope !== "Doesn't Matter") {
+        oResults = oPollvault.searchByString(oResults, "Scope", sScope);
     }
     oPollvault.displayResults(oResults, "modules");
 };
