@@ -350,6 +350,10 @@ oPollvault.handleSearchButtonClick = function(event) {
     if (sClass !== "") {
         oResults = oPollvault.matchTextInOneField(oResults, "Classes", sClass);
     }
+    var sSetting = $('#setting').val();
+    if (sSetting !== "") {
+        oResults = oPollvault.matchTextInOneField(oResults, "Setting", sSetting);
+    }
     oPollvault.displayResults(oResults, "modules");
 };
 
