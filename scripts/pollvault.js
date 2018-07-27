@@ -3,7 +3,6 @@
 //AGPL 3 or later
 //Max Number Results: dropdown (10, 50, 100, 200, 400, Show All)
 //Hall of Fame: dropdown menu (Doesn't Matter, Yes, No)
-//Language: dropdown menu (Doesn't Matter, Asian, English, Chinese, French, German, Italian, Japanese, Korean, Russian, Spanish, Other)
 //Show Screenshots: dropdown menu (No, Yes)
 //Submit: button SEARCH
 
@@ -81,21 +80,101 @@ oPollvault.checkLength = function (oObject, sMin, sMax, sField) {
 
 oPollvault.displayResults = function(oObject, sType) {
     var aMods = Object.keys(oObject);
-    $('#results')
-        .empty()
-        .append('<br>');
+    var table = $('<table></table>');
+    var headerRow = $('<tr></tr>');
+    var titleCell = $('<td>Title</td>');
+    headerRow.append(titleCell);
+    var creatorCell = $('<td>Author</td>');
+    headerRow.append(creatorCell);
+    var submittedCell = $('<td>Date<br>Submitted</td>');
+    headerRow.append(submittedCell);
+    var updatedCell = $('<td>Date<br>Updated</td>');
+    headerRow.append(updatedCell);
+    var minLevelCell = $('<td>Min<br>Level</td>');
+    headerRow.append(minLevelCell);
+    var maxLevelCell = $('<td>Max<br>Level</td>');
+    headerRow.append(maxLevelCell);
+    var minPlayersCell = $('<td>Min #<br>Players</td>');
+    headerRow.append(minPlayersCell);
+    var maxPlayersCell = $('<td>Max #<br>Players</td>');
+    headerRow.append(maxPlayersCell);
+    table.append(headerRow);
     for (var m = 0; m < aMods.length; m++) {
         var sFolder = aMods[m];
         var oMod = oObject[sFolder];
         var sTitle = oMod["Title"];
+        if (sTitle.length > 49) {
+            sTitle = sTitle.slice(0, 47) + "...";
+        }
         var url = "https://neverwintervault.org/rolovault/projects/nwn1/" + sType + "/" + sFolder;
         var link = $('<a />')
             .attr('href', url)
             .text(sTitle);
-        $('#results')
-            .append(link)
-            .append('<br>');
+        var nameCell = $('<td></td>');
+        nameCell.append(link);
+        var row = $('<tr></tr>');
+        row.append(nameCell);
+        var authorCell = $('<td></td>');
+        var sAuthor = oMod["Author"];
+        if (sAuthor.length > 29) {
+            sAuthor = sAuthor.slice(0, 27) + "...";
+        }
+        authorCell.append(sAuthor);
+        row.append(authorCell);
+        var submittedDate = $('<td></td>');
+        var iSubmitted = oMod["Submitted"];
+        var sSubmitted = String(iSubmitted);
+        var sSubmittedYear = sSubmitted.slice(0, 4);
+        sSubmittedYear = sSubmittedYear.slice(2, 4);
+        var sSubmittedMonth = sSubmitted.slice(4, 6);
+        if (sSubmittedMonth[0] === "0") {
+            sSubmittedMonth = sSubmittedMonth.slice(1, 2);
+        }
+        var sSubmittedDate = sSubmitted.slice(6, 8);
+        if (sSubmittedDate[0] === "0") {
+            sSubmittedDate = sSubmittedDate.slice(1, 2);
+        }
+        sSubmitted = sSubmittedMonth + "-" + sSubmittedDate + "-" + sSubmittedYear;
+        var updatedDate = $('<td></td>');
+        var iUpdated = oMod["Updated"];
+        var sUpdated = String(iUpdated);
+        var sUpdatedYear = sUpdated.slice(0, 4);
+        sUpdatedYear = sUpdatedYear.slice(2, 4);
+        var sUpdatedMonth = sUpdated.slice(4, 6);
+        if (sUpdatedMonth[0] === "0") {
+            sUpdatedMonth = sUpdatedMonth.slice(1, 2);
+        }
+        var sUpdatedDate = sUpdated.slice(6, 8);
+        if (sUpdatedDate[0] === "0") {
+            sUpdatedDate = sUpdatedDate.slice(1, 2);
+        }
+        sUpdated = sUpdatedMonth + "-" + sUpdatedDate + "-" + sUpdatedYear;
+        submittedDate.append(sSubmitted);
+        row.append(submittedDate);
+        updatedDate.append(sUpdated);
+        row.append(updatedDate);
+        var minLevelCell = $('<td></td>');
+        var sMinLevel = oMod["Min Character Level"];
+        minLevelCell.append(sMinLevel);
+        row.append(minLevelCell);
+        var maxLevelCell = $('<td></td>');
+        var sMaxLevel = oMod["Max Character Level"];
+        maxLevelCell.append(sMaxLevel);
+        row.append(maxLevelCell);
+        var minPlayersCell = $('<td></td>');
+        var sMinPlayers = oMod["Min # Players"];
+        minPlayersCell.append(sMinPlayers);
+        row.append(minPlayersCell);
+        var maxPlayersCell = $('<td></td>');
+        var sMaxPlayers = oMod["Max # Players"];
+        maxPlayersCell.append(sMaxPlayers);
+        row.append(maxPlayersCell);
+        table.append(row);
     }
+    $('#results')
+        .empty()
+        .append('<br>')
+        .append(table);
 };
 
 oPollvault.excludeByString = function(oObject, sField, sValue) {
