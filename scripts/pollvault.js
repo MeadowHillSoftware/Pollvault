@@ -456,6 +456,10 @@ oPollvault.handleType = function(event) {
     event.stopPropagation();
     var sType = oPollvault.reader.result;
     oPollvault.oCurrentType = JSON.parse(sType);
+    var sName = oPollvault.sType;
+    if (sName === "modules") {
+        $('#search').removeClass('hidden-element');
+    }
 };
 
 oPollvault.lessThanOrEqualTo = function(oObject, sField, iValue) {
