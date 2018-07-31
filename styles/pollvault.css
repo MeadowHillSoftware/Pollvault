@@ -25,6 +25,15 @@
     width: 703px;
 }
 
+.no-results {
+    margin-bottom: 90px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 90px;
+    text-align: center;
+    width: 200px;
+}
+
 .orange-text {
     color: rgb(230,153,39);
 }

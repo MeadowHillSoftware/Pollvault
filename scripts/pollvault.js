@@ -80,116 +80,124 @@ oPollvault.checkLength = function (oObject, sMin, sMax, sField) {
 
 oPollvault.displayResults = function(oObject, sType) {
     var aMods = Object.keys(oObject);
-    var table = $('<table></table>')
-        .addClass('small-font');
-    var headerRow = $('<tr></tr>');
-    var titleCell = $('<td>Title</td>');
-    headerRow.append(titleCell)
-        .addClass('small-bold-font');
-    var creatorCell = $('<td>Author</td>');
-    headerRow.append(creatorCell);
-    var submittedCell = $('<td>Date<br>Submitted</td>');
-    headerRow.append(submittedCell);
-    var updatedCell = $('<td>Date<br>Updated</td>');
-    headerRow.append(updatedCell);
-    var minLevelCell = $('<td>Min<br>Level</td>');
-    headerRow.append(minLevelCell);
-    var maxLevelCell = $('<td>Max<br>Level</td>');
-    headerRow.append(maxLevelCell);
-    var minPlayersCell = $('<td>Min #<br>Players</td>');
-    headerRow.append(minPlayersCell);
-    var maxPlayersCell = $('<td>Max #<br>Players</td>');
-    headerRow
-        .append(maxPlayersCell)
-        .addClass('medium-grey');
-    table.append(headerRow);
-    var titleDiv = $('<div><b>Results</b></div>');
-    titleDiv.addClass('results-title');
-    var sClass = "light-grey";
-    for (var m = 0; m < aMods.length; m++) {
-        var sFolder = aMods[m];
-        var oMod = oObject[sFolder];
-        var sTitle = oMod["Title"];
-        if (sTitle.length > 49) {
-            sTitle = sTitle.slice(0, 47) + "...";
-        }
-        var url = "https://neverwintervault.org/rolovault/projects/nwn1/" + sType + "/" + sFolder;
-        var link = $('<a />')
-            .attr('href', url)
-            .text(sTitle);
-        var nameCell = $('<td></td>');
-        nameCell.append(link);
-        var row = $('<tr></tr>');
-        row.append(nameCell);
-        var authorCell = $('<td></td>');
-        var sAuthor = oMod["Author"];
-        if (sAuthor.length > 29) {
-            sAuthor = sAuthor.slice(0, 27) + "...";
-        }
-        authorCell.append(sAuthor);
-        row.append(authorCell);
-        var submittedDate = $('<td></td>');
-        var iSubmitted = oMod["Submitted"];
-        var sSubmitted = String(iSubmitted);
-        var sSubmittedYear = sSubmitted.slice(0, 4);
-        sSubmittedYear = sSubmittedYear.slice(2, 4);
-        var sSubmittedMonth = sSubmitted.slice(4, 6);
-        if (sSubmittedMonth[0] === "0") {
-            sSubmittedMonth = sSubmittedMonth.slice(1, 2);
-        }
-        var sSubmittedDate = sSubmitted.slice(6, 8);
-        if (sSubmittedDate[0] === "0") {
-            sSubmittedDate = sSubmittedDate.slice(1, 2);
-        }
-        sSubmitted = sSubmittedMonth + "/" + sSubmittedDate + "/" + sSubmittedYear;
-        var updatedDate = $('<td></td>');
-        var iUpdated = oMod["Updated"];
-        var sUpdated = String(iUpdated);
-        var sUpdatedYear = sUpdated.slice(0, 4);
-        sUpdatedYear = sUpdatedYear.slice(2, 4);
-        var sUpdatedMonth = sUpdated.slice(4, 6);
-        if (sUpdatedMonth[0] === "0") {
-            sUpdatedMonth = sUpdatedMonth.slice(1, 2);
-        }
-        var sUpdatedDate = sUpdated.slice(6, 8);
-        if (sUpdatedDate[0] === "0") {
-            sUpdatedDate = sUpdatedDate.slice(1, 2);
-        }
-        sUpdated = sUpdatedMonth + "/" + sUpdatedDate + "/" + sUpdatedYear;
-        submittedDate.append(sSubmitted);
-        row.append(submittedDate);
-        updatedDate.append(sUpdated);
-        row.append(updatedDate);
-        var minLevelCell = $('<td></td>');
-        var sMinLevel = oMod["Min Character Level"];
-        minLevelCell.append(sMinLevel);
-        row.append(minLevelCell);
-        var maxLevelCell = $('<td></td>');
-        var sMaxLevel = oMod["Max Character Level"];
-        maxLevelCell.append(sMaxLevel);
-        row.append(maxLevelCell);
-        var minPlayersCell = $('<td></td>');
-        var sMinPlayers = oMod["Min # Players"];
-        minPlayersCell.append(sMinPlayers);
-        row.append(minPlayersCell);
-        var maxPlayersCell = $('<td></td>');
-        var sMaxPlayers = oMod["Max # Players"];
-        maxPlayersCell.append(sMaxPlayers);
-        row
+    if (aMods.length !== 0) {
+        var table = $('<table></table>')
+            .addClass('small-font');
+        var headerRow = $('<tr></tr>');
+        var titleCell = $('<td>Title</td>');
+        headerRow.append(titleCell)
+            .addClass('small-bold-font');
+        var creatorCell = $('<td>Author</td>');
+        headerRow.append(creatorCell);
+        var submittedCell = $('<td>Date<br>Submitted</td>');
+        headerRow.append(submittedCell);
+        var updatedCell = $('<td>Date<br>Updated</td>');
+        headerRow.append(updatedCell);
+        var minLevelCell = $('<td>Min<br>Level</td>');
+        headerRow.append(minLevelCell);
+        var maxLevelCell = $('<td>Max<br>Level</td>');
+        headerRow.append(maxLevelCell);
+        var minPlayersCell = $('<td>Min #<br>Players</td>');
+        headerRow.append(minPlayersCell);
+        var maxPlayersCell = $('<td>Max #<br>Players</td>');
+        headerRow
             .append(maxPlayersCell)
-            .addClass(sClass);
-        if (sClass === "light-grey") {
-            sClass = "medium-grey";
-        } else {
-            sClass = "light-grey";
+            .addClass('medium-grey');
+        table.append(headerRow);
+        var titleDiv = $('<div><b>Results</b></div>');
+        titleDiv.addClass('results-title');
+        var sClass = "light-grey";
+        for (var m = 0; m < aMods.length; m++) {
+            var sFolder = aMods[m];
+            var oMod = oObject[sFolder];
+            var sTitle = oMod["Title"];
+            if (sTitle.length > 49) {
+                sTitle = sTitle.slice(0, 47) + "...";
+            }
+            var url = "https://neverwintervault.org/rolovault/projects/nwn1/" + sType + "/" + sFolder;
+            var link = $('<a />')
+                .attr('href', url)
+                .text(sTitle);
+            var nameCell = $('<td></td>');
+            nameCell.append(link);
+            var row = $('<tr></tr>');
+            row.append(nameCell);
+            var authorCell = $('<td></td>');
+            var sAuthor = oMod["Author"];
+            if (sAuthor.length > 29) {
+                sAuthor = sAuthor.slice(0, 27) + "...";
+            }
+            authorCell.append(sAuthor);
+            row.append(authorCell);
+            var submittedDate = $('<td></td>');
+            var iSubmitted = oMod["Submitted"];
+            var sSubmitted = String(iSubmitted);
+            var sSubmittedYear = sSubmitted.slice(0, 4);
+            sSubmittedYear = sSubmittedYear.slice(2, 4);
+            var sSubmittedMonth = sSubmitted.slice(4, 6);
+            if (sSubmittedMonth[0] === "0") {
+                sSubmittedMonth = sSubmittedMonth.slice(1, 2);
+            }
+            var sSubmittedDate = sSubmitted.slice(6, 8);
+            if (sSubmittedDate[0] === "0") {
+                sSubmittedDate = sSubmittedDate.slice(1, 2);
+            }
+            sSubmitted = sSubmittedMonth + "/" + sSubmittedDate + "/" + sSubmittedYear;
+            var updatedDate = $('<td></td>');
+            var iUpdated = oMod["Updated"];
+            var sUpdated = String(iUpdated);
+            var sUpdatedYear = sUpdated.slice(0, 4);
+            sUpdatedYear = sUpdatedYear.slice(2, 4);
+            var sUpdatedMonth = sUpdated.slice(4, 6);
+            if (sUpdatedMonth[0] === "0") {
+                sUpdatedMonth = sUpdatedMonth.slice(1, 2);
+            }
+            var sUpdatedDate = sUpdated.slice(6, 8);
+            if (sUpdatedDate[0] === "0") {
+                sUpdatedDate = sUpdatedDate.slice(1, 2);
+            }
+            sUpdated = sUpdatedMonth + "/" + sUpdatedDate + "/" + sUpdatedYear;
+            submittedDate.append(sSubmitted);
+            row.append(submittedDate);
+            updatedDate.append(sUpdated);
+            row.append(updatedDate);
+            var minLevelCell = $('<td></td>');
+            var sMinLevel = oMod["Min Character Level"];
+            minLevelCell.append(sMinLevel);
+            row.append(minLevelCell);
+            var maxLevelCell = $('<td></td>');
+            var sMaxLevel = oMod["Max Character Level"];
+            maxLevelCell.append(sMaxLevel);
+            row.append(maxLevelCell);
+            var minPlayersCell = $('<td></td>');
+            var sMinPlayers = oMod["Min # Players"];
+            minPlayersCell.append(sMinPlayers);
+            row.append(minPlayersCell);
+            var maxPlayersCell = $('<td></td>');
+            var sMaxPlayers = oMod["Max # Players"];
+            maxPlayersCell.append(sMaxPlayers);
+            row
+                .append(maxPlayersCell)
+                .addClass(sClass);
+            if (sClass === "light-grey") {
+                sClass = "medium-grey";
+            } else {
+                sClass = "light-grey";
+            }
+            table.append(row);
         }
-        table.append(row);
+        $('#results')
+            .empty()
+            .append(titleDiv)
+            .append(table)
+            .removeClass('hidden-element');
+    } else {
+        var resultsDiv = $('<div>No matching results</div>')
+            .addClass('no-results');
+        $('#results')
+            .empty()
+            .append(resultsDiv);
     }
-    $('#results')
-        .empty()
-        .append(titleDiv)
-        .append(table)
-        .removeClass('hidden-element');
 };
 
 oPollvault.excludeByString = function(oObject, sField, sValue) {
