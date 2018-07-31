@@ -4,28 +4,29 @@
         <title>Pollvault</title>
         <link rel="stylesheet" href="styles/pollvault.css">
     </head>
-    <body id="body">
+    <body class="body" id="body">
         <div>
             <span>Enter Type File (.json): </span>
             <input type="file" id="type"/>
         </div>
         <br>
         <br>
-        <div class="hidden-element" id="search">
-            <table>
-                <tr>
-                    <td>
-                        Match Text (Optional) 
+        <div class="hidden-element search-box" id="search">
+            <div class="search-title"><b>Search NWN Modules</b></div>
+            <table class="modules-search">
+                <tr class="medium-grey">
+                    <td class="small-bold-font">
+                        Match Text <span class="orange-text">(Optional)</span> 
                     </td>
                     <td>
                         <input type="text" id="text"/>
                     </td>
                 </tr>
-                <tr>
-                    <td>
-                        Date Submitted (Optional)
+                <tr class="medium-grey">
+                    <td class="small-bold-font">
+                        Date Submitted <span class="orange-text">(Optional)</span>
                     </td>
-                    <td>
+                    <td class="small-font">
                         From: 
                         <select id="submitted-from-month">
                             <option selected="selected">Jan</option>
@@ -153,11 +154,11 @@
                         </select>
                     </td>
                 </tr>
-                <tr>
-                    <td>
-                        Date Updated (Optional)
+                <tr class="medium-grey">
+                    <td class="small-bold-font">
+                        Date Updated <span class="orange-text">(Optional)</span>
                     </td>
-                    <td>
+                    <td class="small-font">
                         From: 
                         <select id="updated-from-month">
                             <option selected="selected">Jan</option>
@@ -285,8 +286,8 @@
                         </select>
                     </td>
                 </tr>
-                <tr>
-                    <td>
+                <tr class="light-grey">
+                    <td class="small-bold-font">
                         Category
                     </td>
                     <td>
@@ -327,8 +328,8 @@
                         </select>
                     </td>
                 </tr>
-                <tr>
-                    <td>
+                <tr class="light-grey">
+                    <td class="small-bold-font">
                         Don't Show This Category
                     </td>
                     <td>
@@ -369,8 +370,8 @@
                         </select>
                     </td>
                 </tr>
-                <tr>
-                    <td>
+                <tr class="light-grey">
+                    <td class="small-bold-font">
                         Minimum Number of Votes 
                     </td>
                     <td>
@@ -386,8 +387,8 @@
                         </select>
                     </td>
                 </tr>
-                <tr>
-                    <td>
+                <tr class="light-grey">
+                    <td class="small-bold-font">
                         Minimum Rating 
                     </td>
                     <td>
@@ -433,8 +434,8 @@
                         </select>
                     </td>
                 </tr>
-                <tr>
-                    <td>
+                <tr class="light-grey">
+                    <td class="small-bold-font">
                         Which Version?
                     </td>
                     <td>
@@ -506,11 +507,11 @@
                         </select>
                     </td>
                 </tr>
-                <tr>
-                    <td>
+                <tr class="light-grey">
+                    <td class="small-bold-font">
                         Levels
                     </td>
-                    <td>
+                    <td class="tiny-font">
                         From: <select id="min-level">
                             <option selected="selected">1</option>
                             <option>2</option>
@@ -600,11 +601,11 @@
                         </select>
                     </td>
                 </tr>
-                <tr>
-                    <td>
+                <tr class="medium-grey">
+                    <td class="small-bold-font">
                         Number of Players
                     </td>
-                    <td>
+                    <td class="tiny-font">
                         From: <select id="min-players">
                             <option selected="selected">1</option>
                             <option>2</option>
@@ -742,11 +743,11 @@
                         </select>
                     </td>
                 </tr>
-                <tr>
-                    <td>
+                <tr class="light-grey">
+                    <td class="small-bold-font">
                         Gameplay Hours
                     </td>
-                    <td>
+                    <td class="tiny-font">
                         From: <select id="min-length">
                             <option selected="selected">Doesn't Matter</option>
                             <option><1</option>
@@ -878,8 +879,8 @@
                         </select>
                     </td>
                 </tr>
-                <tr>
-                    <td>
+                <tr class="light-grey">
+                    <td class="small-bold-font">
                         Single or Multiplayer 
                     </td>
                     <td>
@@ -892,8 +893,8 @@
                         </select>
                     </td>
                 </tr>
-                <tr>
-                    <td>
+                <tr class="light-grey">
+                    <td class="small-bold-font">
                         DM Needed 
                     </td>
                     <td>
@@ -907,40 +908,40 @@
                         </select>
                     </td>
                 </tr>
-                <tr>
-                    <td>
+                <tr class="medium-grey">
+                    <td class="small-bold-font">
                         Alignments 
                     </td>
                     <td>
                         <input type="text" id="alignment"/>
                     </td>
                 </tr>
-                <tr>
-                    <td>
+                <tr class="medium-grey">
+                    <td class="small-bold-font">
                         Races 
                     </td>
                     <td>
                         <input type="text" id="race"/>
                     </td>
                 </tr>
-                <tr>
-                    <td>
+                <tr class="medium-grey">
+                    <td class="small-bold-font">
                         Classes 
                     </td>
                     <td>
                         <input type="text" id="class"/>
                     </td>
                 </tr>
-                <tr>
-                    <td>
+                <tr class="medium-grey">
+                    <td class="small-bold-font">
                         Setting 
                     </td>
                     <td>
                         <input type="text" id="setting"/>
                     </td>
                 </tr>
-                <tr>
-                    <td>
+                <tr class="light-grey">
+                    <td class="small-bold-font">
                         Tricks & Traps 
                     </td>
                     <td>
@@ -954,8 +955,8 @@
                         </select>
                     </td>
                 </tr>
-                <tr>
-                    <td>
+                <tr class="light-grey">
+                    <td class="small-bold-font">
                         Roleplay 
                     </td>
                     <td>
@@ -969,8 +970,8 @@
                         </select>
                     </td>
                 </tr>
-                <tr>
-                    <td>
+                <tr class="light-grey">
+                    <td class="small-bold-font">
                         Hack & Slash 
                     </td>
                     <td>
@@ -984,8 +985,8 @@
                         </select>
                     </td>
                 </tr>
-                <tr>
-                    <td>
+                <tr class="light-grey">
+                    <td class="small-bold-font">
                         Scope 
                     </td>
                     <td>
@@ -1000,8 +1001,8 @@
                         </select>
                     </td>
                 </tr>
-                <tr>
-                    <td>
+                <tr class="light-grey">
+                    <td class="small-bold-font">
                         Content Rating 
                     </td>
                     <td>
@@ -1015,8 +1016,8 @@
                         </select>
                     </td>
                 </tr>
-                <tr>
-                    <td>
+                <tr class="light-grey">
+                    <td class="small-bold-font">
                         Language 
                     </td>
                     <td>
@@ -1036,8 +1037,8 @@
                         </select>
                     </td>
                 </tr>
-                <tr>
-                    <td>
+                <tr class="medium-grey">
+                    <td class="small-bold-font">
                         Submit 
                     </td>
                     <td>
@@ -1046,7 +1047,7 @@
                 </tr>
             </table>
         </div>
-        <div id="results">
+        <div class="modules-result" id="results">
         </div>
         <script src="./scripts/jquery-3.1.1.js"></script>
         <script src="./scripts/pollvault.js"></script>

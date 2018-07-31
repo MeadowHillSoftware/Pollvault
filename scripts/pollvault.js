@@ -80,10 +80,12 @@ oPollvault.checkLength = function (oObject, sMin, sMax, sField) {
 
 oPollvault.displayResults = function(oObject, sType) {
     var aMods = Object.keys(oObject);
-    var table = $('<table></table>');
+    var table = $('<table></table>')
+        .addClass('small-font');
     var headerRow = $('<tr></tr>');
     var titleCell = $('<td>Title</td>');
-    headerRow.append(titleCell);
+    headerRow.append(titleCell)
+        .addClass('small-bold-font');
     var creatorCell = $('<td>Author</td>');
     headerRow.append(creatorCell);
     var submittedCell = $('<td>Date<br>Submitted</td>');
@@ -97,8 +99,13 @@ oPollvault.displayResults = function(oObject, sType) {
     var minPlayersCell = $('<td>Min #<br>Players</td>');
     headerRow.append(minPlayersCell);
     var maxPlayersCell = $('<td>Max #<br>Players</td>');
-    headerRow.append(maxPlayersCell);
+    headerRow
+        .append(maxPlayersCell)
+        .addClass('medium-grey');
     table.append(headerRow);
+    var titleDiv = $('<div><b>Results</b></div>');
+    titleDiv.addClass('results-title');
+    var sClass = "light-grey";
     for (var m = 0; m < aMods.length; m++) {
         var sFolder = aMods[m];
         var oMod = oObject[sFolder];
@@ -134,7 +141,7 @@ oPollvault.displayResults = function(oObject, sType) {
         if (sSubmittedDate[0] === "0") {
             sSubmittedDate = sSubmittedDate.slice(1, 2);
         }
-        sSubmitted = sSubmittedMonth + "-" + sSubmittedDate + "-" + sSubmittedYear;
+        sSubmitted = sSubmittedMonth + "/" + sSubmittedDate + "/" + sSubmittedYear;
         var updatedDate = $('<td></td>');
         var iUpdated = oMod["Updated"];
         var sUpdated = String(iUpdated);
@@ -148,7 +155,7 @@ oPollvault.displayResults = function(oObject, sType) {
         if (sUpdatedDate[0] === "0") {
             sUpdatedDate = sUpdatedDate.slice(1, 2);
         }
-        sUpdated = sUpdatedMonth + "-" + sUpdatedDate + "-" + sUpdatedYear;
+        sUpdated = sUpdatedMonth + "/" + sUpdatedDate + "/" + sUpdatedYear;
         submittedDate.append(sSubmitted);
         row.append(submittedDate);
         updatedDate.append(sUpdated);
@@ -168,13 +175,21 @@ oPollvault.displayResults = function(oObject, sType) {
         var maxPlayersCell = $('<td></td>');
         var sMaxPlayers = oMod["Max # Players"];
         maxPlayersCell.append(sMaxPlayers);
-        row.append(maxPlayersCell);
+        row
+            .append(maxPlayersCell)
+            .addClass(sClass);
+        if (sClass === "light-grey") {
+            sClass = "medium-grey";
+        } else {
+            sClass = "light-grey";
+        }
         table.append(row);
     }
     $('#results')
         .empty()
-        .append('<br>')
-        .append(table);
+        .append(titleDiv)
+        .append(table)
+        .removeClass('hidden-element');
 };
 
 oPollvault.excludeByString = function(oObject, sField, sValue) {
