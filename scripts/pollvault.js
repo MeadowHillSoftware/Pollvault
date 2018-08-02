@@ -382,7 +382,15 @@ oPollvault.handleModulesColumnClick = function(event) {
         oPollvault.sColumn = sId;
         oPollvault.sDirection = "forward";
     }
-    if (sId === "min-level-text") {
+    if (sId === "title-text") {
+        oObject = oPollvault.oTitles;
+    } else if (sId === "creator-text") {
+        oObject = oPollvault.oAuthors;
+    } else if (sId === "submitted-text") {
+        oObject = oPollvault.oSubmitted;
+    } else if (sId === "updated-text") {
+        oObject = oPollvault.oUpdated;
+    } else if (sId === "min-level-text") {
         oObject = oPollvault.oMinLevels;
     } else if (sId === "max-level-text") {
         oObject = oPollvault.oMaxLevels;
@@ -390,12 +398,6 @@ oPollvault.handleModulesColumnClick = function(event) {
         oObject = oPollvault.oMinPlayers;
     } else if (sId === "max-players-text") {
         oObject = oPollvault.oMaxPlayers;
-    } else if (sId === "updated-text") {
-        oObject = oPollvault.oUpdated;
-    } else if (sId === "submitted-text") {
-        oObject = oPollvault.oSubmitted;
-    } else if (sId === "creator-text") {
-        oObject = oPollvault.oAuthors;
     }
     oPollvault.displayResults(oObject, "modules");
 };
