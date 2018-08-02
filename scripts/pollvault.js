@@ -392,6 +392,8 @@ oPollvault.handleModulesColumnClick = function(event) {
         oObject = oPollvault.oMaxPlayers;
     } else if (sId === "updated-text") {
         oObject = oPollvault.oUpdated;
+    } else if (sId === "submitted-text"); {
+        oObject = oPollvault.oSubmitted;
     }
     oPollvault.displayResults(oObject, "modules");
 };
@@ -819,6 +821,7 @@ oPollvault.sortModules = function(aKeys, sColumn) {
         "max-players-text", 
         "min-level-text", 
         "min-players-text",
+        "submitted-text",
         "updated-text"
     ];
     if (aMinMax.indexOf(sColumn) !== -1) {
