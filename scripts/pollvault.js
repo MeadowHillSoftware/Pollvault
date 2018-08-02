@@ -388,6 +388,8 @@ oPollvault.handleModulesColumnClick = function(event) {
         oObject = oPollvault.oMaxLevels;
     } else if (sId === "min-players-text") {
         oObject = oPollvault.oMinPlayers;
+    } else if (sId === "max-players-text") {
+        oObject = oPollvault.oMaxPlayers;
     }
     oPollvault.displayResults(oObject, "modules");
 };
