@@ -384,8 +384,10 @@ oPollvault.handleModulesColumnClick = function(event) {
     }
     if (sId === "min-level-text") {
         oObject = oPollvault.oMinLevels;
-    } else if (sId = "max-level-text") {
+    } else if (sId === "max-level-text") {
         oObject = oPollvault.oMaxLevels;
+    } else if (sId === "min-players-text") {
+        oObject = oPollvault.oMinPlayers;
     }
     oPollvault.displayResults(oObject, "modules");
 };
@@ -834,10 +836,10 @@ oPollvault.sortModules = function(aKeys, sColumn) {
             }
         } else {
             aFirst.sort(function(a, b){return b-a});
-            if (bAny === true) {
+            if (bUndefined === true) {
                 aFirst.unshift("undefined");
             }
-            if (bUndefined === true) {
+            if (bAny === true) {
                 aFirst.push("Any");
             }
         }
