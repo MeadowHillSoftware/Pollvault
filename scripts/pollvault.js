@@ -157,7 +157,7 @@ oPollvault.displayResults = function(oObject, sType) {
         var sClass = "light-grey";
         var sColumn = oPollvault.sColumn;
         if (sColumn !== "folder") {
-            aKeys = oPollvault.sortModules(aKeys, sColumn);
+            aKeys = oPollvault.sortModules(aKeys, oObject, sColumn);
         }
         for (var p = 0; p < aKeys.length; p++) {
             var sProperty = String(aKeys[p]);
@@ -392,8 +392,10 @@ oPollvault.handleModulesColumnClick = function(event) {
         oObject = oPollvault.oMaxPlayers;
     } else if (sId === "updated-text") {
         oObject = oPollvault.oUpdated;
-    } else if (sId === "submitted-text"); {
+    } else if (sId === "submitted-text") {
         oObject = oPollvault.oSubmitted;
+    } else if (sId === "creator-text") {
+        oObject = oPollvault.oAuthors;
     }
     oPollvault.displayResults(oObject, "modules");
 };
@@ -814,7 +816,7 @@ oPollvault.searchByString = function(oObject, sField, sValue) {
     return oResults;
 };
 
-oPollvault.sortModules = function(aKeys, sColumn) {
+oPollvault.sortModules = function(aKeys, oObject, sColumn) {
     var sDirection = oPollvault.sDirection;
     var aMinMax = [
         "max-level-text", 
@@ -855,6 +857,33 @@ oPollvault.sortModules = function(aKeys, sColumn) {
             if (bAny === true) {
                 aNew.push("Any");
             }
+        }
+    } else {
+        var oTemp = {};
+        for (var k = 0; k < aKeys.length; k++) {
+            var sKey = aKeys[k];
+            var sNewKey = sKey.toLowerCase();
+            oTemp[sNewKey] = oObject[sKey];
+        }
+        var aTemp = Object.keys(oTemp);
+        aTemp.sort()
+        if (sDirection === "backward") {
+            aTemp.reverse();
+        }
+        var aNew = [];
+        var oResults = oPollvault.oResults;
+        if (sColumn === "creator-text") {
+            var sField = "Author";
+        } else {
+            var sField = "Title";
+        }
+        for (var k = 0; k < aTemp.length; k++) {
+            var sTemp = aTemp[k];
+            var aFolders = oTemp[sTemp];
+            var sFolder = aFolders[0];
+            var oMod = oResults[sFolder];
+            var sValue = oMod[sField];
+            aNew.push(sValue);
         }
     }
     return aNew;
