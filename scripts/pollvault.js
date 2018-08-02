@@ -390,6 +390,8 @@ oPollvault.handleModulesColumnClick = function(event) {
         oObject = oPollvault.oMinPlayers;
     } else if (sId === "max-players-text") {
         oObject = oPollvault.oMaxPlayers;
+    } else if (sId === "updated-text") {
+        oObject = oPollvault.oUpdated;
     }
     oPollvault.displayResults(oObject, "modules");
 };
@@ -812,9 +814,15 @@ oPollvault.searchByString = function(oObject, sField, sValue) {
 
 oPollvault.sortModules = function(aKeys, sColumn) {
     var sDirection = oPollvault.sDirection;
-    var aMinMax = ["max-level-text", "max-players-text", "min-level-text", "min-players-text"];
+    var aMinMax = [
+        "max-level-text", 
+        "max-players-text", 
+        "min-level-text", 
+        "min-players-text",
+        "updated-text"
+    ];
     if (aMinMax.indexOf(sColumn) !== -1) {
-        var aFirst = [];
+        var aNew = [];
         var bAny = false;
         var bUndefined = false;
         for (var k = 0; k < aKeys.length; k++) {
@@ -825,28 +833,28 @@ oPollvault.sortModules = function(aKeys, sColumn) {
                 bUndefined = true;
             } else {
                 var iKey = Number(sKey);
-                aFirst.push(iKey);
+                aNew.push(iKey);
             }
         }
         if (sDirection === "forward") {
-            aFirst.sort(function(a, b){return a-b});
+            aNew.sort(function(a, b){return a-b});
             if (bAny === true) {
-                aFirst.unshift("Any");
+                aNew.unshift("Any");
             }
             if (bUndefined === true) {
-                aFirst.push("undefined");
+                aNew.push("undefined");
             }
         } else {
-            aFirst.sort(function(a, b){return b-a});
+            aNew.sort(function(a, b){return b-a});
             if (bUndefined === true) {
-                aFirst.unshift("undefined");
+                aNew.unshift("undefined");
             }
             if (bAny === true) {
-                aFirst.push("Any");
+                aNew.push("Any");
             }
         }
-        return aFirst;
     }
+    return aNew;
 };
 
 oPollvault.addMainEventListeners();
