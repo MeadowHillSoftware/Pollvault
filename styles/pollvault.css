@@ -2,6 +2,10 @@
     background-color: rgb(211,204,194);
 }
 
+.column:hover {
+    color: rgb(2,2,237);
+}
+
 .hidden-element {
     visibility: hidden;
 }
@@ -16,7 +20,7 @@
 
 .modules-result {
     margin: auto;
-    width: 950px;
+    width: 940px;
 }
 
 .modules-search {
@@ -45,7 +49,7 @@
     margin-right: auto;
     margin-top: 90px;
     text-align: center;
-    width: 950px;
+    width: 940px;
 }
 
 .search {

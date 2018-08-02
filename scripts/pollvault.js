@@ -78,28 +78,76 @@ oPollvault.checkLength = function (oObject, sMin, sMax, sField) {
     return oResults;
 };
 
+oPollvault.convertUndefinedToDash = function(sString) {
+    if (sString === undefined) {
+        sString = "--";
+    }
+    return sString;
+};
+
 oPollvault.displayResults = function(oObject, sType) {
-    var aMods = Object.keys(oObject);
-    if (aMods.length !== 0) {
+    var aKeys = Object.keys(oObject);
+    if (aKeys.length !== 0) {
+        var oResults = oPollvault.oResults;
         var table = $('<table></table>')
             .addClass('small-font');
         var headerRow = $('<tr></tr>');
-        var titleCell = $('<td>Title</td>');
+        var titleCell = $('<td></td>')
+            .addClass('column');
+        var titleText = $('<u>Title</u>')
+            .attr('id', 'title-text')
+            .on('click', oPollvault.handleModulesColumnClick);
+        titleCell.append(titleText);
         headerRow.append(titleCell)
             .addClass('small-bold-font');
-        var creatorCell = $('<td>Author</td>');
+        var creatorCell = $('<td></td>')
+            .addClass('column');
+        var creatorText = $('<u>Author</u>')
+            .attr('id', 'creator-text')
+            .on('click', oPollvault.handleModulesColumnClick);
+        creatorCell.append(creatorText);
         headerRow.append(creatorCell);
-        var submittedCell = $('<td>Date<br>Submitted</td>');
+        var submittedCell = $('<td></td>')
+            .addClass('column');
+        var submittedText = $('<u>Date<br>Submitted</u>')
+            .attr('id', 'submitted-text')
+            .on('click', oPollvault.handleModulesColumnClick);
+        submittedCell.append(submittedText);
         headerRow.append(submittedCell);
-        var updatedCell = $('<td>Date<br>Updated</td>');
+        var updatedCell = $('<td></td>')
+            .addClass('column');
+        var updatedText = $('<u>Date<br>Updated</u>')
+            .attr('id', 'updated-text')
+            .on('click', oPollvault.handleModulesColumnClick);
+        updatedCell.append(updatedText);
         headerRow.append(updatedCell);
-        var minLevelCell = $('<td>Min<br>Level</td>');
+        var minLevelCell = $('<td></td>')
+            .addClass('column');
+        var minLevelText = $('<u>Min<br>Level</u>')
+            .attr('id', 'min-level-text')
+            .on('click', oPollvault.handleModulesColumnClick);
+        minLevelCell.append(minLevelText);
         headerRow.append(minLevelCell);
-        var maxLevelCell = $('<td>Max<br>Level</td>');
+        var maxLevelCell = $('<td></td>')
+            .addClass('column');
+        var maxLevelText = $('<u>Max<br>Level</u>')
+            .attr('id', 'max-level-text')
+            .on('click', oPollvault.handleModulesColumnClick);
+        maxLevelCell.append(maxLevelText);
         headerRow.append(maxLevelCell);
-        var minPlayersCell = $('<td>Min #<br>Players</td>');
+        var minPlayersCell = $('<td></td>')
+            .addClass('column');
+        var minPlayersText = $('<u>Min #<br>Players</u>')
+            .attr('id', 'min-players-text')
+            .on('click', oPollvault.handleModulesColumnClick);
+        minPlayersCell.append(minPlayersText);
         headerRow.append(minPlayersCell);
-        var maxPlayersCell = $('<td>Max #<br>Players</td>');
+        var maxPlayersCell = $('<td></td>')
+            .addClass('column');
+        var maxPlayersText = $('<u>Max #<br>Players</u>')
+            .attr('id', 'max-players-text')
+            .on('click', oPollvault.handleModulesColumnClick);
+        maxPlayersCell.append(maxPlayersText);
         headerRow
             .append(maxPlayersCell)
             .addClass('medium-grey');
@@ -107,84 +155,97 @@ oPollvault.displayResults = function(oObject, sType) {
         var titleDiv = $('<div><b>Results</b></div>');
         titleDiv.addClass('results-title');
         var sClass = "light-grey";
-        for (var m = 0; m < aMods.length; m++) {
-            var sFolder = aMods[m];
-            var oMod = oObject[sFolder];
-            var sTitle = oMod["Title"];
-            if (sTitle.length > 49) {
-                sTitle = sTitle.slice(0, 47) + "...";
+        var sColumn = oPollvault.sColumn;
+        if (sColumn !== "folder") {
+            aKeys = oPollvault.sortModules(aKeys, sColumn);
+        }
+        for (var p = 0; p < aKeys.length; p++) {
+            var sProperty = String(aKeys[p]);
+            var aFolders = oObject[sProperty];
+            for (var m = 0; m < aFolders.length; m++) {
+                var sFolder = aFolders[m];
+                var oMod = oResults[sFolder];
+                var sTitle = oMod["Title"];
+                if (sTitle.length > 49) {
+                    sTitle = sTitle.slice(0, 47) + "...";
+                }
+                var url = "https://neverwintervault.org/rolovault/projects/nwn1/" + sType + "/" + sFolder;
+                var link = $('<a />')
+                    .attr('href', url)
+                    .text(sTitle);
+                var nameCell = $('<td></td>');
+                nameCell.append(link);
+                var row = $('<tr></tr>');
+                row.append(nameCell);
+                var authorCell = $('<td></td>');
+                var sAuthor = oMod["Author"];
+                if (sAuthor.length > 29) {
+                    sAuthor = sAuthor.slice(0, 27) + "...";
+                }
+                authorCell.append(sAuthor);
+                row.append(authorCell);
+                var submittedDate = $('<td></td>');
+                var iSubmitted = oMod["Submitted"];
+                var sSubmitted = String(iSubmitted);
+                var sSubmittedYear = sSubmitted.slice(0, 4);
+                sSubmittedYear = sSubmittedYear.slice(2, 4);
+                var sSubmittedMonth = sSubmitted.slice(4, 6);
+                if (sSubmittedMonth[0] === "0") {
+                    sSubmittedMonth = sSubmittedMonth.slice(1, 2);
+                }
+                var sSubmittedDate = sSubmitted.slice(6, 8);
+                if (sSubmittedDate[0] === "0") {
+                    sSubmittedDate = sSubmittedDate.slice(1, 2);
+                }
+                sSubmitted = sSubmittedMonth + "/" + sSubmittedDate + "/" + sSubmittedYear;
+                var updatedDate = $('<td></td>');
+                var iUpdated = oMod["Updated"];
+                var sUpdated = String(iUpdated);
+                sUpdated = oPollvault.convertUndefinedToDash(sUpdated);
+                var sUpdatedYear = sUpdated.slice(0, 4);
+                sUpdatedYear = sUpdatedYear.slice(2, 4);
+                var sUpdatedMonth = sUpdated.slice(4, 6);
+                if (sUpdatedMonth[0] === "0") {
+                    sUpdatedMonth = sUpdatedMonth.slice(1, 2);
+                }
+                var sUpdatedDate = sUpdated.slice(6, 8);
+                if (sUpdatedDate[0] === "0") {
+                    sUpdatedDate = sUpdatedDate.slice(1, 2);
+                }
+                sUpdated = sUpdatedMonth + "/" + sUpdatedDate + "/" + sUpdatedYear;
+                submittedDate.append(sSubmitted);
+                row.append(submittedDate);
+                updatedDate.append(sUpdated);
+                row.append(updatedDate);
+                var minLevelCell = $('<td></td>');
+                var sMinLevel = oMod["Min Character Level"];
+                sMinLevel = oPollvault.convertUndefinedToDash(sMinLevel);
+                minLevelCell.append(sMinLevel);
+                row.append(minLevelCell);
+                var maxLevelCell = $('<td></td>');
+                var sMaxLevel = oMod["Max Character Level"];
+                sMaxLevel = oPollvault.convertUndefinedToDash(sMaxLevel);
+                maxLevelCell.append(sMaxLevel);
+                row.append(maxLevelCell);
+                var minPlayersCell = $('<td></td>');
+                var sMinPlayers = oMod["Min # Players"];
+                sMinPlayers = oPollvault.convertUndefinedToDash(sMinPlayers);
+                minPlayersCell.append(sMinPlayers);
+                row.append(minPlayersCell);
+                var maxPlayersCell = $('<td></td>');
+                var sMaxPlayers = oMod["Max # Players"];
+                sMaxPlayers = oPollvault.convertUndefinedToDash(sMaxPlayers);
+                maxPlayersCell.append(sMaxPlayers);
+                row
+                    .append(maxPlayersCell)
+                    .addClass(sClass);
+                if (sClass === "light-grey") {
+                    sClass = "medium-grey";
+                } else {
+                    sClass = "light-grey";
+                }
+                table.append(row);
             }
-            var url = "https://neverwintervault.org/rolovault/projects/nwn1/" + sType + "/" + sFolder;
-            var link = $('<a />')
-                .attr('href', url)
-                .text(sTitle);
-            var nameCell = $('<td></td>');
-            nameCell.append(link);
-            var row = $('<tr></tr>');
-            row.append(nameCell);
-            var authorCell = $('<td></td>');
-            var sAuthor = oMod["Author"];
-            if (sAuthor.length > 29) {
-                sAuthor = sAuthor.slice(0, 27) + "...";
-            }
-            authorCell.append(sAuthor);
-            row.append(authorCell);
-            var submittedDate = $('<td></td>');
-            var iSubmitted = oMod["Submitted"];
-            var sSubmitted = String(iSubmitted);
-            var sSubmittedYear = sSubmitted.slice(0, 4);
-            sSubmittedYear = sSubmittedYear.slice(2, 4);
-            var sSubmittedMonth = sSubmitted.slice(4, 6);
-            if (sSubmittedMonth[0] === "0") {
-                sSubmittedMonth = sSubmittedMonth.slice(1, 2);
-            }
-            var sSubmittedDate = sSubmitted.slice(6, 8);
-            if (sSubmittedDate[0] === "0") {
-                sSubmittedDate = sSubmittedDate.slice(1, 2);
-            }
-            sSubmitted = sSubmittedMonth + "/" + sSubmittedDate + "/" + sSubmittedYear;
-            var updatedDate = $('<td></td>');
-            var iUpdated = oMod["Updated"];
-            var sUpdated = String(iUpdated);
-            var sUpdatedYear = sUpdated.slice(0, 4);
-            sUpdatedYear = sUpdatedYear.slice(2, 4);
-            var sUpdatedMonth = sUpdated.slice(4, 6);
-            if (sUpdatedMonth[0] === "0") {
-                sUpdatedMonth = sUpdatedMonth.slice(1, 2);
-            }
-            var sUpdatedDate = sUpdated.slice(6, 8);
-            if (sUpdatedDate[0] === "0") {
-                sUpdatedDate = sUpdatedDate.slice(1, 2);
-            }
-            sUpdated = sUpdatedMonth + "/" + sUpdatedDate + "/" + sUpdatedYear;
-            submittedDate.append(sSubmitted);
-            row.append(submittedDate);
-            updatedDate.append(sUpdated);
-            row.append(updatedDate);
-            var minLevelCell = $('<td></td>');
-            var sMinLevel = oMod["Min Character Level"];
-            minLevelCell.append(sMinLevel);
-            row.append(minLevelCell);
-            var maxLevelCell = $('<td></td>');
-            var sMaxLevel = oMod["Max Character Level"];
-            maxLevelCell.append(sMaxLevel);
-            row.append(maxLevelCell);
-            var minPlayersCell = $('<td></td>');
-            var sMinPlayers = oMod["Min # Players"];
-            minPlayersCell.append(sMinPlayers);
-            row.append(minPlayersCell);
-            var maxPlayersCell = $('<td></td>');
-            var sMaxPlayers = oMod["Max # Players"];
-            maxPlayersCell.append(sMaxPlayers);
-            row
-                .append(maxPlayersCell)
-                .addClass(sClass);
-            if (sClass === "light-grey") {
-                sClass = "medium-grey";
-            } else {
-                sClass = "light-grey";
-            }
-            table.append(row);
         }
         $('#results')
             .empty()
@@ -302,6 +363,29 @@ oPollvault.handleFileUpload = function(event) {
     oPollvault.reader = new FileReader();
     oPollvault.reader.readAsText(file);
     oPollvault.reader.onload = oPollvault.handleType;
+};
+
+oPollvault.handleModulesColumnClick = function(event) {
+    event.stopPropagation();
+    var target = $(event.target);
+    var sId = target.attr('id');
+    var oObject = {};
+    var sColumn = oPollvault.sColumn;
+    var sDirection = oPollvault.sDirection;
+    if (sId === sColumn) {
+        if (sDirection === "forward") {
+            oPollvault.sDirection = "backward";
+        } else {
+            oPollvault.sDirection = "forward";
+        }
+    } else {
+        oPollvault.sColumn = sId;
+        oPollvault.sDirection = "forward";
+    }
+    if (sId === "min-level-text") {
+        oObject = oPollvault.oMinLevels;
+    }
+    oPollvault.displayResults(oObject, "modules");
 };
 
 oPollvault.handleSearchButtonClick = function(event) {
@@ -472,7 +556,90 @@ oPollvault.handleSearchButtonClick = function(event) {
     if (sLanguage !== "Doesn't Matter") {
         oResults = oPollvault.searchByString(oResults, "Language", sLanguage);
     }
-    oPollvault.displayResults(oResults, "modules");
+    oPollvault.oResults = oResults;
+    var oFolders = {};
+    var oTitles = {};
+    var oAuthors = {};
+    var oSubmitted = {};
+    var oUpdated = {};
+    var oMinLevels = {};
+    var oMaxLevels = {};
+    var oMinPlayers = {};
+    var oMaxPlayers = {};
+    var aMods = Object.keys(oResults);
+    for (var m = 0; m < aMods.length; m++) {
+        var sFolder = aMods[m];
+        oFolders[sFolder] = [sFolder];
+        var oMod = oResults[sFolder];
+        var aTitles = Object.keys(oTitles);
+        var aAuthors = Object.keys(oAuthors);
+        var aSubmitted = Object.keys(oSubmitted);
+        var aUpdated = Object.keys(oUpdated);
+        var aMinLevels = Object.keys(oMinLevels);
+        var aMaxLevels = Object.keys(oMaxLevels);
+        var aMinPlayers = Object.keys(oMinPlayers);
+        var aMaxPlayers = Object.keys(oMaxPlayers);
+        var sTitle = oMod["Title"];
+        if (aTitles.indexOf(sTitle) === -1) {
+            oTitles[sTitle] = [sFolder];
+        } else {
+            oTitles[sTitle].push(sFolder);
+        }
+        var sAuthor = oMod["Author"];
+        if (aAuthors.indexOf(sAuthor) === -1) {
+            oAuthors[sAuthor] = [sFolder];
+        } else {
+            oAuthors[sAuthor].push(sFolder);
+        }
+        var sSubmitted = oMod["Submitted"];
+        if (aSubmitted.indexOf(String(sSubmitted)) === -1) {
+            oSubmitted[sSubmitted] = [sFolder];
+        } else {
+            oSubmitted[sSubmitted].push(sFolder);
+        }
+        var sUpdated = oMod["Updated"];
+        if (aUpdated.indexOf(String(sUpdated)) === -1) {
+            oUpdated[sUpdated] = [sFolder];
+        } else {
+            oUpdated[sUpdated].push(sFolder);
+        }
+        var sMinLevel = oMod["Min Character Level"];
+        if (aMinLevels.indexOf(String(sMinLevel)) === -1) {
+            oMinLevels[sMinLevel] = [sFolder];
+        } else {
+            oMinLevels[sMinLevel].push(sFolder);
+        }
+        var sMaxLevel = oMod["Max Character Level"];
+        if (aMaxLevels.indexOf(String(sMaxLevel)) === -1) {
+            oMaxLevels[sMaxLevel] = [sFolder];
+        } else {
+            oMaxLevels[sMaxLevel].push(sFolder);
+        }
+        var sMinPlayer = oMod["Min # Players"];
+        if (aMinPlayers.indexOf(String(sMinPlayer)) === -1) {
+            oMinPlayers[sMinPlayer] = [sFolder];
+        } else {
+            oMinPlayers[sMinPlayer].push(sFolder);
+        }
+        var sMaxPlayer = oMod["Max # Players"];
+        if (aMaxPlayers.indexOf(String(sMaxPlayer)) === -1) {
+            oMaxPlayers[sMaxPlayer] = [sFolder];
+        } else {
+            oMaxPlayers[sMaxPlayer].push(sFolder);
+        }
+    }
+    oPollvault.oFolders = oFolders;
+    oPollvault.oTitles = oTitles;
+    oPollvault.oAuthors = oAuthors;
+    oPollvault.oSubmitted = oSubmitted;
+    oPollvault.oUpdated = oUpdated;
+    oPollvault.oMinLevels = oMinLevels;
+    oPollvault.oMaxLevels = oMaxLevels;
+    oPollvault.oMinPlayers = oMinPlayers;
+    oPollvault.oMaxPlayers = oMaxPlayers;
+    oPollvault.sColumn = "folder";
+    oPollvault.sDirection = "forward";
+    oPollvault.displayResults(oFolders, "modules");
 };
 
 oPollvault.handleType = function(event) {
@@ -635,6 +802,45 @@ oPollvault.searchByString = function(oObject, sField, sValue) {
         }
     }
     return oResults;
+};
+
+oPollvault.sortModules = function(aKeys, sColumn) {
+    var sDirection = oPollvault.sDirection;
+    var aMinMax = ["max-level-text", "max-players-text", "min-level-text", "min-players-text"];
+    if (aMinMax.indexOf(sColumn) !== -1) {
+        var aFirst = [];
+        var bAny = false;
+        var bUndefined = false;
+        for (var k = 0; k < aKeys.length; k++) {
+            var sKey = aKeys[k];
+            if (sKey === "Any") {
+                bAny = true;
+            } else if (sKey === "undefined") {
+                bUndefined = true;
+            } else {
+                var iKey = Number(sKey);
+                aFirst.push(iKey);
+            }
+        }
+        if (sDirection === "forward") {
+            aFirst.sort(function(a, b){return a-b});
+            if (bAny === true) {
+                aFirst.unshift("Any");
+            }
+            if (bUndefined === true) {
+                aFirst.push("undefined");
+            }
+        } else {
+            aFirst.sort(function(a, b){return b-a});
+            if (bAny === true) {
+                aFirst.unshift("undefined");
+            }
+            if (bUndefined === true) {
+                aFirst.push("Any");
+            }
+        }
+        return aFirst;
+    }
 };
 
 oPollvault.addMainEventListeners();
