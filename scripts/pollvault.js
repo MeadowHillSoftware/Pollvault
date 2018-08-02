@@ -384,6 +384,8 @@ oPollvault.handleModulesColumnClick = function(event) {
     }
     if (sId === "min-level-text") {
         oObject = oPollvault.oMinLevels;
+    } else if (sId = "max-level-text") {
+        oObject = oPollvault.oMaxLevels;
     }
     oPollvault.displayResults(oObject, "modules");
 };
