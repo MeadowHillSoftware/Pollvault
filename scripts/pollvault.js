@@ -29,6 +29,7 @@ oPollvault.addMainEventListeners = function() {
     $('#modules-updated-from-year').on('change', oPollvault.handleDateChange);
     $('#modules-updated-to-month').on('change', oPollvault.handleDateChange);
     $('#modules-updated-to-year').on('change', oPollvault.handleDateChange);
+    $('#portraits-search-button').on('click', oPollvault.handlePortraitsSearch);
     $('#type').on('change', oPollvault.handleFileUpload);
 };
 
@@ -955,6 +956,149 @@ oPollvault.handleModulesSearch = function(event) {
     oPollvault.displayModulesResults(oFolders, "modules");
 };
 
+oPollvault.handlePortraitsSearch = function(event) {
+    event.stopPropagation();
+    var oResults = oPollvault.oCurrentType;
+    var sText = $('#portraits-text').val();
+    if (sText !== "") {
+        oResults = oPollvault.matchText(oResults, sText);
+    }
+    var oMonthNumberMap = {
+        "Jan": "01",
+        "Feb": "02",
+        "Mar": "03",
+        "Apr": "04",
+        "May": "05",
+        "Jun": "06",
+        "Jul": "07",
+        "Aug": "08",
+        "Sep": "09",
+        "Oct": "10",
+        "Nov": "11",
+        "Dec": "12"
+    };
+    var sSubmittedFromMonth = $('#portraits-submitted-from-month').val();
+    sSubmittedFromMonth = oMonthNumberMap[sSubmittedFromMonth];
+    var sSubmittedFromDate = $('#portraits-submitted-from-date').val();
+    if (sSubmittedFromDate.length === 1) {
+        sSubmittedFromDate = "0" + sSubmittedFromDate;
+    }
+    var sSubmittedFromYear = $('#portraits-submitted-from-year').val();
+    var sSubmittedFrom = sSubmittedFromYear + sSubmittedFromMonth + sSubmittedFromDate;
+    var iSubmittedFrom = Number(sSubmittedFrom);
+    var sSubmittedToMonth = $('#portraits-submitted-to-month').val();
+    sSubmittedToMonth = oMonthNumberMap[sSubmittedToMonth]
+    var sSubmittedToDate = $('#portraits-submitted-to-date').val();
+    if (sSubmittedToDate.length === 1) {
+        sSubmittedToDate = "0" + sSubmittedToDate;
+    }
+    var sSubmittedToYear = $('#portraits-submitted-to-year').val();
+    var sSubmittedTo = sSubmittedToYear + sSubmittedToMonth + sSubmittedToDate;
+    var iSubmittedTo = Number(sSubmittedTo);
+    if (iSubmittedFrom > 20020101 || iSubmittedTo < 20131231) {
+        oResults = oPollvault.checkDate(oResults, iSubmittedFrom, iSubmittedTo, "Submitted");
+    }
+    var sUpdatedFromMonth = $('#portraits-updated-from-month').val();
+    sUpdatedFromMonth = oMonthNumberMap[sUpdatedFromMonth];
+    var sUpdatedFromDate = $('#portraits-updated-from-date').val();
+    if (sUpdatedFromDate.length === 1) {
+        sUpdatedFromDate = "0" + sUpdatedFromDate;
+    }
+    var sUpdatedFromYear = $('#portraits-updated-from-year').val();
+    var sUpdatedFrom = sUpdatedFromYear + sUpdatedFromMonth + sUpdatedFromDate;
+    var iUpdatedFrom = Number(sUpdatedFrom);
+    var sUpdatedToMonth = $('#portraits-updated-to-month').val();
+    sUpdatedToMonth = oMonthNumberMap[sUpdatedToMonth]
+    var sUpdatedToDate = $('#portraits-updated-to-date').val();
+    if (sUpdatedToDate.length === 1) {
+        sUpdatedToDate = "0" + sUpdatedToDate;
+    }
+    var sUpdatedToYear = $('#portraits-updated-to-year').val();
+    var sUpdatedTo = sUpdatedToYear + sUpdatedToMonth + sUpdatedToDate;
+    var iUpdatedTo = Number(sUpdatedTo);
+    if (iUpdatedFrom > 20020101 || iUpdatedTo < 20131231) {
+        oResults = oPollvault.checkDate(oResults, iUpdatedFrom, iUpdatedTo, "Updated");
+    }
+    var sCategory = $('#portraits-category').val();
+    if (sCategory !== "Doesn't Matter") {
+        oResults = oPollvault.searchByString(oResults, "Category", sCategory);
+    }
+    var sCategory = $('#portraits-exclude-category').val();
+    if (sCategory !== "Show All") {
+        oResults = oPollvault.excludeByString(oResults, "Category", sCategory);
+    }
+    var sVotes = $('#portraits-votes').val();
+    if (sVotes !== "Doesn't Matter") {
+        var iVotes = Number(sVotes);
+        oResults = oPollvault.greaterThanOrEqualTo(oResults, "Votes", iVotes);
+    }
+    var sRating = $('#portraits-rating').val();
+    if (sRating !== "Doesn't Matter") {
+        var iRating = Number(sRating);
+        oResults = oPollvault.greaterThanOrEqualTo(oResults, "Rating", iRating);
+    }
+    var sVersion = $('#portraits-gender').val();
+    if (sVersion !== "Doesn't Matter") {
+        oResults = oPollvault.searchByString(oResults, "Gender", sVersion);
+    }
+    oPollvault.oResults = oResults;
+    var oFolders = {};
+    var oTitles = {};
+    var oAuthors = {};
+    var oSubmitted = {};
+    var oUpdated = {};
+    var oMinLevels = {};
+    var oMaxLevels = {};
+    var oMinPlayers = {};
+    var oMaxPlayers = {};
+    var aMods = Object.keys(oResults);
+    for (var m = 0; m < aMods.length; m++) {
+        var sFolder = aMods[m];
+        oFolders[sFolder] = [sFolder];
+        var oMod = oResults[sFolder];
+        var aTitles = Object.keys(oTitles);
+        var aAuthors = Object.keys(oAuthors);
+        var aSubmitted = Object.keys(oSubmitted);
+        var aUpdated = Object.keys(oUpdated);
+        var aMinLevels = Object.keys(oMinLevels);
+        var aMaxLevels = Object.keys(oMaxLevels);
+        var aMinPlayers = Object.keys(oMinPlayers);
+        var aMaxPlayers = Object.keys(oMaxPlayers);
+        var sTitle = oMod["Title"];
+        if (aTitles.indexOf(sTitle) === -1) {
+            oTitles[sTitle] = [sFolder];
+        } else {
+            oTitles[sTitle].push(sFolder);
+        }
+        var sAuthor = oMod["Author"];
+        if (aAuthors.indexOf(sAuthor) === -1) {
+            oAuthors[sAuthor] = [sFolder];
+        } else {
+            oAuthors[sAuthor].push(sFolder);
+        }
+        var sSubmitted = oMod["Submitted"];
+        if (aSubmitted.indexOf(String(sSubmitted)) === -1) {
+            oSubmitted[sSubmitted] = [sFolder];
+        } else {
+            oSubmitted[sSubmitted].push(sFolder);
+        }
+        var sUpdated = oMod["Updated"];
+        if (aUpdated.indexOf(String(sUpdated)) === -1) {
+            oUpdated[sUpdated] = [sFolder];
+        } else {
+            oUpdated[sUpdated].push(sFolder);
+        }
+    }
+    oPollvault.oFolders = oFolders;
+    oPollvault.oTitles = oTitles;
+    oPollvault.oAuthors = oAuthors;
+    oPollvault.oSubmitted = oSubmitted;
+    oPollvault.oUpdated = oUpdated;
+    oPollvault.sColumn = "folder";
+    oPollvault.sDirection = "forward";
+    oPollvault.displayHakpaksResults(oFolders, "portraits");
+};
+
 oPollvault.handleType = function(event) {
     event.stopPropagation();
     var sType = oPollvault.reader.result;
@@ -964,6 +1108,8 @@ oPollvault.handleType = function(event) {
         $('#modules-search').removeClass('search-interface');
     } else if (sName === "hakpaks") {
         $('#hakpaks-search').removeClass('search-interface');
+    } else if (sName === "portraits") {
+        $('#portraits-search').removeClass('search-interface');
     }
 };
 
