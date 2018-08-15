@@ -11,7 +11,7 @@
         </div>
         <br>
         <br>
-        <div class="hidden-element search-box" id="search">
+        <div class="search-interface search-box" id="modules-search">
             <div class="search-title"><b>Search NWN Modules</b></div>
             <table class="modules-search">
                 <tr class="medium-grey">
@@ -19,7 +19,7 @@
                         Match Text <span class="orange-text">(Optional)</span> 
                     </td>
                     <td>
-                        <input type="text" id="text"/>
+                        <input type="text" id="modules-text"/>
                     </td>
                 </tr>
                 <tr class="medium-grey">
@@ -28,7 +28,7 @@
                     </td>
                     <td class="small-font">
                         From: 
-                        <select id="submitted-from-month">
+                        <select id="modules-submitted-from-month">
                             <option selected="selected">Jan</option>
                             <option>Feb</option>
                             <option>Mar</option>
@@ -42,7 +42,7 @@
                             <option>Nov</option>
                             <option>Dec</option>
                         </select>
-                        <select id="submitted-from-date">
+                        <select id="modules-submitted-from-date">
                             <option selected="selected">1</option>
                             <option>2</option>
                             <option>3</option>
@@ -75,7 +75,7 @@
                             <option>30</option>
                             <option>31</option>
                         </select>
-                        <select id="submitted-from-year">
+                        <select id="modules-submitted-from-year">
                             <option selected="selected">2002</option>
                             <option>2003</option>
                             <option>2004</option>
@@ -91,7 +91,7 @@
                         </select>
                         <br>
                         To: 
-                        <select id="submitted-to-month">
+                        <select id="modules-submitted-to-month">
                             <option>Jan</option>
                             <option>Feb</option>
                             <option>Mar</option>
@@ -105,7 +105,7 @@
                             <option>Nov</option>
                             <option selected="selected">Dec</option>
                         </select>
-                        <select id="submitted-to-date">
+                        <select id="modules-submitted-to-date">
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
@@ -138,7 +138,7 @@
                             <option>30</option>
                             <option selected="selected">31</option>
                         </select>
-                        <select id="submitted-to-year">
+                        <select id="modules-submitted-to-year">
                             <option>2002</option>
                             <option>2003</option>
                             <option>2004</option>
@@ -160,7 +160,7 @@
                     </td>
                     <td class="small-font">
                         From: 
-                        <select id="updated-from-month">
+                        <select id="modules-updated-from-month">
                             <option selected="selected">Jan</option>
                             <option>Feb</option>
                             <option>Mar</option>
@@ -174,7 +174,7 @@
                             <option>Nov</option>
                             <option>Dec</option>
                         </select>
-                        <select id="updated-from-date">
+                        <select id="modules-updated-from-date">
                             <option selected="selected">1</option>
                             <option>2</option>
                             <option>3</option>
@@ -207,7 +207,7 @@
                             <option>30</option>
                             <option>31</option>
                         </select>
-                        <select id="updated-from-year">
+                        <select id="modules-updated-from-year">
                             <option selected="selected">2002</option>
                             <option>2003</option>
                             <option>2004</option>
@@ -223,7 +223,7 @@
                         </select>
                         <br>
                         To: 
-                        <select id="updated-to-month">
+                        <select id="modules-updated-to-month">
                             <option>Jan</option>
                             <option>Feb</option>
                             <option>Mar</option>
@@ -237,7 +237,7 @@
                             <option>Nov</option>
                             <option selected="selected">Dec</option>
                         </select>
-                        <select id="updated-to-date">
+                        <select id="modules-updated-to-date">
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
@@ -270,7 +270,7 @@
                             <option>30</option>
                             <option selected="selected">31</option>
                         </select>
-                        <select id="updated-to-year">
+                        <select id="modules-updated-to-year">
                             <option>2002</option>
                             <option>2003</option>
                             <option>2004</option>
@@ -291,7 +291,7 @@
                         Category
                     </td>
                     <td>
-                        <select id="category">
+                        <select id="modules-category">
                             <option selected="selected">Doesn't Matter</option>
                             <option>BioWare Contest</option>
                             <option>Capture the Flag</option>
@@ -333,7 +333,7 @@
                         Don't Show This Category
                     </td>
                     <td>
-                        <select id="exclude-category">
+                        <select id="modules-exclude-category">
                             <option selected="selected">Show All</option>
                             <option>BioWare Contest</option>
                             <option>Capture the Flag</option>
@@ -375,7 +375,7 @@
                         Minimum Number of Votes 
                     </td>
                     <td>
-                        <select id="votes">
+                        <select id="modules-votes">
                             <option selected="selected">Doesn't Matter</option>
                             <option>1</option>
                             <option>2</option>
@@ -392,7 +392,7 @@
                         Minimum Rating 
                     </td>
                     <td>
-                        <select id="rating">
+                        <select id="modules-rating">
                             <option selected="selected">Doesn't Matter</option>
                             <option>10.00</option>
                             <option>9.75</option>
@@ -1042,7 +1042,426 @@
                         Submit 
                     </td>
                     <td>
-                        <button id="search-button">Search</button>
+                        <button id="modules-search-button">Search</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="search-interface search-box" id="hakpaks-search">
+            <div class="search-title"><b>Search NWN Hakpaks</b></div>
+            <table class="modules-search">
+                <tr class="medium-grey">
+                    <td class="small-bold-font">
+                        Match Text <span class="orange-text">(Optional)</span> 
+                    </td>
+                    <td>
+                        <input type="text" id="hakpaks-text"/>
+                    </td>
+                </tr>
+                <tr class="medium-grey">
+                    <td class="small-bold-font">
+                        Date Submitted <span class="orange-text">(Optional)</span>
+                    </td>
+                    <td class="small-font">
+                        From: 
+                        <select id="hakpaks-submitted-from-month">
+                            <option selected="selected">Jan</option>
+                            <option>Feb</option>
+                            <option>Mar</option>
+                            <option>Apr</option>
+                            <option>May</option>
+                            <option>Jun</option>
+                            <option>Jul</option>
+                            <option>Aug</option>
+                            <option>Sep</option>
+                            <option>Oct</option>
+                            <option>Nov</option>
+                            <option>Dec</option>
+                        </select>
+                        <select id="hakpaks-submitted-from-date">
+                            <option selected="selected">1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                            <option>13</option>
+                            <option>14</option>
+                            <option>15</option>
+                            <option>16</option>
+                            <option>17</option>
+                            <option>18</option>
+                            <option>19</option>
+                            <option>20</option>
+                            <option>21</option>
+                            <option>22</option>
+                            <option>23</option>
+                            <option>24</option>
+                            <option>25</option>
+                            <option>26</option>
+                            <option>27</option>
+                            <option>28</option>
+                            <option>29</option>
+                            <option>30</option>
+                            <option>31</option>
+                        </select>
+                        <select id="hakpaks-submitted-from-year">
+                            <option selected="selected">2002</option>
+                            <option>2003</option>
+                            <option>2004</option>
+                            <option>2005</option>
+                            <option>2006</option>
+                            <option>2007</option>
+                            <option>2008</option>
+                            <option>2009</option>
+                            <option>2010</option>
+                            <option>2011</option>
+                            <option>2012</option>
+                            <option>2013</option>
+                        </select>
+                        <br>
+                        To: 
+                        <select id="hakpaks-submitted-to-month">
+                            <option>Jan</option>
+                            <option>Feb</option>
+                            <option>Mar</option>
+                            <option>Apr</option>
+                            <option>May</option>
+                            <option>Jun</option>
+                            <option>Jul</option>
+                            <option>Aug</option>
+                            <option>Sep</option>
+                            <option>Oct</option>
+                            <option>Nov</option>
+                            <option selected="selected">Dec</option>
+                        </select>
+                        <select id="hakpaks-submitted-to-date">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                            <option>13</option>
+                            <option>14</option>
+                            <option>15</option>
+                            <option>16</option>
+                            <option>17</option>
+                            <option>18</option>
+                            <option>19</option>
+                            <option>20</option>
+                            <option>21</option>
+                            <option>22</option>
+                            <option>23</option>
+                            <option>24</option>
+                            <option>25</option>
+                            <option>26</option>
+                            <option>27</option>
+                            <option>28</option>
+                            <option>29</option>
+                            <option>30</option>
+                            <option selected="selected">31</option>
+                        </select>
+                        <select id="hakpaks-submitted-to-year">
+                            <option>2002</option>
+                            <option>2003</option>
+                            <option>2004</option>
+                            <option>2005</option>
+                            <option>2006</option>
+                            <option>2007</option>
+                            <option>2008</option>
+                            <option>2009</option>
+                            <option>2010</option>
+                            <option>2011</option>
+                            <option>2012</option>
+                            <option selected="selected">2013</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="medium-grey">
+                    <td class="small-bold-font">
+                        Date Updated <span class="orange-text">(Optional)</span>
+                    </td>
+                    <td class="small-font">
+                        From: 
+                        <select id="hakpaks-updated-from-month">
+                            <option selected="selected">Jan</option>
+                            <option>Feb</option>
+                            <option>Mar</option>
+                            <option>Apr</option>
+                            <option>May</option>
+                            <option>Jun</option>
+                            <option>Jul</option>
+                            <option>Aug</option>
+                            <option>Sep</option>
+                            <option>Oct</option>
+                            <option>Nov</option>
+                            <option>Dec</option>
+                        </select>
+                        <select id="hakpaks-updated-from-date">
+                            <option selected="selected">1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                            <option>13</option>
+                            <option>14</option>
+                            <option>15</option>
+                            <option>16</option>
+                            <option>17</option>
+                            <option>18</option>
+                            <option>19</option>
+                            <option>20</option>
+                            <option>21</option>
+                            <option>22</option>
+                            <option>23</option>
+                            <option>24</option>
+                            <option>25</option>
+                            <option>26</option>
+                            <option>27</option>
+                            <option>28</option>
+                            <option>29</option>
+                            <option>30</option>
+                            <option>31</option>
+                        </select>
+                        <select id="hakpaks-updated-from-year">
+                            <option selected="selected">2002</option>
+                            <option>2003</option>
+                            <option>2004</option>
+                            <option>2005</option>
+                            <option>2006</option>
+                            <option>2007</option>
+                            <option>2008</option>
+                            <option>2009</option>
+                            <option>2010</option>
+                            <option>2011</option>
+                            <option>2012</option>
+                            <option>2013</option>
+                        </select>
+                        <br>
+                        To: 
+                        <select id="hakpaks-updated-to-month">
+                            <option>Jan</option>
+                            <option>Feb</option>
+                            <option>Mar</option>
+                            <option>Apr</option>
+                            <option>May</option>
+                            <option>Jun</option>
+                            <option>Jul</option>
+                            <option>Aug</option>
+                            <option>Sep</option>
+                            <option>Oct</option>
+                            <option>Nov</option>
+                            <option selected="selected">Dec</option>
+                        </select>
+                        <select id="hakpaks-updated-to-date">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                            <option>13</option>
+                            <option>14</option>
+                            <option>15</option>
+                            <option>16</option>
+                            <option>17</option>
+                            <option>18</option>
+                            <option>19</option>
+                            <option>20</option>
+                            <option>21</option>
+                            <option>22</option>
+                            <option>23</option>
+                            <option>24</option>
+                            <option>25</option>
+                            <option>26</option>
+                            <option>27</option>
+                            <option>28</option>
+                            <option>29</option>
+                            <option>30</option>
+                            <option selected="selected">31</option>
+                        </select>
+                        <select id="hakpaks-updated-to-year">
+                            <option>2002</option>
+                            <option>2003</option>
+                            <option>2004</option>
+                            <option>2005</option>
+                            <option>2006</option>
+                            <option>2007</option>
+                            <option>2008</option>
+                            <option>2009</option>
+                            <option>2010</option>
+                            <option>2011</option>
+                            <option>2012</option>
+                            <option selected="selected">2013</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="light-grey">
+                    <td class="small-bold-font">
+                        Category
+                    </td>
+                    <td>
+                        <select id="hakpaks-category">
+                            <option selected="selected">Doesn't Matter</option>
+                            <option>Armor</option>
+                            <option>Code Modifications</option>
+                            <option>Combos - All-In-One</option>
+                            <option>Combos - Armor</option>
+                            <option>Combos - Creatures</option>
+                            <option>Combos - Other</option>
+                            <option>Combos - Placeables</option>
+                            <option>Combos - Tilesets</option>
+                            <option>Combos - Weapons</option>
+                            <option>Creatures</option>
+                            <option>Inventory Icons</option>
+                            <option>Inventory Items</option>
+                            <option>Load Screens</option>
+                            <option>Module Specific</option>
+                            <option>Music</option>
+                            <option>Other</option>
+                            <option>PC Parts</option>
+                            <option>Placeables</option>
+                            <option>Portraits</option>
+                            <option>Prestige Classes</option>
+                            <option>Races</option>
+                            <option>Sound Effects</option>
+                            <option>Tilesets</option>
+                            <option>Voicesets</option>
+                            <option>Weapons</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="light-grey">
+                    <td class="small-bold-font">
+                        Don't Show This Category
+                    </td>
+                    <td>
+                        <select id="hakpaks-exclude-category">
+                            <option selected="selected">Show All</option>
+                            <option>Armor</option>
+                            <option>Code Modifications</option>
+                            <option>Combos - All-In-One</option>
+                            <option>Combos - Armor</option>
+                            <option>Combos - Creatures</option>
+                            <option>Combos - Other</option>
+                            <option>Combos - Placeables</option>
+                            <option>Combos - Tilesets</option>
+                            <option>Combos - Weapons</option>
+                            <option>Creatures</option>
+                            <option>Inventory Icons</option>
+                            <option>Inventory Items</option>
+                            <option>Load Screens</option>
+                            <option>Module Specific</option>
+                            <option>Music</option>
+                            <option>Other</option>
+                            <option>PC Parts</option>
+                            <option>Placeables</option>
+                            <option>Portraits</option>
+                            <option>Prestige Classes</option>
+                            <option>Races</option>
+                            <option>Sound Effects</option>
+                            <option>Tilesets</option>
+                            <option>Voicesets</option>
+                            <option>Weapons</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="light-grey">
+                    <td class="small-bold-font">
+                        Minimum Number of Votes 
+                    </td>
+                    <td>
+                        <select id="hakpaks-votes">
+                            <option selected="selected">Doesn't Matter</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>5</option>
+                            <option>10</option>
+                            <option>20</option>
+                            <option>50</option>
+                            <option>100</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="light-grey">
+                    <td class="small-bold-font">
+                        Minimum Rating 
+                    </td>
+                    <td>
+                        <select id="hakpaks-rating">
+                            <option selected="selected">Doesn't Matter</option>
+                            <option>10.00</option>
+                            <option>9.75</option>
+                            <option>9.50</option>
+                            <option>9.25</option>
+                            <option>9.00</option>
+                            <option>8.75</option>
+                            <option>8.50</option>
+                            <option>8.25</option>
+                            <option>8.00</option>
+                            <option>7.75</option>
+                            <option>7.50</option>
+                            <option>7.25</option>
+                            <option>7.00</option>
+                            <option>6.75</option>
+                            <option>6.50</option>
+                            <option>6.25</option>
+                            <option>6.00</option>
+                            <option>5.75</option>
+                            <option>5.50</option>
+                            <option>5.25</option>
+                            <option>5.00</option>
+                            <option>4.75</option>
+                            <option>4.50</option>
+                            <option>4.25</option>
+                            <option>4.00</option>
+                            <option>3.75</option>
+                            <option>3.50</option>
+                            <option>3.25</option>
+                            <option>3.00</option>
+                            <option>2.75</option>
+                            <option>2.50</option>
+                            <option>2.25</option>
+                            <option>2.00</option>
+                            <option>1.75</option>
+                            <option>1.50</option>
+                            <option>1.25</option>
+                            <option>1.00</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="medium-grey">
+                    <td class="small-bold-font">
+                        Submit 
+                    </td>
+                    <td>
+                        <button id="hakpaks-search-button">Search</button>
                     </td>
                 </tr>
             </table>

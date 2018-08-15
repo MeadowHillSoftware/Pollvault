@@ -11,16 +11,25 @@
 var oPollvault = {};
 
 oPollvault.addMainEventListeners = function() {
-    $('#search-button').on('click', oPollvault.handleSearchButtonClick);
-    $('#submitted-from-month').on('change', oPollvault.handleDateChange);
-    $('#submitted-from-year').on('change', oPollvault.handleDateChange);
-    $('#submitted-to-month').on('change', oPollvault.handleDateChange);
-    $('#submitted-to-year').on('change', oPollvault.handleDateChange);
+    $('#hakpaks-search-button').on('click', oPollvault.handleHakpaksSearch);
+    $('#hakpaks-submitted-from-month').on('change', oPollvault.handleDateChange);
+    $('#hakpaks-submitted-from-year').on('change', oPollvault.handleDateChange);
+    $('#hakpaks-submitted-to-month').on('change', oPollvault.handleDateChange);
+    $('#hakpaks-submitted-to-year').on('change', oPollvault.handleDateChange);
+    $('#hakpaks-updated-from-month').on('change', oPollvault.handleDateChange);
+    $('#hakpaks-updated-from-year').on('change', oPollvault.handleDateChange);
+    $('#hakpaks-updated-to-month').on('change', oPollvault.handleDateChange);
+    $('#hakpaks-updated-to-year').on('change', oPollvault.handleDateChange);
+    $('#modules-search-button').on('click', oPollvault.handleModulesSearch);
+    $('#modules-submitted-from-month').on('change', oPollvault.handleDateChange);
+    $('#modules-submitted-from-year').on('change', oPollvault.handleDateChange);
+    $('#modules-submitted-to-month').on('change', oPollvault.handleDateChange);
+    $('#modules-submitted-to-year').on('change', oPollvault.handleDateChange);
+    $('#modules-updated-from-month').on('change', oPollvault.handleDateChange);
+    $('#modules-updated-from-year').on('change', oPollvault.handleDateChange);
+    $('#modules-updated-to-month').on('change', oPollvault.handleDateChange);
+    $('#modules-updated-to-year').on('change', oPollvault.handleDateChange);
     $('#type').on('change', oPollvault.handleFileUpload);
-    $('#updated-from-month').on('change', oPollvault.handleDateChange);
-    $('#updated-from-year').on('change', oPollvault.handleDateChange);
-    $('#updated-to-month').on('change', oPollvault.handleDateChange);
-    $('#updated-to-year').on('change', oPollvault.handleDateChange);
 };
 
 oPollvault.checkDate = function (oObject, iFrom, iTo, sField) {
@@ -85,12 +94,138 @@ oPollvault.convertUndefinedToDash = function(sString) {
     return sString;
 };
 
-oPollvault.displayResults = function(oObject, sType) {
+oPollvault.displayHakpaksResults = function(oObject, sType) {
     var aKeys = Object.keys(oObject);
     if (aKeys.length !== 0) {
         var oResults = oPollvault.oResults;
         var table = $('<table></table>')
-            .addClass('small-font');
+            .addClass('small-font results-table');
+        var headerRow = $('<tr></tr>');
+        var titleCell = $('<td></td>')
+            .addClass('column');
+        var titleText = $('<u>Title</u>')
+            .attr('id', 'title-text')
+            .on('click', oPollvault.handleHakpaksColumnClick);
+        titleCell.append(titleText);
+        headerRow.append(titleCell)
+            .addClass('small-bold-font');
+        var creatorCell = $('<td></td>')
+            .addClass('column');
+        var creatorText = $('<u>Author</u>')
+            .attr('id', 'creator-text')
+            .on('click', oPollvault.handleHakpaksColumnClick);
+        creatorCell.append(creatorText);
+        headerRow.append(creatorCell);
+        var submittedCell = $('<td></td>')
+            .addClass('column');
+        var submittedText = $('<u>Date<br>Submitted</u>')
+            .attr('id', 'submitted-text')
+            .on('click', oPollvault.handleHakpaksColumnClick);
+        submittedCell.append(submittedText);
+        headerRow.append(submittedCell);
+        var updatedCell = $('<td></td>')
+            .addClass('column');
+        var updatedText = $('<u>Date<br>Updated</u>')
+            .attr('id', 'updated-text')
+            .on('click', oPollvault.handleHakpaksColumnClick);
+        updatedCell.append(updatedText);
+        headerRow.append(updatedCell);
+        headerRow.addClass('medium-grey');
+        table.append(headerRow);
+        var titleDiv = $('<div><b>Results</b></div>');
+        titleDiv.addClass('results-title');
+        var sClass = "light-grey";
+        var sColumn = oPollvault.sColumn;
+        if (sColumn !== "folder") {
+            aKeys = oPollvault.sortModules(aKeys, oObject, sColumn);
+        }
+        for (var p = 0; p < aKeys.length; p++) {
+            var sProperty = String(aKeys[p]);
+            var aFolders = oObject[sProperty];
+            for (var m = 0; m < aFolders.length; m++) {
+                var sFolder = aFolders[m];
+                var oMod = oResults[sFolder];
+                var sTitle = oMod["Title"];
+                if (sTitle.length > 49) {
+                    sTitle = sTitle.slice(0, 47) + "...";
+                }
+                var url = "https://neverwintervault.org/rolovault/projects/nwn1/" + sType + "/" + sFolder;
+                var link = $('<a />')
+                    .attr('href', url)
+                    .text(sTitle);
+                var nameCell = $('<td></td>');
+                nameCell.append(link);
+                var row = $('<tr></tr>');
+                row.append(nameCell);
+                var authorCell = $('<td></td>');
+                var sAuthor = oMod["Author"];
+                if (sAuthor.length > 29) {
+                    sAuthor = sAuthor.slice(0, 27) + "...";
+                }
+                authorCell.append(sAuthor);
+                row.append(authorCell);
+                var submittedDate = $('<td></td>');
+                var iSubmitted = oMod["Submitted"];
+                var sSubmitted = String(iSubmitted);
+                var sSubmittedYear = sSubmitted.slice(0, 4);
+                sSubmittedYear = sSubmittedYear.slice(2, 4);
+                var sSubmittedMonth = sSubmitted.slice(4, 6);
+                if (sSubmittedMonth[0] === "0") {
+                    sSubmittedMonth = sSubmittedMonth.slice(1, 2);
+                }
+                var sSubmittedDate = sSubmitted.slice(6, 8);
+                if (sSubmittedDate[0] === "0") {
+                    sSubmittedDate = sSubmittedDate.slice(1, 2);
+                }
+                sSubmitted = sSubmittedMonth + "/" + sSubmittedDate + "/" + sSubmittedYear;
+                var updatedDate = $('<td></td>');
+                var iUpdated = oMod["Updated"];
+                var sUpdated = String(iUpdated);
+                sUpdated = oPollvault.convertUndefinedToDash(sUpdated);
+                var sUpdatedYear = sUpdated.slice(0, 4);
+                sUpdatedYear = sUpdatedYear.slice(2, 4);
+                var sUpdatedMonth = sUpdated.slice(4, 6);
+                if (sUpdatedMonth[0] === "0") {
+                    sUpdatedMonth = sUpdatedMonth.slice(1, 2);
+                }
+                var sUpdatedDate = sUpdated.slice(6, 8);
+                if (sUpdatedDate[0] === "0") {
+                    sUpdatedDate = sUpdatedDate.slice(1, 2);
+                }
+                sUpdated = sUpdatedMonth + "/" + sUpdatedDate + "/" + sUpdatedYear;
+                submittedDate.append(sSubmitted);
+                row.append(submittedDate);
+                updatedDate.append(sUpdated);
+                row.append(updatedDate);
+                row.addClass(sClass);
+                if (sClass === "light-grey") {
+                    sClass = "medium-grey";
+                } else {
+                    sClass = "light-grey";
+                }
+                table.append(row);
+            }
+        }
+        $('#results')
+            .empty()
+            .append(titleDiv)
+            .append(table)
+            .removeClass('hidden-element');
+    } else {
+        var resultsDiv = $('<div>No matching results</div>')
+            .addClass('no-results');
+        $('#results')
+            .empty()
+            .append(resultsDiv);
+    }
+};
+
+oPollvault.displayModulesResults = function(oObject, sType) {
+    var aKeys = Object.keys(oObject);
+    if (aKeys.length !== 0) {
+        var oResults = oPollvault.oResults;
+        var table = $('<table></table>')
+            .addClass('small-font results-table');
         var headerRow = $('<tr></tr>');
         var titleCell = $('<td></td>')
             .addClass('column');
@@ -302,8 +437,8 @@ oPollvault.handleDateChange = function(event) {
     var aShort = ["Apr", "Jun", "Sep", "Nov"];
     var iDays = 0;
     var aId = sId.split("-");
-    var sPrefix = aId[0] + "-" + aId[1] + "-";
-    var sType = aId[2];
+    var sPrefix = aId[0] + "-" + aId[1] + "-" + aId[2] + "-";
+    var sType = aId[3];
     if (sType === "month") {
         var date = $(('#' + sPrefix + 'date'));
         date.empty();
@@ -365,6 +500,170 @@ oPollvault.handleFileUpload = function(event) {
     oPollvault.reader.onload = oPollvault.handleType;
 };
 
+oPollvault.handleHakpaksColumnClick = function(event) {
+    event.stopPropagation();
+    var target = $(event.target);
+    var sId = target.attr('id');
+    var oObject = {};
+    var sColumn = oPollvault.sColumn;
+    var sDirection = oPollvault.sDirection;
+    if (sId === sColumn) {
+        if (sDirection === "forward") {
+            oPollvault.sDirection = "backward";
+        } else {
+            oPollvault.sDirection = "forward";
+        }
+    } else {
+        oPollvault.sColumn = sId;
+        oPollvault.sDirection = "forward";
+    }
+    if (sId === "title-text") {
+        oObject = oPollvault.oTitles;
+    } else if (sId === "creator-text") {
+        oObject = oPollvault.oAuthors;
+    } else if (sId === "submitted-text") {
+        oObject = oPollvault.oSubmitted;
+    } else if (sId === "updated-text") {
+        oObject = oPollvault.oUpdated;
+    }
+    oPollvault.displayHakpaksResults(oObject, "hakpaks");
+};
+
+oPollvault.handleHakpaksSearch = function(event) {
+    event.stopPropagation();
+    var oResults = oPollvault.oCurrentType;
+    var sText = $('#hakpaks-text').val();
+    if (sText !== "") {
+        oResults = oPollvault.matchText(oResults, sText);
+    }
+    var oMonthNumberMap = {
+        "Jan": "01",
+        "Feb": "02",
+        "Mar": "03",
+        "Apr": "04",
+        "May": "05",
+        "Jun": "06",
+        "Jul": "07",
+        "Aug": "08",
+        "Sep": "09",
+        "Oct": "10",
+        "Nov": "11",
+        "Dec": "12"
+    };
+    var sSubmittedFromMonth = $('#hakpaks-submitted-from-month').val();
+    sSubmittedFromMonth = oMonthNumberMap[sSubmittedFromMonth];
+    var sSubmittedFromDate = $('#hakpaks-submitted-from-date').val();
+    if (sSubmittedFromDate.length === 1) {
+        sSubmittedFromDate = "0" + sSubmittedFromDate;
+    }
+    var sSubmittedFromYear = $('#hakpaks-submitted-from-year').val();
+    var sSubmittedFrom = sSubmittedFromYear + sSubmittedFromMonth + sSubmittedFromDate;
+    var iSubmittedFrom = Number(sSubmittedFrom);
+    var sSubmittedToMonth = $('#hakpaks-submitted-to-month').val();
+    sSubmittedToMonth = oMonthNumberMap[sSubmittedToMonth]
+    var sSubmittedToDate = $('#hakpaks-submitted-to-date').val();
+    if (sSubmittedToDate.length === 1) {
+        sSubmittedToDate = "0" + sSubmittedToDate;
+    }
+    var sSubmittedToYear = $('#hakpaks-submitted-to-year').val();
+    var sSubmittedTo = sSubmittedToYear + sSubmittedToMonth + sSubmittedToDate;
+    var iSubmittedTo = Number(sSubmittedTo);
+    if (iSubmittedFrom > 20020101 || iSubmittedTo < 20131231) {
+        oResults = oPollvault.checkDate(oResults, iSubmittedFrom, iSubmittedTo, "Submitted");
+    }
+    var sUpdatedFromMonth = $('#hakpaks-updated-from-month').val();
+    sUpdatedFromMonth = oMonthNumberMap[sUpdatedFromMonth];
+    var sUpdatedFromDate = $('#hakpaks-updated-from-date').val();
+    if (sUpdatedFromDate.length === 1) {
+        sUpdatedFromDate = "0" + sUpdatedFromDate;
+    }
+    var sUpdatedFromYear = $('#hakpaks-updated-from-year').val();
+    var sUpdatedFrom = sUpdatedFromYear + sUpdatedFromMonth + sUpdatedFromDate;
+    var iUpdatedFrom = Number(sUpdatedFrom);
+    var sUpdatedToMonth = $('#hakpaks-updated-to-month').val();
+    sUpdatedToMonth = oMonthNumberMap[sUpdatedToMonth]
+    var sUpdatedToDate = $('#hakpaks-updated-to-date').val();
+    if (sUpdatedToDate.length === 1) {
+        sUpdatedToDate = "0" + sUpdatedToDate;
+    }
+    var sUpdatedToYear = $('#hakpaks-updated-to-year').val();
+    var sUpdatedTo = sUpdatedToYear + sUpdatedToMonth + sUpdatedToDate;
+    var iUpdatedTo = Number(sUpdatedTo);
+    if (iUpdatedFrom > 20020101 || iUpdatedTo < 20131231) {
+        oResults = oPollvault.checkDate(oResults, iUpdatedFrom, iUpdatedTo, "Updated");
+    }
+    var sCategory = $('#hakpaks-category').val();
+    if (sCategory !== "Doesn't Matter") {
+        oResults = oPollvault.searchByString(oResults, "Category", sCategory);
+    }
+    var sCategory = $('#hakpaks-exclude-category').val();
+    if (sCategory !== "Show All") {
+        oResults = oPollvault.excludeByString(oResults, "Category", sCategory);
+    }
+    var sVotes = $('#hakpaks-votes').val();
+    if (sVotes !== "Doesn't Matter") {
+        var iVotes = Number(sVotes);
+        oResults = oPollvault.greaterThanOrEqualTo(oResults, "Votes", iVotes);
+    }
+    var sRating = $('#hakpaks-rating').val();
+    if (sRating !== "Doesn't Matter") {
+        var iRating = Number(sRating);
+        oResults = oPollvault.greaterThanOrEqualTo(oResults, "Rating", iRating);
+    }
+    oPollvault.oResults = oResults;
+    var oFolders = {};
+    var oTitles = {};
+    var oAuthors = {};
+    var oSubmitted = {};
+    var oUpdated = {};
+    var oMinLevels = {};
+    var oMaxLevels = {};
+    var oMinPlayers = {};
+    var oMaxPlayers = {};
+    var aMods = Object.keys(oResults);
+    for (var m = 0; m < aMods.length; m++) {
+        var sFolder = aMods[m];
+        oFolders[sFolder] = [sFolder];
+        var oMod = oResults[sFolder];
+        var aTitles = Object.keys(oTitles);
+        var aAuthors = Object.keys(oAuthors);
+        var aSubmitted = Object.keys(oSubmitted);
+        var aUpdated = Object.keys(oUpdated);
+        var sTitle = oMod["Title"];
+        if (aTitles.indexOf(sTitle) === -1) {
+            oTitles[sTitle] = [sFolder];
+        } else {
+            oTitles[sTitle].push(sFolder);
+        }
+        var sAuthor = oMod["Author"];
+        if (aAuthors.indexOf(sAuthor) === -1) {
+            oAuthors[sAuthor] = [sFolder];
+        } else {
+            oAuthors[sAuthor].push(sFolder);
+        }
+        var sSubmitted = oMod["Submitted"];
+        if (aSubmitted.indexOf(String(sSubmitted)) === -1) {
+            oSubmitted[sSubmitted] = [sFolder];
+        } else {
+            oSubmitted[sSubmitted].push(sFolder);
+        }
+        var sUpdated = oMod["Updated"];
+        if (aUpdated.indexOf(String(sUpdated)) === -1) {
+            oUpdated[sUpdated] = [sFolder];
+        } else {
+            oUpdated[sUpdated].push(sFolder);
+        }
+    }
+    oPollvault.oFolders = oFolders;
+    oPollvault.oTitles = oTitles;
+    oPollvault.oAuthors = oAuthors;
+    oPollvault.oSubmitted = oSubmitted;
+    oPollvault.oUpdated = oUpdated;
+    oPollvault.sColumn = "folder";
+    oPollvault.sDirection = "forward";
+    oPollvault.displayHakpaksResults(oFolders, "hakpaks");
+};
+
 oPollvault.handleModulesColumnClick = function(event) {
     event.stopPropagation();
     var target = $(event.target);
@@ -399,13 +698,13 @@ oPollvault.handleModulesColumnClick = function(event) {
     } else if (sId === "max-players-text") {
         oObject = oPollvault.oMaxPlayers;
     }
-    oPollvault.displayResults(oObject, "modules");
+    oPollvault.displayModulesResults(oObject, "modules");
 };
 
-oPollvault.handleSearchButtonClick = function(event) {
+oPollvault.handleModulesSearch = function(event) {
     event.stopPropagation();
     var oResults = oPollvault.oCurrentType;
-    var sText = $('#text').val();
+    var sText = $('#modules-text').val();
     if (sText !== "") {
         oResults = oPollvault.matchText(oResults, sText);
     }
@@ -423,62 +722,62 @@ oPollvault.handleSearchButtonClick = function(event) {
         "Nov": "11",
         "Dec": "12"
     };
-    var sSubmittedFromMonth = $('#submitted-from-month').val();
+    var sSubmittedFromMonth = $('#modules-submitted-from-month').val();
     sSubmittedFromMonth = oMonthNumberMap[sSubmittedFromMonth];
-    var sSubmittedFromDate = $('#submitted-from-date').val();
+    var sSubmittedFromDate = $('#modules-submitted-from-date').val();
     if (sSubmittedFromDate.length === 1) {
         sSubmittedFromDate = "0" + sSubmittedFromDate;
     }
-    var sSubmittedFromYear = $('#submitted-from-year').val();
+    var sSubmittedFromYear = $('#modules-submitted-from-year').val();
     var sSubmittedFrom = sSubmittedFromYear + sSubmittedFromMonth + sSubmittedFromDate;
     var iSubmittedFrom = Number(sSubmittedFrom);
-    var sSubmittedToMonth = $('#submitted-to-month').val();
+    var sSubmittedToMonth = $('#modules-submitted-to-month').val();
     sSubmittedToMonth = oMonthNumberMap[sSubmittedToMonth]
-    var sSubmittedToDate = $('#submitted-to-date').val();
+    var sSubmittedToDate = $('#modules-submitted-to-date').val();
     if (sSubmittedToDate.length === 1) {
         sSubmittedToDate = "0" + sSubmittedToDate;
     }
-    var sSubmittedToYear = $('#submitted-to-year').val();
+    var sSubmittedToYear = $('#modules-submitted-to-year').val();
     var sSubmittedTo = sSubmittedToYear + sSubmittedToMonth + sSubmittedToDate;
     var iSubmittedTo = Number(sSubmittedTo);
     if (iSubmittedFrom > 20020101 || iSubmittedTo < 20131231) {
         oResults = oPollvault.checkDate(oResults, iSubmittedFrom, iSubmittedTo, "Submitted");
     }
-    var sUpdatedFromMonth = $('#updated-from-month').val();
+    var sUpdatedFromMonth = $('#modules-updated-from-month').val();
     sUpdatedFromMonth = oMonthNumberMap[sUpdatedFromMonth];
-    var sUpdatedFromDate = $('#updated-from-date').val();
+    var sUpdatedFromDate = $('#modules-updated-from-date').val();
     if (sUpdatedFromDate.length === 1) {
         sUpdatedFromDate = "0" + sUpdatedFromDate;
     }
-    var sUpdatedFromYear = $('#updated-from-year').val();
+    var sUpdatedFromYear = $('#modules-updated-from-year').val();
     var sUpdatedFrom = sUpdatedFromYear + sUpdatedFromMonth + sUpdatedFromDate;
     var iUpdatedFrom = Number(sUpdatedFrom);
-    var sUpdatedToMonth = $('#updated-to-month').val();
+    var sUpdatedToMonth = $('#modules-updated-to-month').val();
     sUpdatedToMonth = oMonthNumberMap[sUpdatedToMonth]
-    var sUpdatedToDate = $('#updated-to-date').val();
+    var sUpdatedToDate = $('#modules-updated-to-date').val();
     if (sUpdatedToDate.length === 1) {
         sUpdatedToDate = "0" + sUpdatedToDate;
     }
-    var sUpdatedToYear = $('#updated-to-year').val();
+    var sUpdatedToYear = $('#modules-updated-to-year').val();
     var sUpdatedTo = sUpdatedToYear + sUpdatedToMonth + sUpdatedToDate;
     var iUpdatedTo = Number(sUpdatedTo);
     if (iUpdatedFrom > 20020101 || iUpdatedTo < 20131231) {
         oResults = oPollvault.checkDate(oResults, iUpdatedFrom, iUpdatedTo, "Updated");
     }
-    var sCategory = $('#category').val();
+    var sCategory = $('#modules-category').val();
     if (sCategory !== "Doesn't Matter") {
         oResults = oPollvault.searchByString(oResults, "Category", sCategory);
     }
-    var sCategory = $('#exclude-category').val();
+    var sCategory = $('#modules-exclude-category').val();
     if (sCategory !== "Show All") {
         oResults = oPollvault.excludeByString(oResults, "Category", sCategory);
     }
-    var sVotes = $('#votes').val();
+    var sVotes = $('#modules-votes').val();
     if (sVotes !== "Doesn't Matter") {
         var iVotes = Number(sVotes);
         oResults = oPollvault.greaterThanOrEqualTo(oResults, "Votes", iVotes);
     }
-    var sRating = $('#rating').val();
+    var sRating = $('#modules-rating').val();
     if (sRating !== "Doesn't Matter") {
         var iRating = Number(sRating);
         oResults = oPollvault.greaterThanOrEqualTo(oResults, "Rating", iRating);
@@ -653,7 +952,7 @@ oPollvault.handleSearchButtonClick = function(event) {
     oPollvault.oMaxPlayers = oMaxPlayers;
     oPollvault.sColumn = "folder";
     oPollvault.sDirection = "forward";
-    oPollvault.displayResults(oFolders, "modules");
+    oPollvault.displayModulesResults(oFolders, "modules");
 };
 
 oPollvault.handleType = function(event) {
@@ -662,7 +961,9 @@ oPollvault.handleType = function(event) {
     oPollvault.oCurrentType = JSON.parse(sType);
     var sName = oPollvault.sType;
     if (sName === "modules") {
-        $('#search').removeClass('hidden-element');
+        $('#modules-search').removeClass('search-interface');
+    } else if (sName === "hakpaks") {
+        $('#hakpaks-search').removeClass('search-interface');
     }
 };
 

@@ -42,6 +42,11 @@
     color: rgb(230,153,39);
 }
 
+.results-table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .results-title {
     font-size: 26px;
     margin-bottom: 30px;
@@ -54,6 +59,13 @@
 
 .search {
     width: 750px;
+}
+
+.search-interface {
+    left: 0px;
+    position: fixed;
+    top: 0px;
+    visibility: hidden;
 }
 
 .search-title {
