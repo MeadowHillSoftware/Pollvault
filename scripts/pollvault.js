@@ -535,7 +535,7 @@ oPollvault.handleHakpaksSearch = function(event) {
     var oResults = oPollvault.oCurrentType;
     var sText = $('#hakpaks-text').val();
     if (sText !== "") {
-        oResults = oPollvault.matchText(oResults, sText);
+        oResults = oPollvault.matchText(oResults, sText, "hakpaks");
     }
     var oMonthNumberMap = {
         "Jan": "01",
@@ -707,7 +707,7 @@ oPollvault.handleModulesSearch = function(event) {
     var oResults = oPollvault.oCurrentType;
     var sText = $('#modules-text').val();
     if (sText !== "") {
-        oResults = oPollvault.matchText(oResults, sText);
+        oResults = oPollvault.matchText(oResults, sText, "modules");
     }
     var oMonthNumberMap = {
         "Jan": "01",
@@ -961,7 +961,7 @@ oPollvault.handlePortraitsSearch = function(event) {
     var oResults = oPollvault.oCurrentType;
     var sText = $('#portraits-text').val();
     if (sText !== "") {
-        oResults = oPollvault.matchText(oResults, sText);
+        oResults = oPollvault.matchText(oResults, sText, "portraits");
     }
     var oMonthNumberMap = {
         "Jan": "01",
@@ -1147,12 +1147,19 @@ oPollvault.matchOneString = function(oObject, sField, aValues) {
     return oResults;
 };
 
-oPollvault.matchText = function(oObject, sValue) {
+oPollvault.matchText = function(oObject, sValue, sType) {
     sValue = sValue.toLowerCase();
     var aMods = Object.keys(oObject);
     var oResults = {};
-    var aSearchFields = ["Description", "Title", "Races", "Alignments", 
+    var aSearchFields = [];
+    if (sType === "modules") {
+        aSearchFields = ["Description", "Title", "Races", "Alignments", 
         "Author", "Setting", "Classes"];
+    } else if (sType === "hakpaks") {
+        aSearchFields = ["Description", "Title", "Author"];
+    } else if (sType === "portraits") {
+        aSearchFields = ["Description", "Title", "Author", "Format"];
+    }
     for (var m = 0; m < aMods.length; m++) {
         var sFolder = aMods[m];
         var oMod = oObject[sFolder];
