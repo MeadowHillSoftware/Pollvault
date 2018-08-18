@@ -11,15 +11,15 @@
         </div>
         <br>
         <br>
-        <div class="search-interface search-box" id="modules-search">
-            <div class="search-title"><b>Search NWN Modules</b></div>
-            <table class="modules-search">
+        <div class="search-interface search-box" id="search-div">
+            <div class="search-title" id="search-title"><b>Search NWN Scripts</b></div>
+            <table class="modules-search" id="search-table">
                 <tr class="medium-grey">
                     <td class="small-bold-font">
                         Match Text <span class="orange-text">(Optional)</span> 
                     </td>
                     <td>
-                        <input type="text" id="modules-text"/>
+                        <input type="text" id="match-text"/>
                     </td>
                 </tr>
                 <tr class="medium-grey">
@@ -28,7 +28,7 @@
                     </td>
                     <td class="small-font">
                         From: 
-                        <select id="modules-submitted-from-month">
+                        <select id="submitted-from-month">
                             <option selected="selected">Jan</option>
                             <option>Feb</option>
                             <option>Mar</option>
@@ -42,7 +42,7 @@
                             <option>Nov</option>
                             <option>Dec</option>
                         </select>
-                        <select id="modules-submitted-from-date">
+                        <select id="submitted-from-date">
                             <option selected="selected">1</option>
                             <option>2</option>
                             <option>3</option>
@@ -75,7 +75,7 @@
                             <option>30</option>
                             <option>31</option>
                         </select>
-                        <select id="modules-submitted-from-year">
+                        <select id="submitted-from-year">
                             <option selected="selected">2002</option>
                             <option>2003</option>
                             <option>2004</option>
@@ -91,7 +91,7 @@
                         </select>
                         <br>
                         To: 
-                        <select id="modules-submitted-to-month">
+                        <select id="submitted-to-month">
                             <option>Jan</option>
                             <option>Feb</option>
                             <option>Mar</option>
@@ -105,7 +105,7 @@
                             <option>Nov</option>
                             <option selected="selected">Dec</option>
                         </select>
-                        <select id="modules-submitted-to-date">
+                        <select id="submitted-to-date">
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
@@ -138,7 +138,7 @@
                             <option>30</option>
                             <option selected="selected">31</option>
                         </select>
-                        <select id="modules-submitted-to-year">
+                        <select id="submitted-to-year">
                             <option>2002</option>
                             <option>2003</option>
                             <option>2004</option>
@@ -160,7 +160,7 @@
                     </td>
                     <td class="small-font">
                         From: 
-                        <select id="modules-updated-from-month">
+                        <select id="updated-from-month">
                             <option selected="selected">Jan</option>
                             <option>Feb</option>
                             <option>Mar</option>
@@ -174,7 +174,7 @@
                             <option>Nov</option>
                             <option>Dec</option>
                         </select>
-                        <select id="modules-updated-from-date">
+                        <select id="updated-from-date">
                             <option selected="selected">1</option>
                             <option>2</option>
                             <option>3</option>
@@ -207,7 +207,7 @@
                             <option>30</option>
                             <option>31</option>
                         </select>
-                        <select id="modules-updated-from-year">
+                        <select id="updated-from-year">
                             <option selected="selected">2002</option>
                             <option>2003</option>
                             <option>2004</option>
@@ -223,7 +223,7 @@
                         </select>
                         <br>
                         To: 
-                        <select id="modules-updated-to-month">
+                        <select id="updated-to-month">
                             <option>Jan</option>
                             <option>Feb</option>
                             <option>Mar</option>
@@ -237,7 +237,7 @@
                             <option>Nov</option>
                             <option selected="selected">Dec</option>
                         </select>
-                        <select id="modules-updated-to-date">
+                        <select id="updated-to-date">
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
@@ -270,7 +270,7 @@
                             <option>30</option>
                             <option selected="selected">31</option>
                         </select>
-                        <select id="modules-updated-to-year">
+                        <select id="updated-to-year">
                             <option>2002</option>
                             <option>2003</option>
                             <option>2004</option>
@@ -286,7 +286,81 @@
                         </select>
                     </td>
                 </tr>
-                <tr class="light-grey">
+            </table>
+        </div>
+        <div class="search-interface search-box" id="test-search">
+            <table class="modules-search" id="storage-table">
+                <tr class="light-grey" id="hakpaks-category-row">
+                    <td class="small-bold-font">
+                        Category
+                    </td>
+                    <td>
+                        <select id="hakpaks-category">
+                            <option selected="selected">Doesn't Matter</option>
+                            <option>Armor</option>
+                            <option>Code Modifications</option>
+                            <option>Combos - All-In-One</option>
+                            <option>Combos - Armor</option>
+                            <option>Combos - Creatures</option>
+                            <option>Combos - Other</option>
+                            <option>Combos - Placeables</option>
+                            <option>Combos - Tilesets</option>
+                            <option>Combos - Weapons</option>
+                            <option>Creatures</option>
+                            <option>Inventory Icons</option>
+                            <option>Inventory Items</option>
+                            <option>Load Screens</option>
+                            <option>Module Specific</option>
+                            <option>Music</option>
+                            <option>Other</option>
+                            <option>PC Parts</option>
+                            <option>Placeables</option>
+                            <option>Portraits</option>
+                            <option>Prestige Classes</option>
+                            <option>Races</option>
+                            <option>Sound Effects</option>
+                            <option>Tilesets</option>
+                            <option>Voicesets</option>
+                            <option>Weapons</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="light-grey" id="hakpaks-exclude-category-row">
+                    <td class="small-bold-font">
+                        Don't Show This Category
+                    </td>
+                    <td>
+                        <select id="hakpaks-exclude-category">
+                            <option selected="selected">Show All</option>
+                            <option>Armor</option>
+                            <option>Code Modifications</option>
+                            <option>Combos - All-In-One</option>
+                            <option>Combos - Armor</option>
+                            <option>Combos - Creatures</option>
+                            <option>Combos - Other</option>
+                            <option>Combos - Placeables</option>
+                            <option>Combos - Tilesets</option>
+                            <option>Combos - Weapons</option>
+                            <option>Creatures</option>
+                            <option>Inventory Icons</option>
+                            <option>Inventory Items</option>
+                            <option>Load Screens</option>
+                            <option>Module Specific</option>
+                            <option>Music</option>
+                            <option>Other</option>
+                            <option>PC Parts</option>
+                            <option>Placeables</option>
+                            <option>Portraits</option>
+                            <option>Prestige Classes</option>
+                            <option>Races</option>
+                            <option>Sound Effects</option>
+                            <option>Tilesets</option>
+                            <option>Voicesets</option>
+                            <option>Weapons</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="light-grey" id="modules-category-row">
                     <td class="small-bold-font">
                         Category
                     </td>
@@ -328,7 +402,7 @@
                         </select>
                     </td>
                 </tr>
-                <tr class="light-grey">
+                <tr class="light-grey" id="modules-exclude-category-row">
                     <td class="small-bold-font">
                         Don't Show This Category
                     </td>
@@ -370,12 +444,146 @@
                         </select>
                     </td>
                 </tr>
-                <tr class="light-grey">
+                <tr class="light-grey" id="portraits-category-row">
+                    <td class="small-bold-font">
+                        Category
+                    </td>
+                    <td>
+                        <select id="portraits-category">
+                            <option selected="selected">Doesn't Matter</option>
+                            <option>Arcane Archer</option>
+                            <option>Assassin</option>
+                            <option>Barbarian</option>
+                            <option>Bard</option>
+                            <option>Blackguard</option>
+                            <option>Cleric</option>
+                            <option>Drow</option>
+                            <option>Druid</option>
+                            <option>Dwarf</option>
+                            <option>Elf</option>
+                            <option>Fighter</option>
+                            <option>Generic</option>
+                            <option>Gnome</option>
+                            <option>Guard</option>
+                            <option>Half-Elf</option>
+                            <option>Half-Orc</option>
+                            <option>Halfling</option>
+                            <option>Human</option>
+                            <option>Jpg</option>
+                            <option>Monk</option>
+                            <option>Monsters</option>
+                            <option>NPC</option>
+                            <option>Other</option>
+                            <option>Paladin</option>
+                            <option>Ranger</option>
+                            <option>Rogue</option>
+                            <option>Shadowdancer</option>
+                            <option>Sorcerer</option>
+                            <option>Wild Elves</option>
+                            <option>Wizard</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="light-grey" id="portraits-exclude-category-row">
+                    <td class="small-bold-font">
+                        Don't Show This Category
+                    </td>
+                    <td>
+                        <select id="portraits-exclude-category">
+                            <option selected="selected">Show All</option>
+                            <option>Arcane Archer</option>
+                            <option>Assassin</option>
+                            <option>Barbarian</option>
+                            <option>Bard</option>
+                            <option>Blackguard</option>
+                            <option>Cleric</option>
+                            <option>Drow</option>
+                            <option>Druid</option>
+                            <option>Dwarf</option>
+                            <option>Elf</option>
+                            <option>Fighter</option>
+                            <option>Generic</option>
+                            <option>Gnome</option>
+                            <option>Guard</option>
+                            <option>Half-Elf</option>
+                            <option>Half-Orc</option>
+                            <option>Halfling</option>
+                            <option>Human</option>
+                            <option>Jpg</option>
+                            <option>Monk</option>
+                            <option>Monsters</option>
+                            <option>NPC</option>
+                            <option>Other</option>
+                            <option>Paladin</option>
+                            <option>Ranger</option>
+                            <option>Rogue</option>
+                            <option>Shadowdancer</option>
+                            <option>Sorcerer</option>
+                            <option>Wild Elves</option>
+                            <option>Wizard</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="light-grey" id="scripts-category-row">
+                    <td class="small-bold-font">
+                        Category
+                    </td>
+                    <td>
+                        <select id="scripts-category">
+                            <option selected="selected">Doesn't Matter</option>
+                            <option>Area</option>
+                            <option>Complete NPCs</option>
+                            <option>Conversation</option>
+                            <option>Creature AI</option>
+                            <option>Creature Related</option>
+                            <option>Database Related</option>
+                            <option>Games</option>
+                            <option>Inventory Item</option>
+                            <option>NPCs</option>
+                            <option>Placeable Item</option>
+                            <option>Rulesets</option>
+                            <option>Scripting routines</option>
+                            <option>Spells</option>
+                            <option>Subraces</option>
+                            <option>Time Devices</option>
+                            <option>Travel</option>
+                            <option>Tutorials</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="light-grey" id="scripts-exclude-category-row">
+                    <td class="small-bold-font">
+                        Don't Show This Category
+                    </td>
+                    <td>
+                        <select id="scripts-exclude-category">
+                            <option selected="selected">Show All</option>
+                            <option>Area</option>
+                            <option>Complete NPCs</option>
+                            <option>Conversation</option>
+                            <option>Creature AI</option>
+                            <option>Creature Related</option>
+                            <option>Database Related</option>
+                            <option>Games</option>
+                            <option>Inventory Item</option>
+                            <option>NPCs</option>
+                            <option>Placeable Item</option>
+                            <option>Rulesets</option>
+                            <option>Scripting routines</option>
+                            <option>Spells</option>
+                            <option>Subraces</option>
+                            <option>Time Devices</option>
+                            <option>Travel</option>
+                            <option>Tutorials</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="light-grey" id="votes-row">
                     <td class="small-bold-font">
                         Minimum Number of Votes 
                     </td>
                     <td>
-                        <select id="modules-votes">
+                        <select id="votes">
                             <option selected="selected">Doesn't Matter</option>
                             <option>1</option>
                             <option>2</option>
@@ -387,12 +595,12 @@
                         </select>
                     </td>
                 </tr>
-                <tr class="light-grey">
+                <tr class="light-grey" id="rating-row">
                     <td class="small-bold-font">
                         Minimum Rating 
                     </td>
                     <td>
-                        <select id="modules-rating">
+                        <select id="rating">
                             <option selected="selected">Doesn't Matter</option>
                             <option>10.00</option>
                             <option>9.75</option>
@@ -434,7 +642,22 @@
                         </select>
                     </td>
                 </tr>
-                <tr class="light-grey">
+                <tr class="light-grey" id="portraits-gender-row">
+                    <td class="small-bold-font">
+                        Gender 
+                    </td>
+                    <td>
+                        <select id="portraits-gender">
+                            <option selected="selected">Doesn't Matter</option>
+                            <option>Both Genders</option>
+                            <option>Female</option>
+                            <option>Male</option>
+                            <option>Other</option>
+                            <option>Portrait Pack</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="light-grey" id="version-row">
                     <td class="small-bold-font">
                         Which Version?
                     </td>
@@ -507,7 +730,7 @@
                         </select>
                     </td>
                 </tr>
-                <tr class="light-grey">
+                <tr class="light-grey" id="levels-row">
                     <td class="small-bold-font">
                         Levels
                     </td>
@@ -601,7 +824,7 @@
                         </select>
                     </td>
                 </tr>
-                <tr class="medium-grey">
+                <tr class="medium-grey" id="players-row">
                     <td class="small-bold-font">
                         Number of Players
                     </td>
@@ -743,7 +966,7 @@
                         </select>
                     </td>
                 </tr>
-                <tr class="light-grey">
+                <tr class="light-grey" id="length-row">
                     <td class="small-bold-font">
                         Gameplay Hours
                     </td>
@@ -879,7 +1102,7 @@
                         </select>
                     </td>
                 </tr>
-                <tr class="light-grey">
+                <tr class="light-grey" id="multiplayer-row">
                     <td class="small-bold-font">
                         Single or Multiplayer 
                     </td>
@@ -893,7 +1116,7 @@
                         </select>
                     </td>
                 </tr>
-                <tr class="light-grey">
+                <tr class="light-grey" id="dm-row">
                     <td class="small-bold-font">
                         DM Needed 
                     </td>
@@ -908,7 +1131,7 @@
                         </select>
                     </td>
                 </tr>
-                <tr class="medium-grey">
+                <tr class="medium-grey" id="alignments-row">
                     <td class="small-bold-font">
                         Alignments 
                     </td>
@@ -916,7 +1139,7 @@
                         <input type="text" id="alignment"/>
                     </td>
                 </tr>
-                <tr class="medium-grey">
+                <tr class="medium-grey" id="races-row">
                     <td class="small-bold-font">
                         Races 
                     </td>
@@ -924,7 +1147,7 @@
                         <input type="text" id="race"/>
                     </td>
                 </tr>
-                <tr class="medium-grey">
+                <tr class="medium-grey" id="classes-row">
                     <td class="small-bold-font">
                         Classes 
                     </td>
@@ -932,7 +1155,7 @@
                         <input type="text" id="class"/>
                     </td>
                 </tr>
-                <tr class="medium-grey">
+                <tr class="medium-grey" id="setting-row">
                     <td class="small-bold-font">
                         Setting 
                     </td>
@@ -940,7 +1163,7 @@
                         <input type="text" id="setting"/>
                     </td>
                 </tr>
-                <tr class="light-grey">
+                <tr class="light-grey" id="traps-row">
                     <td class="small-bold-font">
                         Tricks & Traps 
                     </td>
@@ -955,7 +1178,7 @@
                         </select>
                     </td>
                 </tr>
-                <tr class="light-grey">
+                <tr class="light-grey" id="roleplay-row">
                     <td class="small-bold-font">
                         Roleplay 
                     </td>
@@ -970,7 +1193,7 @@
                         </select>
                     </td>
                 </tr>
-                <tr class="light-grey">
+                <tr class="light-grey" id="hack-row">
                     <td class="small-bold-font">
                         Hack & Slash 
                     </td>
@@ -985,7 +1208,7 @@
                         </select>
                     </td>
                 </tr>
-                <tr class="light-grey">
+                <tr class="light-grey" id="scope-row">
                     <td class="small-bold-font">
                         Scope 
                     </td>
@@ -1001,12 +1224,12 @@
                         </select>
                     </td>
                 </tr>
-                <tr class="light-grey">
+                <tr class="light-grey" id="content-rating-row">
                     <td class="small-bold-font">
                         Content Rating 
                     </td>
                     <td>
-                        <select id="content">
+                        <select id="content-rating">
                             <option selected="selected">Doesn't Matter</option>
                             <option>Everyone</option>
                             <option>Teen</option>
@@ -1016,7 +1239,7 @@
                         </select>
                     </td>
                 </tr>
-                <tr class="light-grey">
+                <tr class="light-grey" id="language-row">
                     <td class="small-bold-font">
                         Language 
                     </td>
@@ -1037,875 +1260,12 @@
                         </select>
                     </td>
                 </tr>
-                <tr class="medium-grey">
+                <tr class="medium-grey" id="button-row">
                     <td class="small-bold-font">
                         Submit 
                     </td>
                     <td>
-                        <button id="modules-search-button">Search</button>
-                    </td>
-                </tr>
-            </table>
-        </div>
-        <div class="search-interface search-box" id="hakpaks-search">
-            <div class="search-title"><b>Search NWN Hakpaks</b></div>
-            <table class="modules-search">
-                <tr class="medium-grey">
-                    <td class="small-bold-font">
-                        Match Text <span class="orange-text">(Optional)</span> 
-                    </td>
-                    <td>
-                        <input type="text" id="hakpaks-text"/>
-                    </td>
-                </tr>
-                <tr class="medium-grey">
-                    <td class="small-bold-font">
-                        Date Submitted <span class="orange-text">(Optional)</span>
-                    </td>
-                    <td class="small-font">
-                        From: 
-                        <select id="hakpaks-submitted-from-month">
-                            <option selected="selected">Jan</option>
-                            <option>Feb</option>
-                            <option>Mar</option>
-                            <option>Apr</option>
-                            <option>May</option>
-                            <option>Jun</option>
-                            <option>Jul</option>
-                            <option>Aug</option>
-                            <option>Sep</option>
-                            <option>Oct</option>
-                            <option>Nov</option>
-                            <option>Dec</option>
-                        </select>
-                        <select id="hakpaks-submitted-from-date">
-                            <option selected="selected">1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                            <option>9</option>
-                            <option>10</option>
-                            <option>11</option>
-                            <option>12</option>
-                            <option>13</option>
-                            <option>14</option>
-                            <option>15</option>
-                            <option>16</option>
-                            <option>17</option>
-                            <option>18</option>
-                            <option>19</option>
-                            <option>20</option>
-                            <option>21</option>
-                            <option>22</option>
-                            <option>23</option>
-                            <option>24</option>
-                            <option>25</option>
-                            <option>26</option>
-                            <option>27</option>
-                            <option>28</option>
-                            <option>29</option>
-                            <option>30</option>
-                            <option>31</option>
-                        </select>
-                        <select id="hakpaks-submitted-from-year">
-                            <option selected="selected">2002</option>
-                            <option>2003</option>
-                            <option>2004</option>
-                            <option>2005</option>
-                            <option>2006</option>
-                            <option>2007</option>
-                            <option>2008</option>
-                            <option>2009</option>
-                            <option>2010</option>
-                            <option>2011</option>
-                            <option>2012</option>
-                            <option>2013</option>
-                        </select>
-                        <br>
-                        To: 
-                        <select id="hakpaks-submitted-to-month">
-                            <option>Jan</option>
-                            <option>Feb</option>
-                            <option>Mar</option>
-                            <option>Apr</option>
-                            <option>May</option>
-                            <option>Jun</option>
-                            <option>Jul</option>
-                            <option>Aug</option>
-                            <option>Sep</option>
-                            <option>Oct</option>
-                            <option>Nov</option>
-                            <option selected="selected">Dec</option>
-                        </select>
-                        <select id="hakpaks-submitted-to-date">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                            <option>9</option>
-                            <option>10</option>
-                            <option>11</option>
-                            <option>12</option>
-                            <option>13</option>
-                            <option>14</option>
-                            <option>15</option>
-                            <option>16</option>
-                            <option>17</option>
-                            <option>18</option>
-                            <option>19</option>
-                            <option>20</option>
-                            <option>21</option>
-                            <option>22</option>
-                            <option>23</option>
-                            <option>24</option>
-                            <option>25</option>
-                            <option>26</option>
-                            <option>27</option>
-                            <option>28</option>
-                            <option>29</option>
-                            <option>30</option>
-                            <option selected="selected">31</option>
-                        </select>
-                        <select id="hakpaks-submitted-to-year">
-                            <option>2002</option>
-                            <option>2003</option>
-                            <option>2004</option>
-                            <option>2005</option>
-                            <option>2006</option>
-                            <option>2007</option>
-                            <option>2008</option>
-                            <option>2009</option>
-                            <option>2010</option>
-                            <option>2011</option>
-                            <option>2012</option>
-                            <option selected="selected">2013</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr class="medium-grey">
-                    <td class="small-bold-font">
-                        Date Updated <span class="orange-text">(Optional)</span>
-                    </td>
-                    <td class="small-font">
-                        From: 
-                        <select id="hakpaks-updated-from-month">
-                            <option selected="selected">Jan</option>
-                            <option>Feb</option>
-                            <option>Mar</option>
-                            <option>Apr</option>
-                            <option>May</option>
-                            <option>Jun</option>
-                            <option>Jul</option>
-                            <option>Aug</option>
-                            <option>Sep</option>
-                            <option>Oct</option>
-                            <option>Nov</option>
-                            <option>Dec</option>
-                        </select>
-                        <select id="hakpaks-updated-from-date">
-                            <option selected="selected">1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                            <option>9</option>
-                            <option>10</option>
-                            <option>11</option>
-                            <option>12</option>
-                            <option>13</option>
-                            <option>14</option>
-                            <option>15</option>
-                            <option>16</option>
-                            <option>17</option>
-                            <option>18</option>
-                            <option>19</option>
-                            <option>20</option>
-                            <option>21</option>
-                            <option>22</option>
-                            <option>23</option>
-                            <option>24</option>
-                            <option>25</option>
-                            <option>26</option>
-                            <option>27</option>
-                            <option>28</option>
-                            <option>29</option>
-                            <option>30</option>
-                            <option>31</option>
-                        </select>
-                        <select id="hakpaks-updated-from-year">
-                            <option selected="selected">2002</option>
-                            <option>2003</option>
-                            <option>2004</option>
-                            <option>2005</option>
-                            <option>2006</option>
-                            <option>2007</option>
-                            <option>2008</option>
-                            <option>2009</option>
-                            <option>2010</option>
-                            <option>2011</option>
-                            <option>2012</option>
-                            <option>2013</option>
-                        </select>
-                        <br>
-                        To: 
-                        <select id="hakpaks-updated-to-month">
-                            <option>Jan</option>
-                            <option>Feb</option>
-                            <option>Mar</option>
-                            <option>Apr</option>
-                            <option>May</option>
-                            <option>Jun</option>
-                            <option>Jul</option>
-                            <option>Aug</option>
-                            <option>Sep</option>
-                            <option>Oct</option>
-                            <option>Nov</option>
-                            <option selected="selected">Dec</option>
-                        </select>
-                        <select id="hakpaks-updated-to-date">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                            <option>9</option>
-                            <option>10</option>
-                            <option>11</option>
-                            <option>12</option>
-                            <option>13</option>
-                            <option>14</option>
-                            <option>15</option>
-                            <option>16</option>
-                            <option>17</option>
-                            <option>18</option>
-                            <option>19</option>
-                            <option>20</option>
-                            <option>21</option>
-                            <option>22</option>
-                            <option>23</option>
-                            <option>24</option>
-                            <option>25</option>
-                            <option>26</option>
-                            <option>27</option>
-                            <option>28</option>
-                            <option>29</option>
-                            <option>30</option>
-                            <option selected="selected">31</option>
-                        </select>
-                        <select id="hakpaks-updated-to-year">
-                            <option>2002</option>
-                            <option>2003</option>
-                            <option>2004</option>
-                            <option>2005</option>
-                            <option>2006</option>
-                            <option>2007</option>
-                            <option>2008</option>
-                            <option>2009</option>
-                            <option>2010</option>
-                            <option>2011</option>
-                            <option>2012</option>
-                            <option selected="selected">2013</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr class="light-grey">
-                    <td class="small-bold-font">
-                        Category
-                    </td>
-                    <td>
-                        <select id="hakpaks-category">
-                            <option selected="selected">Doesn't Matter</option>
-                            <option>Armor</option>
-                            <option>Code Modifications</option>
-                            <option>Combos - All-In-One</option>
-                            <option>Combos - Armor</option>
-                            <option>Combos - Creatures</option>
-                            <option>Combos - Other</option>
-                            <option>Combos - Placeables</option>
-                            <option>Combos - Tilesets</option>
-                            <option>Combos - Weapons</option>
-                            <option>Creatures</option>
-                            <option>Inventory Icons</option>
-                            <option>Inventory Items</option>
-                            <option>Load Screens</option>
-                            <option>Module Specific</option>
-                            <option>Music</option>
-                            <option>Other</option>
-                            <option>PC Parts</option>
-                            <option>Placeables</option>
-                            <option>Portraits</option>
-                            <option>Prestige Classes</option>
-                            <option>Races</option>
-                            <option>Sound Effects</option>
-                            <option>Tilesets</option>
-                            <option>Voicesets</option>
-                            <option>Weapons</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr class="light-grey">
-                    <td class="small-bold-font">
-                        Don't Show This Category
-                    </td>
-                    <td>
-                        <select id="hakpaks-exclude-category">
-                            <option selected="selected">Show All</option>
-                            <option>Armor</option>
-                            <option>Code Modifications</option>
-                            <option>Combos - All-In-One</option>
-                            <option>Combos - Armor</option>
-                            <option>Combos - Creatures</option>
-                            <option>Combos - Other</option>
-                            <option>Combos - Placeables</option>
-                            <option>Combos - Tilesets</option>
-                            <option>Combos - Weapons</option>
-                            <option>Creatures</option>
-                            <option>Inventory Icons</option>
-                            <option>Inventory Items</option>
-                            <option>Load Screens</option>
-                            <option>Module Specific</option>
-                            <option>Music</option>
-                            <option>Other</option>
-                            <option>PC Parts</option>
-                            <option>Placeables</option>
-                            <option>Portraits</option>
-                            <option>Prestige Classes</option>
-                            <option>Races</option>
-                            <option>Sound Effects</option>
-                            <option>Tilesets</option>
-                            <option>Voicesets</option>
-                            <option>Weapons</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr class="light-grey">
-                    <td class="small-bold-font">
-                        Minimum Number of Votes 
-                    </td>
-                    <td>
-                        <select id="hakpaks-votes">
-                            <option selected="selected">Doesn't Matter</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>5</option>
-                            <option>10</option>
-                            <option>20</option>
-                            <option>50</option>
-                            <option>100</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr class="light-grey">
-                    <td class="small-bold-font">
-                        Minimum Rating 
-                    </td>
-                    <td>
-                        <select id="hakpaks-rating">
-                            <option selected="selected">Doesn't Matter</option>
-                            <option>10.00</option>
-                            <option>9.75</option>
-                            <option>9.50</option>
-                            <option>9.25</option>
-                            <option>9.00</option>
-                            <option>8.75</option>
-                            <option>8.50</option>
-                            <option>8.25</option>
-                            <option>8.00</option>
-                            <option>7.75</option>
-                            <option>7.50</option>
-                            <option>7.25</option>
-                            <option>7.00</option>
-                            <option>6.75</option>
-                            <option>6.50</option>
-                            <option>6.25</option>
-                            <option>6.00</option>
-                            <option>5.75</option>
-                            <option>5.50</option>
-                            <option>5.25</option>
-                            <option>5.00</option>
-                            <option>4.75</option>
-                            <option>4.50</option>
-                            <option>4.25</option>
-                            <option>4.00</option>
-                            <option>3.75</option>
-                            <option>3.50</option>
-                            <option>3.25</option>
-                            <option>3.00</option>
-                            <option>2.75</option>
-                            <option>2.50</option>
-                            <option>2.25</option>
-                            <option>2.00</option>
-                            <option>1.75</option>
-                            <option>1.50</option>
-                            <option>1.25</option>
-                            <option>1.00</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr class="medium-grey">
-                    <td class="small-bold-font">
-                        Submit 
-                    </td>
-                    <td>
-                        <button id="hakpaks-search-button">Search</button>
-                    </td>
-                </tr>
-            </table>
-        </div>
-        <div class="search-interface search-box" id="portraits-search">
-            <div class="search-title"><b>Search NWN Portraits</b></div>
-            <table class="modules-search">
-                <tr class="medium-grey">
-                    <td class="small-bold-font">
-                        Match Text <span class="orange-text">(Optional)</span> 
-                    </td>
-                    <td>
-                        <input type="text" id="portraits-text"/>
-                    </td>
-                </tr>
-                <tr class="medium-grey">
-                    <td class="small-bold-font">
-                        Date Submitted <span class="orange-text">(Optional)</span>
-                    </td>
-                    <td class="small-font">
-                        From: 
-                        <select id="portraits-submitted-from-month">
-                            <option selected="selected">Jan</option>
-                            <option>Feb</option>
-                            <option>Mar</option>
-                            <option>Apr</option>
-                            <option>May</option>
-                            <option>Jun</option>
-                            <option>Jul</option>
-                            <option>Aug</option>
-                            <option>Sep</option>
-                            <option>Oct</option>
-                            <option>Nov</option>
-                            <option>Dec</option>
-                        </select>
-                        <select id="portraits-submitted-from-date">
-                            <option selected="selected">1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                            <option>9</option>
-                            <option>10</option>
-                            <option>11</option>
-                            <option>12</option>
-                            <option>13</option>
-                            <option>14</option>
-                            <option>15</option>
-                            <option>16</option>
-                            <option>17</option>
-                            <option>18</option>
-                            <option>19</option>
-                            <option>20</option>
-                            <option>21</option>
-                            <option>22</option>
-                            <option>23</option>
-                            <option>24</option>
-                            <option>25</option>
-                            <option>26</option>
-                            <option>27</option>
-                            <option>28</option>
-                            <option>29</option>
-                            <option>30</option>
-                            <option>31</option>
-                        </select>
-                        <select id="portraits-submitted-from-year">
-                            <option selected="selected">2002</option>
-                            <option>2003</option>
-                            <option>2004</option>
-                            <option>2005</option>
-                            <option>2006</option>
-                            <option>2007</option>
-                            <option>2008</option>
-                            <option>2009</option>
-                            <option>2010</option>
-                            <option>2011</option>
-                            <option>2012</option>
-                            <option>2013</option>
-                        </select>
-                        <br>
-                        To: 
-                        <select id="portraits-submitted-to-month">
-                            <option>Jan</option>
-                            <option>Feb</option>
-                            <option>Mar</option>
-                            <option>Apr</option>
-                            <option>May</option>
-                            <option>Jun</option>
-                            <option>Jul</option>
-                            <option>Aug</option>
-                            <option>Sep</option>
-                            <option>Oct</option>
-                            <option>Nov</option>
-                            <option selected="selected">Dec</option>
-                        </select>
-                        <select id="portraits-submitted-to-date">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                            <option>9</option>
-                            <option>10</option>
-                            <option>11</option>
-                            <option>12</option>
-                            <option>13</option>
-                            <option>14</option>
-                            <option>15</option>
-                            <option>16</option>
-                            <option>17</option>
-                            <option>18</option>
-                            <option>19</option>
-                            <option>20</option>
-                            <option>21</option>
-                            <option>22</option>
-                            <option>23</option>
-                            <option>24</option>
-                            <option>25</option>
-                            <option>26</option>
-                            <option>27</option>
-                            <option>28</option>
-                            <option>29</option>
-                            <option>30</option>
-                            <option selected="selected">31</option>
-                        </select>
-                        <select id="portraits-submitted-to-year">
-                            <option>2002</option>
-                            <option>2003</option>
-                            <option>2004</option>
-                            <option>2005</option>
-                            <option>2006</option>
-                            <option>2007</option>
-                            <option>2008</option>
-                            <option>2009</option>
-                            <option>2010</option>
-                            <option>2011</option>
-                            <option>2012</option>
-                            <option selected="selected">2013</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr class="medium-grey">
-                    <td class="small-bold-font">
-                        Date Updated <span class="orange-text">(Optional)</span>
-                    </td>
-                    <td class="small-font">
-                        From: 
-                        <select id="portraits-updated-from-month">
-                            <option selected="selected">Jan</option>
-                            <option>Feb</option>
-                            <option>Mar</option>
-                            <option>Apr</option>
-                            <option>May</option>
-                            <option>Jun</option>
-                            <option>Jul</option>
-                            <option>Aug</option>
-                            <option>Sep</option>
-                            <option>Oct</option>
-                            <option>Nov</option>
-                            <option>Dec</option>
-                        </select>
-                        <select id="portraits-updated-from-date">
-                            <option selected="selected">1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                            <option>9</option>
-                            <option>10</option>
-                            <option>11</option>
-                            <option>12</option>
-                            <option>13</option>
-                            <option>14</option>
-                            <option>15</option>
-                            <option>16</option>
-                            <option>17</option>
-                            <option>18</option>
-                            <option>19</option>
-                            <option>20</option>
-                            <option>21</option>
-                            <option>22</option>
-                            <option>23</option>
-                            <option>24</option>
-                            <option>25</option>
-                            <option>26</option>
-                            <option>27</option>
-                            <option>28</option>
-                            <option>29</option>
-                            <option>30</option>
-                            <option>31</option>
-                        </select>
-                        <select id="portraits-updated-from-year">
-                            <option selected="selected">2002</option>
-                            <option>2003</option>
-                            <option>2004</option>
-                            <option>2005</option>
-                            <option>2006</option>
-                            <option>2007</option>
-                            <option>2008</option>
-                            <option>2009</option>
-                            <option>2010</option>
-                            <option>2011</option>
-                            <option>2012</option>
-                            <option>2013</option>
-                        </select>
-                        <br>
-                        To: 
-                        <select id="portraits-updated-to-month">
-                            <option>Jan</option>
-                            <option>Feb</option>
-                            <option>Mar</option>
-                            <option>Apr</option>
-                            <option>May</option>
-                            <option>Jun</option>
-                            <option>Jul</option>
-                            <option>Aug</option>
-                            <option>Sep</option>
-                            <option>Oct</option>
-                            <option>Nov</option>
-                            <option selected="selected">Dec</option>
-                        </select>
-                        <select id="portraits-updated-to-date">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                            <option>9</option>
-                            <option>10</option>
-                            <option>11</option>
-                            <option>12</option>
-                            <option>13</option>
-                            <option>14</option>
-                            <option>15</option>
-                            <option>16</option>
-                            <option>17</option>
-                            <option>18</option>
-                            <option>19</option>
-                            <option>20</option>
-                            <option>21</option>
-                            <option>22</option>
-                            <option>23</option>
-                            <option>24</option>
-                            <option>25</option>
-                            <option>26</option>
-                            <option>27</option>
-                            <option>28</option>
-                            <option>29</option>
-                            <option>30</option>
-                            <option selected="selected">31</option>
-                        </select>
-                        <select id="portraits-updated-to-year">
-                            <option>2002</option>
-                            <option>2003</option>
-                            <option>2004</option>
-                            <option>2005</option>
-                            <option>2006</option>
-                            <option>2007</option>
-                            <option>2008</option>
-                            <option>2009</option>
-                            <option>2010</option>
-                            <option>2011</option>
-                            <option>2012</option>
-                            <option selected="selected">2013</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr class="light-grey">
-                    <td class="small-bold-font">
-                        Category
-                    </td>
-                    <td>
-                        <select id="portraits-category">
-                            <option selected="selected">Doesn't Matter</option>
-                            <option>Arcane Archer</option>
-                            <option>Assassin</option>
-                            <option>Barbarian</option>
-                            <option>Bard</option>
-                            <option>Blackguard</option>
-                            <option>Cleric</option>
-                            <option>Drow</option>
-                            <option>Druid</option>
-                            <option>Dwarf</option>
-                            <option>Elf</option>
-                            <option>Fighter</option>
-                            <option>Generic</option>
-                            <option>Gnome</option>
-                            <option>Guard</option>
-                            <option>Half-Elf</option>
-                            <option>Half-Orc</option>
-                            <option>Halfling</option>
-                            <option>Human</option>
-                            <option>Jpg</option>
-                            <option>Monk</option>
-                            <option>Monsters</option>
-                            <option>NPC</option>
-                            <option>Other</option>
-                            <option>Paladin</option>
-                            <option>Ranger</option>
-                            <option>Rogue</option>
-                            <option>Shadowdancer</option>
-                            <option>Sorcerer</option>
-                            <option>Wild Elves</option>
-                            <option>Wizard</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr class="light-grey">
-                    <td class="small-bold-font">
-                        Don't Show This Category
-                    </td>
-                    <td>
-                        <select id="portraits-exclude-category">
-                            <option selected="selected">Show All</option>
-                            <option>Arcane Archer</option>
-                            <option>Assassin</option>
-                            <option>Barbarian</option>
-                            <option>Bard</option>
-                            <option>Blackguard</option>
-                            <option>Cleric</option>
-                            <option>Drow</option>
-                            <option>Druid</option>
-                            <option>Dwarf</option>
-                            <option>Elf</option>
-                            <option>Fighter</option>
-                            <option>Generic</option>
-                            <option>Gnome</option>
-                            <option>Guard</option>
-                            <option>Half-Elf</option>
-                            <option>Half-Orc</option>
-                            <option>Halfling</option>
-                            <option>Human</option>
-                            <option>Jpg</option>
-                            <option>Monk</option>
-                            <option>Monsters</option>
-                            <option>NPC</option>
-                            <option>Other</option>
-                            <option>Paladin</option>
-                            <option>Ranger</option>
-                            <option>Rogue</option>
-                            <option>Shadowdancer</option>
-                            <option>Sorcerer</option>
-                            <option>Wild Elves</option>
-                            <option>Wizard</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr class="light-grey">
-                    <td class="small-bold-font">
-                        Minimum Number of Votes 
-                    </td>
-                    <td>
-                        <select id="portraits-votes">
-                            <option selected="selected">Doesn't Matter</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>5</option>
-                            <option>10</option>
-                            <option>20</option>
-                            <option>50</option>
-                            <option>100</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr class="light-grey">
-                    <td class="small-bold-font">
-                        Minimum Rating 
-                    </td>
-                    <td>
-                        <select id="portraits-rating">
-                            <option selected="selected">Doesn't Matter</option>
-                            <option>10.00</option>
-                            <option>9.75</option>
-                            <option>9.50</option>
-                            <option>9.25</option>
-                            <option>9.00</option>
-                            <option>8.75</option>
-                            <option>8.50</option>
-                            <option>8.25</option>
-                            <option>8.00</option>
-                            <option>7.75</option>
-                            <option>7.50</option>
-                            <option>7.25</option>
-                            <option>7.00</option>
-                            <option>6.75</option>
-                            <option>6.50</option>
-                            <option>6.25</option>
-                            <option>6.00</option>
-                            <option>5.75</option>
-                            <option>5.50</option>
-                            <option>5.25</option>
-                            <option>5.00</option>
-                            <option>4.75</option>
-                            <option>4.50</option>
-                            <option>4.25</option>
-                            <option>4.00</option>
-                            <option>3.75</option>
-                            <option>3.50</option>
-                            <option>3.25</option>
-                            <option>3.00</option>
-                            <option>2.75</option>
-                            <option>2.50</option>
-                            <option>2.25</option>
-                            <option>2.00</option>
-                            <option>1.75</option>
-                            <option>1.50</option>
-                            <option>1.25</option>
-                            <option>1.00</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr class="light-grey">
-                    <td class="small-bold-font">
-                        Gender 
-                    </td>
-                    <td>
-                        <select id="portraits-gender">
-                            <option selected="selected">Doesn't Matter</option>
-                            <option>Both Genders</option>
-                            <option>Female</option>
-                            <option>Male</option>
-                            <option>Other</option>
-                            <option>Portrait Pack</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr class="medium-grey">
-                    <td class="small-bold-font">
-                        Submit 
-                    </td>
-                    <td>
-                        <button id="portraits-search-button">Search</button>
+                        <button id="search-button">Search</button>
                     </td>
                 </tr>
             </table>
