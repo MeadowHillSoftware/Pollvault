@@ -728,6 +728,11 @@ oPollvault.handleType = function(event) {
             '#rating-row', '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search NWN Scripts</b>');
+    } else if (sName === "ideas") {
+        var aIds = ['#ideas-category-row', "ideas-exclude-category-row", 
+            '#votes-row', '#rating-row', '#button-row'];
+        oPollvault.populateSearchTable(aIds);
+        title = $('<b>Search NWN Scripts</b>');
     }
     $('#search-title')
         .empty()
@@ -783,6 +788,9 @@ oPollvault.matchText = function(oObject, sValue, sType) {
     } else if (sType === "scripts") {
         aSearchFields = ["Description", "Title", "Author", "Format", 
             "Type", "Includes"];
+    } else if (sType === "ideas") {
+        aSearchFields = ["Description", "Title", "Author", 
+            "Short Description", "Type"];
     }
     for (var m = 0; m < aMods.length; m++) {
         var sFolder = aMods[m];
