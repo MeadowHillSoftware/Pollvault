@@ -729,10 +729,16 @@ oPollvault.handleType = function(event) {
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search NWN Scripts</b>');
     } else if (sName === "ideas") {
-        var aIds = ['#ideas-category-row', "ideas-exclude-category-row", 
+        var aIds = ['#ideas-category-row', '#ideas-exclude-category-row', 
             '#votes-row', '#rating-row', '#button-row'];
         oPollvault.populateSearchTable(aIds);
-        title = $('<b>Search NWN Scripts</b>');
+        title = $('<b>Search NWN Ideas</b>');
+    } else if (sName === "community_news") {
+        var aIds = ['#community_news-category-row', 
+            '#community_news-exclude-category-row', '#votes-row', 
+            '#rating-row', '#button-row'];
+        oPollvault.populateSearchTable(aIds);
+        title = $('<b>Search Community News</b>');
     }
     $('#search-title')
         .empty()
@@ -791,6 +797,9 @@ oPollvault.matchText = function(oObject, sValue, sType) {
     } else if (sType === "ideas") {
         aSearchFields = ["Description", "Title", "Author", 
             "Short Description", "Type"];
+    } else if (sType === "community_news") {
+        aSearchFields = ["Description", "Title", "Author", 
+            "Short Description", "Type", "News Link"];
     }
     for (var m = 0; m < aMods.length; m++) {
         var sFolder = aMods[m];
