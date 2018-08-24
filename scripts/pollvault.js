@@ -739,6 +739,12 @@ oPollvault.handleType = function(event) {
             '#rating-row', '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search Community News</b>');
+    } else if (sName === "other") {
+        var aIds = ['#other-category-row', 
+            '#other-exclude-category-row', '#votes-row', 
+            '#rating-row', '#button-row'];
+        oPollvault.populateSearchTable(aIds);
+        title = $('<b>Search NWN Other</b>');
     }
     $('#search-title')
         .empty()
@@ -789,7 +795,7 @@ oPollvault.matchText = function(oObject, sValue, sType) {
             "Author", "Setting", "Classes"];
     } else if (sType === "hakpaks") {
         aSearchFields = ["Description", "Title", "Author"];
-    } else if (sType === "portraits") {
+    } else if (sType === "portraits" || sType === "other") {
         aSearchFields = ["Description", "Title", "Author", "Format"];
     } else if (sType === "scripts") {
         aSearchFields = ["Description", "Title", "Author", "Format", 
