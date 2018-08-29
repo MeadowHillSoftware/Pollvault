@@ -189,7 +189,11 @@ oPollvault.displayResults = function(oObject, sType) {
             for (var m = 0; m < aFolders.length; m++) {
                 var sFolder = aFolders[m];
                 var oMod = oResults[sFolder];
-                var sTitle = oMod["Title"];
+                if (oPollvault.sType === "characters") {
+                    var sTitle = oMod["Name"];
+                } else {
+                    var sTitle = oMod["Title"];
+                }
                 if (sTitle.length > 49) {
                     sTitle = sTitle.slice(0, 47) + "...";
                 }
@@ -557,7 +561,7 @@ oPollvault.handleSearchButtonClick = function(event) {
         if (sDM !== "Doesn't Matter") {
             oResults = oPollvault.searchByString(oResults, "DM Needed", sDM);
         }
-        var sAlignment = $('#alignment').val();
+        var sAlignment = $('#alignments').val();
         if (sAlignment !== "") {
             oResults = oPollvault.matchTextInOneField(oResults, "Alignments", sAlignment);
         }
@@ -606,6 +610,60 @@ oPollvault.handleSearchButtonClick = function(event) {
         var sGender = $('#portraits-gender').val();
         if (sGender !== "Doesn't Matter") {
             oResults = oPollvault.searchByString(oResults, "Gender", sGender);
+        }
+    }
+    if (sType === "characters") {
+        var sChallenge = $('#challenge').val();
+        if (sChallenge !== "Doesn't Matter") {
+            oResults = oPollvault.searchByString(oResults, "Challenge Rating", sChallenge);
+        }
+        var sAlignment = $('#alignment').val();
+        if (sAlignment !== "Doesn't Matter") {
+            oResults = oPollvault.searchByString(oResults, "Alignment", sAlignment);
+        }
+        var sSize = $('#size').val();
+        if (sSize !== "Doesn't Matter") {
+            oResults = oPollvault.searchByString(oResults, "Size", sSize);
+        }
+        var sGender = $('#characters-gender').val();
+        if (sGender !== "Doesn't Matter") {
+            oResults = oPollvault.searchByString(oResults, "Gender", sGender);
+        }
+        var sScripts = $('#scripts').val();
+        if (sScripts !== "Doesn't Matter") {
+            oResults = oPollvault.searchByString(oResults, "Scripts Included?", sScripts);
+        }
+        var sDialogue = $('#dialogue').val();
+        if (sDialogue !== "Doesn't Matter") {
+            oResults = oPollvault.searchByString(oResults, "Dialog Included?", sDialogue);
+        }
+        var sClass1 = $('#class-1').val();
+        if (sClass1 !== "Doesn't Matter") {
+            oResults = oPollvault.matchTextInOneField(oResults, "Class1", sClass1);
+        }
+        var sClass2 = $('#class-2').val();
+        if (sClass2 !== "Doesn't Matter") {
+            oResults = oPollvault.matchTextInOneField(oResults, "Class2", sClass2);
+        }
+        var sClass3 = $('#class-3').val();
+        if (sClass3 !== "Doesn't Matter") {
+            oResults = oPollvault.matchTextInOneField(oResults, "Class3", sClass3);
+        }
+        var sLevel1 = $('#level-1').val();
+        if (sLevel1 !== "Doesn't Matter") {
+            oResults = oPollvault.searchByString(oResults, "Level1", sLevel1);
+        }
+        var sLevel2 = $('#level-2').val();
+        if (sLevel2 !== "Doesn't Matter") {
+            oResults = oPollvault.searchByString(oResults, "Level2", sLevel2);
+        }
+        var sLevel3 = $('#level-3').val();
+        if (sLevel3 !== "Doesn't Matter") {
+            oResults = oPollvault.searchByString(oResults, "Level3", sLevel3);
+        }
+        var sNPC = $('#npc').val();
+        if (sNPC !== "Doesn't Matter") {
+            oResults = oPollvault.searchByString(oResults, "NPC", sNPC);
         }
     }
     oPollvault.oResults = oResults;
@@ -745,6 +803,16 @@ oPollvault.handleType = function(event) {
             '#rating-row', '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search NWN Other</b>');
+    } else if (sName === "characters") {
+        var aIds = ['#characters-category-row', 
+            '#characters-exclude-category-row', '#votes-row', 
+            '#rating-row', '#challenge-row', '#alignment-row', 
+            '#size-row', '#characters-gender-row', '#scripts-row', 
+            '#dialogue-row', '#class-1-row', '#class-2-row', 
+            '#class-3-row', '#level-1-row', '#level-2-row', 
+            '#level-3-row', '#npc-row', '#button-row'];
+        oPollvault.populateSearchTable(aIds);
+        title = $('<b>Search NWN Characters</b>');
     }
     $('#search-title')
         .empty()
@@ -806,6 +874,9 @@ oPollvault.matchText = function(oObject, sValue, sType) {
     } else if (sType === "community_news") {
         aSearchFields = ["Description", "Title", "Author", 
             "Short Description", "Type", "News Link"];
+    } else if (sType === "characters") {
+        aSearchFields = ["Description", "Title", "Author", "Abilities", 
+            "Skills", "HD / HP", "Feats", "Type"];
     }
     for (var m = 0; m < aMods.length; m++) {
         var sFolder = aMods[m];
