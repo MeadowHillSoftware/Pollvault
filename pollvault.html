@@ -290,6 +290,79 @@
         </div>
         <div class="search-interface search-box" id="test-search">
             <table class="modules-search" id="storage-table">
+                <tr class="light-grey" id="alignment-row">
+                    <td class="small-bold-font">
+                        Alignment 
+                    </td>
+                    <td>
+                        <select id="alignment">
+                            <option selected="selected">Doesn't Matter</option>
+                            <option>Lawful Good</option>
+                            <option>Lawful Neutral</option>
+                            <option>Lawful Evil</option>
+                            <option>Neutral Good</option>
+                            <option>Neutral</option>
+                            <option>Neutral Evil</option>
+                            <option>Chaotic Good</option>
+                            <option>Chaotic Neutral</option>
+                            <option>Chaotic Evil</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="medium-grey" id="alignments-row">
+                    <td class="small-bold-font">
+                        Alignments 
+                    </td>
+                    <td>
+                        <input type="text" id="alignments"/>
+                    </td>
+                </tr>
+                <tr class="medium-grey" id="button-row">
+                    <td class="small-bold-font">
+                        Submit 
+                    </td>
+                    <td>
+                        <button id="search-button">Search</button>
+                    </td>
+                </tr>
+                <tr class="light-grey" id="challenge-row">
+                    <td class="small-bold-font">
+                        Challenge Rating 
+                    </td>
+                    <td>
+                        <select id="challenge">
+                            <option selected="selected">Doesn't Matter</option>
+                            <option>Various</option>
+                            <option>1/10</option>
+                            <option>1/8</option>
+                            <option>1/6</option>
+                            <option>1/4</option>
+                            <option>1/3</option>
+                            <option>1/2</option>
+                            <option>01</option>
+                            <option>02</option>
+                            <option>03</option>
+                            <option>04</option>
+                            <option>05</option>
+                            <option>06</option>
+                            <option>07</option>
+                            <option>08</option>
+                            <option>09</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                            <option>13</option>
+                            <option>14</option>
+                            <option>15</option>
+                            <option>16</option>
+                            <option>17</option>
+                            <option>18</option>
+                            <option>19</option>
+                            <option>20</option>
+                            <option>21</option>
+                        </select>
+                    </td>
+                </tr>
                 <tr class="light-grey" id="characters-category-row">
                     <td class="small-bold-font">
                         Category
@@ -400,6 +473,94 @@
                         </select>
                     </td>
                 </tr>
+                <tr class="light-grey" id="characters-gender-row">
+                    <td class="small-bold-font">
+                        Gender 
+                    </td>
+                    <td>
+                        <select id="characters-gender">
+                            <option selected="selected">Doesn't Matter</option>
+                            <option>Male</option>
+                            <option>Other</option>
+                            <option>Female</option>
+                            <option>Various</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="light-grey" id="class-1-row">
+                    <td class="small-bold-font">
+                        Class 1 
+                    </td>
+                    <td>
+                        <select id="class-1">
+                            <option selected="selected">Doesn't Matter</option>
+                            <option>Barbarian</option>
+                            <option>Bard</option>
+                            <option>Cleric</option>
+                            <option>Druid</option>
+                            <option>Fighter</option>
+                            <option>Monk</option>
+                            <option>Other</option>
+                            <option>Paladin</option>
+                            <option>Ranger</option>
+                            <option>Rogue</option>
+                            <option>Sorcerer</option>
+                            <option>Wizard</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="light-grey" id="class-2-row">
+                    <td class="small-bold-font">
+                        Class 2 
+                    </td>
+                    <td>
+                        <select id="class-2">
+                            <option selected="selected">Doesn't Matter</option>
+                            <option>Barbarian</option>
+                            <option>Bard</option>
+                            <option>Cleric</option>
+                            <option>Druid</option>
+                            <option>Fighter</option>
+                            <option>Monk</option>
+                            <option>Other</option>
+                            <option>Paladin</option>
+                            <option>Ranger</option>
+                            <option>Rogue</option>
+                            <option>Sorcerer</option>
+                            <option>Wizard</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="light-grey" id="class-3-row">
+                    <td class="small-bold-font">
+                        Class 3 
+                    </td>
+                    <td>
+                        <select id="class-3">
+                            <option selected="selected">Doesn't Matter</option>
+                            <option>Barbarian</option>
+                            <option>Bard</option>
+                            <option>Cleric</option>
+                            <option>Druid</option>
+                            <option>Fighter</option>
+                            <option>Monk</option>
+                            <option>Other</option>
+                            <option>Paladin</option>
+                            <option>Ranger</option>
+                            <option>Rogue</option>
+                            <option>Sorcerer</option>
+                            <option>Wizard</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="medium-grey" id="classes-row">
+                    <td class="small-bold-font">
+                        Classes 
+                    </td>
+                    <td>
+                        <input type="text" id="class"/>
+                    </td>
+                </tr>
                 <tr class="light-grey" id="community_news-category-row">
                     <td class="small-bold-font">
                         Category
@@ -431,6 +592,131 @@
                             <option>Official</option>
                             <option>Other</option>
                             <option>Persistent World</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="light-grey" id="content-rating-row">
+                    <td class="small-bold-font">
+                        Content Rating 
+                    </td>
+                    <td>
+                        <select id="content-rating">
+                            <option selected="selected">Doesn't Matter</option>
+                            <option>Everyone</option>
+                            <option>Teen</option>
+                            <option>Mature</option>
+                            <option>Adult</option>
+                            <option>Extreme</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="light-grey" id="dialogue-row">
+                    <td class="small-bold-font">
+                        Dialogue Included 
+                    </td>
+                    <td>
+                        <select id="dialogue">
+                            <option selected="selected">Doesn't Matter</option>
+                            <option>Yes</option>
+                            <option>No</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="light-grey" id="dm-row">
+                    <td class="small-bold-font">
+                        DM Needed 
+                    </td>
+                    <td>
+                        <select id="dm">
+                            <option selected="selected">Doesn't Matter</option>
+                            <option>No DM Required</option>
+                            <option>Occasional DM Needed</option>
+                            <option>DM Required</option>
+                            <option>Multiple DMs Required</option>
+                            <option>Part of Series</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="light-grey" id="gameworlds-category-row">
+                    <td class="small-bold-font">
+                        Category
+                    </td>
+                    <td>
+                        <select id="gameworlds-category">
+                            <option selected="selected">Doesn't Matter</option>
+                            <option>Capture the Flag</option>
+                            <option>City Adventure</option>
+                            <option>Classic PnP Conversion</option>
+                            <option>Combat</option>
+                            <option>Deathmatch Arenas</option>
+                            <option>Dramatic</option>
+                            <option>Dungeon Adventure</option>
+                            <option>Epic</option>
+                            <option>Final Version</option>
+                            <option>Forest Adventure</option>
+                            <option>Hardcore Rules</option>
+                            <option>Humorous/Parody</option>
+                            <option>Mountain Adventure</option>
+                            <option>None/Freeform</option>
+                            <option>Official Campaign</option>
+                            <option>Other</option>
+                            <option>Puzzles</option>
+                            <option>PvP</option>
+                            <option>Roleplay</option>
+                            <option>Snow Adventure</option>
+                            <option>Temple/Crypt Adventure</option>
+                            <option>Tutorial</option>
+                            <option>Twisted/Dark</option>
+                            <option>Uses Stone of Recall/Town Portal</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="light-grey" id="gameworlds-exclude-category-row">
+                    <td class="small-bold-font">
+                        Don't Show This Category
+                    </td>
+                    <td>
+                        <select id="gameworlds-exclude-category">
+                            <option selected="selected">Show All</option>
+                            <option>Capture the Flag</option>
+                            <option>City Adventure</option>
+                            <option>Classic PnP Conversion</option>
+                            <option>Combat</option>
+                            <option>Deathmatch Arenas</option>
+                            <option>Dramatic</option>
+                            <option>Dungeon Adventure</option>
+                            <option>Epic</option>
+                            <option>Final Version</option>
+                            <option>Forest Adventure</option>
+                            <option>Hardcore Rules</option>
+                            <option>Humorous/Parody</option>
+                            <option>Mountain Adventure</option>
+                            <option>None/Freeform</option>
+                            <option>Official Campaign</option>
+                            <option>Other</option>
+                            <option>Puzzles</option>
+                            <option>PvP</option>
+                            <option>Roleplay</option>
+                            <option>Snow Adventure</option>
+                            <option>Temple/Crypt Adventure</option>
+                            <option>Tutorial</option>
+                            <option>Twisted/Dark</option>
+                            <option>Uses Stone of Recall/Town Portal</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="light-grey" id="hack-row">
+                    <td class="small-bold-font">
+                        Hack & Slash 
+                    </td>
+                    <td>
+                        <select id="hack">
+                            <option selected="selected">Doesn't Matter</option>
+                            <option>Non-existent</option>
+                            <option>Dependant on Module</option>
+                            <option>Light</option>
+                            <option>Medium</option>
+                            <option>Heavy</option>
                         </select>
                     </td>
                 </tr>
@@ -540,371 +826,44 @@
                         </select>
                     </td>
                 </tr>
-                <tr class="light-grey" id="modules-category-row">
+                <tr class="light-grey" id="language-row">
                     <td class="small-bold-font">
-                        Category
+                        Language 
                     </td>
                     <td>
-                        <select id="modules-category">
+                        <select id="language">
                             <option selected="selected">Doesn't Matter</option>
-                            <option>BioWare Contest</option>
-                            <option>Capture the Flag</option>
-                            <option>City Adventure</option>
-                            <option>Classic PnP Conversion</option>
-                            <option>Combat</option>
-                            <option>D20 Modern</option>
-                            <option>Deathmatch Arenas</option>
-                            <option>Dramatic</option>
-                            <option>Dungeon Adventure</option>
-                            <option>Epic</option>
-                            <option>Final Version</option>
-                            <option>Forest Adventure</option>
-                            <option>Hardcore Rules</option>
-                            <option>Horror/Survival Horror</option>
-                            <option>Humorous/Parody</option>
-                            <option>Kid Friendly</option>
-                            <option>Mountain Adventure</option>
-                            <option>None/Freeform</option>
-                            <option>Official Campaign</option>
-                            <option>Old BioWare Contest</option>
+                            <option>Asian</option>
+                            <option>English</option>
+                            <option>Chinese</option>
+                            <option>French</option>
+                            <option>German</option>
+                            <option>Italian</option>
+                            <option>Japanese</option>
+                            <option>Korean</option>
+                            <option>Russian</option>
+                            <option>Spanish</option>
                             <option>Other</option>
-                            <option>Persistent Worlds</option>
-                            <option>Puzzles</option>
-                            <option>PvP</option>
-                            <option>Roleplay</option>
-                            <option>Romance</option>
-                            <option>Snow Adventure</option>
-                            <option>Temple/Crypt Adventure</option>
-                            <option>Tutorial</option>
-                            <option>Twisted/Dark</option>
-                            <option>Uses Stone of Recall/Town Portal</option>
-                            <option>Various Settings</option>
                         </select>
                     </td>
                 </tr>
-                <tr class="light-grey" id="modules-exclude-category-row">
+                <tr class="light-grey" id="length-row">
                     <td class="small-bold-font">
-                        Don't Show This Category
+                        Gameplay Hours
                     </td>
-                    <td>
-                        <select id="modules-exclude-category">
-                            <option selected="selected">Show All</option>
-                            <option>BioWare Contest</option>
-                            <option>Capture the Flag</option>
-                            <option>City Adventure</option>
-                            <option>Classic PnP Conversion</option>
-                            <option>Combat</option>
-                            <option>D20 Modern</option>
-                            <option>Deathmatch Arenas</option>
-                            <option>Dramatic</option>
-                            <option>Dungeon Adventure</option>
-                            <option>Epic</option>
-                            <option>Final Version</option>
-                            <option>Forest Adventure</option>
-                            <option>Hardcore Rules</option>
-                            <option>Horror/Survival Horror</option>
-                            <option>Humorous/Parody</option>
-                            <option>Kid Friendly</option>
-                            <option>Mountain Adventure</option>
-                            <option>None/Freeform</option>
-                            <option>Official Campaign</option>
-                            <option>Old BioWare Contest</option>
-                            <option>Other</option>
-                            <option>Persistent Worlds</option>
-                            <option>Puzzles</option>
-                            <option>PvP</option>
-                            <option>Roleplay</option>
-                            <option>Romance</option>
-                            <option>Snow Adventure</option>
-                            <option>Temple/Crypt Adventure</option>
-                            <option>Tutorial</option>
-                            <option>Twisted/Dark</option>
-                            <option>Uses Stone of Recall/Town Portal</option>
-                            <option>Various Settings</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr class="light-grey" id="other-category-row">
-                    <td class="small-bold-font">
-                        Category
-                    </td>
-                    <td>
-                        <select id="other-category">
+                    <td class="tiny-font">
+                        From: <select id="min-length">
                             <option selected="selected">Doesn't Matter</option>
-                            <option>Application</option>
-                            <option>Code Modifications</option>
-                            <option>Custom Content Tools</option>
-                            <option>Database Related</option>
-                            <option>Desktops</option>
-                            <option>DM-Related</option>
-                            <option>Document</option>
-                            <option>Flash</option>
-                            <option>Other</option>
-                            <option>Reference Guides</option>
-                            <option>Screensaver</option>
-                            <option>Spreadsheet</option>
-                            <option>Storylines</option>
-                            <option>Teaser Texts</option>
-                            <option>Tutorials</option>
-                            <option>Updater Skin</option>
-                            <option>Utility</option>
-                            <option>Wallpapers</option>
-                            <option>Winamp Skin</option>
-                            <option>World Maps</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr class="light-grey" id="other-exclude-category-row">
-                    <td class="small-bold-font">
-                        Don't Show This Category
-                    </td>
-                    <td>
-                        <select id="other-exclude-category">
-                            <option selected="selected">Show All</option>
-                            <option>Application</option>
-                            <option>Code Modifications</option>
-                            <option>Custom Content Tools</option>
-                            <option>Database Related</option>
-                            <option>Desktops</option>
-                            <option>DM-Related</option>
-                            <option>Document</option>
-                            <option>Flash</option>
-                            <option>Other</option>
-                            <option>Reference Guides</option>
-                            <option>Screensaver</option>
-                            <option>Spreadsheet</option>
-                            <option>Storylines</option>
-                            <option>Teaser Texts</option>
-                            <option>Tutorials</option>
-                            <option>Updater Skin</option>
-                            <option>Utility</option>
-                            <option>Wallpapers</option>
-                            <option>Winamp Skin</option>
-                            <option>World Maps</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr class="light-grey" id="portraits-category-row">
-                    <td class="small-bold-font">
-                        Category
-                    </td>
-                    <td>
-                        <select id="portraits-category">
-                            <option selected="selected">Doesn't Matter</option>
-                            <option>Arcane Archer</option>
-                            <option>Assassin</option>
-                            <option>Barbarian</option>
-                            <option>Bard</option>
-                            <option>Blackguard</option>
-                            <option>Cleric</option>
-                            <option>Drow</option>
-                            <option>Druid</option>
-                            <option>Dwarf</option>
-                            <option>Elf</option>
-                            <option>Fighter</option>
-                            <option>Generic</option>
-                            <option>Gnome</option>
-                            <option>Guard</option>
-                            <option>Half-Elf</option>
-                            <option>Half-Orc</option>
-                            <option>Halfling</option>
-                            <option>Human</option>
-                            <option>Jpg</option>
-                            <option>Monk</option>
-                            <option>Monsters</option>
-                            <option>NPC</option>
-                            <option>Other</option>
-                            <option>Paladin</option>
-                            <option>Ranger</option>
-                            <option>Rogue</option>
-                            <option>Shadowdancer</option>
-                            <option>Sorcerer</option>
-                            <option>Wild Elves</option>
-                            <option>Wizard</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr class="light-grey" id="portraits-exclude-category-row">
-                    <td class="small-bold-font">
-                        Don't Show This Category
-                    </td>
-                    <td>
-                        <select id="portraits-exclude-category">
-                            <option selected="selected">Show All</option>
-                            <option>Arcane Archer</option>
-                            <option>Assassin</option>
-                            <option>Barbarian</option>
-                            <option>Bard</option>
-                            <option>Blackguard</option>
-                            <option>Cleric</option>
-                            <option>Drow</option>
-                            <option>Druid</option>
-                            <option>Dwarf</option>
-                            <option>Elf</option>
-                            <option>Fighter</option>
-                            <option>Generic</option>
-                            <option>Gnome</option>
-                            <option>Guard</option>
-                            <option>Half-Elf</option>
-                            <option>Half-Orc</option>
-                            <option>Halfling</option>
-                            <option>Human</option>
-                            <option>Jpg</option>
-                            <option>Monk</option>
-                            <option>Monsters</option>
-                            <option>NPC</option>
-                            <option>Other</option>
-                            <option>Paladin</option>
-                            <option>Ranger</option>
-                            <option>Rogue</option>
-                            <option>Shadowdancer</option>
-                            <option>Sorcerer</option>
-                            <option>Wild Elves</option>
-                            <option>Wizard</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr class="light-grey" id="scripts-category-row">
-                    <td class="small-bold-font">
-                        Category
-                    </td>
-                    <td>
-                        <select id="scripts-category">
-                            <option selected="selected">Doesn't Matter</option>
-                            <option>Area</option>
-                            <option>Complete NPCs</option>
-                            <option>Conversation</option>
-                            <option>Creature AI</option>
-                            <option>Creature Related</option>
-                            <option>Database Related</option>
-                            <option>Games</option>
-                            <option>Inventory Item</option>
-                            <option>NPCs</option>
-                            <option>Placeable Item</option>
-                            <option>Rulesets</option>
-                            <option>Scripting routines</option>
-                            <option>Spells</option>
-                            <option>Subraces</option>
-                            <option>Time Devices</option>
-                            <option>Travel</option>
-                            <option>Tutorials</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr class="light-grey" id="scripts-exclude-category-row">
-                    <td class="small-bold-font">
-                        Don't Show This Category
-                    </td>
-                    <td>
-                        <select id="scripts-exclude-category">
-                            <option selected="selected">Show All</option>
-                            <option>Area</option>
-                            <option>Complete NPCs</option>
-                            <option>Conversation</option>
-                            <option>Creature AI</option>
-                            <option>Creature Related</option>
-                            <option>Database Related</option>
-                            <option>Games</option>
-                            <option>Inventory Item</option>
-                            <option>NPCs</option>
-                            <option>Placeable Item</option>
-                            <option>Rulesets</option>
-                            <option>Scripting routines</option>
-                            <option>Spells</option>
-                            <option>Subraces</option>
-                            <option>Time Devices</option>
-                            <option>Travel</option>
-                            <option>Tutorials</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr class="light-grey" id="votes-row">
-                    <td class="small-bold-font">
-                        Minimum Number of Votes 
-                    </td>
-                    <td>
-                        <select id="votes">
-                            <option selected="selected">Doesn't Matter</option>
+                            <option><1</option>
                             <option>1</option>
                             <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
                             <option>5</option>
-                            <option>10</option>
-                            <option>20</option>
-                            <option>50</option>
-                            <option>100</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr class="light-grey" id="rating-row">
-                    <td class="small-bold-font">
-                        Minimum Rating 
-                    </td>
-                    <td>
-                        <select id="rating">
-                            <option selected="selected">Doesn't Matter</option>
-                            <option>10.00</option>
-                            <option>9.75</option>
-                            <option>9.50</option>
-                            <option>9.25</option>
-                            <option>9.00</option>
-                            <option>8.75</option>
-                            <option>8.50</option>
-                            <option>8.25</option>
-                            <option>8.00</option>
-                            <option>7.75</option>
-                            <option>7.50</option>
-                            <option>7.25</option>
-                            <option>7.00</option>
-                            <option>6.75</option>
-                            <option>6.50</option>
-                            <option>6.25</option>
-                            <option>6.00</option>
-                            <option>5.75</option>
-                            <option>5.50</option>
-                            <option>5.25</option>
-                            <option>5.00</option>
-                            <option>4.75</option>
-                            <option>4.50</option>
-                            <option>4.25</option>
-                            <option>4.00</option>
-                            <option>3.75</option>
-                            <option>3.50</option>
-                            <option>3.25</option>
-                            <option>3.00</option>
-                            <option>2.75</option>
-                            <option>2.50</option>
-                            <option>2.25</option>
-                            <option>2.00</option>
-                            <option>1.75</option>
-                            <option>1.50</option>
-                            <option>1.25</option>
-                            <option>1.00</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr class="light-grey" id="challenge-row">
-                    <td class="small-bold-font">
-                        Challenge Rating 
-                    </td>
-                    <td>
-                        <select id="challenge">
-                            <option selected="selected">Doesn't Matter</option>
-                            <option>Various</option>
-                            <option>1/10</option>
-                            <option>1/8</option>
-                            <option>1/6</option>
-                            <option>1/4</option>
-                            <option>1/3</option>
-                            <option>1/2</option>
-                            <option>01</option>
-                            <option>02</option>
-                            <option>03</option>
-                            <option>04</option>
-                            <option>05</option>
-                            <option>06</option>
-                            <option>07</option>
-                            <option>08</option>
-                            <option>09</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
                             <option>10</option>
                             <option>11</option>
                             <option>12</option>
@@ -917,149 +876,110 @@
                             <option>19</option>
                             <option>20</option>
                             <option>21</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr class="light-grey" id="alignment-row">
-                    <td class="small-bold-font">
-                        Alignment 
-                    </td>
-                    <td>
-                        <select id="alignment">
+                            <option>22</option>
+                            <option>23</option>
+                            <option>24</option>
+                            <option>25</option>
+                            <option>26</option>
+                            <option>27</option>
+                            <option>28</option>
+                            <option>29</option>
+                            <option>30</option>
+                            <option>31</option>
+                            <option>32</option>
+                            <option>33</option>
+                            <option>34</option>
+                            <option>35</option>
+                            <option>36</option>
+                            <option>37</option>
+                            <option>38</option>
+                            <option>39</option>
+                            <option>40</option>
+                            <option>41</option>
+                            <option>42</option>
+                            <option>43</option>
+                            <option>44</option>
+                            <option>45</option>
+                            <option>46</option>
+                            <option>47</option>
+                            <option>48</option>
+                            <option>49</option>
+                            <option>50</option>
+                            <option>51</option>
+                            <option>52</option>
+                            <option>53</option>
+                            <option>54</option>
+                            <option>55</option>
+                            <option>56</option>
+                            <option>57</option>
+                            <option>58</option>
+                            <option>59</option>
+                            <option>60</option>
+                            <option>60+</option>
+                        </select> To: <select id="max-length">
                             <option selected="selected">Doesn't Matter</option>
-                            <option>Lawful Good</option>
-                            <option>Lawful Neutral</option>
-                            <option>Lawful Evil</option>
-                            <option>Neutral Good</option>
-                            <option>Neutral</option>
-                            <option>Neutral Evil</option>
-                            <option>Chaotic Good</option>
-                            <option>Chaotic Neutral</option>
-                            <option>Chaotic Evil</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr class="light-grey" id="size-row">
-                    <td class="small-bold-font">
-                        Size 
-                    </td>
-                    <td>
-                        <select id="size">
-                            <option selected="selected">Doesn't Matter</option>
-                            <option>Fine</option>
-                            <option>Diminutive</option>
-                            <option>Tiny</option>
-                            <option>Small</option>
-                            <option>Medium</option>
-                            <option>Large</option>
-                            <option>Huge</option>
-                            <option>Gargantuan</option>
-                            <option>Colossal</option>
-                            <option>Various</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr class="light-grey" id="characters-gender-row">
-                    <td class="small-bold-font">
-                        Gender 
-                    </td>
-                    <td>
-                        <select id="characters-gender">
-                            <option selected="selected">Doesn't Matter</option>
-                            <option>Male</option>
-                            <option>Other</option>
-                            <option>Female</option>
-                            <option>Various</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr class="light-grey" id="scripts-row">
-                    <td class="small-bold-font">
-                        Scripts Included 
-                    </td>
-                    <td>
-                        <select id="scripts">
-                            <option selected="selected">Doesn't Matter</option>
-                            <option>Yes</option>
-                            <option>No</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr class="light-grey" id="dialogue-row">
-                    <td class="small-bold-font">
-                        Dialogue Included 
-                    </td>
-                    <td>
-                        <select id="dialogue">
-                            <option selected="selected">Doesn't Matter</option>
-                            <option>Yes</option>
-                            <option>No</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr class="light-grey" id="class-1-row">
-                    <td class="small-bold-font">
-                        Class 1 
-                    </td>
-                    <td>
-                        <select id="class-1">
-                            <option selected="selected">Doesn't Matter</option>
-                            <option>Barbarian</option>
-                            <option>Bard</option>
-                            <option>Cleric</option>
-                            <option>Druid</option>
-                            <option>Fighter</option>
-                            <option>Monk</option>
-                            <option>Other</option>
-                            <option>Paladin</option>
-                            <option>Ranger</option>
-                            <option>Rogue</option>
-                            <option>Sorcerer</option>
-                            <option>Wizard</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr class="light-grey" id="class-2-row">
-                    <td class="small-bold-font">
-                        Class 2 
-                    </td>
-                    <td>
-                        <select id="class-2">
-                            <option selected="selected">Doesn't Matter</option>
-                            <option>Barbarian</option>
-                            <option>Bard</option>
-                            <option>Cleric</option>
-                            <option>Druid</option>
-                            <option>Fighter</option>
-                            <option>Monk</option>
-                            <option>Other</option>
-                            <option>Paladin</option>
-                            <option>Ranger</option>
-                            <option>Rogue</option>
-                            <option>Sorcerer</option>
-                            <option>Wizard</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr class="light-grey" id="class-3-row">
-                    <td class="small-bold-font">
-                        Class 3 
-                    </td>
-                    <td>
-                        <select id="class-3">
-                            <option selected="selected">Doesn't Matter</option>
-                            <option>Barbarian</option>
-                            <option>Bard</option>
-                            <option>Cleric</option>
-                            <option>Druid</option>
-                            <option>Fighter</option>
-                            <option>Monk</option>
-                            <option>Other</option>
-                            <option>Paladin</option>
-                            <option>Ranger</option>
-                            <option>Rogue</option>
-                            <option>Sorcerer</option>
-                            <option>Wizard</option>
+                            <option><1</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                            <option>13</option>
+                            <option>14</option>
+                            <option>15</option>
+                            <option>16</option>
+                            <option>17</option>
+                            <option>18</option>
+                            <option>19</option>
+                            <option>20</option>
+                            <option>21</option>
+                            <option>22</option>
+                            <option>23</option>
+                            <option>24</option>
+                            <option>25</option>
+                            <option>26</option>
+                            <option>27</option>
+                            <option>28</option>
+                            <option>29</option>
+                            <option>30</option>
+                            <option>31</option>
+                            <option>32</option>
+                            <option>33</option>
+                            <option>34</option>
+                            <option>35</option>
+                            <option>36</option>
+                            <option>37</option>
+                            <option>38</option>
+                            <option>39</option>
+                            <option>40</option>
+                            <option>41</option>
+                            <option>42</option>
+                            <option>43</option>
+                            <option>44</option>
+                            <option>45</option>
+                            <option>46</option>
+                            <option>47</option>
+                            <option>48</option>
+                            <option>49</option>
+                            <option>50</option>
+                            <option>51</option>
+                            <option>52</option>
+                            <option>53</option>
+                            <option>54</option>
+                            <option>55</option>
+                            <option>56</option>
+                            <option>57</option>
+                            <option>58</option>
+                            <option>59</option>
+                            <option>60</option>
+                            <option>60+</option>
                         </select>
                     </td>
                 </tr>
@@ -1213,106 +1133,6 @@
                         </select>
                     </td>
                 </tr>
-                <tr class="light-grey" id="npc-row">
-                    <td class="small-bold-font">
-                        NPC 
-                    </td>
-                    <td>
-                        <select id="npc">
-                            <option selected="selected">Doesn't Matter</option>
-                            <option>Yes</option>
-                            <option>No</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr class="light-grey" id="portraits-gender-row">
-                    <td class="small-bold-font">
-                        Gender 
-                    </td>
-                    <td>
-                        <select id="portraits-gender">
-                            <option selected="selected">Doesn't Matter</option>
-                            <option>Both Genders</option>
-                            <option>Female</option>
-                            <option>Male</option>
-                            <option>Other</option>
-                            <option>Portrait Pack</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr class="light-grey" id="version-row">
-                    <td class="small-bold-font">
-                        Which Version?
-                    </td>
-                    <td>
-                        <select id="version">
-                            <option selected="selected">Doesn't Matter</option>
-                            <option>All NWN / No SOU / No HOTU / No CEP</option>
-                            <option>All SOU</option>
-                            <option>All HOTU</option>
-                            <option>All CEP</option>
-                            <option>Works on all versions</option>
-                            <option>CEP-1.00 Requires Community Expansion Project</option>
-                            <option>CEP-1.01 Requires Community Expansion Project</option>
-                            <option>CEP-1.50 Requires Community Expansion Project</option>
-                            <option>CEP-1.51 Requires Community Expansion Project</option>
-                            <option>CEP-1.52 Requires Community Expansion Project</option>
-                            <option>CEP-2.00 Requires Community Expansion Project</option>
-                            <option>Requires SoU & CEP</option>
-                            <option>Requires HotU & CEP</option>
-                            <option>Requires Both Expansions (SoU & HotU)</option>
-                            <option>Requires All Expasions (SoU & HotU & CEP)</option>
-                            <option>HOTU-1.69</option>
-                            <option>HOTU-1.68</option>
-                            <option>HOTU-1.67</option>
-                            <option>HOTU-1.66</option>
-                            <option>HOTU-1.65</option>
-                            <option>HOTU-1.64</option>
-                            <option>HOTU-1.63</option>
-                            <option>HOTU-1.62</option>
-                            <option>HOTU-1.61</option>
-                            <option>HOTU-1.59</option>
-                            <option>SOU-1.69</option>
-                            <option>SOU-1.68</option>
-                            <option>SOU-1.67</option>
-                            <option>SOU-1.66</option>
-                            <option>SOU-1.65</option>
-                            <option>SOU-1.64</option>
-                            <option>SOU-1.63</option>
-                            <option>SOU-1.62</option>
-                            <option>SOU-1.61</option>
-                            <option>SOU-1.32</option>
-                            <option>SOU-1.31</option>
-                            <option>SOU-1.30</option>
-                            <option>NWN-1.69</option>
-                            <option>NWN-1.68</option>
-                            <option>NWN-1.67</option>
-                            <option>NWN-1.66</option>
-                            <option>NWN-1.65</option>
-                            <option>NWN-1.64</option>
-                            <option>NWN-1.63</option>
-                            <option>NWN-1.62</option>
-                            <option>NWN-1.61</option>
-                            <option>NWN-1.32</option>
-                            <option>NWN-1.31</option>
-                            <option>NWN-1.30</option>
-                            <option>NWN-1.29 or lower</option>
-                            <option>NWN-1.30</option>
-                            <option>NWN-1.29</option>
-                            <option>NWN-1.28</option>
-                            <option>NWN-1.27</option>
-                            <option>NWN-1.26</option>
-                            <option>NWN-1.25</option>
-                            <option>NWN-1.24</option>
-                            <option>NWN-1.23</option>
-                            <option>NWN-1.22</option>
-                            <option>NWN-1.21</option>
-                            <option>NWN-1.20</option>
-                            <option>NWN-1.19</option>
-                            <option>NWN-1.18</option>
-                        </select>
-                    </td>
-                </tr>
                 <tr class="light-grey" id="levels-row">
                     <td class="small-bold-font">
                         Levels
@@ -1404,6 +1224,194 @@
                         Include those listed as "Any"?: <select id="any-level">
                             <option selected="selected">Yes</option>
                             <option>No</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="light-grey" id="magic-row">
+                    <td class="small-bold-font">
+                        Magic Level 
+                    </td>
+                    <td>
+                        <select id="magic">
+                            <option selected="selected">Doesn't Matter</option>
+                            <option>Dependant on Module</option>
+                            <option>None</option>
+                            <option>Low</option>
+                            <option>Low to Moderate</option>
+                            <option>Moderate</option>
+                            <option>Moderate to High</option>
+                            <option>High</option>
+                            <option>Great</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="light-grey" id="modules-category-row">
+                    <td class="small-bold-font">
+                        Category
+                    </td>
+                    <td>
+                        <select id="modules-category">
+                            <option selected="selected">Doesn't Matter</option>
+                            <option>BioWare Contest</option>
+                            <option>Capture the Flag</option>
+                            <option>City Adventure</option>
+                            <option>Classic PnP Conversion</option>
+                            <option>Combat</option>
+                            <option>D20 Modern</option>
+                            <option>Deathmatch Arenas</option>
+                            <option>Dramatic</option>
+                            <option>Dungeon Adventure</option>
+                            <option>Epic</option>
+                            <option>Final Version</option>
+                            <option>Forest Adventure</option>
+                            <option>Hardcore Rules</option>
+                            <option>Horror/Survival Horror</option>
+                            <option>Humorous/Parody</option>
+                            <option>Kid Friendly</option>
+                            <option>Mountain Adventure</option>
+                            <option>None/Freeform</option>
+                            <option>Official Campaign</option>
+                            <option>Old BioWare Contest</option>
+                            <option>Other</option>
+                            <option>Persistent Worlds</option>
+                            <option>Puzzles</option>
+                            <option>PvP</option>
+                            <option>Roleplay</option>
+                            <option>Romance</option>
+                            <option>Snow Adventure</option>
+                            <option>Temple/Crypt Adventure</option>
+                            <option>Tutorial</option>
+                            <option>Twisted/Dark</option>
+                            <option>Uses Stone of Recall/Town Portal</option>
+                            <option>Various Settings</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="light-grey" id="modules-exclude-category-row">
+                    <td class="small-bold-font">
+                        Don't Show This Category
+                    </td>
+                    <td>
+                        <select id="modules-exclude-category">
+                            <option selected="selected">Show All</option>
+                            <option>BioWare Contest</option>
+                            <option>Capture the Flag</option>
+                            <option>City Adventure</option>
+                            <option>Classic PnP Conversion</option>
+                            <option>Combat</option>
+                            <option>D20 Modern</option>
+                            <option>Deathmatch Arenas</option>
+                            <option>Dramatic</option>
+                            <option>Dungeon Adventure</option>
+                            <option>Epic</option>
+                            <option>Final Version</option>
+                            <option>Forest Adventure</option>
+                            <option>Hardcore Rules</option>
+                            <option>Horror/Survival Horror</option>
+                            <option>Humorous/Parody</option>
+                            <option>Kid Friendly</option>
+                            <option>Mountain Adventure</option>
+                            <option>None/Freeform</option>
+                            <option>Official Campaign</option>
+                            <option>Old BioWare Contest</option>
+                            <option>Other</option>
+                            <option>Persistent Worlds</option>
+                            <option>Puzzles</option>
+                            <option>PvP</option>
+                            <option>Roleplay</option>
+                            <option>Romance</option>
+                            <option>Snow Adventure</option>
+                            <option>Temple/Crypt Adventure</option>
+                            <option>Tutorial</option>
+                            <option>Twisted/Dark</option>
+                            <option>Uses Stone of Recall/Town Portal</option>
+                            <option>Various Settings</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="light-grey" id="multiplayer-row">
+                    <td class="small-bold-font">
+                        Single or Multiplayer 
+                    </td>
+                    <td>
+                        <select id="multiplayer">
+                            <option selected="selected">Doesn't Matter</option>
+                            <option>Single Player</option>
+                            <option>Multiplayer</option>
+                            <option>Single Player Only</option>
+                            <option>Multiplayer Only</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="light-grey" id="npc-row">
+                    <td class="small-bold-font">
+                        NPC 
+                    </td>
+                    <td>
+                        <select id="npc">
+                            <option selected="selected">Doesn't Matter</option>
+                            <option>Yes</option>
+                            <option>No</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="light-grey" id="other-category-row">
+                    <td class="small-bold-font">
+                        Category
+                    </td>
+                    <td>
+                        <select id="other-category">
+                            <option selected="selected">Doesn't Matter</option>
+                            <option>Application</option>
+                            <option>Code Modifications</option>
+                            <option>Custom Content Tools</option>
+                            <option>Database Related</option>
+                            <option>Desktops</option>
+                            <option>DM-Related</option>
+                            <option>Document</option>
+                            <option>Flash</option>
+                            <option>Other</option>
+                            <option>Reference Guides</option>
+                            <option>Screensaver</option>
+                            <option>Spreadsheet</option>
+                            <option>Storylines</option>
+                            <option>Teaser Texts</option>
+                            <option>Tutorials</option>
+                            <option>Updater Skin</option>
+                            <option>Utility</option>
+                            <option>Wallpapers</option>
+                            <option>Winamp Skin</option>
+                            <option>World Maps</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="light-grey" id="other-exclude-category-row">
+                    <td class="small-bold-font">
+                        Don't Show This Category
+                    </td>
+                    <td>
+                        <select id="other-exclude-category">
+                            <option selected="selected">Show All</option>
+                            <option>Application</option>
+                            <option>Code Modifications</option>
+                            <option>Custom Content Tools</option>
+                            <option>Database Related</option>
+                            <option>Desktops</option>
+                            <option>DM-Related</option>
+                            <option>Document</option>
+                            <option>Flash</option>
+                            <option>Other</option>
+                            <option>Reference Guides</option>
+                            <option>Screensaver</option>
+                            <option>Spreadsheet</option>
+                            <option>Storylines</option>
+                            <option>Teaser Texts</option>
+                            <option>Tutorials</option>
+                            <option>Updater Skin</option>
+                            <option>Utility</option>
+                            <option>Wallpapers</option>
+                            <option>Winamp Skin</option>
+                            <option>World Maps</option>
                         </select>
                     </td>
                 </tr>
@@ -1549,177 +1557,113 @@
                         </select>
                     </td>
                 </tr>
-                <tr class="light-grey" id="length-row">
+                <tr class="light-grey" id="portraits-category-row">
                     <td class="small-bold-font">
-                        Gameplay Hours
+                        Category
                     </td>
-                    <td class="tiny-font">
-                        From: <select id="min-length">
+                    <td>
+                        <select id="portraits-category">
                             <option selected="selected">Doesn't Matter</option>
-                            <option><1</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                            <option>9</option>
-                            <option>10</option>
-                            <option>11</option>
-                            <option>12</option>
-                            <option>13</option>
-                            <option>14</option>
-                            <option>15</option>
-                            <option>16</option>
-                            <option>17</option>
-                            <option>18</option>
-                            <option>19</option>
-                            <option>20</option>
-                            <option>21</option>
-                            <option>22</option>
-                            <option>23</option>
-                            <option>24</option>
-                            <option>25</option>
-                            <option>26</option>
-                            <option>27</option>
-                            <option>28</option>
-                            <option>29</option>
-                            <option>30</option>
-                            <option>31</option>
-                            <option>32</option>
-                            <option>33</option>
-                            <option>34</option>
-                            <option>35</option>
-                            <option>36</option>
-                            <option>37</option>
-                            <option>38</option>
-                            <option>39</option>
-                            <option>40</option>
-                            <option>41</option>
-                            <option>42</option>
-                            <option>43</option>
-                            <option>44</option>
-                            <option>45</option>
-                            <option>46</option>
-                            <option>47</option>
-                            <option>48</option>
-                            <option>49</option>
-                            <option>50</option>
-                            <option>51</option>
-                            <option>52</option>
-                            <option>53</option>
-                            <option>54</option>
-                            <option>55</option>
-                            <option>56</option>
-                            <option>57</option>
-                            <option>58</option>
-                            <option>59</option>
-                            <option>60</option>
-                            <option>60+</option>
-                        </select> To: <select id="max-length">
-                            <option selected="selected">Doesn't Matter</option>
-                            <option><1</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                            <option>9</option>
-                            <option>10</option>
-                            <option>11</option>
-                            <option>12</option>
-                            <option>13</option>
-                            <option>14</option>
-                            <option>15</option>
-                            <option>16</option>
-                            <option>17</option>
-                            <option>18</option>
-                            <option>19</option>
-                            <option>20</option>
-                            <option>21</option>
-                            <option>22</option>
-                            <option>23</option>
-                            <option>24</option>
-                            <option>25</option>
-                            <option>26</option>
-                            <option>27</option>
-                            <option>28</option>
-                            <option>29</option>
-                            <option>30</option>
-                            <option>31</option>
-                            <option>32</option>
-                            <option>33</option>
-                            <option>34</option>
-                            <option>35</option>
-                            <option>36</option>
-                            <option>37</option>
-                            <option>38</option>
-                            <option>39</option>
-                            <option>40</option>
-                            <option>41</option>
-                            <option>42</option>
-                            <option>43</option>
-                            <option>44</option>
-                            <option>45</option>
-                            <option>46</option>
-                            <option>47</option>
-                            <option>48</option>
-                            <option>49</option>
-                            <option>50</option>
-                            <option>51</option>
-                            <option>52</option>
-                            <option>53</option>
-                            <option>54</option>
-                            <option>55</option>
-                            <option>56</option>
-                            <option>57</option>
-                            <option>58</option>
-                            <option>59</option>
-                            <option>60</option>
-                            <option>60+</option>
+                            <option>Arcane Archer</option>
+                            <option>Assassin</option>
+                            <option>Barbarian</option>
+                            <option>Bard</option>
+                            <option>Blackguard</option>
+                            <option>Cleric</option>
+                            <option>Drow</option>
+                            <option>Druid</option>
+                            <option>Dwarf</option>
+                            <option>Elf</option>
+                            <option>Fighter</option>
+                            <option>Generic</option>
+                            <option>Gnome</option>
+                            <option>Guard</option>
+                            <option>Half-Elf</option>
+                            <option>Half-Orc</option>
+                            <option>Halfling</option>
+                            <option>Human</option>
+                            <option>Jpg</option>
+                            <option>Monk</option>
+                            <option>Monsters</option>
+                            <option>NPC</option>
+                            <option>Other</option>
+                            <option>Paladin</option>
+                            <option>Ranger</option>
+                            <option>Rogue</option>
+                            <option>Shadowdancer</option>
+                            <option>Sorcerer</option>
+                            <option>Wild Elves</option>
+                            <option>Wizard</option>
                         </select>
                     </td>
                 </tr>
-                <tr class="light-grey" id="multiplayer-row">
+                <tr class="light-grey" id="portraits-exclude-category-row">
                     <td class="small-bold-font">
-                        Single or Multiplayer 
+                        Don't Show This Category
                     </td>
                     <td>
-                        <select id="multiplayer">
-                            <option selected="selected">Doesn't Matter</option>
-                            <option>Single Player</option>
-                            <option>Multiplayer</option>
-                            <option>Single Player Only</option>
-                            <option>Multiplayer Only</option>
+                        <select id="portraits-exclude-category">
+                            <option selected="selected">Show All</option>
+                            <option>Arcane Archer</option>
+                            <option>Assassin</option>
+                            <option>Barbarian</option>
+                            <option>Bard</option>
+                            <option>Blackguard</option>
+                            <option>Cleric</option>
+                            <option>Drow</option>
+                            <option>Druid</option>
+                            <option>Dwarf</option>
+                            <option>Elf</option>
+                            <option>Fighter</option>
+                            <option>Generic</option>
+                            <option>Gnome</option>
+                            <option>Guard</option>
+                            <option>Half-Elf</option>
+                            <option>Half-Orc</option>
+                            <option>Halfling</option>
+                            <option>Human</option>
+                            <option>Jpg</option>
+                            <option>Monk</option>
+                            <option>Monsters</option>
+                            <option>NPC</option>
+                            <option>Other</option>
+                            <option>Paladin</option>
+                            <option>Ranger</option>
+                            <option>Rogue</option>
+                            <option>Shadowdancer</option>
+                            <option>Sorcerer</option>
+                            <option>Wild Elves</option>
+                            <option>Wizard</option>
                         </select>
                     </td>
                 </tr>
-                <tr class="light-grey" id="dm-row">
+                <tr class="light-grey" id="portraits-gender-row">
                     <td class="small-bold-font">
-                        DM Needed 
+                        Gender 
                     </td>
                     <td>
-                        <select id="dm">
+                        <select id="portraits-gender">
                             <option selected="selected">Doesn't Matter</option>
-                            <option>No DM Required</option>
-                            <option>Occasional DM Needed</option>
-                            <option>DM Required</option>
-                            <option>Multiple DMs Required</option>
-                            <option>Part of Series</option>
+                            <option>Both Genders</option>
+                            <option>Female</option>
+                            <option>Male</option>
+                            <option>Other</option>
+                            <option>Portrait Pack</option>
                         </select>
                     </td>
                 </tr>
-                <tr class="medium-grey" id="alignments-row">
+                <tr class="light-grey" id="pvp-row">
                     <td class="small-bold-font">
-                        Alignments 
+                        PVP 
                     </td>
                     <td>
-                        <input type="text" id="alignments"/>
+                        <select id="pvp">
+                            <option selected="selected">Doesn't Matter</option>
+                            <option>No PvP</option>
+                            <option>Party PvP</option>
+                            <option>Full PvP</option>
+                            <option>Mixed</option>
+                        </select>
                     </td>
                 </tr>
                 <tr class="medium-grey" id="races-row">
@@ -1727,37 +1671,53 @@
                         Races 
                     </td>
                     <td>
-                        <input type="text" id="race"/>
+                        <input type="text" id="races"/>
                     </td>
                 </tr>
-                <tr class="medium-grey" id="classes-row">
+                <tr class="light-grey" id="rating-row">
                     <td class="small-bold-font">
-                        Classes 
+                        Minimum Rating 
                     </td>
                     <td>
-                        <input type="text" id="class"/>
-                    </td>
-                </tr>
-                <tr class="medium-grey" id="setting-row">
-                    <td class="small-bold-font">
-                        Setting 
-                    </td>
-                    <td>
-                        <input type="text" id="setting"/>
-                    </td>
-                </tr>
-                <tr class="light-grey" id="traps-row">
-                    <td class="small-bold-font">
-                        Tricks & Traps 
-                    </td>
-                    <td>
-                        <select id="traps">
+                        <select id="rating">
                             <option selected="selected">Doesn't Matter</option>
-                            <option>Non-existent</option>
-                            <option>Dependant on Module</option>
-                            <option>Light</option>
-                            <option>Medium</option>
-                            <option>Heavy</option>
+                            <option>10.00</option>
+                            <option>9.75</option>
+                            <option>9.50</option>
+                            <option>9.25</option>
+                            <option>9.00</option>
+                            <option>8.75</option>
+                            <option>8.50</option>
+                            <option>8.25</option>
+                            <option>8.00</option>
+                            <option>7.75</option>
+                            <option>7.50</option>
+                            <option>7.25</option>
+                            <option>7.00</option>
+                            <option>6.75</option>
+                            <option>6.50</option>
+                            <option>6.25</option>
+                            <option>6.00</option>
+                            <option>5.75</option>
+                            <option>5.50</option>
+                            <option>5.25</option>
+                            <option>5.00</option>
+                            <option>4.75</option>
+                            <option>4.50</option>
+                            <option>4.25</option>
+                            <option>4.00</option>
+                            <option>3.75</option>
+                            <option>3.50</option>
+                            <option>3.25</option>
+                            <option>3.00</option>
+                            <option>2.75</option>
+                            <option>2.50</option>
+                            <option>2.25</option>
+                            <option>2.00</option>
+                            <option>1.75</option>
+                            <option>1.50</option>
+                            <option>1.25</option>
+                            <option>1.00</option>
                         </select>
                     </td>
                 </tr>
@@ -1767,21 +1727,6 @@
                     </td>
                     <td>
                         <select id="roleplay">
-                            <option selected="selected">Doesn't Matter</option>
-                            <option>Non-existent</option>
-                            <option>Dependant on Module</option>
-                            <option>Light</option>
-                            <option>Medium</option>
-                            <option>Heavy</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr class="light-grey" id="hack-row">
-                    <td class="small-bold-font">
-                        Hack & Slash 
-                    </td>
-                    <td>
-                        <select id="hack">
                             <option selected="selected">Doesn't Matter</option>
                             <option>Non-existent</option>
                             <option>Dependant on Module</option>
@@ -1807,48 +1752,268 @@
                         </select>
                     </td>
                 </tr>
-                <tr class="light-grey" id="content-rating-row">
+                <tr class="light-grey" id="scripts-row">
                     <td class="small-bold-font">
-                        Content Rating 
+                        Scripts Included 
                     </td>
                     <td>
-                        <select id="content-rating">
+                        <select id="scripts">
                             <option selected="selected">Doesn't Matter</option>
-                            <option>Everyone</option>
-                            <option>Teen</option>
-                            <option>Mature</option>
-                            <option>Adult</option>
-                            <option>Extreme</option>
+                            <option>Yes</option>
+                            <option>No</option>
                         </select>
                     </td>
                 </tr>
-                <tr class="light-grey" id="language-row">
+                <tr class="light-grey" id="scripts-category-row">
                     <td class="small-bold-font">
-                        Language 
+                        Category
                     </td>
                     <td>
-                        <select id="language">
+                        <select id="scripts-category">
                             <option selected="selected">Doesn't Matter</option>
-                            <option>Asian</option>
-                            <option>English</option>
-                            <option>Chinese</option>
-                            <option>French</option>
-                            <option>German</option>
-                            <option>Italian</option>
-                            <option>Japanese</option>
-                            <option>Korean</option>
-                            <option>Russian</option>
-                            <option>Spanish</option>
-                            <option>Other</option>
+                            <option>Area</option>
+                            <option>Complete NPCs</option>
+                            <option>Conversation</option>
+                            <option>Creature AI</option>
+                            <option>Creature Related</option>
+                            <option>Database Related</option>
+                            <option>Games</option>
+                            <option>Inventory Item</option>
+                            <option>NPCs</option>
+                            <option>Placeable Item</option>
+                            <option>Rulesets</option>
+                            <option>Scripting routines</option>
+                            <option>Spells</option>
+                            <option>Subraces</option>
+                            <option>Time Devices</option>
+                            <option>Travel</option>
+                            <option>Tutorials</option>
                         </select>
                     </td>
                 </tr>
-                <tr class="medium-grey" id="button-row">
+                <tr class="light-grey" id="scripts-exclude-category-row">
                     <td class="small-bold-font">
-                        Submit 
+                        Don't Show This Category
                     </td>
                     <td>
-                        <button id="search-button">Search</button>
+                        <select id="scripts-exclude-category">
+                            <option selected="selected">Show All</option>
+                            <option>Area</option>
+                            <option>Complete NPCs</option>
+                            <option>Conversation</option>
+                            <option>Creature AI</option>
+                            <option>Creature Related</option>
+                            <option>Database Related</option>
+                            <option>Games</option>
+                            <option>Inventory Item</option>
+                            <option>NPCs</option>
+                            <option>Placeable Item</option>
+                            <option>Rulesets</option>
+                            <option>Scripting routines</option>
+                            <option>Spells</option>
+                            <option>Subraces</option>
+                            <option>Time Devices</option>
+                            <option>Travel</option>
+                            <option>Tutorials</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="medium-grey" id="setting-row">
+                    <td class="small-bold-font">
+                        Setting 
+                    </td>
+                    <td>
+                        <input type="text" id="setting"/>
+                    </td>
+                </tr>
+                <tr class="light-grey" id="size-row">
+                    <td class="small-bold-font">
+                        Size 
+                    </td>
+                    <td>
+                        <select id="size">
+                            <option selected="selected">Doesn't Matter</option>
+                            <option>Fine</option>
+                            <option>Diminutive</option>
+                            <option>Tiny</option>
+                            <option>Small</option>
+                            <option>Medium</option>
+                            <option>Large</option>
+                            <option>Huge</option>
+                            <option>Gargantuan</option>
+                            <option>Colossal</option>
+                            <option>Various</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="light-grey" id="speed-row">
+                    <td class="small-bold-font">
+                        Server Speed 
+                    </td>
+                    <td>
+                        <select id="speed">
+                            <option selected="selected">Doesn't Matter</option>
+                            <option>56K</option>
+                            <option>ISDN</option>
+                            <option>Cable</option>
+                            <option>DSL</option>
+                            <option>T1+</option>
+                            <option>10 Mbps</option>
+                            <option>100 Mbps</option>
+                            <option>Mixed</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="light-grey" id="traps-row">
+                    <td class="small-bold-font">
+                        Tricks & Traps 
+                    </td>
+                    <td>
+                        <select id="traps">
+                            <option selected="selected">Doesn't Matter</option>
+                            <option>Non-existent</option>
+                            <option>Dependant on Module</option>
+                            <option>Light</option>
+                            <option>Medium</option>
+                            <option>Heavy</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="light-grey" id="treasure-row">
+                    <td class="small-bold-font">
+                        Amount of Treasure 
+                    </td>
+                    <td>
+                        <select id="treasure">
+                            <option selected="selected">Doesn't Matter</option>
+                            <option>Dependant on Module</option>
+                            <option>Dependant on Player's efforts</option>
+                            <option>None</option>
+                            <option>Low</option>
+                            <option>Moderate</option>
+                            <option>High</option>
+                            <option>Rich</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="light-grey" id="vault-row">
+                    <td class="small-bold-font">
+                        Vault Type 
+                    </td>
+                    <td>
+                        <select id="vault">
+                            <option selected="selected">Doesn't Matter</option>
+                            <option>Local</option>
+                            <option>Server</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="light-grey" id="version-row">
+                    <td class="small-bold-font">
+                        Which Version?
+                    </td>
+                    <td>
+                        <select id="version">
+                            <option selected="selected">Doesn't Matter</option>
+                            <option>All NWN / No SOU / No HOTU / No CEP</option>
+                            <option>All SOU</option>
+                            <option>All HOTU</option>
+                            <option>All CEP</option>
+                            <option>Works on all versions</option>
+                            <option>CEP-1.00 Requires Community Expansion Project</option>
+                            <option>CEP-1.01 Requires Community Expansion Project</option>
+                            <option>CEP-1.50 Requires Community Expansion Project</option>
+                            <option>CEP-1.51 Requires Community Expansion Project</option>
+                            <option>CEP-1.52 Requires Community Expansion Project</option>
+                            <option>CEP-2.00 Requires Community Expansion Project</option>
+                            <option>Requires SoU & CEP</option>
+                            <option>Requires HotU & CEP</option>
+                            <option>Requires Both Expansions (SoU & HotU)</option>
+                            <option>Requires All Expasions (SoU & HotU & CEP)</option>
+                            <option>HOTU-1.69</option>
+                            <option>HOTU-1.68</option>
+                            <option>HOTU-1.67</option>
+                            <option>HOTU-1.66</option>
+                            <option>HOTU-1.65</option>
+                            <option>HOTU-1.64</option>
+                            <option>HOTU-1.63</option>
+                            <option>HOTU-1.62</option>
+                            <option>HOTU-1.61</option>
+                            <option>HOTU-1.59</option>
+                            <option>SOU-1.69</option>
+                            <option>SOU-1.68</option>
+                            <option>SOU-1.67</option>
+                            <option>SOU-1.66</option>
+                            <option>SOU-1.65</option>
+                            <option>SOU-1.64</option>
+                            <option>SOU-1.63</option>
+                            <option>SOU-1.62</option>
+                            <option>SOU-1.61</option>
+                            <option>SOU-1.32</option>
+                            <option>SOU-1.31</option>
+                            <option>SOU-1.30</option>
+                            <option>NWN-1.69</option>
+                            <option>NWN-1.68</option>
+                            <option>NWN-1.67</option>
+                            <option>NWN-1.66</option>
+                            <option>NWN-1.65</option>
+                            <option>NWN-1.64</option>
+                            <option>NWN-1.63</option>
+                            <option>NWN-1.62</option>
+                            <option>NWN-1.61</option>
+                            <option>NWN-1.32</option>
+                            <option>NWN-1.31</option>
+                            <option>NWN-1.30</option>
+                            <option>NWN-1.29 or lower</option>
+                            <option>NWN-1.30</option>
+                            <option>NWN-1.29</option>
+                            <option>NWN-1.28</option>
+                            <option>NWN-1.27</option>
+                            <option>NWN-1.26</option>
+                            <option>NWN-1.25</option>
+                            <option>NWN-1.24</option>
+                            <option>NWN-1.23</option>
+                            <option>NWN-1.22</option>
+                            <option>NWN-1.21</option>
+                            <option>NWN-1.20</option>
+                            <option>NWN-1.19</option>
+                            <option>NWN-1.18</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="light-grey" id="votes-row">
+                    <td class="small-bold-font">
+                        Minimum Number of Votes 
+                    </td>
+                    <td>
+                        <select id="votes">
+                            <option selected="selected">Doesn't Matter</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>5</option>
+                            <option>10</option>
+                            <option>20</option>
+                            <option>50</option>
+                            <option>100</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="light-grey" id="xp-row">
+                    <td class="small-bold-font">
+                        Experience Rewards 
+                    </td>
+                    <td>
+                        <select id="xp">
+                            <option selected="selected">Doesn't Matter</option>
+                            <option>Dependant on Module</option>
+                            <option>Dependant on Player's efforts</option>
+                            <option>None</option>
+                            <option>Low</option>
+                            <option>Low to Moderate</option>
+                            <option>Moderate</option>
+                            <option>Moderate to High</option>
+                            <option>High</option>
+                        </select>
                     </td>
                 </tr>
             </table>

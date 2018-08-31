@@ -107,6 +107,9 @@ oPollvault.convertUndefinedToDash = function(sString) {
 };
 
 oPollvault.displayResults = function(oObject, sType) {
+    if (sType === "gameworlds") {
+        sType = "gameworld";
+    }
     var aKeys = Object.keys(oObject);
     if (aKeys.length !== 0) {
         var oResults = oPollvault.oResults;
@@ -513,6 +516,66 @@ oPollvault.handleSearchButtonClick = function(event) {
         var iRating = Number(sRating);
         oResults = oPollvault.greaterThanOrEqualTo(oResults, "Rating", iRating);
     }
+    if (sType === "modules" || sType === "gameworlds") {
+        var sDM = $('#dm').val();
+        if (sDM !== "Doesn't Matter") {
+            oResults = oPollvault.searchByString(oResults, "DM Needed", sDM);
+        }
+        var sTraps = $('#traps').val();
+        if (sTraps !== "Doesn't Matter") {
+            oResults = oPollvault.searchByString(oResults, "Tricks & Traps", sTraps);
+        }
+        var sRoleplay = $('#roleplay').val();
+        if (sRoleplay !== "Doesn't Matter") {
+            oResults = oPollvault.searchByString(oResults, "Roleplay", sRoleplay);
+        }
+        var sHack = $('#hack').val();
+        if (sHack !== "Doesn't Matter") {
+            oResults = oPollvault.searchByString(oResults, "Hack & Slash", sHack);
+        }
+        var sScope = $('#scope').val();
+        if (sScope !== "Doesn't Matter") {
+            oResults = oPollvault.searchByString(oResults, "Scope", sScope);
+        }
+        var sContent = $('#content-rating').val();
+        if (sContent !== "Doesn't Matter") {
+            oResults = oPollvault.searchByString(oResults, "Content Rating", sContent);
+        }
+        var sLanguage = $('#language').val();
+        if (sLanguage !== "Doesn't Matter") {
+            oResults = oPollvault.searchByString(oResults, "Language", sLanguage);
+        }
+    }
+    if (sType === "gameworlds") {
+        var sVersion = $('#version').val();
+        if (sVersion !== "Doesn't Matter") {
+            oResults = oPollvault.searchByString(oResults, "Patch Version", sVersion);
+        }
+        var sSpeed = $('#speed').val();
+        if (sSpeed !== "Doesn't Matter") {
+            oResults = oPollvault.searchByString(oResults, "Connection", sSpeed);
+        }
+        var sPVP = $('#pvp').val();
+        if (sPVP !== "Doesn't Matter") {
+            oResults = oPollvault.searchByString(oResults, "PVP", sPVP);
+        }
+        var sVault = $('#vault').val();
+        if (sVault !== "Doesn't Matter") {
+            oResults = oPollvault.searchByString(oResults, "Vault Type", sVault);
+        }
+        var sXP = $('#xp').val();
+        if (sXP !== "Doesn't Matter") {
+            oResults = oPollvault.searchByString(oResults, "Experience Rewards", sXP);
+        }
+        var sTreasure = $('#treasure').val();
+        if (sTreasure !== "Doesn't Matter") {
+            oResults = oPollvault.searchByString(oResults, "Treasure", sTreasure);
+        }
+        var sMagic = $('#magic').val();
+        if (sMagic !== "Doesn't Matter") {
+            oResults = oPollvault.searchByString(oResults, "Magic Level", sMagic);
+        }
+    }
     if (sType === "modules") {
         var sVersion = $('#version').val();
         if (sVersion !== "Doesn't Matter") {
@@ -557,15 +620,11 @@ oPollvault.handleSearchButtonClick = function(event) {
             }
             oResults = oPollvault.matchOneString(oResults, "Single or Multiplayer", aMultiplayer);
         }
-        var sDM = $('#dm').val();
-        if (sDM !== "Doesn't Matter") {
-            oResults = oPollvault.searchByString(oResults, "DM Needed", sDM);
-        }
         var sAlignment = $('#alignments').val();
         if (sAlignment !== "") {
             oResults = oPollvault.matchTextInOneField(oResults, "Alignments", sAlignment);
         }
-        var sRace = $('#race').val();
+        var sRace = $('#races').val();
         if (sRace !== "") {
             oResults = oPollvault.matchTextInOneField(oResults, "Races", sRace);
         }
@@ -576,30 +635,6 @@ oPollvault.handleSearchButtonClick = function(event) {
         var sSetting = $('#setting').val();
         if (sSetting !== "") {
             oResults = oPollvault.matchTextInOneField(oResults, "Setting", sSetting);
-        }
-        var sTraps = $('#traps').val();
-        if (sTraps !== "Doesn't Matter") {
-            oResults = oPollvault.searchByString(oResults, "Tricks & Traps", sTraps);
-        }
-        var sRoleplay = $('#roleplay').val();
-        if (sRoleplay !== "Doesn't Matter") {
-            oResults = oPollvault.searchByString(oResults, "Roleplay", sRoleplay);
-        }
-        var sHack = $('#hack').val();
-        if (sHack !== "Doesn't Matter") {
-            oResults = oPollvault.searchByString(oResults, "Hack & Slash", sHack);
-        }
-        var sScope = $('#scope').val();
-        if (sScope !== "Doesn't Matter") {
-            oResults = oPollvault.searchByString(oResults, "Scope", sScope);
-        }
-        var sContent = $('#content-rating').val();
-        if (sContent !== "Doesn't Matter") {
-            oResults = oPollvault.searchByString(oResults, "Content Rating", sContent);
-        }
-        var sLanguage = $('#language').val();
-        if (sLanguage !== "Doesn't Matter") {
-            oResults = oPollvault.searchByString(oResults, "Language", sLanguage);
         }
         var oMinLevels = {};
         var oMaxLevels = {};
@@ -813,6 +848,16 @@ oPollvault.handleType = function(event) {
             '#level-3-row', '#npc-row', '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search NWN Characters</b>');
+    } else if (sName === "gameworlds") {
+        var aIds = ['#gameworlds-category-row', 
+            '#gameworlds-exclude-category-row', '#votes-row', 
+            '#rating-row', '#version-row', '#traps-row', 
+            '#roleplay-row', '#hack-row', '#language-row', '#speed-row', 
+            '#pvp-row', '#vault-row', '#xp-row', '#treasure-row', 
+            '#magic-row', '#dm-row', '#scope-row', 
+            '#content-rating-row', '#button-row'];
+        oPollvault.populateSearchTable(aIds);
+        title = $('<b>Search NWN Gameworlds</b>');
     }
     $('#search-title')
         .empty()
@@ -875,8 +920,14 @@ oPollvault.matchText = function(oObject, sValue, sType) {
         aSearchFields = ["Description", "Title", "Author", 
             "Short Description", "Type", "News Link"];
     } else if (sType === "characters") {
-        aSearchFields = ["Description", "Title", "Author", "Abilities", 
+        aSearchFields = ["Description", "Name", "Author", "Abilities", 
             "Skills", "HD / HP", "Feats", "Type"];
+    } else if (sType === "gameworlds") {
+        aSearchFields = ["Description", "Title", "Author", "Website", 
+            "Number Players", "Number DMs", "Schedule", "Number Servers", 
+            "Death", "House Rules", "IPs", "Length", 
+            "Staff Requirements", "ApplicationReqs", 
+            "Player Requirements"];
     }
     for (var m = 0; m < aMods.length; m++) {
         var sFolder = aMods[m];
