@@ -793,52 +793,7 @@ oPollvault.handleType = function(event) {
     oPollvault.oCurrentType = JSON.parse(sType);
     var sName = oPollvault.sType;
     var title = "";
-    if (sName === "modules") {
-        var aIds = ['#modules-category-row', 
-            '#modules-exclude-category-row', '#votes-row', '#rating-row', 
-            '#version-row', '#levels-row', '#players-row', '#length-row', 
-            '#multiplayer-row', '#dm-row', '#alignments-row', 
-            '#races-row', '#classes-row', '#setting-row', '#traps-row', 
-            '#roleplay-row', '#hack-row', '#scope-row', 
-            '#content-rating-row', '#language-row', '#button-row'];
-        oPollvault.populateSearchTable(aIds);
-        title = $('<b>Search NWN Modules</b>');
-    } else if (sName === "hakpaks") {
-        var aIds = ['#hakpaks-category-row', 
-            '#hakpaks-exclude-category-row', '#votes-row', 
-            '#rating-row', '#button-row'];
-        oPollvault.populateSearchTable(aIds);
-        title = $('<b>Search NWN Hakpaks</b>');
-    } else if (sName === "portraits") {
-        var aIds = ['#portraits-category-row', 
-            '#portraits-exclude-category-row', '#votes-row', 
-            '#rating-row', '#portraits-gender-row', '#button-row'];
-        oPollvault.populateSearchTable(aIds);
-        title = $('<b>Search NWN Portraits</b>');
-    } else if (sName === "scripts") {
-        var aIds = ['#scripts-category-row', 
-            '#scripts-exclude-category-row', '#votes-row', 
-            '#rating-row', '#button-row'];
-        oPollvault.populateSearchTable(aIds);
-        title = $('<b>Search NWN Scripts</b>');
-    } else if (sName === "ideas") {
-        var aIds = ['#ideas-category-row', '#ideas-exclude-category-row', 
-            '#votes-row', '#rating-row', '#button-row'];
-        oPollvault.populateSearchTable(aIds);
-        title = $('<b>Search NWN Ideas</b>');
-    } else if (sName === "community_news") {
-        var aIds = ['#community_news-category-row', 
-            '#community_news-exclude-category-row', '#votes-row', 
-            '#rating-row', '#button-row'];
-        oPollvault.populateSearchTable(aIds);
-        title = $('<b>Search Community News</b>');
-    } else if (sName === "other") {
-        var aIds = ['#other-category-row', 
-            '#other-exclude-category-row', '#votes-row', 
-            '#rating-row', '#button-row'];
-        oPollvault.populateSearchTable(aIds);
-        title = $('<b>Search NWN Other</b>');
-    } else if (sName === "characters") {
+    if (sName === "characters") {
         var aIds = ['#characters-category-row', 
             '#characters-exclude-category-row', '#votes-row', 
             '#rating-row', '#challenge-row', '#alignment-row', 
@@ -848,6 +803,12 @@ oPollvault.handleType = function(event) {
             '#level-3-row', '#npc-row', '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search NWN Characters</b>');
+    } else if (sName === "community_news") {
+        var aIds = ['#community_news-category-row', 
+            '#community_news-exclude-category-row', '#votes-row', 
+            '#rating-row', '#button-row'];
+        oPollvault.populateSearchTable(aIds);
+        title = $('<b>Search Community News</b>');
     } else if (sName === "gameworlds") {
         var aIds = ['#gameworlds-category-row', 
             '#gameworlds-exclude-category-row', '#votes-row', 
@@ -858,6 +819,51 @@ oPollvault.handleType = function(event) {
             '#content-rating-row', '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search NWN Gameworlds</b>');
+    } else if (sName === "hakpaks") {
+        var aIds = ['#hakpaks-category-row', 
+            '#hakpaks-exclude-category-row', '#votes-row', 
+            '#rating-row', '#button-row'];
+        oPollvault.populateSearchTable(aIds);
+        title = $('<b>Search NWN Hakpaks</b>');
+    } else if (sName === "ideas") {
+        var aIds = ['#ideas-category-row', '#ideas-exclude-category-row', 
+            '#votes-row', '#rating-row', '#button-row'];
+        oPollvault.populateSearchTable(aIds);
+        title = $('<b>Search NWN Ideas</b>');
+    } else if (sName === "other") {
+        var aIds = ['#other-category-row', 
+            '#other-exclude-category-row', '#votes-row', 
+            '#rating-row', '#button-row'];
+        oPollvault.populateSearchTable(aIds);
+        title = $('<b>Search NWN Other</b>');
+    } else if (sName === "modules") {
+        var aIds = ['#modules-category-row', 
+            '#modules-exclude-category-row', '#votes-row', '#rating-row', 
+            '#version-row', '#levels-row', '#players-row', '#length-row', 
+            '#multiplayer-row', '#dm-row', '#alignments-row', 
+            '#races-row', '#classes-row', '#setting-row', '#traps-row', 
+            '#roleplay-row', '#hack-row', '#scope-row', 
+            '#content-rating-row', '#language-row', '#button-row'];
+        oPollvault.populateSearchTable(aIds);
+        title = $('<b>Search NWN Modules</b>');
+    } else if (sName === "portraits") {
+        var aIds = ['#portraits-category-row', 
+            '#portraits-exclude-category-row', '#votes-row', 
+            '#rating-row', '#portraits-gender-row', '#button-row'];
+        oPollvault.populateSearchTable(aIds);
+        title = $('<b>Search NWN Portraits</b>');
+    } else if (sName === "prefabs") {
+        var aIds = ['#prefabs-category-row', 
+            '#prefabs-exclude-category-row', '#votes-row', 
+            '#rating-row', '#button-row'];
+        oPollvault.populateSearchTable(aIds);
+        title = $('<b>Search NWN Prefabs</b>');
+    } else if (sName === "scripts") {
+        var aIds = ['#scripts-category-row', 
+            '#scripts-exclude-category-row', '#votes-row', 
+            '#rating-row', '#button-row'];
+        oPollvault.populateSearchTable(aIds);
+        title = $('<b>Search NWN Scripts</b>');
     }
     $('#search-title')
         .empty()
@@ -903,31 +909,34 @@ oPollvault.matchText = function(oObject, sValue, sType) {
     var aMods = Object.keys(oObject);
     var oResults = {};
     var aSearchFields = [];
-    if (sType === "modules") {
-        aSearchFields = ["Description", "Title", "Races", "Alignments", 
-            "Author", "Setting", "Classes"];
-    } else if (sType === "hakpaks") {
-        aSearchFields = ["Description", "Title", "Author"];
-    } else if (sType === "portraits" || sType === "other") {
-        aSearchFields = ["Description", "Title", "Author", "Format"];
-    } else if (sType === "scripts") {
-        aSearchFields = ["Description", "Title", "Author", "Format", 
-            "Type", "Includes"];
-    } else if (sType === "ideas") {
-        aSearchFields = ["Description", "Title", "Author", 
-            "Short Description", "Type"];
+    if (sType === "characters") {
+        aSearchFields = ["Description", "Name", "Author", "Abilities", 
+            "Skills", "HD / HP", "Feats", "Type"];
     } else if (sType === "community_news") {
         aSearchFields = ["Description", "Title", "Author", 
             "Short Description", "Type", "News Link"];
-    } else if (sType === "characters") {
-        aSearchFields = ["Description", "Name", "Author", "Abilities", 
-            "Skills", "HD / HP", "Feats", "Type"];
     } else if (sType === "gameworlds") {
         aSearchFields = ["Description", "Title", "Author", "Website", 
             "Number Players", "Number DMs", "Schedule", "Number Servers", 
             "Death", "House Rules", "IPs", "Length", 
             "Staff Requirements", "ApplicationReqs", 
             "Player Requirements"];
+    } else if (sType === "hakpaks") {
+        aSearchFields = ["Description", "Title", "Author"];
+    } else if (sType === "ideas") {
+        aSearchFields = ["Description", "Title", "Author", 
+            "Short Description", "Type"];
+    } else if (sType === "modules") {
+        aSearchFields = ["Description", "Title", "Races", "Alignments", 
+            "Author", "Setting", "Classes"];
+    } else if (sType === "portraits" || sType === "other") {
+        aSearchFields = ["Description", "Title", "Author", "Format"];
+    } else if (sType === "prefabs") {
+        aSearchFields = ["Description", "Title", "Author", "Area", 
+            "Armor", "Focus", "Items", "Magical", "Type", "Weapons"];
+    } else if (sType === "scripts") {
+        aSearchFields = ["Description", "Title", "Author", "Format", 
+            "Type", "Includes"];
     }
     for (var m = 0; m < aMods.length; m++) {
         var sFolder = aMods[m];
