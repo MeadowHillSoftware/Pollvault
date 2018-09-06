@@ -498,11 +498,19 @@ oPollvault.handleSearchButtonClick = function(event) {
     if (iUpdatedFrom > 20020101 || iUpdatedTo < 20131231) {
         oResults = oPollvault.checkDate(oResults, iUpdatedFrom, iUpdatedTo, "Updated");
     }
-    var sCategory = $(('#' + sType + '-category')).val();
+    if (sType === "creatures") {
+        var sCategory = $('#characters-category').val();
+    } else {
+        var sCategory = $(('#' + sType + '-category')).val();
+    }
     if (sCategory !== "Doesn't Matter") {
         oResults = oPollvault.searchByString(oResults, "Category", sCategory);
     }
-    var sCategory = $('#' + sType + '-exclude-category').val();
+    if (sType === "creatures") {
+        var sCategory = $('#characters-exclude-category').val();
+    } else {
+        var sCategory = $('#' + sType + '-exclude-category').val();
+    }
     if (sCategory !== "Show All") {
         oResults = oPollvault.excludeByString(oResults, "Category", sCategory);
     }
@@ -815,6 +823,16 @@ oPollvault.handleType = function(event) {
             '#rating-row', '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search Community News</b>');
+    } else if (sName === "creatures") {
+        var aIds = ['#characters-category-row', 
+            '#characters-exclude-category-row', '#votes-row', 
+            '#rating-row', '#challenge-row', '#alignment-row', 
+            '#size-row', '#characters-gender-row', '#scripts-row', 
+            '#dialogue-row', '#class-1-row', '#class-2-row', 
+            '#class-3-row', '#level-1-row', '#level-2-row', 
+            '#level-3-row', '#npc-row', '#button-row'];
+        oPollvault.populateSearchTable(aIds);
+        title = $('<b>Search NWN Creatures</b>');
     } else if (sName === "gameworlds") {
         var aIds = ['#gameworlds-category-row', 
             '#gameworlds-exclude-category-row', '#votes-row', 
@@ -927,6 +945,10 @@ oPollvault.matchText = function(oObject, sValue, sType) {
     } else if (sType === "community_news") {
         aSearchFields = ["Description", "Title", "Author", 
             "Short Description", "Type", "News Link"];
+    } else if (sType === "creatures") {
+        aSearchFields = ["Description", "Tite", "Author", "Properties", 
+            "Race", "Attacks", "HD / HP", "Damage", "Feats", "Type", 
+            "Abilities", "Skills"];
     } else if (sType === "gameworlds") {
         aSearchFields = ["Description", "Title", "Author", "Website", 
             "Number Players", "Number DMs", "Schedule", "Number Servers", 
