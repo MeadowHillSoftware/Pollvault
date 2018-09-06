@@ -870,6 +870,12 @@ oPollvault.handleType = function(event) {
             '#rating-row', '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search NWN Scripts</b>');
+    } else if (sName === "sounds") {
+        var aIds = ['#sounds-category-row', 
+            '#sounds-exclude-category-row', '#votes-row', 
+            '#rating-row', '#button-row'];
+        oPollvault.populateSearchTable(aIds);
+        title = $('<b>Search NWN Sounds</b>');
     }
     $('#search-title')
         .empty()
@@ -915,9 +921,7 @@ oPollvault.matchText = function(oObject, sValue, sType) {
     var aMods = Object.keys(oObject);
     var oResults = {};
     var aSearchFields = [];
-    if (sType === "artwork") {
-        aSearchFields = ["Description", "Title", "Author", "Format"];
-    } else if (sType === "characters") {
+    if (sType === "characters") {
         aSearchFields = ["Description", "Name", "Author", "Abilities", 
             "Skills", "HD / HP", "Feats", "Type"];
     } else if (sType === "community_news") {
@@ -937,7 +941,7 @@ oPollvault.matchText = function(oObject, sValue, sType) {
     } else if (sType === "modules") {
         aSearchFields = ["Description", "Title", "Races", "Alignments", 
             "Author", "Setting", "Classes"];
-    } else if (sType === "portraits" || sType === "other") {
+    } else if (sType === "artwork" || sType === "other" || sType === "portraits" || sType === "sounds") {
         aSearchFields = ["Description", "Title", "Author", "Format"];
     } else if (sType === "prefabs") {
         aSearchFields = ["Description", "Title", "Author", "Area", 
