@@ -854,6 +854,11 @@ oPollvault.handleType = function(event) {
             '#votes-row', '#rating-row', '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search NWN Ideas</b>');
+    } else if (sName === "movies") {
+        var aIds = ['#movies-category-row', '#movies-exclude-category-row', 
+            '#votes-row', '#rating-row', '#button-row'];
+        oPollvault.populateSearchTable(aIds);
+        title = $('<b>Search NWN Movies</b>');
     } else if (sName === "other") {
         var aIds = ['#other-category-row', 
             '#other-exclude-category-row', '#votes-row', 
@@ -939,7 +944,9 @@ oPollvault.matchText = function(oObject, sValue, sType) {
     var aMods = Object.keys(oObject);
     var oResults = {};
     var aSearchFields = [];
-    if (sType === "characters") {
+    if (sType === "artwork" || sType === "other" || sType === "portraits" || sType === "sounds") {
+        aSearchFields = ["Description", "Title", "Author", "Format"];
+    } else if (sType === "characters") {
         aSearchFields = ["Description", "Name", "Author", "Abilities", 
             "Skills", "HD / HP", "Feats", "Type"];
     } else if (sType === "community_news") {
@@ -963,8 +970,8 @@ oPollvault.matchText = function(oObject, sValue, sType) {
     } else if (sType === "modules") {
         aSearchFields = ["Description", "Title", "Races", "Alignments", 
             "Author", "Setting", "Classes"];
-    } else if (sType === "artwork" || sType === "other" || sType === "portraits" || sType === "sounds") {
-        aSearchFields = ["Description", "Title", "Author", "Format"];
+    } else if (sType === "movies") {
+        aSearchFields = ["Description", "Title", "Author", "Movie Format"];
     } else if (sType === "prefabs") {
         aSearchFields = ["Description", "Title", "Author", "Area", 
             "Armor", "Focus", "Items", "Magical", "Type", "Weapons"];
