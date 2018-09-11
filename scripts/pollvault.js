@@ -109,6 +109,8 @@ oPollvault.convertUndefinedToDash = function(sString) {
 oPollvault.displayResults = function(oObject, sType) {
     if (sType === "gameworlds") {
         sType = "gameworld";
+    } else if (sType === "fan_fiction") {
+        sType = "fanfiction";
     }
     var aKeys = Object.keys(oObject);
     if (aKeys.length !== 0) {
@@ -500,6 +502,8 @@ oPollvault.handleSearchButtonClick = function(event) {
     }
     if (sType === "creatures") {
         var sCategory = $('#characters-category').val();
+    } else if (sType === "fan_fiction") {
+        var sCategory = "Doesn't Matter";
     } else {
         var sCategory = $(('#' + sType + '-category')).val();
     }
@@ -508,6 +512,8 @@ oPollvault.handleSearchButtonClick = function(event) {
     }
     if (sType === "creatures") {
         var sCategory = $('#characters-exclude-category').val();
+    } else if (sType === "fan_fiction") {
+        var sCategory = "Show All";
     } else {
         var sCategory = $('#' + sType + '-exclude-category').val();
     }
@@ -833,6 +839,10 @@ oPollvault.handleType = function(event) {
             '#level-3-row', '#npc-row', '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search NWN Creatures</b>');
+    } else if (sName === "fan_fiction") {
+        var aIds = ['#votes-row', '#rating-row', '#button-row'];
+        oPollvault.populateSearchTable(aIds);
+        title = $('<b>Search Fan Fiction</b>');
     } else if (sName === "gameworlds") {
         var aIds = ['#gameworlds-category-row', 
             '#gameworlds-exclude-category-row', '#votes-row', 
@@ -956,6 +966,8 @@ oPollvault.matchText = function(oObject, sValue, sType) {
         aSearchFields = ["Description", "Tite", "Author", "Properties", 
             "Race", "Attacks", "HD / HP", "Damage", "Feats", "Type", 
             "Abilities", "Skills"];
+    } else if (sType === "fan_fiction") {
+        aSearchFields = ["Title", "Author"];
     } else if (sType === "gameworlds") {
         aSearchFields = ["Description", "Title", "Author", "Website", 
             "Number Players", "Number DMs", "Schedule", "Number Servers", 
