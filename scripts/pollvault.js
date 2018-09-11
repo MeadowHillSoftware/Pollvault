@@ -903,6 +903,12 @@ oPollvault.handleType = function(event) {
             '#rating-row', '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search NWN Prefabs</b>');
+    } else if (sName === "screenshots") {
+        var aIds = ['#screenshots-category-row', 
+            '#screenshots-exclude-category-row', '#votes-row', 
+            '#rating-row', '#button-row'];
+        oPollvault.populateSearchTable(aIds);
+        title = $('<b>Search NWN Screenshots</b>');
     } else if (sName === "scripts") {
         var aIds = ['#scripts-category-row', 
             '#scripts-exclude-category-row', '#votes-row', 
@@ -996,6 +1002,8 @@ oPollvault.matchText = function(oObject, sValue, sType) {
     } else if (sType === "prefabs") {
         aSearchFields = ["Description", "Title", "Author", "Area", 
             "Armor", "Focus", "Items", "Magical", "Type", "Weapons"];
+    } else if (sType === "screenshots") {
+        aSearchFields = ["Description", "Title", "Author", "Type"];
     } else if (sType === "scripts") {
         aSearchFields = ["Description", "Title", "Author", "Format", 
             "Type", "Includes"];
