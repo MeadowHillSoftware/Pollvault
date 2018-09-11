@@ -864,6 +864,12 @@ oPollvault.handleType = function(event) {
             '#votes-row', '#rating-row', '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search NWN Ideas</b>');
+    } else if (sName === "models") {
+        var aIds = ['#models-category-row', 
+            '#models-exclude-category-row', '#votes-row', '#rating-row', 
+            '#button-row'];
+        oPollvault.populateSearchTable(aIds);
+        title = $('<b>Search NWN Models</b>');
     } else if (sName === "movies") {
         var aIds = ['#movies-category-row', '#movies-exclude-category-row', 
             '#votes-row', '#rating-row', '#button-row'];
@@ -982,6 +988,9 @@ oPollvault.matchText = function(oObject, sValue, sType) {
     } else if (sType === "modules") {
         aSearchFields = ["Description", "Title", "Races", "Alignments", 
             "Author", "Setting", "Classes"];
+    } else if (sType === "models") {
+        aSearchFields = ["Description", "Title", "Author", 
+            "Model Format", "Polycounts"];
     } else if (sType === "movies") {
         aSearchFields = ["Description", "Title", "Author", "Movie Format"];
     } else if (sType === "prefabs") {
