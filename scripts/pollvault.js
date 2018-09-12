@@ -864,6 +864,11 @@ oPollvault.handleType = function(event) {
             '#votes-row', '#rating-row', '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search NWN Ideas</b>');
+    } else if (sName === "links") {
+        var aIds = ['#links-category-row', '#links-exclude-category-row', 
+            '#votes-row', '#rating-row', '#button-row'];
+        oPollvault.populateSearchTable(aIds);
+        title = $('<b>Search Links</b>');
     } else if (sName === "models") {
         var aIds = ['#models-category-row', 
             '#models-exclude-category-row', '#votes-row', '#rating-row', 
@@ -991,6 +996,9 @@ oPollvault.matchText = function(oObject, sValue, sType) {
     } else if (sType === "ideas") {
         aSearchFields = ["Description", "Title", "Author", 
             "Short Description", "Type"];
+    } else if (sType === "links") {
+        aSearchFields = ["Description", "Title", "Author", 
+            "Update Frequency"];
     } else if (sType === "modules") {
         aSearchFields = ["Description", "Title", "Races", "Alignments", 
             "Author", "Setting", "Classes"];
