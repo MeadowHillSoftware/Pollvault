@@ -111,6 +111,8 @@ oPollvault.displayResults = function(oObject, sType) {
         sType = "gameworld";
     } else if (sType === "fan_fiction") {
         sType = "fanfiction";
+    } else if (sType === "module_ideas") {
+        sType = "moduleideas";
     }
     var aKeys = Object.keys(oObject);
     if (aKeys.length !== 0) {
@@ -194,7 +196,7 @@ oPollvault.displayResults = function(oObject, sType) {
             for (var m = 0; m < aFolders.length; m++) {
                 var sFolder = aFolders[m];
                 var oMod = oResults[sFolder];
-                if (oPollvault.sType === "characters") {
+                if (oPollvault.sType === "characters" || oPollvault.sType === "module_ideas") {
                     var sTitle = oMod["Name"];
                 } else {
                     var sTitle = oMod["Title"];
@@ -875,6 +877,22 @@ oPollvault.handleType = function(event) {
             '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search NWN Models</b>');
+    } else if (sName === "module_ideas") {
+        var aIds = ['#module_ideas-category-row', 
+            '#module_ideas-exclude-category-row', '#votes-row', 
+            '#rating-row', '#button-row'];
+        oPollvault.populateSearchTable(aIds);
+        title = $('<b>Search Module Ideas</b>');
+    } else if (sName === "modules") {
+        var aIds = ['#modules-category-row', 
+            '#modules-exclude-category-row', '#votes-row', '#rating-row', 
+            '#version-row', '#levels-row', '#players-row', '#length-row', 
+            '#multiplayer-row', '#dm-row', '#alignments-row', 
+            '#races-row', '#classes-row', '#setting-row', '#traps-row', 
+            '#roleplay-row', '#hack-row', '#scope-row', 
+            '#content-rating-row', '#language-row', '#button-row'];
+        oPollvault.populateSearchTable(aIds);
+        title = $('<b>Search NWN Modules</b>');
     } else if (sName === "movies") {
         var aIds = ['#movies-category-row', '#movies-exclude-category-row', 
             '#votes-row', '#rating-row', '#button-row'];
@@ -886,16 +904,6 @@ oPollvault.handleType = function(event) {
             '#rating-row', '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search NWN Other</b>');
-    } else if (sName === "modules") {
-        var aIds = ['#modules-category-row', 
-            '#modules-exclude-category-row', '#votes-row', '#rating-row', 
-            '#version-row', '#levels-row', '#players-row', '#length-row', 
-            '#multiplayer-row', '#dm-row', '#alignments-row', 
-            '#races-row', '#classes-row', '#setting-row', '#traps-row', 
-            '#roleplay-row', '#hack-row', '#scope-row', 
-            '#content-rating-row', '#language-row', '#button-row'];
-        oPollvault.populateSearchTable(aIds);
-        title = $('<b>Search NWN Modules</b>');
     } else if (sName === "portraits") {
         var aIds = ['#portraits-category-row', 
             '#portraits-exclude-category-row', '#votes-row', 
@@ -999,6 +1007,9 @@ oPollvault.matchText = function(oObject, sValue, sType) {
     } else if (sType === "links") {
         aSearchFields = ["Description", "Title", "Author", 
             "Update Frequency"];
+    } else if (sType === "module_ideas") {
+        aSearchFields = ["Description", "Name", "Author", "Game", 
+            "Short Description"];
     } else if (sType === "modules") {
         aSearchFields = ["Description", "Title", "Races", "Alignments", 
             "Author", "Setting", "Classes"];
