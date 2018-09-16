@@ -807,6 +807,37 @@ oPollvault.handleType = function(event) {
     event.stopPropagation();
     var sType = oPollvault.reader.result;
     oPollvault.oCurrentType = JSON.parse(sType);
+    var aMods = Object.keys(oPollvault.oCurrentType);
+    var aFields = [];
+    var aAwards = [];
+    for (var m = 0; m < aMods.length; m++) {
+        var sFolder = aMods[m]
+        var oMod = oPollvault.oCurrentType[sFolder];
+        var aKeys = Object.keys(oMod);
+        for (var k = 0; k < aKeys.length; k++) {
+            var sKey = aKeys[k];
+            if (aFields.indexOf(sKey) === -1) {
+                aFields.push(sKey);
+            }
+            if (sKey === "Awards") {
+                var aLaurels = oMod[sKey];
+                for (var l = 0; l < aLaurels.length; l++) {
+                    var sLaurel = aLaurels[l];
+                    if (aAwards.indexOf(sLaurel) === -1) {
+                        aAwards.push(sLaurel);
+                    }
+                    var aWhat = ["HotuWinner.jpg", "igf_2006finalist.jpg", "5BioWareWritingContest.jpg", "2BioWareWritingContest.jpg", "1BioWareWritingContest.jpg", "Bronze%20Award%202008.jpg"];
+                    //Hall of Fame, Reviewers Award, DM Friendly, Hordes of the Underdark, Independent Games Festival, Writing Contest, Bronze Award
+                    if (aWhat.indexOf(sLaurel) !== -1) {
+                        console.log(sLaurel, sFolder)
+                    }
+                }
+            }
+        }
+    }
+    console.log(aFields);
+    //Modules: "Title", "Author", "Setting", "Races", "Classes", "Alignments", "Description", "Movie Link", "Hakpak", "Review Others", ​"Forums"
+    console.log(aAwards);
     var sName = oPollvault.sType;
     var title = "";
     if (sName === "artwork") {
