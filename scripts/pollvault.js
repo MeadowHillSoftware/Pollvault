@@ -26,6 +26,384 @@
 //Scripts: text, submitted, updated, max results, category, exclude category, rating
 //Sounds: text, submitted, updated, max results, category, exclude category, rating
 //Textures: text, submitted, updated, max results, category, exclude category, rating
+//
+//2007
+
+//Debut Author Award:
+    //***Winner: Fester Pot (Almraiven)***
+    //***Andarian (Sanctum of the Archmage I - The Sight)***
+    //***Proleric (Enigma Island 1 - Treasure)***
+
+//Community Contribution Award:
+    //Winner: Player Resource Consortium’s (PRC Pack v3.1e) [4560]
+    //Phaere (Custom Portraits)
+    //CEP Team (CEP 2.0)
+
+//Veteran Author Award:
+    //***Winner: Savant***
+    //***Baldecaran***
+    //***thegeorge***
+
+//Best Sound/Music:
+    //Winner: David John: Composer Nomination
+    //David John: Tyrants of the Moonsea Music
+    //ClarkyCat: True Colors of a Hero Tracks
+
+//Best Hak Tileset:
+    //Winner: Immersive Swamps by lord rosenkrantz [6963]
+    //Lord of WoRm’s ‘Undersea’ tiles Tileset hak
+    //City Interior Tileset Add-on by goaneng
+
+//Best Hak - Other:
+    //Winner: ACP Alternative Combat animations v3 - Override version [6468]
+    //CODI Content Package
+    //Starship Interiors (Placeables) by stacy_19201325
+
+//Best Multiplayer Module:
+    //***Winner: Good vs. Evil II by John “Gestalt” Bye [4976]***
+
+//Best RPG Module:
+    //***Winner: Avertine -A Nation Dreamed by Aristan [5095]***
+    //***Enigma Island - Treasure by Proleric***
+
+//Best Action Module:
+    //***Winner: Perchance to Dream by Hugie [5173]***
+    //***Aylomeigers’ Magical Curios***
+    //***The Fall of Aielund, Part 2 by Savant***
+
+//Best Adventure Module:
+    //***Winner: Almraiven by Fester Pot [5007]***
+    //***Prophet - Chapter I - By the Will of Kings and Mortals***
+    //***The Fall of Aielund, Part 2 by Savant***
+
+//Most Re-playable Module:
+    //***Winner: Surviving Horror 2 by Berra [4818]***
+    //***Darkness Over Daggerford by Ossian Studios***
+
+
+
+//2008
+
+//Community Contribution Award:
+    //Winner: Axe Murderer
+    //NWNPodcast
+    //Neverwinter Connections
+
+//Veteran Author Award:
+    //***Winner: Marc Price***
+    //***SubBassman***
+    //***thegeorge***
+
+//Debut Author Award:
+    //***Guthlac***
+    //***Winner: Lance Botelle***
+    //***Jim Grimsley***
+
+//Best Sound/Music:
+    //Citadel music by Jeff Tyson and U Thant [5648]
+    //Background Music by Dale Patten [594]
+    //Weeping Mesa by Clarkycat [606]
+    //New music tracks for Harp & Chrysanthemum by Maerduin (Zach Holbrook) [206]
+
+//Best Tileset:
+    //Arcadia City Tileset by ValynDyral [7374]
+    //City Bridge HAK by Michael_Darkangel [7250]
+    //Winner: Seasonal Forest v9 by WoRm [6631]
+
+//Best Custom Content:
+    //More Barrels by Tiberius Morguhn [7129]
+    //The Community Skybox Pack by Chaos_Theocrat [7126]
+    //Winner: Intimate Animations Suite by NinjaWeaselMan [7306]
+
+//Best Multiplayer Module:
+    //***Winner: Time Becomes a Loop by Andrea & Wes Landaker [5412]***
+    //***The Pillaging of Waycrest by Mathew Fisher [5531]***
+
+//Best Roleplaying Module:
+    //***Winner: Sanctum of the Archmage II by Andarian [5599]***
+    //***Towers of Dregar: Xora’s Vial by Layonara project team [5337]***
+    //***Tortured Hearts II by Zoltan Gonda & Jim Grimsley [5347]***
+    //***The Defence of Fort Tremagne by Guthlac [5550]***
+
+//Best Action Module:
+    //***Shadows of Darkmoon by commche [5410]***
+    //***Aribeth’s Redemption Chapter 2 by Daniel Muth [5336]***
+    //***Winner: The Aielund Saga Act IV Part III by savant [5598]***
+
+//Best Adventure Module:
+    //***Fall of Aielund Part 3 by Savant [5598]***
+    //***Tortured Hearts II by Zoltan Gonda & Jim Grimsley [5347]***
+    //***Winner: Citadel by Jim Grimsley, Madeleine St. Romain, Jeff Tyson [5648]***
+    //***Enigma Island 2 by Proleric [5571]***
+
+//Most Re-playable Module:
+    //***Shadows of Darkmoon by commche [5410]***
+    //***Winner: Citadel by Jim Grimsley, Madeleine St. Romain, Jeff Tyson [5648]***
+    //***Enigma Island 2 by Proleric [5571]***
+
+//Best PnP Conversion Module:
+    //***Forgotten Temple of Tharizdun by Udasu [5468]***
+    //***Winner: The Ghost Tower of Inverness by SirOtus [5309]***
+    //***The Cup of Akbar by Chuck Crawford [5296]***
+
+
+
+//2009
+
+//Best Dramatic Module:
+    //***Winner: Shadewood by Fester Pot [5829]***
+    //***Celestial Chronicles (Part 1) by MandHenchbot [5890]***
+    //***S4-The Lost Caverns of Tsojcanth by SirOtus [5877]***
+
+//Best Roleplaying Module:
+    //***Winner: Swordflight Chapter 1 by rogueknight333 [5705]***
+    //***Shadewood by Fester Pot [5829]***
+    //***A Tangled Web Part 2 by Bruce Laplante [5755]***
+
+//Best Action Module:
+    //***Of Time and Death’s Feast by Tyndrel [5693]***
+    //***Winner: A Tangled Web Part 2 by Bruce Laplante [5755]***
+    //***S4-The Lost Caverns of Tsojcanth by SirOtus [5877]***
+
+//Most Replayable Module:
+    //***A Tangled Web Part 2 by Bruce Laplante [5755]***
+    //***Winner: S4-The Lost Caverns of Tsojcanth by SirOtus [5877]***
+    //***Of Time and Death’s Feast by Tyndrel [5693]***
+
+//Best Tileset:
+    //Cellar Tileset by Tom Banjo [7668]
+    //Winner: Barbaric North by S030363L & Chandigar [7163]
+    //Futuristic City Interior (+Starship Interior) by Goudea [7397]
+
+//Best Custom Content:
+    //Winner: Undead Redux 2 by Sixesthrice [598]
+    //Lord of Worms - Creature Pack by Lord of Worms [630]
+    //Tom Banjo’s Placeables by Tom Banjo [7543]
+
+//Veteran Author Award:
+    //***SirOtus***
+    //***Winner: Fester Pot***
+    //***Bruce Laplante***
+
+//Debut Author Award:
+    //***Winner: rogueknight333***
+    //***Tyndrel***
+    //***Brad W. Bartram***
+
+//Community Contribution Award:
+    //Skunkeen
+    //Winner: Jassper
+    //CarloOne
+
+
+
+//2010
+
+//Best Storytelling Module
+    //***Winner: Revenant by McV [5766]***
+    //***Resurrection Gone Wronger by KooKoo [6059]***
+    //***Revelations / Blood and Tears by Fabien Cerutti [5931]***
+
+//Best Roleplaying Module
+    //***Winner: Revenant by McV [5766]***
+    //***Agrenost - Beneath the Cobbles by Bubba Thudd [6027]***
+    //***Revelations / Blood and Tears by Fabien Cerutti [5931]***
+
+//Best Action Module
+    //***The Immortal Module (TIM) by McV [6012]***
+    //***Shadows of a King’s Justice (Director’s Cut) by Glenn Pudney [5954]***
+    //***Winner: Good vs Evil III by John “Gestalt” Bye [5939]***
+
+//Best Tileset
+    //Winner: Wildlands by sixesthrice [7947]
+    //CTP Babylon by The CTP Team [6992]
+    //NWNCQ by Chico400 [7848]
+
+//Best Custom Content
+    //Kotor Heads by Estelindis [7796]
+    //Winner: Wizard Arcana Placeables by Ben Harrison [7698]
+    //Improved Creatures by Baba Yaga [648]
+    //3rd Edition Orcs by Ancarion [7777]
+
+//Veteran Author Award
+    //***Udasu***
+    //***Winner: John “Gestalt” Bye***
+    //***thegeorge***
+
+//Debut Author Award
+    //***Winner: McV***
+    //***Bardil***
+    //***Tempered Moon***
+
+//Community Contribution Award
+    //Ben Harrison
+    //Winner: Project Q
+    //The NWN Lexicon Website
+
+
+
+//2011
+
+//NWN1 2010 Community Contribution Award
+    //The Neverwinter Nights Podcast
+    //NWNCQ by Chico400
+    //Winner: The Custom Content Challenge
+
+//NWN1 2010 Veteran Author Award: Modules
+    //***Baldecaran***
+    //***Fabien Cerutti***
+    //***Winner: Andarian***
+
+//NWN1 2010 Veteran Author Award: Custom Content
+    //Lord of Worms
+    //Winner: Six_Six_Six
+    //Helvene
+
+//NWN1 2010 Best Tileset Award
+    //Winner: Wild Woods by Sixesthrice [7947]
+    //Senemenelas’ Underdark Tileset [7750]
+    //Roman City Tileset by Zwerkules [8006]
+
+
+
+
+
+//2008
+
+//Community Contribution Award:
+    //Winner: Grinning Fool
+    //Robinson Workshop
+    //Tanita
+
+//Veteran Author Award:
+    //ENoa4 (Keep on the Borderlands, Tomoachan)
+    //Winner: Adam Miller (Dark Waters, Pirate Cards)
+    //John McA (Conan Chronicles)
+
+//Debut Author Award:
+    //human_male
+    //Wyrin D’njargo
+    //Falloutboy
+    //Winner: Zach Holbrook
+
+//Best Sound/Music:
+    //Winner: New Music Tracks for Harp & Chrysanthemum by Zach Holbrook [206]
+
+//Best Tileset:
+    //Cryptpit by witness [193]
+    //Winner: RWS Deep Halls by RWS [134]
+    //“The Sewer Tileset” by Restless [107]
+
+//Best Custom Content:
+    //Building Construction Kit by Nytir [183]
+    //TonyK’s Companion and Monster AI Hak [141]
+    //Winner: Sorceress Ashura VFX Pack [9]
+
+//Best Multiplayer Module:
+    //Winner: Tomb of Horrors revisited by BM Productions [197]
+    //Mystery at Willowbow by Saorsa [71]
+
+//Best Roleplaying Module:
+    //Harp & Chrysanthemum by Maerduin [206]
+    //Winner: Dark Avenger by Wyrin [171]
+    //Sublety of Thay by dirtywick [153]
+
+//Best Action Module:
+    //Tragedy in Tragidor by Phoenixus [83]
+    //The Corruption of Kiahoro by human_male [83]
+    //Winner: Moonshadows Chapter 1 by Alex Hugon [185]
+
+//Best Adventure Module:
+    //Dark Avenger Chapter 1 by Wyrin D’njargo [171]
+    //Winner: Dark Waters Chapter 1 by Adam Miller [128]
+    //Conan Chronicles 1: Legion of the Dead by John McA [176]
+
+//Most Re-playable Module:
+    //Pirate Cards by Adam Miller [61]
+    //Winner: Pool of Radiance Remastered by Markus ‘Wayne’ Schlegel [63]
+
+//Best PnP Conversion Module:
+    //Winner: Tomoachan by Enoa4 [182]
+    //Red Hand of Doom by sgt_why [75]
+
+
+
+//2009
+
+//Community Contribution Award:
+    //The Halloween Mod
+    //Winner: The Neverwinter Nights Podcast
+    //SGK73
+
+//Veteran Author Award:
+    //Winner: Wyrin D’njargo
+    //John McA
+    //Markus “Wayne” Schlegel
+
+//Debut Author Award:
+    //AmstradHero
+    //Winner: Azenn
+    //Indira Lightfoot
+
+//Best Sound/Music:
+    //Misses & Mystery (Music from Dark Waters 2) [479407]
+    //Revisitation by Jorn Lavoll [686]
+    //Winner: Troy Sterling Nies (Composer Nomination) [52238]
+
+//Best 3D Custom Content:
+    //Winner: BOUNCE - Beholder by BouncyRock [142]
+    //KEMO Custom Chairs by KEMO [235]
+    //Yeoman of the Greenwood by Barrel of Monkeys and RunnerDuck [312]
+
+//Best Other Custom Content:
+    //Winner: Jaesun’s All In One [27]
+    //Warlock Reworked by Selea [200]
+    //Wyrin’s Foraging System [225]
+
+//Best Action Module:
+    //Winner: Dark Avenger 2 by Wyrin [270]
+    //The Shadowdancer’s Vault by Jolly Jenkins [290]
+    //Trial and Terror by Indira Lightfoot [317]
+
+//Best Dramatic Module:
+    //Conan Chronicles 1 - The Barbarian Chronicles by John McA [319]
+    //Dark Waters 2 by Adam Miller [246]
+    //Winner: Subtlety of Thay - Chapter 2 by Dirtywick [310]
+
+//Best Roleplay Module:
+    //Winner: Dark Avenger 2 by Wyrin D’njargo [270]
+    //Dark Waters 2 by Adam Miller [246]
+    //Fate of a City by AmstradHero [320]
+
+//Most Replayable Module:
+    //Dark Waters 2 by Adam Miller [246]
+    //Winner: Fate of a City by AmstradHero [320]
+    //Lute Hero by Adam Miller [275]
+
+
+
+//2011
+
+//Joint NWN1/NWN2 2009 Best Sound/Music Award
+    //Christopher Escalante (body of work)
+    //“Outcast” by J ‘Wildfire’ Town
+    //Travis “Darklord Snafe” Richards (body of work)
+
+//NWN2 2009 Veteran Author Award
+    //Azenn
+    //John McA
+    //Markus “Wayne” Schlegel
+
+//NWN2 2009 Best Storytelling Module Award
+    //Dark Waters III
+    //Sands of Solvheil III
+    //Serene
+
+//NWN2 2009-2010 Best Roleplaying Module Award
+    //Dark Waters 3
+    //Trinity
+    //The Maimed God Saga
+
 
 "use strict";
 
@@ -593,6 +971,10 @@ oPollvault.handleSearchButtonClick = function(event) {
         }
     }
     if (sType === "modules") {
+        var sAward = $('#modules-awards').val();
+        if (sVersion !== "Doesn't Matter") {
+            oResults = oPollvault.searchForAwards(oResults, sAward);
+        }
         var sVersion = $('#version').val();
         if (sVersion !== "Doesn't Matter") {
             oResults = oPollvault.searchByString(oResults, "Expansions", sVersion);
@@ -826,17 +1208,11 @@ oPollvault.handleType = function(event) {
                     if (aAwards.indexOf(sLaurel) === -1) {
                         aAwards.push(sLaurel);
                     }
-                    var aWhat = ["HotuWinner.jpg", "igf_2006finalist.jpg", "5BioWareWritingContest.jpg", "2BioWareWritingContest.jpg", "1BioWareWritingContest.jpg", "Bronze%20Award%202008.jpg"];
-                    //Hall of Fame, Reviewers Award, DM Friendly, Hordes of the Underdark, Independent Games Festival, Writing Contest, Bronze Award
-                    if (aWhat.indexOf(sLaurel) !== -1) {
-                        console.log(sLaurel, sFolder)
-                    }
                 }
             }
         }
     }
     console.log(aFields);
-    //Modules: "Title", "Author", "Setting", "Races", "Classes", "Alignments", "Description", "Movie Link", "Hakpak", "Review Others", ​"Forums"
     console.log(aAwards);
     var sName = oPollvault.sType;
     var title = "";
@@ -916,8 +1292,9 @@ oPollvault.handleType = function(event) {
         title = $('<b>Search Module Ideas</b>');
     } else if (sName === "modules") {
         var aIds = ['#modules-category-row', 
-            '#modules-exclude-category-row', '#votes-row', '#rating-row', 
-            '#version-row', '#levels-row', '#players-row', '#length-row', 
+            '#modules-exclude-category-row', '#votes-row', 
+            '#rating-row', '#modules-awards-row', '#version-row', 
+            '#levels-row', '#players-row', '#length-row', 
             '#multiplayer-row', '#dm-row', '#alignments-row', 
             '#races-row', '#classes-row', '#setting-row', '#traps-row', 
             '#roleplay-row', '#hack-row', '#scope-row', 
@@ -1049,7 +1426,8 @@ oPollvault.matchText = function(oObject, sValue, sType) {
             "Short Description"];
     } else if (sType === "modules") {
         aSearchFields = ["Description", "Title", "Races", "Alignments", 
-            "Author", "Setting", "Classes"];
+            "Author", "Setting", "Classes", "Movie Link", "Hakpak", 
+            "Review Others", "Forums"];
     } else if (sType === "models") {
         aSearchFields = ["Description", "Title", "Author", 
             "Model Format", "Polycounts"];
@@ -1187,6 +1565,50 @@ oPollvault.searchByString = function(oObject, sField, sValue) {
         }
     }
     return oResults;
+};
+
+oPollvault.searchForAwards = function(oObject, sAward) {
+    var aMods = Object.keys(oObject);
+    var oResults = {};
+    for (var m = 0; m < aMods.length; m++) {
+        var sFolder = aMods[m];
+        var oMod = oObject[sFolder];
+        var aFields = Object.keys(oMod);
+        if (aFields.indexOf("Awards") !== -1) {
+            var aAwards = oMod["Awards"];
+            if (aAwards.length !== 0) {
+                if (sAward === "Hall of Fame") {
+                    var aStrings = ["Hall of Fame"];
+                } else if (sAward === "DM-Friendly Module") {
+                    var aStrings = ["DM-Friendly Module"];
+                } else if (sAward === "Reviewers Award") {
+                    var aStrings = ["Reviewers Award"];
+                } else if (sAward === "Contests") {
+                    var aStrings = ["Contest"];
+                } else if (sAward === "IGF Award") {
+                    var aStrings = ["IGF"];
+                } else if (sAward === "Golden Dragon Award") {
+                    var aStrings = ["Author", "Best", "Most"];
+                } else if (sAward === "Module of the Year") {
+                    var aStrings = ["of the Year", "Gold", "Silver", "Bronze"];
+                }
+                for (var a = 0; a < aAwards.length; a++) {
+                    var sLaurel = aAwards[a];
+                    for (var s = 0; s < aStrings.length; s++) {
+                        var sString = aStrings[s];
+                        if (sLaurel.indexOf(sString) !== -1) {
+                            var aFolders = Object.keys(oResults);
+                            if (aFolders.indexOf(sFolder) === -1) {
+                                oResults[sFolder] = oMod;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return oResults;
+    
 };
 
 oPollvault.sortModules = function(aKeys, oObject, sColumn) {
