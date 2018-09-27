@@ -35,9 +35,9 @@
     //***Proleric (Enigma Island 1 - Treasure)***
 
 //Community Contribution Award:
-    //Winner: Player Resource Consortium’s (PRC Pack v3.1e) [4560]
-    //Phaere (Custom Portraits)
-    //CEP Team (CEP 2.0)
+    //***Winner: Player Resource Consortium’s (PRC Pack v3.1e) [4560]***
+    //***Phaere (Custom Portraits)***
+    //***CEP Team (CEP 2.0)***
 
 //Veteran Author Award:
     //***Winner: Savant***
@@ -50,13 +50,13 @@
     //ClarkyCat: True Colors of a Hero Tracks
 
 //Best Hak Tileset:
-    //Winner: Immersive Swamps by lord rosenkrantz [6963]
+    //***Winner: Immersive Swamps by lord rosenkrantz [6963]***
     //Lord of WoRm’s ‘Undersea’ tiles Tileset hak
     //City Interior Tileset Add-on by goaneng
 
 //Best Hak - Other:
-    //Winner: ACP Alternative Combat animations v3 - Override version [6468]
-    //CODI Content Package
+    //***Winner: ACP Alternative Combat animations v3 - Override version [6468]***
+    //***CODI Content Package***
     //Starship Interiors (Placeables) by stacy_19201325
 
 //Best Multiplayer Module:
@@ -106,14 +106,14 @@
     //New music tracks for Harp & Chrysanthemum by Maerduin (Zach Holbrook) [206]
 
 //Best Tileset:
-    //Arcadia City Tileset by ValynDyral [7374]
-    //City Bridge HAK by Michael_Darkangel [7250]
-    //Winner: Seasonal Forest v9 by WoRm [6631]
+    //***Arcadia City Tileset by ValynDyral [7374]***
+    //***City Bridge HAK by Michael_Darkangel [7250]***
+    //***Winner: Seasonal Forest v9 by WoRm [6631]***
 
 //Best Custom Content:
-    //More Barrels by Tiberius Morguhn [7129]
-    //The Community Skybox Pack by Chaos_Theocrat [7126]
-    //Winner: Intimate Animations Suite by NinjaWeaselMan [7306]
+    //***More Barrels by Tiberius Morguhn [7129]***
+    //***The Community Skybox Pack by Chaos_Theocrat [7126]***
+    //***Winner: Intimate Animations Suite by NinjaWeaselMan [7306]***
 
 //Best Multiplayer Module:
     //***Winner: Time Becomes a Loop by Andrea & Wes Landaker [5412]***
@@ -171,14 +171,14 @@
     //***Of Time and Death’s Feast by Tyndrel [5693]***
 
 //Best Tileset:
-    //Cellar Tileset by Tom Banjo [7668]
-    //Winner: Barbaric North by S030363L & Chandigar [7163]
-    //Futuristic City Interior (+Starship Interior) by Goudea [7397]
+    //***Cellar Tileset by Tom Banjo [7668]***
+    //***Winner: Barbaric North by S030363L & Chandigar [7163]***
+    //***Futuristic City Interior (+Starship Interior) by Goudea [7397]***
 
 //Best Custom Content:
     //Winner: Undead Redux 2 by Sixesthrice [598]
     //Lord of Worms - Creature Pack by Lord of Worms [630]
-    //Tom Banjo’s Placeables by Tom Banjo [7543]
+    //***Tom Banjo’s Placeables by Tom Banjo [7543]***
 
 //Veteran Author Award:
     //***SirOtus***
@@ -215,15 +215,15 @@
     //***Winner: Good vs Evil III by John “Gestalt” Bye [5939]***
 
 //Best Tileset
-    //Winner: Wildlands by sixesthrice [7947]
-    //CTP Babylon by The CTP Team [6992]
-    //NWNCQ by Chico400 [7848]
+    //***Winner: Wildlands by sixesthrice [7947]***
+    //***CTP Babylon by The CTP Team [6992]***
+    //***NWNCQ by Chico400 [7848]***
 
 //Best Custom Content
-    //Kotor Heads by Estelindis [7796]
-    //Winner: Wizard Arcana Placeables by Ben Harrison [7698]
+    //***Kotor Heads by Estelindis [7796]***
+    //***Winner: Wizard Arcana Placeables by Ben Harrison [7698]***
     //Improved Creatures by Baba Yaga [648]
-    //3rd Edition Orcs by Ancarion [7777]
+    //***3rd Edition Orcs by Ancarion [7777]***
 
 //Veteran Author Award
     //***Udasu***
@@ -246,7 +246,7 @@
 
 //NWN1 2010 Community Contribution Award
     //The Neverwinter Nights Podcast
-    //NWNCQ by Chico400
+    //***NWNCQ by Chico400***
     //Winner: The Custom Content Challenge
 
 //NWN1 2010 Veteran Author Award: Modules
@@ -260,8 +260,8 @@
     //Helvene
 
 //NWN1 2010 Best Tileset Award
-    //Winner: Wild Woods by Sixesthrice [7947]
-    //Senemenelas’ Underdark Tileset [7750]
+    //***Winner: Wild Woods by Sixesthrice [7947]***
+    //***Senemenelas’ Underdark Tileset [7750]***
     //Roman City Tileset by Zwerkules [8006]
 
 
@@ -910,6 +910,12 @@ oPollvault.handleSearchButtonClick = function(event) {
         var iRating = Number(sRating);
         oResults = oPollvault.greaterThanOrEqualTo(oResults, "Rating", iRating);
     }
+    if (sType === "hakpaks") {
+        var sAward = $('#hakpaks-awards').val();
+        if (sVersion !== "Doesn't Matter") {
+            oResults = oPollvault.searchForAwards(oResults, sAward);
+        }
+    }
     if (sType === "modules" || sType === "gameworlds") {
         var sDM = $('#dm').val();
         if (sDM !== "Doesn't Matter") {
@@ -1265,7 +1271,7 @@ oPollvault.handleType = function(event) {
     } else if (sName === "hakpaks") {
         var aIds = ['#hakpaks-category-row', 
             '#hakpaks-exclude-category-row', '#votes-row', 
-            '#rating-row', '#button-row'];
+            '#rating-row', '#hakpaks-awards-row', '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search NWN Hakpaks</b>');
     } else if (sName === "ideas") {
@@ -1414,7 +1420,8 @@ oPollvault.matchText = function(oObject, sValue, sType) {
             "Staff Requirements", "ApplicationReqs", 
             "Player Requirements"];
     } else if (sType === "hakpaks") {
-        aSearchFields = ["Description", "Title", "Author"];
+        aSearchFields = ["Description", "Title", "Author", "Expansions", 
+            "Forums"];
     } else if (sType === "ideas") {
         aSearchFields = ["Description", "Title", "Author", 
             "Short Description", "Type"];
@@ -1588,7 +1595,7 @@ oPollvault.searchForAwards = function(oObject, sAward) {
                 } else if (sAward === "IGF Award") {
                     var aStrings = ["IGF"];
                 } else if (sAward === "Golden Dragon Award") {
-                    var aStrings = ["Author", "Best", "Most"];
+                    var aStrings = ["Author", "Best", "Community", "Most"];
                 } else if (sAward === "Module of the Year") {
                     var aStrings = ["of the Year", "Gold", "Silver", "Bronze"];
                 }
@@ -1607,8 +1614,7 @@ oPollvault.searchForAwards = function(oObject, sAward) {
             }
         }
     }
-    return oResults;
-    
+    return oResults;    
 };
 
 oPollvault.sortModules = function(aKeys, oObject, sColumn) {
