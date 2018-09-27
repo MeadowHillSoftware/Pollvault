@@ -1050,6 +1050,10 @@ oPollvault.handleSearchButtonClick = function(event) {
         if (sGender !== "Doesn't Matter") {
             oResults = oPollvault.searchByString(oResults, "Gender", sGender);
         }
+        var sAward = $('#hakpaks-awards').val();
+        if (sVersion !== "Doesn't Matter") {
+            oResults = oPollvault.searchForAwards(oResults, sAward);
+        }
     }
     if (sType === "characters") {
         var sChallenge = $('#challenge').val();
@@ -1321,7 +1325,8 @@ oPollvault.handleType = function(event) {
     } else if (sName === "portraits") {
         var aIds = ['#portraits-category-row', 
             '#portraits-exclude-category-row', '#votes-row', 
-            '#rating-row', '#portraits-gender-row', '#button-row'];
+            '#rating-row', '#hakpaks-awards-row', 
+            '#portraits-gender-row', '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search NWN Portraits</b>');
     } else if (sName === "prefabs") {
