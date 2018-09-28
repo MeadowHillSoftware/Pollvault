@@ -910,7 +910,11 @@ oPollvault.handleSearchButtonClick = function(event) {
         var iRating = Number(sRating);
         oResults = oPollvault.greaterThanOrEqualTo(oResults, "Rating", iRating);
     }
-    if (sType === "hakpaks") {
+    if (sType === "hakpaks" || sType === "scripts") {
+        var sAward = $('#hakpaks-awards').val();
+        if (sVersion !== "Doesn't Matter") {
+            oResults = oPollvault.searchForAwards(oResults, sAward);
+        }
         var sAward = $('#hakpaks-awards').val();
         if (sVersion !== "Doesn't Matter") {
             oResults = oPollvault.searchForAwards(oResults, sAward);
@@ -1344,7 +1348,7 @@ oPollvault.handleType = function(event) {
     } else if (sName === "scripts") {
         var aIds = ['#scripts-category-row', 
             '#scripts-exclude-category-row', '#votes-row', 
-            '#rating-row', '#button-row'];
+            '#rating-row', '#hakpaks-awards-row', '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search NWN Scripts</b>');
     } else if (sName === "sounds") {
@@ -1404,7 +1408,7 @@ oPollvault.matchText = function(oObject, sValue, sType) {
     var aMods = Object.keys(oObject);
     var oResults = {};
     var aSearchFields = [];
-    if (sType === "artwork" || sType === "other" || sType === "portraits" || sType === "sounds") {
+    if (sType === "artwork" || sType === "other" || sType === "sounds") {
         aSearchFields = ["Description", "Title", "Author", "Format"];
     } else if (sType === "characters") {
         aSearchFields = ["Description", "Name", "Author", "Abilities", 
@@ -1444,7 +1448,11 @@ oPollvault.matchText = function(oObject, sValue, sType) {
         aSearchFields = ["Description", "Title", "Author", 
             "Model Format", "Polycounts"];
     } else if (sType === "movies") {
-        aSearchFields = ["Description", "Title", "Author", "Movie Format"];
+        aSearchFields = ["Description", "Title", "Author", 
+            "Movie Format"];
+    } else if (sType === "portraits") {
+        aSearchFields = ["Description", "Title", "Author", "Format",
+            "Forums"];
     } else if (sType === "prefabs") {
         aSearchFields = ["Description", "Title", "Author", "Area", 
             "Armor", "Focus", "Items", "Magical", "Type", "Weapons"];
@@ -1452,7 +1460,7 @@ oPollvault.matchText = function(oObject, sValue, sType) {
         aSearchFields = ["Description", "Title", "Author", "Type"];
     } else if (sType === "scripts") {
         aSearchFields = ["Description", "Title", "Author", "Format", 
-            "Type", "Includes"];
+            "Type", "Includes", "Expansions", "Forums"];
     } else if (sType === "textures") {
         aSearchFields = ["Description", "Title", "Author", "Format", 
             "Number"];
