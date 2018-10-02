@@ -1415,7 +1415,7 @@ oPollvault.matchText = function(oObject, sValue, sType) {
             "Skills", "HD / HP", "Feats", "Type"];
     } else if (sType === "community_news") {
         aSearchFields = ["Description", "Title", "Author", 
-            "Short Description", "Type", "News Link"];
+            "Short Description", "Type", "News Link", "Forums"];
     } else if (sType === "creatures") {
         aSearchFields = ["Description", "Tite", "Author", "Properties", 
             "Race", "Attacks", "HD / HP", "Damage", "Feats", "Type", 
