@@ -910,7 +910,7 @@ oPollvault.handleSearchButtonClick = function(event) {
         var iRating = Number(sRating);
         oResults = oPollvault.greaterThanOrEqualTo(oResults, "Rating", iRating);
     }
-    if (sType === "hakpaks" || sType === "other" || sType === "scripts") {
+    if (sType === "hakpaks" || sType === "other" || sType === "prefabs" || sType === "scripts") {
         var sAward = $('#hakpaks-awards').val();
         if (sVersion !== "Doesn't Matter") {
             oResults = oPollvault.searchForAwards(oResults, sAward);
@@ -1340,7 +1340,7 @@ oPollvault.handleType = function(event) {
     } else if (sName === "prefabs") {
         var aIds = ['#prefabs-category-row', 
             '#prefabs-exclude-category-row', '#votes-row', 
-            '#rating-row', '#button-row'];
+            '#rating-row', '#hakpaks-awards-row', '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search NWN Prefabs</b>');
     } else if (sName === "screenshots") {
@@ -1465,7 +1465,9 @@ oPollvault.matchText = function(oObject, sValue, sType) {
             "Forums"];
     } else if (sType === "prefabs") {
         aSearchFields = ["Description", "Title", "Author", "Area", 
-            "Armor", "Focus", "Items", "Magical", "Type", "Weapons"];
+            "Armor", "Focus", "Items", "Magical", "Type", "Weapons",
+            "Properties", "AC", "Damage", "Cost", "Weight", 
+            "Damage Type", "Forums", "Other"];
     } else if (sType === "screenshots") {
         aSearchFields = ["Description", "Title", "Author", "Type"];
     } else if (sType === "scripts") {
