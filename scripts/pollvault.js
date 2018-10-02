@@ -916,6 +916,12 @@ oPollvault.handleSearchButtonClick = function(event) {
             oResults = oPollvault.searchForAwards(oResults, sAward);
         }
     }
+    if (sType === "artwork") {
+        var sAward = $('#characters-awards').val();
+        if (sVersion !== "Doesn't Matter") {
+            oResults = oPollvault.searchForAwards(oResults, sAward);
+        }
+    }
     if (sType === "modules" || sType === "gameworlds") {
         var sDM = $('#dm').val();
         if (sDM !== "Doesn't Matter") {
@@ -1237,7 +1243,7 @@ oPollvault.handleType = function(event) {
     if (sName === "artwork") {
         var aIds = ['#artwork-category-row', 
             '#artwork-exclude-category-row', '#votes-row', 
-            '#rating-row', '#button-row'];
+            '#rating-row', '#characters-awards-row', '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search Featured Artwork</b>');
     } else if (sName === "characters") {
@@ -1412,8 +1418,9 @@ oPollvault.matchText = function(oObject, sValue, sType) {
     var aMods = Object.keys(oObject);
     var oResults = {};
     var aSearchFields = [];
-    if (sType === "artwork" || sType === "sounds") {
-        aSearchFields = ["Description", "Title", "Author", "Format"];
+    if (sType === "artwork") {
+        aSearchFields = ["Description", "Title", "Author", "Format",
+            "Forums"];
     } else if (sType === "characters") {
         aSearchFields = ["Description", "Name", "Author", "Abilities", 
             "Skills", "HD / HP", "Feats", "Type", "Guild", "Guild Rank",
@@ -1473,6 +1480,8 @@ oPollvault.matchText = function(oObject, sValue, sType) {
     } else if (sType === "scripts") {
         aSearchFields = ["Description", "Title", "Author", "Format", 
             "Type", "Includes", "Expansions", "Forums"];
+    } else if (sType === "sounds") {
+        aSearchFields = ["Description", "Title", "Author", "Format"];
     } else if (sType === "textures") {
         aSearchFields = ["Description", "Title", "Author", "Format", 
             "Number"];
