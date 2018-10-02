@@ -947,6 +947,10 @@ oPollvault.handleSearchButtonClick = function(event) {
         }
     }
     if (sType === "gameworlds") {
+        var sAward = $('#gameworlds-awards').val();
+        if (sVersion !== "Doesn't Matter") {
+            oResults = oPollvault.searchForAwards(oResults, sAward);
+        }
         var sVersion = $('#version').val();
         if (sVersion !== "Doesn't Matter") {
             oResults = oPollvault.searchByString(oResults, "Patch Version", sVersion);
@@ -1269,10 +1273,10 @@ oPollvault.handleType = function(event) {
     } else if (sName === "gameworlds") {
         var aIds = ['#gameworlds-category-row', 
             '#gameworlds-exclude-category-row', '#votes-row', 
-            '#rating-row', '#version-row', '#traps-row', 
-            '#roleplay-row', '#hack-row', '#language-row', '#speed-row', 
-            '#pvp-row', '#vault-row', '#xp-row', '#treasure-row', 
-            '#magic-row', '#dm-row', '#scope-row', 
+            '#rating-row', '#gameworlds-awards-row', '#version-row', 
+            '#traps-row', '#roleplay-row', '#hack-row', '#language-row', 
+            '#speed-row', '#pvp-row', '#vault-row', '#xp-row', 
+            '#treasure-row', '#magic-row', '#dm-row', '#scope-row', 
             '#content-rating-row', '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search NWN Gameworlds</b>');
@@ -1427,9 +1431,10 @@ oPollvault.matchText = function(oObject, sValue, sType) {
     } else if (sType === "gameworlds") {
         aSearchFields = ["Description", "Title", "Author", "Website", 
             "Number Players", "Number DMs", "Schedule", "Number Servers", 
-            "Death", "House Rules", "IPs", "Length", 
-            "Staff Requirements", "ApplicationReqs", 
-            "Player Requirements"];
+            "Death", "House Rules", "IPs", "Length", "Setting", 
+            "Staff Requirements", "ApplicationReqs", "Classes", 
+            "Player Requirements", "Alignments", "Races", "Guild Link", 
+            "Hakpak", "Level Range", "Death Type", "Forums"];
     } else if (sType === "hakpaks") {
         aSearchFields = ["Description", "Title", "Author", "Expansions", 
             "Forums"];
