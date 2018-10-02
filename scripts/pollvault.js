@@ -1056,6 +1056,10 @@ oPollvault.handleSearchButtonClick = function(event) {
         }
     }
     if (sType === "characters") {
+        var sAward = $('#characters-awards').val();
+        if (sVersion !== "Doesn't Matter") {
+            oResults = oPollvault.searchForAwards(oResults, sAward);
+        }
         var sChallenge = $('#challenge').val();
         if (sChallenge !== "Doesn't Matter") {
             oResults = oPollvault.searchByString(oResults, "Challenge Rating", sChallenge);
@@ -1235,11 +1239,11 @@ oPollvault.handleType = function(event) {
     } else if (sName === "characters") {
         var aIds = ['#characters-category-row', 
             '#characters-exclude-category-row', '#votes-row', 
-            '#rating-row', '#challenge-row', '#alignment-row', 
-            '#size-row', '#characters-gender-row', '#scripts-row', 
-            '#dialogue-row', '#class-1-row', '#class-2-row', 
-            '#class-3-row', '#level-1-row', '#level-2-row', 
-            '#level-3-row', '#npc-row', '#button-row'];
+            '#rating-row', '#characters-awards-row', '#challenge-row', 
+            '#alignment-row', '#size-row', '#characters-gender-row', 
+            '#scripts-row', '#dialogue-row', '#class-1-row', 
+            '#class-2-row', '#class-3-row', '#level-1-row', 
+            '#level-2-row', '#level-3-row', '#npc-row', '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search NWN Characters</b>');
     } else if (sName === "community_news") {
