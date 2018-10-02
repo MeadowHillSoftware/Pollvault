@@ -262,7 +262,7 @@
 //NWN1 2010 Best Tileset Award
     //***Winner: Wild Woods by Sixesthrice [7947]***
     //***Senemenelas’ Underdark Tileset [7750]***
-    //Roman City Tileset by Zwerkules [8006]
+    //***Roman City Tileset by Zwerkules [8006]***
 
 
 
@@ -910,11 +910,7 @@ oPollvault.handleSearchButtonClick = function(event) {
         var iRating = Number(sRating);
         oResults = oPollvault.greaterThanOrEqualTo(oResults, "Rating", iRating);
     }
-    if (sType === "hakpaks" || sType === "scripts") {
-        var sAward = $('#hakpaks-awards').val();
-        if (sVersion !== "Doesn't Matter") {
-            oResults = oPollvault.searchForAwards(oResults, sAward);
-        }
+    if (sType === "hakpaks" || sType === "other" || sType === "scripts") {
         var sAward = $('#hakpaks-awards').val();
         if (sVersion !== "Doesn't Matter") {
             oResults = oPollvault.searchForAwards(oResults, sAward);
@@ -1323,7 +1319,7 @@ oPollvault.handleType = function(event) {
     } else if (sName === "other") {
         var aIds = ['#other-category-row', 
             '#other-exclude-category-row', '#votes-row', 
-            '#rating-row', '#button-row'];
+            '#rating-row', '#hakpaks-awards-row', '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search NWN Other</b>');
     } else if (sName === "portraits") {
@@ -1408,7 +1404,7 @@ oPollvault.matchText = function(oObject, sValue, sType) {
     var aMods = Object.keys(oObject);
     var oResults = {};
     var aSearchFields = [];
-    if (sType === "artwork" || sType === "other" || sType === "sounds") {
+    if (sType === "artwork" || sType === "sounds") {
         aSearchFields = ["Description", "Title", "Author", "Format"];
     } else if (sType === "characters") {
         aSearchFields = ["Description", "Name", "Author", "Abilities", 
@@ -1450,6 +1446,9 @@ oPollvault.matchText = function(oObject, sValue, sType) {
     } else if (sType === "movies") {
         aSearchFields = ["Description", "Title", "Author", 
             "Movie Format"];
+    } else if (sType === "other") {
+        aSearchFields = ["Description", "Title", "Author", "Format", 
+            "Forums"];
     } else if (sType === "portraits") {
         aSearchFields = ["Description", "Title", "Author", "Format",
             "Forums"];
