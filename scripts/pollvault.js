@@ -45,9 +45,9 @@
     //***thegeorge***
 
 //Best Sound/Music:
-    //Winner: David John: Composer Nomination
-    //David John: Tyrants of the Moonsea Music
-    //ClarkyCat: True Colors of a Hero Tracks
+    //***Winner: David John: Composer Nomination***
+    //***David John: Tyrants of the Moonsea Music***
+    //***ClarkyCat: True Colors of a Hero Tracks***
 
 //Best Hak Tileset:
     //***Winner: Immersive Swamps by lord rosenkrantz [6963]***
@@ -100,9 +100,9 @@
     //***Jim Grimsley***
 
 //Best Sound/Music:
-    //Citadel music by Jeff Tyson and U Thant [5648]
-    //Background Music by Dale Patten [594]
-    //Weeping Mesa by Clarkycat [606]
+    //***Citadel music by Jeff Tyson and U Thant [5648]***
+    //***Background Music by Dale Patten [594]***
+    //***Weeping Mesa by Clarkycat [606]***
     //New music tracks for Harp & Chrysanthemum by Maerduin (Zach Holbrook) [206]
 
 //Best Tileset:
@@ -910,7 +910,7 @@ oPollvault.handleSearchButtonClick = function(event) {
         var iRating = Number(sRating);
         oResults = oPollvault.greaterThanOrEqualTo(oResults, "Rating", iRating);
     }
-    if (sType === "hakpaks" || sType === "other" || sType === "prefabs" || sType === "scripts") {
+    if (sType === "hakpaks" || sType === "other" || sType === "prefabs" || sType === "scripts" || sType === "sounds") {
         var sAward = $('#hakpaks-awards').val();
         if (sVersion !== "Doesn't Matter") {
             oResults = oPollvault.searchForAwards(oResults, sAward);
@@ -1364,7 +1364,7 @@ oPollvault.handleType = function(event) {
     } else if (sName === "sounds") {
         var aIds = ['#sounds-category-row', 
             '#sounds-exclude-category-row', '#votes-row', 
-            '#rating-row', '#button-row'];
+            '#rating-row', '#hakpaks-awards-row', '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search NWN Sounds</b>');
     } else if (sName === "textures") {
@@ -1418,7 +1418,7 @@ oPollvault.matchText = function(oObject, sValue, sType) {
     var aMods = Object.keys(oObject);
     var oResults = {};
     var aSearchFields = [];
-    if (sType === "artwork") {
+    if (sType === "artwork" || sType === "other" || sType === "portraits" || sType === "sounds") {
         aSearchFields = ["Description", "Title", "Author", "Format",
             "Forums"];
     } else if (sType === "characters") {
@@ -1464,12 +1464,6 @@ oPollvault.matchText = function(oObject, sValue, sType) {
     } else if (sType === "movies") {
         aSearchFields = ["Description", "Title", "Author", 
             "Movie Format"];
-    } else if (sType === "other") {
-        aSearchFields = ["Description", "Title", "Author", "Format", 
-            "Forums"];
-    } else if (sType === "portraits") {
-        aSearchFields = ["Description", "Title", "Author", "Format",
-            "Forums"];
     } else if (sType === "prefabs") {
         aSearchFields = ["Description", "Title", "Author", "Area", 
             "Armor", "Focus", "Items", "Magical", "Type", "Weapons",
@@ -1480,8 +1474,6 @@ oPollvault.matchText = function(oObject, sValue, sType) {
     } else if (sType === "scripts") {
         aSearchFields = ["Description", "Title", "Author", "Format", 
             "Type", "Includes", "Expansions", "Forums"];
-    } else if (sType === "sounds") {
-        aSearchFields = ["Description", "Title", "Author", "Format"];
     } else if (sType === "textures") {
         aSearchFields = ["Description", "Title", "Author", "Format", 
             "Number"];
