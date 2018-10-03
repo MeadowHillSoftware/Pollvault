@@ -916,7 +916,7 @@ oPollvault.handleSearchButtonClick = function(event) {
             oResults = oPollvault.searchForAwards(oResults, sAward);
         }
     }
-    if (sType === "artwork") {
+    if (sType === "artwork" || sType === "movies") {
         var sAward = $('#characters-awards').val();
         if (sVersion !== "Doesn't Matter") {
             oResults = oPollvault.searchForAwards(oResults, sAward);
@@ -1327,7 +1327,8 @@ oPollvault.handleType = function(event) {
         title = $('<b>Search NWN Modules</b>');
     } else if (sName === "movies") {
         var aIds = ['#movies-category-row', '#movies-exclude-category-row', 
-            '#votes-row', '#rating-row', '#button-row'];
+            '#votes-row', '#rating-row', '#characters-awards-row', 
+            '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search NWN Movies</b>');
     } else if (sName === "other") {
@@ -1464,7 +1465,7 @@ oPollvault.matchText = function(oObject, sValue, sType) {
             "Model Format", "Polycounts"];
     } else if (sType === "movies") {
         aSearchFields = ["Description", "Title", "Author", 
-            "Movie Format"];
+            "Movie Format", "Forums"];
     } else if (sType === "prefabs") {
         aSearchFields = ["Description", "Title", "Author", "Area", 
             "Armor", "Focus", "Items", "Magical", "Type", "Weapons",
