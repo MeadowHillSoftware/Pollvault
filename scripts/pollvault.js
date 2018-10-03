@@ -176,8 +176,8 @@
     //***Futuristic City Interior (+Starship Interior) by Goudea [7397]***
 
 //Best Custom Content:
-    //Winner: Undead Redux 2 by Sixesthrice [598]
-    //Lord of Worms - Creature Pack by Lord of Worms [630]
+    //***Winner: Undead Redux 2 by Sixesthrice [598]***
+    //***Lord of Worms - Creature Pack by Lord of Worms [630]***
     //***Tom Banjo’s Placeables by Tom Banjo [7543]***
 
 //Veteran Author Award:
@@ -222,7 +222,7 @@
 //Best Custom Content
     //***Kotor Heads by Estelindis [7796]***
     //***Winner: Wizard Arcana Placeables by Ben Harrison [7698]***
-    //Improved Creatures by Baba Yaga [648]
+    //***Improved Creatures by Baba Yaga [648]***
     //***3rd Edition Orcs by Ancarion [7777]***
 
 //Veteran Author Award
@@ -910,7 +910,7 @@ oPollvault.handleSearchButtonClick = function(event) {
         var iRating = Number(sRating);
         oResults = oPollvault.greaterThanOrEqualTo(oResults, "Rating", iRating);
     }
-    if (sType === "hakpaks" || sType === "other" || sType === "prefabs" || sType === "scripts" || sType === "sounds") {
+    if (sType === "creatures" || sType === "hakpaks" || sType === "other" || sType === "prefabs" || sType === "scripts" || sType === "sounds") {
         var sAward = $('#hakpaks-awards').val();
         if (sVersion !== "Doesn't Matter") {
             oResults = oPollvault.searchForAwards(oResults, sAward);
@@ -1265,11 +1265,11 @@ oPollvault.handleType = function(event) {
     } else if (sName === "creatures") {
         var aIds = ['#characters-category-row', 
             '#characters-exclude-category-row', '#votes-row', 
-            '#rating-row', '#challenge-row', '#alignment-row', 
-            '#size-row', '#characters-gender-row', '#scripts-row', 
-            '#dialogue-row', '#class-1-row', '#class-2-row', 
-            '#class-3-row', '#level-1-row', '#level-2-row', 
-            '#level-3-row', '#npc-row', '#button-row'];
+            '#rating-row', '#hakpaks-awards-row', '#challenge-row', 
+            '#alignment-row', '#size-row', '#characters-gender-row', 
+            '#scripts-row', '#dialogue-row', '#class-1-row', 
+            '#class-2-row', '#class-3-row', '#level-1-row', 
+            '#level-2-row', '#level-3-row', '#npc-row', '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search NWN Creatures</b>');
     } else if (sName === "fan_fiction") {
@@ -1432,7 +1432,8 @@ oPollvault.matchText = function(oObject, sValue, sType) {
     } else if (sType === "creatures") {
         aSearchFields = ["Description", "Tite", "Author", "Properties", 
             "Race", "Attacks", "HD / HP", "Damage", "Feats", "Type", 
-            "Abilities", "Skills"];
+            "Abilities", "Skills", "AC", "Initiative", "Levels", "Guild", 
+            "Guild Rank", "Forums"];
     } else if (sType === "fan_fiction") {
         aSearchFields = ["Title", "Author"];
     } else if (sType === "gameworlds") {
