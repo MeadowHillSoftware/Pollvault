@@ -1472,7 +1472,8 @@ oPollvault.matchText = function(oObject, sValue, sType) {
             "Properties", "AC", "Damage", "Cost", "Weight", 
             "Damage Type", "Forums", "Other"];
     } else if (sType === "screenshots") {
-        aSearchFields = ["Description", "Title", "Author", "Type"];
+        aSearchFields = ["Description", "Title", "Author", "Type", 
+            "Forums"];
     } else if (sType === "scripts") {
         aSearchFields = ["Description", "Title", "Author", "Format", 
             "Type", "Includes", "Expansions", "Forums"];
