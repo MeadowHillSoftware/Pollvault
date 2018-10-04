@@ -87,7 +87,7 @@
 //Community Contribution Award:
     //Winner: Axe Murderer
     //NWNPodcast
-    //Neverwinter Connections
+    //***Neverwinter Connections***
 
 //Veteran Author Award:
     //***Winner: Marc Price***
@@ -238,7 +238,7 @@
 //Community Contribution Award
     //Ben Harrison
     //Winner: Project Q
-    //The NWN Lexicon Website
+    //***The NWN Lexicon Website***
 
 
 
@@ -910,7 +910,7 @@ oPollvault.handleSearchButtonClick = function(event) {
         var iRating = Number(sRating);
         oResults = oPollvault.greaterThanOrEqualTo(oResults, "Rating", iRating);
     }
-    if (sType === "creatures" || sType === "hakpaks" || sType === "models" || sType === "other" || sType === "prefabs" || sType === "scripts" || sType === "sounds") {
+    if (sType === "creatures" || sType === "hakpaks" || sType === "links" || sType === "models" || sType === "other" || sType === "prefabs" || sType === "scripts" || sType === "sounds") {
         var sAward = $('#hakpaks-awards').val();
         if (sVersion !== "Doesn't Matter") {
             oResults = oPollvault.searchForAwards(oResults, sAward);
@@ -1299,7 +1299,8 @@ oPollvault.handleType = function(event) {
         title = $('<b>Search NWN Ideas</b>');
     } else if (sName === "links") {
         var aIds = ['#links-category-row', '#links-exclude-category-row', 
-            '#votes-row', '#rating-row', '#button-row'];
+            '#votes-row', '#rating-row', '#links-awards-row', 
+            '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search Links</b>');
     } else if (sName === "models") {
@@ -1451,8 +1452,8 @@ oPollvault.matchText = function(oObject, sValue, sType) {
         aSearchFields = ["Description", "Title", "Author", 
             "Short Description", "Type"];
     } else if (sType === "links") {
-        aSearchFields = ["Description", "Title", "Author", 
-            "Update Frequency"];
+        aSearchFields = ["Description", "Title", "Author", "WebLink", 
+            "Update Frequency", "Forums"];
     } else if (sType === "models") {
         aSearchFields = ["Description", "Title", "Author", 
             "Model Format", "Polycounts", "Forums"];
