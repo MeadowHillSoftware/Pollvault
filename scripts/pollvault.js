@@ -592,6 +592,9 @@ oPollvault.displayResults = function(oObject, sType) {
                 row.append(nameCell);
                 var authorCell = $('<td></td>');
                 var sAuthor = oMod["Author"];
+                if (sAuthor === undefined) {
+                    sAuthor = "";
+                }
                 if (sAuthor.length > 29) {
                     sAuthor = sAuthor.slice(0, 27) + "...";
                 }
@@ -910,15 +913,27 @@ oPollvault.handleSearchButtonClick = function(event) {
         var iRating = Number(sRating);
         oResults = oPollvault.greaterThanOrEqualTo(oResults, "Rating", iRating);
     }
-    if (sType === "creatures" || sType === "hakpaks" || sType === "links" || sType === "models" || sType === "other" || sType === "prefabs" || sType === "scripts" || sType === "sounds") {
+    if (sType === "creatures" || sType === "hakpaks" || sType === "models" || sType === "other" || sType === "prefabs" || sType === "scripts" || sType === "sounds") {
         var sAward = $('#hakpaks-awards').val();
-        if (sVersion !== "Doesn't Matter") {
+        if (sAward !== "Doesn't Matter") {
             oResults = oPollvault.searchForAwards(oResults, sAward);
         }
     }
     if (sType === "artwork" || sType === "movies") {
         var sAward = $('#characters-awards').val();
-        if (sVersion !== "Doesn't Matter") {
+        if (sAward !== "Doesn't Matter") {
+            oResults = oPollvault.searchForAwards(oResults, sAward);
+        }
+    }
+    if (sType === "links") {
+        var sAward = $('#links-awards').val();
+        if (sAward !== "Doesn't Matter") {
+            oResults = oPollvault.searchForAwards(oResults, sAward);
+        }
+    }
+    if (sType === "module_ideas") {
+        var sAward = $('#module-ideas-awards').val();
+        if (sAward !== "Doesn't Matter") {
             oResults = oPollvault.searchForAwards(oResults, sAward);
         }
     }
@@ -954,7 +969,7 @@ oPollvault.handleSearchButtonClick = function(event) {
     }
     if (sType === "gameworlds") {
         var sAward = $('#gameworlds-awards').val();
-        if (sVersion !== "Doesn't Matter") {
+        if (sAward !== "Doesn't Matter") {
             oResults = oPollvault.searchForAwards(oResults, sAward);
         }
         var sVersion = $('#version').val();
@@ -988,7 +1003,7 @@ oPollvault.handleSearchButtonClick = function(event) {
     }
     if (sType === "modules") {
         var sAward = $('#modules-awards').val();
-        if (sVersion !== "Doesn't Matter") {
+        if (sAward !== "Doesn't Matter") {
             oResults = oPollvault.searchForAwards(oResults, sAward);
         }
         var sVersion = $('#version').val();
@@ -1061,13 +1076,13 @@ oPollvault.handleSearchButtonClick = function(event) {
             oResults = oPollvault.searchByString(oResults, "Gender", sGender);
         }
         var sAward = $('#hakpaks-awards').val();
-        if (sVersion !== "Doesn't Matter") {
+        if (sAward !== "Doesn't Matter") {
             oResults = oPollvault.searchForAwards(oResults, sAward);
         }
     }
     if (sType === "characters") {
         var sAward = $('#characters-awards').val();
-        if (sVersion !== "Doesn't Matter") {
+        if (sAward !== "Doesn't Matter") {
             oResults = oPollvault.searchForAwards(oResults, sAward);
         }
         var sChallenge = $('#challenge').val();
@@ -1312,7 +1327,7 @@ oPollvault.handleType = function(event) {
     } else if (sName === "module_ideas") {
         var aIds = ['#module_ideas-category-row', 
             '#module_ideas-exclude-category-row', '#votes-row', 
-            '#rating-row', '#button-row'];
+            '#rating-row', '#module-ideas-awards-row', '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search Module Ideas</b>');
     } else if (sName === "modules") {
@@ -1459,7 +1474,7 @@ oPollvault.matchText = function(oObject, sValue, sType) {
             "Model Format", "Polycounts", "Forums"];
     } else if (sType === "module_ideas") {
         aSearchFields = ["Description", "Name", "Author", "Game", 
-            "Short Description"];
+            "Short Description", "Forum Thread"];
     } else if (sType === "modules") {
         aSearchFields = ["Description", "Title", "Races", "Alignments", 
             "Author", "Setting", "Classes", "Movie Link", "Hakpak", 
