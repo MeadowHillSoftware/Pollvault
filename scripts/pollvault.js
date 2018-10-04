@@ -910,7 +910,7 @@ oPollvault.handleSearchButtonClick = function(event) {
         var iRating = Number(sRating);
         oResults = oPollvault.greaterThanOrEqualTo(oResults, "Rating", iRating);
     }
-    if (sType === "creatures" || sType === "hakpaks" || sType === "other" || sType === "prefabs" || sType === "scripts" || sType === "sounds") {
+    if (sType === "creatures" || sType === "hakpaks" || sType === "models" || sType === "other" || sType === "prefabs" || sType === "scripts" || sType === "sounds") {
         var sAward = $('#hakpaks-awards').val();
         if (sVersion !== "Doesn't Matter") {
             oResults = oPollvault.searchForAwards(oResults, sAward);
@@ -1305,7 +1305,7 @@ oPollvault.handleType = function(event) {
     } else if (sName === "models") {
         var aIds = ['#models-category-row', 
             '#models-exclude-category-row', '#votes-row', '#rating-row', 
-            '#button-row'];
+            '#hakpaks-awards-row', '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search NWN Models</b>');
     } else if (sName === "module_ideas") {
@@ -1453,6 +1453,9 @@ oPollvault.matchText = function(oObject, sValue, sType) {
     } else if (sType === "links") {
         aSearchFields = ["Description", "Title", "Author", 
             "Update Frequency"];
+    } else if (sType === "models") {
+        aSearchFields = ["Description", "Title", "Author", 
+            "Model Format", "Polycounts", "Forums"];
     } else if (sType === "module_ideas") {
         aSearchFields = ["Description", "Name", "Author", "Game", 
             "Short Description"];
@@ -1460,9 +1463,6 @@ oPollvault.matchText = function(oObject, sValue, sType) {
         aSearchFields = ["Description", "Title", "Races", "Alignments", 
             "Author", "Setting", "Classes", "Movie Link", "Hakpak", 
             "Review Others", "Forums"];
-    } else if (sType === "models") {
-        aSearchFields = ["Description", "Title", "Author", 
-            "Model Format", "Polycounts"];
     } else if (sType === "movies") {
         aSearchFields = ["Description", "Title", "Author", 
             "Movie Format", "Forums"];
