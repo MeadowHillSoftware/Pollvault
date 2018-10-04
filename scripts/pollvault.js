@@ -85,7 +85,7 @@
 //2008
 
 //Community Contribution Award:
-    //Winner: Axe Murderer
+    //***Winner: Axe Murderer***
     //NWNPodcast
     //***Neverwinter Connections***
 
@@ -191,9 +191,9 @@
     //***Brad W. Bartram***
 
 //Community Contribution Award:
-    //Skunkeen
-    //Winner: Jassper
-    //CarloOne
+    //***Skunkeen***
+    //***Winner: Jassper***
+    //***CarloOne***
 
 
 
@@ -236,7 +236,7 @@
     //***Tempered Moon***
 
 //Community Contribution Award
-    //Ben Harrison
+    //***Ben Harrison***
     //Winner: Project Q
     //***The NWN Lexicon Website***
 
@@ -247,7 +247,7 @@
 //NWN1 2010 Community Contribution Award
     //The Neverwinter Nights Podcast
     //***NWNCQ by Chico400***
-    //Winner: The Custom Content Challenge
+    //***Winner: The Custom Content Challenge***
 
 //NWN1 2010 Veteran Author Award: Modules
     //***Baldecaran***
@@ -255,9 +255,9 @@
     //***Winner: Andarian***
 
 //NWN1 2010 Veteran Author Award: Custom Content
-    //Lord of Worms
-    //Winner: Six_Six_Six
-    //Helvene
+    //***Lord of Worms***
+    //***Winner: Six_Six_Six***
+    //***Helvene***
 
 //NWN1 2010 Best Tileset Award
     //***Winner: Wild Woods by Sixesthrice [7947]***
@@ -913,7 +913,7 @@ oPollvault.handleSearchButtonClick = function(event) {
         var iRating = Number(sRating);
         oResults = oPollvault.greaterThanOrEqualTo(oResults, "Rating", iRating);
     }
-    if (sType === "creatures" || sType === "hakpaks" || sType === "models" || sType === "other" || sType === "prefabs" || sType === "scripts" || sType === "sounds") {
+    if (sType === "creatures" || sType === "hakpaks" || sType === "models" || sType === "other" || sType === "prefabs" || sType === "scripts" || sType === "sounds" || sType === "textures") {
         var sAward = $('#hakpaks-awards').val();
         if (sAward !== "Doesn't Matter") {
             oResults = oPollvault.searchForAwards(oResults, sAward);
@@ -1387,7 +1387,7 @@ oPollvault.handleType = function(event) {
     } else if (sName === "textures") {
         var aIds = ['#textures-category-row', 
             '#textures-exclude-category-row', '#votes-row', 
-            '#rating-row', '#button-row'];
+            '#rating-row', '#hakpaks-awards-row', '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search NWN Textures</b>');
     }
@@ -1495,7 +1495,7 @@ oPollvault.matchText = function(oObject, sValue, sType) {
             "Type", "Includes", "Expansions", "Forums"];
     } else if (sType === "textures") {
         aSearchFields = ["Description", "Title", "Author", "Format", 
-            "Number"];
+            "Number", "Forums"];
     }
     for (var m = 0; m < aMods.length; m++) {
         var sFolder = aMods[m];
