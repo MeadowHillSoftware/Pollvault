@@ -57,7 +57,7 @@
 //Best Hak - Other:
     //***Winner: ACP Alternative Combat animations v3 - Override version [6468]***
     //***CODI Content Package***
-    //Starship Interiors (Placeables) by stacy_19201325
+    //***Starship Interiors (Placeables) by stacy_19201325***
 
 //Best Multiplayer Module:
     //***Winner: Good vs. Evil II by John “Gestalt” Bye [4976]***
@@ -574,7 +574,7 @@ oPollvault.displayResults = function(oObject, sType) {
             for (var m = 0; m < aFolders.length; m++) {
                 var sFolder = aFolders[m];
                 var oMod = oResults[sFolder];
-                if (oPollvault.sType === "characters" || oPollvault.sType === "module_ideas") {
+                if (oPollvault.sType === "characters" || oPollvault.sType === "module_ideas" || oPollvault.sType === "nwn2-characters") {
                     var sTitle = oMod["Name"];
                 } else {
                     var sTitle = oMod["Title"];
@@ -1347,6 +1347,12 @@ oPollvault.handleType = function(event) {
             '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search NWN Movies</b>');
+    } else if (sName === "nwn2-characters") {
+        var aIds = ['#nwn2-characters-category-row', 
+            '#nwn2-characters-exclude-category-row', '#votes-row', 
+            '#rating-row', '#button-row'];
+        oPollvault.populateSearchTable(aIds);
+        title = $('<b>Search NWN2 Characters</b>');
     } else if (sName === "other") {
         var aIds = ['#other-category-row', 
             '#other-exclude-category-row', '#votes-row', 
@@ -1482,6 +1488,11 @@ oPollvault.matchText = function(oObject, sValue, sType) {
     } else if (sType === "movies") {
         aSearchFields = ["Description", "Title", "Author", 
             "Movie Format", "Forums"];
+    } else if (sType === "nwn2-characters") {
+        aSearchType = ["Name", "Author", "Challenge Rating", 
+            "Alignment", "Size", "Gender", "Scripts Included", "Class1", 
+            "Class2", "Class3", "Level1", "Level2", "Level3", "Race", 
+            "Description", "NWN2Game", "Forum Thread"];
     } else if (sType === "prefabs") {
         aSearchFields = ["Description", "Title", "Author", "Area", 
             "Armor", "Focus", "Items", "Magical", "Type", "Weapons",
