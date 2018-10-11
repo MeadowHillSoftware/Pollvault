@@ -574,7 +574,7 @@ oPollvault.displayResults = function(oObject, sType) {
             for (var m = 0; m < aFolders.length; m++) {
                 var sFolder = aFolders[m];
                 var oMod = oResults[sFolder];
-                if (oPollvault.sType === "characters" || oPollvault.sType === "module_ideas" || oPollvault.sType === "nwn2characters" || oPollvault.sType === "nwn2prefabareas") {
+                if (oPollvault.sType === "characters" || oPollvault.sType === "module_ideas" || oPollvault.sType === "nwn2characters" || oPollvault.sType === "nwn2hakpaksoriginal" || oPollvault.sType === "nwn2prefabareas") {
                     var sTitle = oMod["Name"];
                 } else {
                     var sTitle = oMod["Title"];
@@ -1132,7 +1132,7 @@ oPollvault.handleSearchButtonClick = function(event) {
         var oMinPlayers = {};
         var oMaxPlayers = {};
     }
-    if (sType === "nwn2-prefab-areas") {
+    if (sType === "nwn2prefabareas" || sType === "nwn2hakpaksoriginal") {
         var sPatch = $('#nwn2-patch').val();
         if (sPatch !== "Doesn't Matter") {
             oResults = oPollvault.searchByString(oResults, "Patch", sPatch);
@@ -1363,6 +1363,12 @@ oPollvault.handleType = function(event) {
             '#rating-row', '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search NWN2 Characters</b>');
+    } else if (sName === "nwn2hakpaksoriginal") {
+        var aIds = ['#nwn2hakpaksoriginal-category-row', 
+            '#nwn2hakpaksoriginal-exclude-category-row', '#votes-row', 
+            '#rating-row', '#nwn2-patch-row', '#button-row'];
+        oPollvault.populateSearchTable(aIds);
+        title = $('<b>Search NWN2 Original Hakpaks</b>');
     } else if (sName === "nwn2prefabareas") {
         var aIds = ['#nwn2prefabareas-category-row', 
             '#nwn2prefabareas-exclude-category-row', '#votes-row', 
@@ -1509,7 +1515,7 @@ oPollvault.matchText = function(oObject, sValue, sType) {
             "Alignment", "Size", "Gender", "Scripts Included", "Class1", 
             "Class2", "Class3", "Level1", "Level2", "Level3", "Race", 
             "Description", "NWN2Game", "Forum Thread"];
-    } else if (sType === "nwn2prefabareas") {
+    } else if (sType === "nwn2prefabareas" || sType === "nwn2hakpaksoriginal") {
         aSearchFields = ["Name", "Author", "Description", "NWN2Game", 
             "Forum Thread"];
     } else if (sType === "prefabs") {
