@@ -574,7 +574,7 @@ oPollvault.displayResults = function(oObject, sType) {
             for (var m = 0; m < aFolders.length; m++) {
                 var sFolder = aFolders[m];
                 var oMod = oResults[sFolder];
-                if (oPollvault.sType === "characters" || oPollvault.sType === "module_ideas" || oPollvault.sType === "nwn2-characters") {
+                if (oPollvault.sType === "characters" || oPollvault.sType === "module_ideas" || oPollvault.sType === "nwn2characters" || oPollvault.sType === "nwn2prefabareas") {
                     var sTitle = oMod["Name"];
                 } else {
                     var sTitle = oMod["Title"];
@@ -582,7 +582,11 @@ oPollvault.displayResults = function(oObject, sType) {
                 if (sTitle.length > 49) {
                     sTitle = sTitle.slice(0, 47) + "...";
                 }
-                var url = "https://neverwintervault.org/rolovault/projects/nwn1/" + sType + "/" + sFolder;
+                if (sType.slice(0, 4) === "nwn2") {
+                    var url = "https://neverwintervault.org/rolovault/projects/nwn2/" + sType + "/" + sFolder;
+                } else {
+                    var url = "https://neverwintervault.org/rolovault/projects/nwn1/" + sType + "/" + sFolder;
+                }
                 var link = $('<a />')
                     .attr('href', url)
                     .text(sTitle);
@@ -937,34 +941,62 @@ oPollvault.handleSearchButtonClick = function(event) {
             oResults = oPollvault.searchForAwards(oResults, sAward);
         }
     }
-    if (sType === "modules" || sType === "gameworlds") {
-        var sDM = $('#dm').val();
-        if (sDM !== "Doesn't Matter") {
-            oResults = oPollvault.searchByString(oResults, "DM Needed", sDM);
+    if (sType === "characters") {
+        var sAward = $('#characters-awards').val();
+        if (sAward !== "Doesn't Matter") {
+            oResults = oPollvault.searchForAwards(oResults, sAward);
         }
-        var sTraps = $('#traps').val();
-        if (sTraps !== "Doesn't Matter") {
-            oResults = oPollvault.searchByString(oResults, "Tricks & Traps", sTraps);
+        var sChallenge = $('#challenge').val();
+        if (sChallenge !== "Doesn't Matter") {
+            oResults = oPollvault.searchByString(oResults, "Challenge Rating", sChallenge);
         }
-        var sRoleplay = $('#roleplay').val();
-        if (sRoleplay !== "Doesn't Matter") {
-            oResults = oPollvault.searchByString(oResults, "Roleplay", sRoleplay);
+        var sAlignment = $('#alignment').val();
+        if (sAlignment !== "Doesn't Matter") {
+            oResults = oPollvault.searchByString(oResults, "Alignment", sAlignment);
         }
-        var sHack = $('#hack').val();
-        if (sHack !== "Doesn't Matter") {
-            oResults = oPollvault.searchByString(oResults, "Hack & Slash", sHack);
+        var sSize = $('#size').val();
+        if (sSize !== "Doesn't Matter") {
+            oResults = oPollvault.searchByString(oResults, "Size", sSize);
         }
-        var sScope = $('#scope').val();
-        if (sScope !== "Doesn't Matter") {
-            oResults = oPollvault.searchByString(oResults, "Scope", sScope);
+        var sGender = $('#characters-gender').val();
+        if (sGender !== "Doesn't Matter") {
+            oResults = oPollvault.searchByString(oResults, "Gender", sGender);
         }
-        var sContent = $('#content-rating').val();
-        if (sContent !== "Doesn't Matter") {
-            oResults = oPollvault.searchByString(oResults, "Content Rating", sContent);
+        var sScripts = $('#scripts').val();
+        if (sScripts !== "Doesn't Matter") {
+            oResults = oPollvault.searchByString(oResults, "Scripts Included?", sScripts);
         }
-        var sLanguage = $('#language').val();
-        if (sLanguage !== "Doesn't Matter") {
-            oResults = oPollvault.searchByString(oResults, "Language", sLanguage);
+        var sDialogue = $('#dialogue').val();
+        if (sDialogue !== "Doesn't Matter") {
+            oResults = oPollvault.searchByString(oResults, "Dialog Included?", sDialogue);
+        }
+        var sClass1 = $('#class-1').val();
+        if (sClass1 !== "Doesn't Matter") {
+            oResults = oPollvault.matchTextInOneField(oResults, "Class1", sClass1);
+        }
+        var sClass2 = $('#class-2').val();
+        if (sClass2 !== "Doesn't Matter") {
+            oResults = oPollvault.matchTextInOneField(oResults, "Class2", sClass2);
+        }
+        var sClass3 = $('#class-3').val();
+        if (sClass3 !== "Doesn't Matter") {
+            oResults = oPollvault.matchTextInOneField(oResults, "Class3", sClass3);
+        }
+        var sLevel1 = $('#level-1').val();
+        if (sLevel1 !== "Doesn't Matter") {
+            oResults = oPollvault.searchByString(oResults, "Level1", sLevel1);
+        }
+        var sLevel2 = $('#level-2').val();
+        if (sLevel2 !== "Doesn't Matter") {
+            oResults = oPollvault.searchByString(oResults, "Level2", sLevel2);
+        }
+        var sLevel3 = $('#level-3').val();
+        if (sLevel3 !== "Doesn't Matter") {
+            oResults = oPollvault.searchByString(oResults, "Level3", sLevel3);
+        }
+        var sNPC = $('#npc').val();
+        if (sNPC !== "Doesn't Matter") {
+            oResults = oPollvault.searchByString(oResults, "NPC", sNPC);
         }
     }
     if (sType === "gameworlds") {
@@ -999,6 +1031,36 @@ oPollvault.handleSearchButtonClick = function(event) {
         var sMagic = $('#magic').val();
         if (sMagic !== "Doesn't Matter") {
             oResults = oPollvault.searchByString(oResults, "Magic Level", sMagic);
+        }
+    }
+    if (sType === "modules" || sType === "gameworlds") {
+        var sDM = $('#dm').val();
+        if (sDM !== "Doesn't Matter") {
+            oResults = oPollvault.searchByString(oResults, "DM Needed", sDM);
+        }
+        var sTraps = $('#traps').val();
+        if (sTraps !== "Doesn't Matter") {
+            oResults = oPollvault.searchByString(oResults, "Tricks & Traps", sTraps);
+        }
+        var sRoleplay = $('#roleplay').val();
+        if (sRoleplay !== "Doesn't Matter") {
+            oResults = oPollvault.searchByString(oResults, "Roleplay", sRoleplay);
+        }
+        var sHack = $('#hack').val();
+        if (sHack !== "Doesn't Matter") {
+            oResults = oPollvault.searchByString(oResults, "Hack & Slash", sHack);
+        }
+        var sScope = $('#scope').val();
+        if (sScope !== "Doesn't Matter") {
+            oResults = oPollvault.searchByString(oResults, "Scope", sScope);
+        }
+        var sContent = $('#content-rating').val();
+        if (sContent !== "Doesn't Matter") {
+            oResults = oPollvault.searchByString(oResults, "Content Rating", sContent);
+        }
+        var sLanguage = $('#language').val();
+        if (sLanguage !== "Doesn't Matter") {
+            oResults = oPollvault.searchByString(oResults, "Language", sLanguage);
         }
     }
     if (sType === "modules") {
@@ -1070,6 +1132,12 @@ oPollvault.handleSearchButtonClick = function(event) {
         var oMinPlayers = {};
         var oMaxPlayers = {};
     }
+    if (sType === "nwn2-prefab-areas") {
+        var sPatch = $('#nwn2-patch').val();
+        if (sPatch !== "Doesn't Matter") {
+            oResults = oPollvault.searchByString(oResults, "Patch", sPatch);
+        }
+    }
     if (sType === "portraits") {
         var sGender = $('#portraits-gender').val();
         if (sGender !== "Doesn't Matter") {
@@ -1078,64 +1146,6 @@ oPollvault.handleSearchButtonClick = function(event) {
         var sAward = $('#hakpaks-awards').val();
         if (sAward !== "Doesn't Matter") {
             oResults = oPollvault.searchForAwards(oResults, sAward);
-        }
-    }
-    if (sType === "characters") {
-        var sAward = $('#characters-awards').val();
-        if (sAward !== "Doesn't Matter") {
-            oResults = oPollvault.searchForAwards(oResults, sAward);
-        }
-        var sChallenge = $('#challenge').val();
-        if (sChallenge !== "Doesn't Matter") {
-            oResults = oPollvault.searchByString(oResults, "Challenge Rating", sChallenge);
-        }
-        var sAlignment = $('#alignment').val();
-        if (sAlignment !== "Doesn't Matter") {
-            oResults = oPollvault.searchByString(oResults, "Alignment", sAlignment);
-        }
-        var sSize = $('#size').val();
-        if (sSize !== "Doesn't Matter") {
-            oResults = oPollvault.searchByString(oResults, "Size", sSize);
-        }
-        var sGender = $('#characters-gender').val();
-        if (sGender !== "Doesn't Matter") {
-            oResults = oPollvault.searchByString(oResults, "Gender", sGender);
-        }
-        var sScripts = $('#scripts').val();
-        if (sScripts !== "Doesn't Matter") {
-            oResults = oPollvault.searchByString(oResults, "Scripts Included?", sScripts);
-        }
-        var sDialogue = $('#dialogue').val();
-        if (sDialogue !== "Doesn't Matter") {
-            oResults = oPollvault.searchByString(oResults, "Dialog Included?", sDialogue);
-        }
-        var sClass1 = $('#class-1').val();
-        if (sClass1 !== "Doesn't Matter") {
-            oResults = oPollvault.matchTextInOneField(oResults, "Class1", sClass1);
-        }
-        var sClass2 = $('#class-2').val();
-        if (sClass2 !== "Doesn't Matter") {
-            oResults = oPollvault.matchTextInOneField(oResults, "Class2", sClass2);
-        }
-        var sClass3 = $('#class-3').val();
-        if (sClass3 !== "Doesn't Matter") {
-            oResults = oPollvault.matchTextInOneField(oResults, "Class3", sClass3);
-        }
-        var sLevel1 = $('#level-1').val();
-        if (sLevel1 !== "Doesn't Matter") {
-            oResults = oPollvault.searchByString(oResults, "Level1", sLevel1);
-        }
-        var sLevel2 = $('#level-2').val();
-        if (sLevel2 !== "Doesn't Matter") {
-            oResults = oPollvault.searchByString(oResults, "Level2", sLevel2);
-        }
-        var sLevel3 = $('#level-3').val();
-        if (sLevel3 !== "Doesn't Matter") {
-            oResults = oPollvault.searchByString(oResults, "Level3", sLevel3);
-        }
-        var sNPC = $('#npc').val();
-        if (sNPC !== "Doesn't Matter") {
-            oResults = oPollvault.searchByString(oResults, "NPC", sNPC);
         }
     }
     oPollvault.oResults = oResults;
@@ -1347,12 +1357,18 @@ oPollvault.handleType = function(event) {
             '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search NWN Movies</b>');
-    } else if (sName === "nwn2-characters") {
-        var aIds = ['#nwn2-characters-category-row', 
-            '#nwn2-characters-exclude-category-row', '#votes-row', 
+    } else if (sName === "nwn2characters") {
+        var aIds = ['#nwn2characters-category-row', 
+            '#nwn2characters-exclude-category-row', '#votes-row', 
             '#rating-row', '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search NWN2 Characters</b>');
+    } else if (sName === "nwn2prefabareas") {
+        var aIds = ['#nwn2prefabareas-category-row', 
+            '#nwn2prefabareas-exclude-category-row', '#votes-row', 
+            '#rating-row', '#nwn2-patch-row', '#button-row'];
+        oPollvault.populateSearchTable(aIds);
+        title = $('<b>Search NWN2 Area Prefabs</b>');
     } else if (sName === "other") {
         var aIds = ['#other-category-row', 
             '#other-exclude-category-row', '#votes-row', 
@@ -1488,11 +1504,14 @@ oPollvault.matchText = function(oObject, sValue, sType) {
     } else if (sType === "movies") {
         aSearchFields = ["Description", "Title", "Author", 
             "Movie Format", "Forums"];
-    } else if (sType === "nwn2-characters") {
-        aSearchType = ["Name", "Author", "Challenge Rating", 
+    } else if (sType === "nwn2characters") {
+        aSearchFields = ["Name", "Author", "Challenge Rating", 
             "Alignment", "Size", "Gender", "Scripts Included", "Class1", 
             "Class2", "Class3", "Level1", "Level2", "Level3", "Race", 
             "Description", "NWN2Game", "Forum Thread"];
+    } else if (sType === "nwn2prefabareas") {
+        aSearchFields = ["Name", "Author", "Description", "NWN2Game", 
+            "Forum Thread"];
     } else if (sType === "prefabs") {
         aSearchFields = ["Description", "Title", "Author", "Area", 
             "Armor", "Focus", "Items", "Magical", "Type", "Weapons",
