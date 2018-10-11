@@ -442,6 +442,20 @@ oPollvault.checkDate = function (oObject, iFrom, iTo, sField) {
 oPollvault.checkLength = function (oObject, sMin, sMax, sField) {
     var aMods = Object.keys(oObject);
     var oResults = {};
+    if (sMax === "60+" || sMax === "Doesn't Matter") {
+        var iMax = 61;
+    } else if (sMax === "<1") {
+        var iMax = 0;
+    } else {
+        var iMax = Number(sMax);
+    }
+    if (sMin === "60+") {
+        var iMin = 61;
+    } else if (sMin === "<1" || sMin === "Doesn't Matter") {
+        var iMin = 0;
+    } else {
+        var iMin = Number(sMin);
+    }
     for (var m = 0; m < aMods.length; m++) {
         var sFolder = aMods[m];
         var oMod = oObject[sFolder];
@@ -454,20 +468,6 @@ oPollvault.checkLength = function (oObject, sMin, sMax, sField) {
                 var iLength = 0;
             } else {
                 var iLength = Number(sLength);
-            }
-            if (sMax === "60+" || "Doesn't Matter") {
-                var iMax = 61;
-            } else if (sMax === "<1") {
-                var iMax = 0;
-            } else {
-                var iMax = Number(sMax);
-            }
-            if (sMin === "60+") {
-                var iMin = 61;
-            } else if (sMin === "<1" || "Doesn't Matter") {
-                var iMin = 0;
-            } else {
-                var iMin = Number(sMin);
             }
             if (iLength >= iMin && iLength <= iMax) {
                 oResults[sFolder] = oMod;
@@ -574,7 +574,7 @@ oPollvault.displayResults = function(oObject, sType) {
             for (var m = 0; m < aFolders.length; m++) {
                 var sFolder = aFolders[m];
                 var oMod = oResults[sFolder];
-                if (oPollvault.sType === "characters" || oPollvault.sType === "module_ideas" || oPollvault.sType === "nwn2characters" || oPollvault.sType === "nwn2hakpaksoriginal" || oPollvault.sType === "nwn2prefabareas") {
+                if (oPollvault.sType === "characters" || oPollvault.sType === "module_ideas" || oPollvault.sType === "nwn2characters" || oPollvault.sType === "nwn2hakpaksoriginal" || oPollvault.sType === "nwn2modulesenglish" || oPollvault.sType === "nwn2prefabareas") {
                     var sTitle = oMod["Name"];
                 } else {
                     var sTitle = oMod["Title"];
@@ -891,6 +891,17 @@ oPollvault.handleSearchButtonClick = function(event) {
         var sCategory = $('#characters-category').val();
     } else if (sType === "fan_fiction") {
         var sCategory = "Doesn't Matter";
+    } else if (sType === "nwn2modulesenglish") {
+        var sCategory = $('#nwn2modulesenglish-category').val();
+        if (sCategory.indexOf(" OR ") !== -1) {
+            var aSplit = sCategory.split(" OR ");
+            var sSinglePlayer = aSplit[0]
+            var sMultiplayer = aSplit[1];
+            var aCategories = [sSinglePlayer, sMultiplayer];
+            console.log(aCategories);
+            sCategory = "Doesn't Matter";
+            oResults = oPollvault.matchOneString(oResults, "Category", aCategories);
+        }
     } else {
         var sCategory = $(('#' + sType + '-category')).val();
     }
@@ -1072,28 +1083,14 @@ oPollvault.handleSearchButtonClick = function(event) {
         if (sVersion !== "Doesn't Matter") {
             oResults = oPollvault.searchByString(oResults, "Expansions", sVersion);
         }
-        var sAnyLevel = $('#any-level').val();
-        var sMinLevel = $('#min-level').val();
-        var iMinLevel = Number(sMinLevel);
-        var sMaxLevel = $('#max-level').val();
-        var iMaxLevel = Number(sMaxLevel);
-        if (sAnyLevel === "No" || iMinLevel !== 1 || iMaxLevel !== 40) {
-            oResults = oPollvault.minMaxCharacterLevel(oResults, "Min Character Level", iMinLevel, sAnyLevel);
-            oResults = oPollvault.minMaxCharacterLevel(oResults, "Max Character Level", iMaxLevel, sAnyLevel);
-        }
         var sAnyPlayers = $('#any-players').val();
         var sMinPlayers = $('#min-players').val();
         var iMinPlayers = Number(sMinPlayers);
         var sMaxPlayers = $('#max-players').val();
         var iMaxPlayers = Number(sMaxPlayers);
-        if (sAnyLevel === "No" || iMinPlayers !== 1 || iMaxPlayers !== 64) {
+        if (sAnyPlayers === "No" || iMinPlayers !== 1 || iMaxPlayers !== 64) {
             oResults = oPollvault.minMaxPlayerNumbers(oResults, "Min # Players", iMinPlayers, sAnyPlayers);
             oResults = oPollvault.minMaxPlayerNumbers(oResults, "Max # Players", iMaxPlayers, sAnyPlayers);
-        }
-        var sMinLength = $('#min-length').val();
-        var sMaxLength = $('#max-length').val();
-        if (sMinLength !== "Doesn't Matter" || sMaxLength !== "Doesn't Matter") {
-            oResults = oPollvault.checkLength(oResults, sMinLength, sMaxLength, "Gameplay Length");
         }
         var sMultiplayer = $('#multiplayer').val();
         if (sMultiplayer !== "Doesn't Matter") {
@@ -1132,10 +1129,48 @@ oPollvault.handleSearchButtonClick = function(event) {
         var oMinPlayers = {};
         var oMaxPlayers = {};
     }
-    if (sType === "nwn2prefabareas" || sType === "nwn2hakpaksoriginal") {
+    if (sType === "modules" || sType === "nwn2modulesenglish") {
+        var sAnyLevel = $('#any-level').val();
+        var sMinLevel = $('#min-level').val();
+        var iMinLevel = Number(sMinLevel);
+        var sMaxLevel = $('#max-level').val();
+        var iMaxLevel = Number(sMaxLevel);
+        if (sAnyLevel === "No" || iMinLevel !== 1 || iMaxLevel !== 40) {
+            oResults = oPollvault.minMaxCharacterLevel(oResults, "Min Character Level", iMinLevel, sAnyLevel);
+            oResults = oPollvault.minMaxCharacterLevel(oResults, "Max Character Level", iMaxLevel, sAnyLevel);
+        }
+        var sMinLength = $('#min-length').val();
+        var sMaxLength = $('#max-length').val();
+        if (sMinLength !== "Doesn't Matter" || sMaxLength !== "Doesn't Matter") {
+            oResults = oPollvault.checkLength(oResults, sMinLength, sMaxLength, "Gameplay Length");
+        }
+    }
+    if (sType === "nwn2hakpaksoriginal" || sType === "nwn2modulesenglish" || sType === "nwn2prefabareas") {
         var sPatch = $('#nwn2-patch').val();
         if (sPatch !== "Doesn't Matter") {
             oResults = oPollvault.searchByString(oResults, "Patch", sPatch);
+        }
+    }
+    if (sType === "nwn2modulesenglish") {
+        var sScope = $('#nwn2-scope').val();
+        if (sScope !== "Doesn't Matter"){
+            oResults = oPollvault.matchTextInOneField(oResults, "Scope", sScope);
+        }
+        var sContent = $('#nwn2-content-rating').val();
+        if (sContent !== "Doesn't Matter"){
+            oResults = oPollvault.matchTextInOneField(oResults, "Content", sContent);
+        }
+        var sTraps = $('#nwn2-traps').val();
+        if (sTraps !== "Doesn't Matter"){
+            oResults = oPollvault.matchTextInOneField(oResults, "Tricks & Traps", sTraps);
+        }
+        var sRoleplay = $('#nwn2-roleplay').val();
+        if (sRoleplay !== "Doesn't Matter"){
+            oResults = oPollvault.matchTextInOneField(oResults, "Roleplay", sRoleplay);
+        }
+        var sHack = $('#nwn2-hack').val();
+        if (sHack !== "Doesn't Matter"){
+            oResults = oPollvault.matchTextInOneField(oResults, "Hack & Slash", sHack);
         }
     }
     if (sType === "portraits") {
@@ -1369,6 +1404,15 @@ oPollvault.handleType = function(event) {
             '#rating-row', '#nwn2-patch-row', '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search NWN2 Original Hakpaks</b>');
+    } else if (sName === "nwn2modulesenglish") {
+        var aIds = ['#nwn2modulesenglish-category-row', 
+            '#nwn2modulesenglish-exclude-category-row', '#votes-row', 
+            '#rating-row', '#nwn2-patch-row', '#levels-row', 
+            '#nwn2-scope-row', '#nwn2-content-rating-row', 
+            '#nwn2-traps-row', '#nwn2-roleplay-row', '#nwn2-hack-row', 
+            '#length-row', '#button-row'];
+        oPollvault.populateSearchTable(aIds);
+        title = $('<b>Search NWN2 English Modules</b>');
     } else if (sName === "nwn2prefabareas") {
         var aIds = ['#nwn2prefabareas-category-row', 
             '#nwn2prefabareas-exclude-category-row', '#votes-row', 
@@ -1514,6 +1558,9 @@ oPollvault.matchText = function(oObject, sValue, sType) {
         aSearchFields = ["Name", "Author", "Challenge Rating", 
             "Alignment", "Size", "Gender", "Scripts Included", "Class1", 
             "Class2", "Class3", "Level1", "Level2", "Level3", "Race", 
+            "Description", "NWN2Game", "Forum Thread"];
+    } else if (sType === "nwn2modulesenglish") {
+        aSearchFields = ["Name", "Author", "Module Types", "Categories", 
             "Description", "NWN2Game", "Forum Thread"];
     } else if (sType === "nwn2prefabareas" || sType === "nwn2hakpaksoriginal") {
         aSearchFields = ["Name", "Author", "Description", "NWN2Game", 
