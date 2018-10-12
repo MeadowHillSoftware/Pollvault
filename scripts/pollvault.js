@@ -574,7 +574,7 @@ oPollvault.displayResults = function(oObject, sType) {
             for (var m = 0; m < aFolders.length; m++) {
                 var sFolder = aFolders[m];
                 var oMod = oResults[sFolder];
-                if (oPollvault.sType === "characters" || oPollvault.sType === "module_ideas" || oPollvault.sType === "nwn2characters" || oPollvault.sType === "nwn2hakpaksoriginal" || oPollvault.sType === "nwn2ideas" || oPollvault.sType === "nwn2modulesenglish" || oPollvault.sType === "nwn2prefabareas") {
+                if (oPollvault.sType === "characters" || oPollvault.sType === "module_ideas" || oPollvault.sType === "nwn2characters" || oPollvault.sType === "nwn2hakpaksoriginal" || oPollvault.sType === "nwn2ideas" || oPollvault.sType === "nwn2modulesenglish" || oPollvault.sType === "nwn2prefabareas" || oPollvault.sType === "nwn2scripts") {
                     var sTitle = oMod["Name"];
                 } else {
                     var sTitle = oMod["Title"];
@@ -1425,6 +1425,12 @@ oPollvault.handleType = function(event) {
             '#rating-row', '#nwn2-patch-row', '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search NWN2 Area Prefabs</b>');
+    } else if (sName === "nwn2scripts") {
+        var aIds = ['#nwn2scripts-category-row', 
+            '#nwn2scripts-exclude-category-row', '#votes-row', 
+            '#rating-row', '#nwn2-patch-row', '#button-row'];
+        oPollvault.populateSearchTable(aIds);
+        title = $('<b>Search NWN2 Scripts</b>');
     } else if (sName === "other") {
         var aIds = ['#other-category-row', 
             '#other-exclude-category-row', '#votes-row', 
@@ -1574,6 +1580,9 @@ oPollvault.matchText = function(oObject, sValue, sType) {
     } else if (sType === "nwn2prefabareas" || sType === "nwn2hakpaksoriginal") {
         aSearchFields = ["Name", "Author", "Description", "NWN2Game", 
             "Forum Thread"];
+    } else if (sType === "nwn2scripts") {
+        aSearchFields = ["Name", "Author", "Category", "Type", "Format", 
+            "Description", "ShowCode", "NWN2Game", "Forum Thread"];
     } else if (sType === "prefabs") {
         aSearchFields = ["Description", "Title", "Author", "Area", 
             "Armor", "Focus", "Items", "Magical", "Type", "Weapons",
