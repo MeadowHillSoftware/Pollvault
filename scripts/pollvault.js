@@ -574,7 +574,7 @@ oPollvault.displayResults = function(oObject, sType) {
             for (var m = 0; m < aFolders.length; m++) {
                 var sFolder = aFolders[m];
                 var oMod = oResults[sFolder];
-                if (oPollvault.sType === "characters" || oPollvault.sType === "module_ideas" || oPollvault.sType === "nwn2characters" || oPollvault.sType === "nwn2hakpaksoriginal" || oPollvault.sType === "nwn2ideas" || oPollvault.sType === "nwn2modulesenglish" || oPollvault.sType === "nwn2prefabareas" || oPollvault.sType === "nwn2scripts" || oPollvault.sType === "nwn2userscreenshots") {
+                if (oPollvault.sType === "characters" || oPollvault.sType === "module_ideas" || oPollvault.sType === "nwn2characters" || oPollvault.sType === "nwn2hakpaksoriginal" || oPollvault.sType === "nwn2ideas" || oPollvault.sType === "nwn2modulesenglish" || oPollvault.sType === "nwn2other" || oPollvault.sType === "nwn2prefabareas" || oPollvault.sType === "nwn2scripts" || oPollvault.sType === "nwn2userscreenshots") {
                     var sTitle = oMod["Name"];
                 } else {
                     var sTitle = oMod["Title"];
@@ -1419,6 +1419,12 @@ oPollvault.handleType = function(event) {
             '#length-row', '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search NWN2 English Modules</b>');
+    } else if (sName === "nwn2other") {
+        var aIds = ['#nwn2other-category-row', 
+            '#nwn2other-exclude-category-row', '#votes-row', 
+            '#rating-row', '#button-row'];
+        oPollvault.populateSearchTable(aIds);
+        title = $('<b>Search NWN2 Other</b>');
     } else if (sName === "nwn2prefabareas") {
         var aIds = ['#nwn2prefabareas-category-row', 
             '#nwn2prefabareas-exclude-category-row', '#votes-row', 
@@ -1583,6 +1589,9 @@ oPollvault.matchText = function(oObject, sValue, sType) {
     } else if (sType === "nwn2modulesenglish") {
         aSearchFields = ["Name", "Author", "Module Types", "Categories", 
             "Description", "NWN2Game", "Forum Thread"];
+    } else if (sType === "nwn2other") {
+        aSearchFields = ["Name", "Author", "Format", "Description", 
+            "NWN2Game", "Forum Thread"];
     } else if (sType === "nwn2prefabareas" || sType === "nwn2hakpaksoriginal") {
         aSearchFields = ["Name", "Author", "Description", "NWN2Game", 
             "Forum Thread"];
