@@ -574,7 +574,7 @@ oPollvault.displayResults = function(oObject, sType) {
             for (var m = 0; m < aFolders.length; m++) {
                 var sFolder = aFolders[m];
                 var oMod = oResults[sFolder];
-                if (oPollvault.sType === "characters" || oPollvault.sType === "module_ideas" || oPollvault.sType === "nwn2characters" || oPollvault.sType === "nwn2gameworlds" || oPollvault.sType === "nwn2hakpaksoriginal" || oPollvault.sType === "nwn2ideas" || oPollvault.sType === "nwn2modulesenglish" || oPollvault.sType === "nwn2other" || oPollvault.sType === "nwn2prefabareas" || oPollvault.sType === "nwn2scripts" || oPollvault.sType === "nwn2userscreenshots") {
+                if (oPollvault.sType === "characters" || oPollvault.sType === "module_ideas" || oPollvault.sType === "nwn2characters" || oPollvault.sType === "nwn2gameworlds" || oPollvault.sType === "nwn2hakpaksoriginal" || oPollvault.sType === "nwn2ideas" || oPollvault.sType === "nwn2models" || oPollvault.sType === "nwn2modulesenglish" || oPollvault.sType === "nwn2other" || oPollvault.sType === "nwn2prefabareas" || oPollvault.sType === "nwn2scripts" || oPollvault.sType === "nwn2userscreenshots") {
                     var sTitle = oMod["Name"];
                 } else {
                     var sTitle = oMod["Title"];
@@ -1201,6 +1201,16 @@ oPollvault.handleSearchButtonClick = function(event) {
             oResults = oPollvault.searchByString(oResults, "Patch", sPatch);
         }
     }
+    if (sType === "nwn2models") {
+        var sPolycount = $('#polycount').val();
+        if (sPolycount !== ""){
+            oResults = oPollvault.matchTextInOneField(oResults, "Polycount", sPolycount);
+        }
+        var sFormat = $('#format').val();
+        if (sFormat !== ""){
+            oResults = oPollvault.matchTextInOneField(oResults, "ModelFormat", sFormat);
+        }
+    }
     if (sType === "nwn2modulesenglish") {
         var sScope = $('#nwn2-scope').val();
         if (sScope !== "Doesn't Matter"){
@@ -1470,6 +1480,13 @@ oPollvault.handleType = function(event) {
             '#rating-row', '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search NWN2 Ideas</b>');
+    } else if (sName === "nwn2models") {
+        var aIds = ['#nwn2models-category-row', 
+            '#nwn2models-exclude-category-row', '#votes-row', 
+            '#rating-row', '#polycount-row', '#format-row', 
+            '#button-row'];
+        oPollvault.populateSearchTable(aIds);
+        title = $('<b>Search NWN2 Models</b>');
     } else if (sName === "nwn2modulesenglish") {
         var aIds = ['#nwn2modulesenglish-category-row', 
             '#nwn2modulesenglish-exclude-category-row', '#votes-row', 
@@ -1650,8 +1667,11 @@ oPollvault.matchText = function(oObject, sValue, sType) {
             "Description", "Number Players", "Length", "Schedule", 
             "Application Reqs", "House Rules", "IPs", "Forum Thread"];
     } else if (sType === "nwn2ideas") {
-        aSearchFields = ["Name", "Author", "Category", "Description", 
-            "Short Description", "Type", "NWN2Game", "Forum Thread"];
+        aSearchFields = ["Name", "Author", "Description", "NWN2Game", 
+            "Short Description", "Type", "Forum Thread"];
+    } else if (sType === "nwn2models") {
+        aSearchFields = ["Name", "Author", "Description", "NWN2Game", 
+            "Forum Thread"];
     } else if (sType === "nwn2modulesenglish") {
         aSearchFields = ["Name", "Author", "Module Types", "Categories", 
             "Description", "NWN2Game", "Forum Thread"];
