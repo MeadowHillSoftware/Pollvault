@@ -574,7 +574,7 @@ oPollvault.displayResults = function(oObject, sType) {
             for (var m = 0; m < aFolders.length; m++) {
                 var sFolder = aFolders[m];
                 var oMod = oResults[sFolder];
-                if (oPollvault.sType === "characters" || oPollvault.sType === "module_ideas" || oPollvault.sType === "nwn2characters" || oPollvault.sType === "nwn2hakpaksoriginal" || oPollvault.sType === "nwn2ideas" || oPollvault.sType === "nwn2modulesenglish" || oPollvault.sType === "nwn2other" || oPollvault.sType === "nwn2prefabareas" || oPollvault.sType === "nwn2scripts" || oPollvault.sType === "nwn2userscreenshots") {
+                if (oPollvault.sType === "characters" || oPollvault.sType === "module_ideas" || oPollvault.sType === "nwn2characters" || oPollvault.sType === "nwn2gameworlds" || oPollvault.sType === "nwn2hakpaksoriginal" || oPollvault.sType === "nwn2ideas" || oPollvault.sType === "nwn2modulesenglish" || oPollvault.sType === "nwn2other" || oPollvault.sType === "nwn2prefabareas" || oPollvault.sType === "nwn2scripts" || oPollvault.sType === "nwn2userscreenshots") {
                     var sTitle = oMod["Name"];
                 } else {
                     var sTitle = oMod["Title"];
@@ -1145,6 +1145,56 @@ oPollvault.handleSearchButtonClick = function(event) {
             oResults = oPollvault.checkLength(oResults, sMinLength, sMaxLength, "Gameplay Length");
         }
     }
+    if (sType === "nwn2gameworlds") {
+        var sScope = $('#scope').val();
+        if (sScope !== "Doesn't Matter") {
+            oResults = oPollvault.searchByString(oResults, "Scope", sScope);
+        }
+        var sTraps = $('#traps').val();
+        if (sTraps !== "Doesn't Matter") {
+            oResults = oPollvault.searchByString(oResults, "Tricks & Traps", sTraps);
+        }
+        var sRoleplay = $('#roleplay-entry').val();
+        if (sRoleplay !== "") {
+            oResults = oPollvault.matchTextInOneField(oResults, "RolePlay", sRoleplay);
+        }
+        var sDM = $('#dm').val();
+        if (sDM !== "Doesn't Matter") {
+            oResults = oPollvault.searchByString(oResults, "DM Needed", sDM);
+        }
+        var sMagic = $('#magic-entry').val();
+        if (sMagic !== "") {
+            oResults = oPollvault.matchTextInOneField(oResults, "Magic Level", sMagic);
+        }
+        var sTreasure = $('#treasure').val();
+        if (sTreasure !== "Doesn't Matter") {
+            oResults = oPollvault.searchByString(oResults, "Treasure", sTreasure);
+        }
+        var sXP = $('#xp-entry').val();
+        if (sXP !== "") {
+            oResults = oPollvault.matchTextInOneField(oResults, "Experience Rewards", sXP);
+        }
+        var sVault = $('#vault-entry').val();
+        if (sVault !== "") {
+            oResults = oPollvault.matchTextInOneField(oResults, "Vault Type", sVault);
+        }
+        var sPVP = $('#pvp-entry').val();
+        if (sPVP !== "") {
+            oResults = oPollvault.matchTextInOneField(oResults, "PVP", sPVP);
+        }
+        var sSpeed = $('#speed').val();
+        if (sSpeed !== "Doesn't Matter") {
+            oResults = oPollvault.searchByString(oResults, "Connection", sSpeed);
+        }
+        var sContent = $('#content-entry').val();
+        if (sContent !== "") {
+            oResults = oPollvault.matchTextInOneField(oResults, "Content Rating", sContent);
+        }
+        var sHack = $('#areas').val();
+        if (sHack !== "") {
+            oResults = oPollvault.matchTextInOneField(oResults, "NumberAreas", sHack);
+        }
+    }
     if (sType === "nwn2hakpaksoriginal" || sType === "nwn2modulesenglish" || sType === "nwn2prefabareas") {
         var sPatch = $('#nwn2-patch').val();
         if (sPatch !== "Doesn't Matter") {
@@ -1398,6 +1448,16 @@ oPollvault.handleType = function(event) {
             '#rating-row', '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search NWN2 Characters</b>');
+    } else if (sName === "nwn2gameworlds") {
+        var aIds = ['#nwn2gameworlds-category-row', 
+            '#nwn2gameworlds-exclude-category-row', '#votes-row', 
+            '#rating-row', '#scope-row', '#traps-row', 
+            '#roleplay-entry-row', '#dm-row', '#magic-entry-row', 
+            '#treasure-row', '#xp-entry-row', '#vault-entry-row', 
+            '#pvp-entry-row', '#speed-row', '#content-entry-row', 
+            '#areas-row', '#button-row'];
+        oPollvault.populateSearchTable(aIds);
+        title = $('<b>Search NWN2 Gameworlds</b>');
     } else if (sName === "nwn2hakpaksoriginal") {
         var aIds = ['#nwn2hakpaksoriginal-category-row', 
             '#nwn2hakpaksoriginal-exclude-category-row', '#votes-row', 
@@ -1583,6 +1643,12 @@ oPollvault.matchText = function(oObject, sValue, sType) {
             "Alignment", "Size", "Gender", "Scripts Included", "Class1", 
             "Class2", "Class3", "Level1", "Level2", "Level3", "Race", 
             "Description", "NWN2Game", "Forum Thread"];
+    } else if (sType === "nwn2gameworlds") {
+        aSearchFields = ["Name", "Author", "Website", "Death Type", 
+            "Setting", "Alignments", "Races", "Classes", "LevelRange", 
+            "NumberServers", "NumberDMS", "Death", "Language", 
+            "Description", "Number Players", "Length", "Schedule", 
+            "Application Reqs", "House Rules", "IPs", "Forum Thread"];
     } else if (sType === "nwn2ideas") {
         aSearchFields = ["Name", "Author", "Category", "Description", 
             "Short Description", "Type", "NWN2Game", "Forum Thread"];
