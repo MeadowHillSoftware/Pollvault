@@ -574,7 +574,7 @@ oPollvault.displayResults = function(oObject, sType) {
             for (var m = 0; m < aFolders.length; m++) {
                 var sFolder = aFolders[m];
                 var oMod = oResults[sFolder];
-                if (oPollvault.sType === "characters" || oPollvault.sType === "module_ideas" || oPollvault.sType === "nwn2characters" || oPollvault.sType === "nwn2gameworlds" || oPollvault.sType === "nwn2hakpaksoriginal" || oPollvault.sType === "nwn2ideas" || oPollvault.sType === "nwn2models" || oPollvault.sType === "nwn2modulesenglish" || oPollvault.sType === "nwn2modulesinternational" || oPollvault.sType === "nwn2movies" || oPollvault.sType === "nwn2other" || oPollvault.sType === "nwn2plugins" || oPollvault.sType === "nwn2portraits" || oPollvault.sType === "nwn2prefabareas" || oPollvault.sType === "nwn2prefabplaceables" || oPollvault.sType === "nwn2pwc" || oPollvault.sType === "nwn2scripts" || oPollvault.sType === "nwn2tools" || oPollvault.sType === "nwn2tutorials" || oPollvault.sType === "nwn2ui" || oPollvault.sType === "nwn2userscreenshots") {
+                if (oPollvault.sType === "characters" || oPollvault.sType === "module_ideas" || oPollvault.sType === "nwn2characters" || oPollvault.sType === "nwn2gameworlds" || oPollvault.sType === "nwn2hakpaksoriginal" || oPollvault.sType === "nwn2ideas" || oPollvault.sType === "nwn2models" || oPollvault.sType === "nwn2modulesenglish" || oPollvault.sType === "nwn2modulesinternational" || oPollvault.sType === "nwn2movies" || oPollvault.sType === "nwn2other" || oPollvault.sType === "nwn2plugins" || oPollvault.sType === "nwn2portraits" || oPollvault.sType === "nwn2prefabareas" || oPollvault.sType === "nwn2prefabplaceables" || oPollvault.sType === "nwn2pwc" || oPollvault.sType === "nwn2scripts" || oPollvault.sType === "nwn2tools" || oPollvault.sType === "nwn2tutorials" || oPollvault.sType === "nwn2ui" || oPollvault.sType === "nwn2userscreenshots" || oPollvault.sType === "nwn2visualeffects") {
                     var sTitle = oMod["Name"];
                 } else {
                     var sTitle = oMod["Title"];
@@ -1731,7 +1731,7 @@ oPollvault.matchText = function(oObject, sValue, sType) {
             "NumberServers", "NumberDMS", "Death", "Language", 
             "Description", "Number Players", "Length", "Schedule", 
             "Application Reqs", "House Rules", "IPs", "Forum Thread"];
-    } else if (sType === "nwn2hakpaksoriginal" || sType === "nwn2models" || sType === "nwn2prefabareas" || sType === "nwn2prefabplaceables" || sType === "nwn2pwc" || sType === "nwn2tools") {
+    } else if (sType === "nwn2hakpaksoriginal" || sType === "nwn2models" || sType === "nwn2prefabareas" || sType === "nwn2prefabplaceables" || sType === "nwn2pwc" || sType === "nwn2tools" || sType === "nwn2visualeffects") {
         aSearchFields = ["Name", "Author", "Description", "NWN2Game", 
             "Forum Thread"];
     } else if (sType === "nwn2ideas") {
