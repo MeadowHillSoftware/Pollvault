@@ -574,7 +574,7 @@ oPollvault.displayResults = function(oObject, sType) {
             for (var m = 0; m < aFolders.length; m++) {
                 var sFolder = aFolders[m];
                 var oMod = oResults[sFolder];
-                if (oPollvault.sType === "characters" || oPollvault.sType === "module_ideas" || oPollvault.sType === "nwn2characters" || oPollvault.sType === "nwn2gameworlds" || oPollvault.sType === "nwn2hakpaksoriginal" || oPollvault.sType === "nwn2ideas" || oPollvault.sType === "nwn2models" || oPollvault.sType === "nwn2modulesenglish" || oPollvault.sType === "nwn2movies" || oPollvault.sType === "nwn2other" || oPollvault.sType === "nwn2plugins" || oPollvault.sType === "nwn2portraits" || oPollvault.sType === "nwn2prefabareas" || oPollvault.sType === "nwn2prefabplaceables" || oPollvault.sType === "nwn2pwc" || oPollvault.sType === "nwn2scripts" || oPollvault.sType === "nwn2tools" || oPollvault.sType === "nwn2tutorials" || oPollvault.sType === "nwn2ui" || oPollvault.sType === "nwn2userscreenshots") {
+                if (oPollvault.sType === "characters" || oPollvault.sType === "module_ideas" || oPollvault.sType === "nwn2characters" || oPollvault.sType === "nwn2gameworlds" || oPollvault.sType === "nwn2hakpaksoriginal" || oPollvault.sType === "nwn2ideas" || oPollvault.sType === "nwn2models" || oPollvault.sType === "nwn2modulesenglish" || oPollvault.sType === "nwn2modulesinternational" || oPollvault.sType === "nwn2movies" || oPollvault.sType === "nwn2other" || oPollvault.sType === "nwn2plugins" || oPollvault.sType === "nwn2portraits" || oPollvault.sType === "nwn2prefabareas" || oPollvault.sType === "nwn2prefabplaceables" || oPollvault.sType === "nwn2pwc" || oPollvault.sType === "nwn2scripts" || oPollvault.sType === "nwn2tools" || oPollvault.sType === "nwn2tutorials" || oPollvault.sType === "nwn2ui" || oPollvault.sType === "nwn2userscreenshots") {
                     var sTitle = oMod["Name"];
                 } else {
                     var sTitle = oMod["Title"];
@@ -1740,6 +1740,9 @@ oPollvault.matchText = function(oObject, sValue, sType) {
     } else if (sType === "nwn2modulesenglish") {
         aSearchFields = ["Name", "Author", "Module Types", "Categories", 
             "Description", "NWN2Game", "Forum Thread"];
+    } else if (sType === "nwn2modulesinternational") {
+        aSearchFields = ["Name", "Author", "Module Types", "Description", 
+            "Categories", "NWN2Game", "Forum Thread"];
     } else if (sType === "nwn2movies" || sType === "nwn2other") {
         aSearchFields = ["Name", "Author", "Format", "Description", 
             "NWN2Game", "Forum Thread"];
