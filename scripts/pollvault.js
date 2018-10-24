@@ -961,7 +961,7 @@ oPollvault.handleSearchButtonClick = function(event) {
             oResults = oPollvault.searchForAwards(oResults, sAward);
         }
     }
-    if (sType === "characters" || sType === "nwn2gameworlds") {
+    if (sType === "characters" || sType === "nwn2gameworlds" || sType === "nwn2movies") {
         var sAward = $('#characters-awards').val();
         if (sAward !== "Doesn't Matter") {
             oResults = oPollvault.searchForAwards(oResults, sAward);
@@ -1545,7 +1545,7 @@ oPollvault.handleType = function(event) {
     } else if (sName === "nwn2movies") {
         var aIds = ['#nwn2movies-category-row', 
             '#nwn2movies-exclude-category-row', '#votes-row', 
-            '#rating-row', '#button-row'];
+            '#rating-row', '#characters-awards-row', '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search NWN2 Movies</b>');
     } else if (sName === "nwn2other") {
