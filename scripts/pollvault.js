@@ -1575,7 +1575,8 @@ oPollvault.handleType = function(event) {
     } else if (sName === "nwn2prefabplaceables") {
         var aIds = ['#nwn2prefabplaceables-category-row', 
             '#nwn2prefabplaceables-exclude-category-row', '#votes-row', 
-            '#rating-row', '#nwn2-patch-row', '#button-row'];
+            '#rating-row', '#characters-awards-row', '#nwn2-patch-row', 
+            '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search NWN2 Prefabs: Blueprints</b>');
     } else if (sName === "nwn2pwc") {
