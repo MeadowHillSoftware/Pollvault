@@ -51,7 +51,7 @@
 
 //Best Hak Tileset:
     //***Winner: Immersive Swamps by lord rosenkrantz [6963]***
-    //Lord of WoRm’s ‘Undersea’ tiles Tileset hak
+    //***Lord of WoRm’s ‘Undersea’ tiles Tileset hak***
     //City Interior Tileset Add-on by goaneng
 
 //Best Hak - Other:
@@ -103,7 +103,7 @@
     //***Citadel music by Jeff Tyson and U Thant [5648]***
     //***Background Music by Dale Patten [594]***
     //***Weeping Mesa by Clarkycat [606]***
-    //New music tracks for Harp & Chrysanthemum by Maerduin (Zach Holbrook) [206]
+    //***New music tracks for Harp & Chrysanthemum by Maerduin (Zach Holbrook) [206]***
 
 //Best Tileset:
     //***Arcadia City Tileset by ValynDyral [7374]***
@@ -271,60 +271,60 @@
 //2008
 
 //Community Contribution Award:
-    //Winner: Grinning Fool
+    //***Winner: Grinning Fool***
     //Robinson Workshop
     //Tanita
 
 //Veteran Author Award:
-    //ENoa4 (Keep on the Borderlands, Tomoachan)
-    //Winner: Adam Miller (Dark Waters, Pirate Cards)
-    //John McA (Conan Chronicles)
+    //***ENoa4 (Keep on the Borderlands, Tomoachan)***
+    //***Winner: Adam Miller (Dark Waters, Pirate Cards)***
+    //***John McA (Conan Chronicles)***
 
 //Debut Author Award:
-    //human_male
-    //Wyrin D’njargo
-    //Falloutboy
+    //***human_male***
+    //***Wyrin D’njargo***
+    //***Falloutboy***
     //Winner: Zach Holbrook
 
 //Best Sound/Music:
-    //Winner: New Music Tracks for Harp & Chrysanthemum by Zach Holbrook [206]
+    //***Winner: New Music Tracks for Harp & Chrysanthemum by Zach Holbrook [206]***
 
 //Best Tileset:
-    //Cryptpit by witness [193]
-    //Winner: RWS Deep Halls by RWS [134]
-    //“The Sewer Tileset” by Restless [107]
+    //***Cryptpit by witness [193]***
+    //***Winner: RWS Deep Halls by RWS [134]***
+    //***“The Sewer Tileset” by Restless [107]***
 
 //Best Custom Content:
-    //Building Construction Kit by Nytir [183]
-    //TonyK’s Companion and Monster AI Hak [141]
-    //Winner: Sorceress Ashura VFX Pack [9]
+    //***Building Construction Kit by Nytir [183]***
+    //***TonyK’s Companion and Monster AI Hak [141]***
+    //***Winner: Sorceress Ashura VFX Pack [9]***
 
 //Best Multiplayer Module:
-    //Winner: Tomb of Horrors revisited by BM Productions [197]
-    //Mystery at Willowbow by Saorsa [71]
+    //***Winner: Tomb of Horrors revisited by BM Productions [197]***
+    //***Mystery at Willowbow by Saorsa [71]***
 
 //Best Roleplaying Module:
-    //Harp & Chrysanthemum by Maerduin [206]
-    //Winner: Dark Avenger by Wyrin [171]
-    //Sublety of Thay by dirtywick [153]
+    //***Harp & Chrysanthemum by Maerduin [206]***
+    //***Winner: Dark Avenger by Wyrin [171]***
+    //***Sublety of Thay by dirtywick [153]***
 
 //Best Action Module:
-    //Tragedy in Tragidor by Phoenixus [83]
-    //The Corruption of Kiahoro by human_male [83]
-    //Winner: Moonshadows Chapter 1 by Alex Hugon [185]
+    //***Tragedy in Tragidor by Phoenixus [83]***
+    //***The Corruption of Kiahoro by human_male [178]***
+    //***Winner: Moonshadows Chapter 1 by Alex Hugon [185]***
 
 //Best Adventure Module:
-    //Dark Avenger Chapter 1 by Wyrin D’njargo [171]
-    //Winner: Dark Waters Chapter 1 by Adam Miller [128]
-    //Conan Chronicles 1: Legion of the Dead by John McA [176]
+    //***Dark Avenger Chapter 1 by Wyrin D’njargo [171]***
+    //***Winner: Dark Waters Chapter 1 by Adam Miller [128]***
+    //***Conan Chronicles 1: Legion of the Dead by John McA [176]***
 
 //Most Re-playable Module:
-    //Pirate Cards by Adam Miller [61]
-    //Winner: Pool of Radiance Remastered by Markus ‘Wayne’ Schlegel [63]
+    //***Pirate Cards by Adam Miller [61]***
+    //***Winner: Pool of Radiance Remastered by Markus ‘Wayne’ Schlegel [63]***
 
 //Best PnP Conversion Module:
-    //Winner: Tomoachan by Enoa4 [182]
-    //Red Hand of Doom by sgt_why [75]
+    //***Winner: Tomoachan by Enoa4 [182]***
+    //***Red Hand of Doom by sgt_why [75]***
 
 
 
@@ -333,76 +333,76 @@
 //Community Contribution Award:
     //The Halloween Mod
     //Winner: The Neverwinter Nights Podcast
-    //SGK73
+    //***SGK73***
 
 //Veteran Author Award:
-    //Winner: Wyrin D’njargo
-    //John McA
-    //Markus “Wayne” Schlegel
+    //***Winner: Wyrin D’njargo***
+    //***John McA***
+    //***Markus “Wayne” Schlegel***
 
 //Debut Author Award:
-    //AmstradHero
-    //Winner: Azenn
-    //Indira Lightfoot
+    //***AmstradHero***
+    //***Winner: Azenn***
+    //***Indira Lightfoot***
 
 //Best Sound/Music:
-    //Misses & Mystery (Music from Dark Waters 2) [479407]
-    //Revisitation by Jorn Lavoll [686]
-    //Winner: Troy Sterling Nies (Composer Nomination) [52238]
+    //***Misses & Mystery (Music from Dark Waters 2) [479407]***
+    //***Revisitation by Jorn Lavoll [686]***
+    //***Winner: Troy Sterling Nies (Composer Nomination) [52238]***
 
 //Best 3D Custom Content:
-    //Winner: BOUNCE - Beholder by BouncyRock [142]
-    //KEMO Custom Chairs by KEMO [235]
-    //Yeoman of the Greenwood by Barrel of Monkeys and RunnerDuck [312]
+    //***Winner: BOUNCE - Beholder by BouncyRock [142]***
+    //***KEMO Custom Chairs by KEMO [235]***
+    //***Yeoman of the Greenwood by Barrel of Monkeys and RunnerDuck [312]***
 
 //Best Other Custom Content:
-    //Winner: Jaesun’s All In One [27]
-    //Warlock Reworked by Selea [200]
-    //Wyrin’s Foraging System [225]
+    //***Winner: Jaesun’s All In One [27]***
+    //***Warlock Reworked by Selea [200]***
+    //***Wyrin’s Foraging System [225]***
 
 //Best Action Module:
-    //Winner: Dark Avenger 2 by Wyrin [270]
-    //The Shadowdancer’s Vault by Jolly Jenkins [290]
-    //Trial and Terror by Indira Lightfoot [317]
+    //***Winner: Dark Avenger 2 by Wyrin [270]***
+    //***The Shadowdancer’s Vault by Jolly Jenkins [290]***
+    //***Trial and Terror by Indira Lightfoot [317]***
 
 //Best Dramatic Module:
-    //Conan Chronicles 1 - The Barbarian Chronicles by John McA [319]
-    //Dark Waters 2 by Adam Miller [246]
-    //Winner: Subtlety of Thay - Chapter 2 by Dirtywick [310]
+    //***Conan Chronicles 1 - The Barbarian Chronicles by John McA [319]***
+    //***Dark Waters 2 by Adam Miller [246]***
+    //***Winner: Subtlety of Thay - Chapter 2 by Dirtywick [310]***
 
 //Best Roleplay Module:
-    //Winner: Dark Avenger 2 by Wyrin D’njargo [270]
-    //Dark Waters 2 by Adam Miller [246]
-    //Fate of a City by AmstradHero [320]
+    //***Winner: Dark Avenger 2 by Wyrin D’njargo [270]***
+    //***Dark Waters 2 by Adam Miller [246]***
+    //***Fate of a City by AmstradHero [320]***
 
 //Most Replayable Module:
-    //Dark Waters 2 by Adam Miller [246]
-    //Winner: Fate of a City by AmstradHero [320]
-    //Lute Hero by Adam Miller [275]
+    //***Dark Waters 2 by Adam Miller [246]***
+    //***Winner: Fate of a City by AmstradHero [320]***
+    //***Lute Hero by Adam Miller [275]***
 
 
 
 //2011
 
 //Joint NWN1/NWN2 2009 Best Sound/Music Award
-    //Christopher Escalante (body of work)
-    //“Outcast” by J ‘Wildfire’ Town
-    //Travis “Darklord Snafe” Richards (body of work)
+    //***Christopher Escalante (body of work)***
+    //***“Outcast” by J ‘Wildfire’ Town***
+    //***Travis “Darklord Snafe” Richards (body of work)***
 
 //NWN2 2009 Veteran Author Award
-    //Azenn
-    //John McA
-    //Markus “Wayne” Schlegel
+    //***Azenn***
+    //***John McA***
+    //***Markus “Wayne” Schlegel***
 
 //NWN2 2009 Best Storytelling Module Award
-    //Dark Waters III
-    //Sands of Solvheil III
-    //Serene
+    //***Dark Waters III***
+    //***Sands of Solvheil III***
+    //***Serene***
 
 //NWN2 2009-2010 Best Roleplaying Module Award
-    //Dark Waters 3
-    //Trinity
-    //The Maimed God Saga
+    //***Dark Waters 3***
+    //***Trinity***
+    //***The Maimed God Saga***
 
 
 "use strict";
