@@ -961,11 +961,13 @@ oPollvault.handleSearchButtonClick = function(event) {
             oResults = oPollvault.searchForAwards(oResults, sAward);
         }
     }
-    if (sType === "characters") {
+    if (sType === "characters" || sType === "nwn2gameworlds") {
         var sAward = $('#characters-awards').val();
         if (sAward !== "Doesn't Matter") {
             oResults = oPollvault.searchForAwards(oResults, sAward);
         }
+    }
+    if (sType === "characters") {
         var sChallenge = $('#challenge').val();
         if (sChallenge !== "Doesn't Matter") {
             oResults = oPollvault.searchByString(oResults, "Challenge Rating", sChallenge);
@@ -1478,11 +1480,11 @@ oPollvault.handleType = function(event) {
     } else if (sName === "nwn2gameworlds") {
         var aIds = ['#nwn2gameworlds-category-row', 
             '#nwn2gameworlds-exclude-category-row', '#votes-row', 
-            '#rating-row', '#scope-row', '#traps-row', 
-            '#roleplay-entry-row', '#dm-row', '#magic-entry-row', 
-            '#treasure-row', '#xp-entry-row', '#vault-entry-row', 
-            '#pvp-entry-row', '#speed-row', '#content-entry-row', 
-            '#areas-row', '#button-row'];
+            '#rating-row', '#characters-awards-row', '#scope-row', 
+            '#traps-row', '#roleplay-entry-row', '#dm-row', 
+            '#magic-entry-row', '#treasure-row', '#xp-entry-row', 
+            '#vault-entry-row', '#pvp-entry-row', '#speed-row', 
+            '#content-entry-row', '#areas-row', '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search NWN2 Gameworlds</b>');
     } else if (sName === "nwn2hakpakscombined") {
