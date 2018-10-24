@@ -961,7 +961,7 @@ oPollvault.handleSearchButtonClick = function(event) {
             oResults = oPollvault.searchForAwards(oResults, sAward);
         }
     }
-    if (sType === "characters" || sType === "nwn2gameworlds" || sType === "nwn2movies" || sType === "nwn2prefabplaceables") {
+    if (sType === "characters" || sType === "nwn2gameworlds" || sType === "nwn2movies" || sType === "nwn2prefabplaceables" || sType === "nwn2tools") {
         var sAward = $('#characters-awards').val();
         if (sAward !== "Doesn't Matter") {
             oResults = oPollvault.searchForAwards(oResults, sAward);
@@ -1606,7 +1606,8 @@ oPollvault.handleType = function(event) {
     } else if (sName === "nwn2tools") {
         var aIds = ['#nwn2tools-category-row', 
             '#nwn2tools-exclude-category-row', '#votes-row', 
-            '#rating-row', '#nwn2-patch-row', '#button-row'];
+            '#rating-row', '#characters-awards-row', '#nwn2-patch-row', 
+            '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search NWN2 Tools</b>');
     } else if (sName === "nwn2tutorials") {
