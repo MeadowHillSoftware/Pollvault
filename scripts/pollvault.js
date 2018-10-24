@@ -961,7 +961,7 @@ oPollvault.handleSearchButtonClick = function(event) {
             oResults = oPollvault.searchForAwards(oResults, sAward);
         }
     }
-    if (sType === "characters" || sType === "nwn2gameworlds" || sType === "nwn2movies") {
+    if (sType === "characters" || sType === "nwn2gameworlds" || sType === "nwn2movies" || sType === "nwn2prefabplaceables") {
         var sAward = $('#characters-awards').val();
         if (sAward !== "Doesn't Matter") {
             oResults = oPollvault.searchForAwards(oResults, sAward);
