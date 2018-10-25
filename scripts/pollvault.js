@@ -937,7 +937,7 @@ oPollvault.handleSearchButtonClick = function(event) {
         var iRating = Number(sRating);
         oResults = oPollvault.greaterThanOrEqualTo(oResults, "Rating", iRating);
     }
-    if (sType === "creatures" || sType === "hakpaks" || sType === "models" || sType === "nwn2hakpakscombined" || sType === "nwn2hakpaksoriginal" || sType === "nwn2models" || sType === "nwn2other" || sType === "nwn2plugins" || sType === "nwn2prefabareas" || sType === "nwn2scripts" || sType === "other" || sType === "portraits" || sType === "prefabs" || sType === "scripts" || sType === "sounds" || sType === "textures") {
+    if (sType === "creatures" || sType === "hakpaks" || sType === "models" || sType === "nwn2hakpakscombined" || sType === "nwn2hakpaksoriginal" || sType === "nwn2models" || sType === "nwn2other" || sType === "nwn2plugins" || sType === "nwn2prefabareas" || sType === "nwn2scripts" || sType === "nwn2tutorials" || sType === "other" || sType === "portraits" || sType === "prefabs" || sType === "scripts" || sType === "sounds" || sType === "textures") {
         var sAward = $('#hakpaks-awards').val();
         if (sAward !== "Doesn't Matter") {
             oResults = oPollvault.searchForAwards(oResults, sAward);
@@ -1612,7 +1612,7 @@ oPollvault.handleType = function(event) {
     } else if (sName === "nwn2tutorials") {
         var aIds = ['#nwn2tutorials-category-row', 
             '#nwn2tutorials-exclude-category-row', '#votes-row', 
-            '#rating-row', '#button-row'];
+            '#rating-row', '#hakpaks-awards-row', '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search NWN2 Tutorials</b>');
     } else if (sName === "nwn2ui") {
