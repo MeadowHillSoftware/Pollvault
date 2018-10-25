@@ -961,6 +961,12 @@ oPollvault.handleSearchButtonClick = function(event) {
             oResults = oPollvault.searchForAwards(oResults, sAward);
         }
     }
+    if (sType === "nwn2modulesenglish") {
+        var sAward = $('#nwn2-modules-awards').val();
+        if (sAward !== "Doesn't Matter") {
+            oResults = oPollvault.searchForAwards(oResults, sAward);
+        }
+    }
     if (sType === "characters") {
         var sChallenge = $('#challenge').val();
         if (sChallenge !== "Doesn't Matter") {
@@ -1522,8 +1528,8 @@ oPollvault.handleType = function(event) {
     } else if (sName === "nwn2modulesenglish") {
         var aIds = ['#nwn2modulesenglish-category-row', 
             '#nwn2modulesenglish-exclude-category-row', '#votes-row', 
-            '#rating-row', '#nwn2-patch-row', '#levels-row', 
-            '#nwn2-scope-row', '#nwn2-content-rating-row', 
+            '#rating-row', '#nwn2-modules-awards-row', '#nwn2-patch-row', 
+            '#levels-row', '#nwn2-scope-row', '#nwn2-content-rating-row', 
             '#nwn2-traps-row', '#nwn2-roleplay-row', '#nwn2-hack-row', 
             '#length-row', '#button-row'];
         oPollvault.populateSearchTable(aIds);
