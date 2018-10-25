@@ -484,6 +484,20 @@ oPollvault.convertUndefinedToDash = function(sString) {
     return sString;
 };
 
+oPollvault.depopulateSearchTable = function() {
+    var oTable = $('#search-table');
+    var aRows = oTable.find('tr');
+    var aCommon = ['match-text-row', 'date-submitted-row', 'date-updated-row'];
+    for (var i = 0; i < aRows.length; i++) {
+        var oRow = aRows[i];
+        var sId = $(oRow).attr('id');
+        if (aCommon.indexOf(sId) === -1) {
+            $(('#' + sId)).appendTo('#storage-table');
+        }
+    }
+    $('#search-div').addClass('search-interface');
+};
+
 oPollvault.displayResults = function(oObject, sType) {
     if (sType === "gameworlds") {
         sType = "gameworld";
@@ -1352,31 +1366,35 @@ oPollvault.handleType = function(event) {
     event.stopPropagation();
     var sType = oPollvault.reader.result;
     oPollvault.oCurrentType = JSON.parse(sType);
-    var aMods = Object.keys(oPollvault.oCurrentType);
-    var aFields = [];
-    var aAwards = [];
-    for (var m = 0; m < aMods.length; m++) {
-        var sFolder = aMods[m]
-        var oMod = oPollvault.oCurrentType[sFolder];
-        var aKeys = Object.keys(oMod);
-        for (var k = 0; k < aKeys.length; k++) {
-            var sKey = aKeys[k];
-            if (aFields.indexOf(sKey) === -1) {
-                aFields.push(sKey);
-            }
-            if (sKey === "Awards") {
-                var aLaurels = oMod[sKey];
-                for (var l = 0; l < aLaurels.length; l++) {
-                    var sLaurel = aLaurels[l];
-                    if (aAwards.indexOf(sLaurel) === -1) {
-                        aAwards.push(sLaurel);
-                    }
-                }
-            }
-        }
+    //var aMods = Object.keys(oPollvault.oCurrentType);
+    //var aFields = [];
+    //var aAwards = [];
+    //for (var m = 0; m < aMods.length; m++) {
+        //var sFolder = aMods[m]
+        //var oMod = oPollvault.oCurrentType[sFolder];
+        //var aKeys = Object.keys(oMod);
+        //for (var k = 0; k < aKeys.length; k++) {
+            //var sKey = aKeys[k];
+            //if (aFields.indexOf(sKey) === -1) {
+                //aFields.push(sKey);
+            //}
+            //if (sKey === "Awards") {
+                //var aLaurels = oMod[sKey];
+                //for (var l = 0; l < aLaurels.length; l++) {
+                    //var sLaurel = aLaurels[l];
+                    //if (aAwards.indexOf(sLaurel) === -1) {
+                        //aAwards.push(sLaurel);
+                    //}
+                //}
+            //}
+        //}
+    //}
+    //console.log(aFields);
+    //console.log(aAwards);
+    var oDiv = $('#search-div');
+    if (!oDiv.hasClass('search-interface')) {
+        oPollvault.depopulateSearchTable();
     }
-    console.log(aFields);
-    console.log(aAwards);
     var sName = oPollvault.sType;
     var title = "";
     if (sName === "artwork") {
