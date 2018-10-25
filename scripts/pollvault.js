@@ -937,13 +937,13 @@ oPollvault.handleSearchButtonClick = function(event) {
         var iRating = Number(sRating);
         oResults = oPollvault.greaterThanOrEqualTo(oResults, "Rating", iRating);
     }
-    if (sType === "creatures" || sType === "hakpaks" || sType === "models" || sType === "nwn2hakpakscombined" || sType === "nwn2hakpaksoriginal" || sType === "nwn2models" || sType === "nwn2other" || sType === "other" || sType === "portraits" || sType === "prefabs" || sType === "scripts" || sType === "sounds" || sType === "textures") {
+    if (sType === "creatures" || sType === "hakpaks" || sType === "models" || sType === "nwn2hakpakscombined" || sType === "nwn2hakpaksoriginal" || sType === "nwn2models" || sType === "nwn2other" || sType === "nwn2plugins" || sType === "other" || sType === "portraits" || sType === "prefabs" || sType === "scripts" || sType === "sounds" || sType === "textures") {
         var sAward = $('#hakpaks-awards').val();
         if (sAward !== "Doesn't Matter") {
             oResults = oPollvault.searchForAwards(oResults, sAward);
         }
     }
-    if (sType === "artwork" || sType === "movies") {
+    if (sType === "artwork" || sType === "characters" || sType === "movies" || sType === "nwn2gameworlds" || sType === "nwn2modulesinternational" || sType === "nwn2movies" || sType === "nwn2prefabplaceables" || sType === "nwn2textures" || sType === "nwn2tools") {
         var sAward = $('#characters-awards').val();
         if (sAward !== "Doesn't Matter") {
             oResults = oPollvault.searchForAwards(oResults, sAward);
@@ -957,12 +957,6 @@ oPollvault.handleSearchButtonClick = function(event) {
     }
     if (sType === "module_ideas") {
         var sAward = $('#module-ideas-awards').val();
-        if (sAward !== "Doesn't Matter") {
-            oResults = oPollvault.searchForAwards(oResults, sAward);
-        }
-    }
-    if (sType === "characters" || sType === "nwn2gameworlds" || sType === "nwn2modulesinternational" || sType === "nwn2movies" || sType === "nwn2prefabplaceables" || sType === "nwn2textures" || sType === "nwn2tools") {
-        var sAward = $('#characters-awards').val();
         if (sAward !== "Doesn't Matter") {
             oResults = oPollvault.searchForAwards(oResults, sAward);
         }
@@ -1558,7 +1552,8 @@ oPollvault.handleType = function(event) {
     } else if (sName === "nwn2plugins") {
         var aIds = ['#nwn2plugins-category-row', 
             '#nwn2plugins-exclude-category-row', '#votes-row', 
-            '#rating-row', '#nwn2-patch-row', '#button-row'];
+            '#rating-row', '#hakpaks-awards-row', '#nwn2-patch-row', 
+            '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search NWN2 Plugins</b>');
     } else if (sName === "nwn2portraits") {
