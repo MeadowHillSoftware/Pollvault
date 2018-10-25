@@ -937,7 +937,7 @@ oPollvault.handleSearchButtonClick = function(event) {
         var iRating = Number(sRating);
         oResults = oPollvault.greaterThanOrEqualTo(oResults, "Rating", iRating);
     }
-    if (sType === "creatures" || sType === "hakpaks" || sType === "models" || sType === "other" || sType === "prefabs" || sType === "scripts" || sType === "sounds" || sType === "textures") {
+    if (sType === "creatures" || sType === "hakpaks" || sType === "models" || sType === "nwn2hakpakscombined" || sType === "nwn2hakpaksoriginal" || sType === "nwn2models" || sType === "other" || sType === "portraits" || sType === "prefabs" || sType === "scripts" || sType === "sounds" || sType === "textures") {
         var sAward = $('#hakpaks-awards').val();
         if (sAward !== "Doesn't Matter") {
             oResults = oPollvault.searchForAwards(oResults, sAward);
@@ -1490,7 +1490,8 @@ oPollvault.handleType = function(event) {
     } else if (sName === "nwn2hakpakscombined") {
         var aIds = ['#nwn2hakpaksoriginal-category-row', 
             '#nwn2hakpaksoriginal-exclude-category-row', '#votes-row', 
-            '#rating-row', '#nwn2-patch-row', '#button-row'];
+            '#rating-row', '#hakpaks-awards-row', '#nwn2-patch-row', 
+            '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search NWN2 Combined Hakpaks</b>');
     } else if (sName === "nwn2hakpaksmodulespecific") {
@@ -1502,7 +1503,8 @@ oPollvault.handleType = function(event) {
     } else if (sName === "nwn2hakpaksoriginal") {
         var aIds = ['#nwn2hakpaksoriginal-category-row', 
             '#nwn2hakpaksoriginal-exclude-category-row', '#votes-row', 
-            '#rating-row', '#nwn2-patch-row', '#button-row'];
+            '#rating-row', '#hakpaks-awards-row', '#nwn2-patch-row', 
+            '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search NWN2 Original Hakpaks</b>');
     } else if (sName === "nwn2ideas") {
@@ -1513,15 +1515,14 @@ oPollvault.handleType = function(event) {
         title = $('<b>Search NWN2 Ideas</b>');
     } else if (sName === "nwn2links") {
         var aIds = ['#links-category-row', '#links-exclude-category-row', 
-            '#votes-row', '#rating-row', '#links-awards-row', 
-            '#button-row'];
+            '#votes-row', '#rating-row', '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search NWN2 Links</b>');
     } else if (sName === "nwn2models") {
         var aIds = ['#nwn2models-category-row', 
             '#nwn2models-exclude-category-row', '#votes-row', 
-            '#rating-row', '#polycount-row', '#format-row', 
-            '#button-row'];
+            '#rating-row', '#hakpaks-awards-row', '#polycount-row', 
+            '#format-row', '#button-row'];
         oPollvault.populateSearchTable(aIds);
         title = $('<b>Search NWN2 Models</b>');
     } else if (sName === "nwn2modulesenglish") {
